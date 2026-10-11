@@ -1,0 +1,21 @@
+---
+description: Warn to start a fresh chat when refine work would waste tokens on stale context
+alwaysApply: true
+---
+
+# Southampton Refine — new thread over junk context
+
+Site memory lives in `site/` files (`QUEUE.txt`, `PROCESS.txt`, place briefs,
+`ISSUES.txt`), not in chat history. Accuracy only — no fictional districts.
+
+Before doing a new queue item or live-world build in this conversation:
+
+1. If this thread already finished a queue item (lock released / QUEUE marked
+   done), or is dominated by prior build/debug, **do not silently continue**.
+2. Tell the user briefly that a **new chat** would be wiser, and point them at
+   `python3 scripts/site_handoff.py next` (also refreshes `site/HANDOFF.txt`).
+3. Only stay in-thread for a short same-item follow-up (e.g. one patrol fix
+   right after a build they just asked for here).
+
+When finishing a queue item: `python3 scripts/site_handoff.py end Q-nnn` after
+releasing the lock. Do not ask the user to paste long prior-chat summaries.

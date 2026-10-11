@@ -1,0 +1,24 @@
+# Local Minecraft / caches (do not commit world data)
+instance/
+downloads/
+backups/
+vendor/
+.venv/
+**/__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# Large verification artefacts stay local unless deliberately committed
+verification/site/**/*.png
+verification/site/patrol/
+
+# Reference imagery is local (copyright / size)
+reference/photos/**
+reference/aerial/**
+!reference/photos/.gitkeep
+!reference/aerial/.gitkeep
+!reference/README.txt
+
+# handoff stop-hook marker
+site/.handoff-pending.json

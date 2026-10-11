@@ -1,0 +1,14 @@
+SOUTHAMPTON REFINE — ISSUES
+Format: I-nnn  severity(H/M/L)  place  status(open|sched|done)  summary
+         detail / proposed action
+
+------------------------------------------------------------------------
+
+I-001  M  SETUP  open  Fabric MCP must open Southampton2023
+  Geocraft world is under Application Support; tooling expects Fabric MCP
+  on :8765/:8766. Decide instance strategy (symlink save into a Fabric
+  profile, or copy). Document in NOTES once chosen.
+
+I-002  L  SETUP  open  Seed place coords are approximate
+  PLACES.txt civic / old town / uni / docks entries need live verification
+  with osgb.py + in-world ground height.

@@ -1,0 +1,10 @@
+{
+  "world_name": "Southampton2023",
+  "save_path": "/Users/cjg/Library/Application Support/minecraft/saves/Southampton2023",
+  "region_path": "/Users/cjg/Library/Application Support/minecraft/saves/Southampton2023/dimensions/minecraft/overworld/region",
+  "map_maker_status": "/Users/cjg/Library/Application Support/minecraft/saves/Southampton2023/map-maker-status.json",
+  "geocraft_status_copy": "/Users/cjg/Projects/geocraft/saves/Southampton2023/map-maker-status.json",
+  "structure_namespace": "southampton_refine",
+  "player_uuid": "f89f7477-c4ee-4997-a8ee-be75b4d8b75a",
+  "notes": "save_path is the live Geocraft world (geocraft/saves is a symlink into Application Support). Offsets are mirrored in config/map-maker-offsets.json without POINTS/REGIONS."
+}

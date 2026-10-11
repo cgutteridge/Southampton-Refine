@@ -1,0 +1,99 @@
+SOUTHAMPTON REFINE — HOW THE PROJECT IS RUN
+Derived from the Newtownton process (Minecraft Magic), stripped of
+districts / vibe / whimsy. Goal: real-world accuracy.
+
+------------------------------------------------------------------------
+1. WHERE THINGS LIVE
+------------------------------------------------------------------------
+ site/NOTES.txt         overview, accuracy rules, MCP (read first)
+ site/PROCESS.txt       this file: cadence, reviews, checklists
+ site/PLACES.txt        real places: OSGB + MC coords, evidence links
+ site/PLACE-TEMPLATE.txt  copy for each new place brief
+ site/P-NAME.txt        optional brief per active place
+ site/ISSUES.txt        issue register
+ site/REVIEWS.txt       review log
+ site/BUILDS-INDEX.txt  generated list of kit builds (scripts/site_index.py)
+ site/TODO.txt          small tasks + session log
+ site/QUEUE.txt         ordered next work (one item per chat)
+ site/LOCK.json         who holds the live world (scripts/site_lock.py)
+ scripts/site_kit.py    plan / preview / apply / readback
+ scripts/osgb.py        OSGB36 ↔ Minecraft
+ verification/site/     <build>-backup/-cells/-result/-preview, views/, audits/
+ reference/photos/      ground photos (local)
+ reference/aerial/      aerial / ortho crops (local)
+ config/world.json      save + region paths
+ config/map-maker-offsets.json  GRID offsets (no POINTS blob)
+
+Naming: builds are <place>_<thing> (e.g. civic_west_facade). Modifications
+of a built thing get a new name and declare `modifies=()`. Never edit a
+BUILT plan in place to “fix” the world.
+
+------------------------------------------------------------------------
+2. THE CADENCE
+------------------------------------------------------------------------
+ Every build phase   plan → preview → dry-run guards → apply → readback
+                     → walk check → client views (contact sheet) → notes.
+ Every session start GLITCH PATROL when refining built cells:
+                     scripts/site_patrol.py sweep (+ views N when useful).
+                     Log in REVIEWS.txt / ISSUES.txt.
+ Every 3 phases      scripts/site_audit.py: drift from archived cells,
+                     dark walkable cells. Log REVIEWS; open ISSUES.
+ After a place done  FULL REVIEW of that place against photos / aerial.
+                     Fix or schedule high issues before starting the next.
+
+------------------------------------------------------------------------
+3. FULL PLACE REVIEW CHECKLIST
+------------------------------------------------------------------------
+ Integrity   audit drift, readback holes, floating attachables, broken
+             multi-block items (doors, beds).
+ Footprint   plan matches surveyed / aerial outline within ~1 block.
+ Height      eaves / ridge / storeys match photo or survey evidence.
+ Openings    doors and windows in the right places and sizes.
+ Materials   palette reads as the real elevations.
+ Access      public routes stay walkable; no sealed dark voids on routes.
+ Records     brief, TODO and evidence paths match the world.
+
+Outcome: each finding → ISSUES.txt (severity, place, location, action).
+“Replace what does not match evidence” is a valid action.
+
+------------------------------------------------------------------------
+4. WHAT MAY BE REPLACED WITHOUT ASKING
+------------------------------------------------------------------------
+ - Anything built by this kit (verification/site/*-cells.json) may be
+   repaired or replaced after a review. Record as a modification build
+   with its own backup; log the reason in ISSUES.txt.
+ - Geocraft-generated LIDAR/OSM terrain and buildings may be refined when
+   evidence shows they are wrong. Back up first. Prefer local edits over
+   regenerating wide areas.
+ - Still careful with stocked containers (move contents, don’t destroy).
+
+------------------------------------------------------------------------
+5. MANY THREADS, ONE WORLD
+------------------------------------------------------------------------
+ - ONE builder at a time. Claim site/LOCK.json with scripts/site_lock.py
+   before any world change or player-moving capture. site_kit.apply()
+   refuses without it (env SITE_OWNER must match). Stale after 90 min.
+ - Work comes from site/QUEUE.txt: take the top open item, finish it,
+   mark done, queue follow-ups, release the lock.
+ - Offline work may run in parallel (design, photo markup, previews of
+   region files) but must not apply builds.
+ - The files are the memory. Leave nothing important only in a chat.
+
+------------------------------------------------------------------------
+6. SESSION START / END
+------------------------------------------------------------------------
+ Start  python3 scripts/site_handoff.py next
+        site_lock.py status/claim; read PROCESS; grep / sed -n only what
+        you need (token budget). Check server status and sole MCP client.
+ End    release the lock; save the world; update brief / TODO / ISSUES /
+        REVIEWS; regenerate BUILDS-INDEX; then:
+          python3 scripts/site_handoff.py end Q-nnn
+        Open a new chat for the next item.
+
+------------------------------------------------------------------------
+7. TOKEN BUDGET
+------------------------------------------------------------------------
+ - One queue item per chat. If context passes ~250K tokens, write progress
+   into the files and hand off (site_handoff.py end).
+ - Review views through the contact sheet; open full-size only for detail.
+ - Batch anything only the user can do into ONE request; do not poll.

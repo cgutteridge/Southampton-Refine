@@ -1,0 +1,8 @@
+SOUTHAMPTON REFINE — REVIEWS
+One dated line per review; details in ISSUES or place briefs.
+
+------------------------------------------------------------------------
+
+2026-10-11  Project bootstrap. No world edits. Kit + process ported from
+            Minecraft Magic town tooling; accuracy-only rules; OSGB offsets
+            from Southampton2023 map-maker-status.json.

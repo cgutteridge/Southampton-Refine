@@ -1,0 +1,36 @@
+SOUTHAMPTON REFINE — PLACES
+OSGB from scripts/osgb.py using config/map-maker-offsets.json.
+Minecraft: +X east, −Z north. Y is Minecraft height (Geocraft SEA_LEVEL=11).
+
+Format:
+  PLACE_ID  Name
+    OSGB E N   |  MC X Z (ground Y TBA from survey)
+    Evidence: …
+    Status: listed | surveying | refining | reviewed
+
+------------------------------------------------------------------------
+SEED (approximate civic / city-centre anchors — verify on load)
+------------------------------------------------------------------------
+
+CIVIC   Southampton Civic Centre
+  OSGB E 441900 N 112100  |  MC X 5652 Y 27 Z -2492
+  Evidence: TBD (photos + aerial)
+  Status: listed — offline probe 2026-10-11: top gray_terracotta @ Y27 (seed E/N still approximate)
+
+OLDTOWN Old Town walls / Bargate area
+  OSGB E 441900 N 111700  |  MC X 5652 Z -2092
+  Evidence: TBD
+  Status: listed
+
+UNI     Highfield / University campus (approximate)
+  OSGB E 442400 N 115200  |  MC X 6152 Z -5592
+  Evidence: TBD
+  Status: listed
+
+DOCKS   Eastern docks / Ocean Village (approximate)
+  OSGB E 443200 N 110800  |  MC X 6952 Z -1192
+  Evidence: TBD
+  Status: listed
+
+Add places as you commit to refining them. Prefer real OS grid refs from
+a survey or mapping tool over these seed approximations.

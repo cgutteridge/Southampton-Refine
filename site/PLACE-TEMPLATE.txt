@@ -1,0 +1,33 @@
+PLACE — <NAME>
+ID: P-XXX
+Created:
+OSGB: E …… N ……
+MC: X …… Y …… Z ……
+Bounds (MC): X……..…… Z……..……
+
+EVIDENCE
+- Photos: reference/photos/…
+- Aerial: reference/aerial/…
+- Other: survey / OSM / planning docs …
+
+GOAL
+What accuracy problem are we fixing? (footprint, height, façade, roof,
+street furniture, water edge, …)
+
+PROTECTED
+What must not be damaged (rail lines, water, adjacent correct builds)?
+
+PHASES
+1. Survey live cells vs evidence; note deltas in ISSUES.
+2. Plan kit build (offline) with explicit air for excavation.
+3. Preview → apply → readback → walk → views → records.
+
+ACCEPTANCE
+- Footprint within ~1 block of evidence.
+- Storey count / eaves height matches photo or survey.
+- Openings and materials read correctly from street level.
+- Readback mismatches = 0 (or explained).
+- Contact sheet reviewed; issues logged.
+
+CHANGE LOG
+- 

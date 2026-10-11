@@ -1,0 +1,19 @@
+{
+  "GRID": "OSGB36",
+  "OFFSET_E": 436248,
+  "OFFSET_N": 109608,
+  "WEST": 0,
+  "EAST": 11604,
+  "NORTH": 0,
+  "SOUTH": -8666,
+  "SEA_LEVEL": 11,
+  "TOP_OF_WORLD": 254,
+  "EXTEND_DOWNWARDS": 9,
+  "ELEVATION_PLUGIN": "UKDEFRA",
+  "FLATLAND": 0,
+  "FLOOD": 0,
+  "MAP_ZOOM": 18,
+  "SCALE": null,
+  "ROTATE": null,
+  "YSHIFT": null
+}

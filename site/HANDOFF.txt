@@ -1,0 +1,29 @@
+SOUTHAMPTON REFINE — HANDOFF
+Files in site/ are the memory. Prefer a fresh chat per QUEUE item.
+
+Refresh starter:  python3 scripts/site_handoff.py next
+Session end:      python3 scripts/site_handoff.py end Q-nnn
+
+------------------------------------------------------------------------
+Q-001 STARTER (copy into a fresh session)
+------------------------------------------------------------------------
+You are refining the Southampton Geocraft world in /Users/cjg/Projects/Southampton Refine.
+
+Read site/PROCESS.txt and follow it. Accuracy only — no fictional regions
+or whimsy. Run: python3 scripts/site_lock.py status
+If free: python3 scripts/site_lock.py claim <unique-owner> "Q-001 …"
+Then do Q-001 from site/QUEUE.txt.
+
+Top open item: Q-001 (SETUP Fabric MCP + Southampton2023).
+
+When done: mark QUEUE [x], release the lock, run
+  python3 scripts/site_handoff.py end Q-001
+Then stop — new chat for the next item.
+
+------------------------------------------------------------------------
+GENERIC BOOT PROMPT
+------------------------------------------------------------------------
+You are refining Southampton2023 in /Users/cjg/Projects/Southampton Refine.
+Read site/PROCESS.txt. Use python3 scripts/site_handoff.py next for the
+top open QUEUE item. Files are memory; one item per chat; SITE_OWNER lock
+before any live edit.

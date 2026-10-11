@@ -1,0 +1,10 @@
+SOUTHAMPTON REFINE — TODO
+
+SETUP
+- [ ] Confirm Fabric MCP can open Southampton2023 (I-001)
+- [ ] Verify player UUID in config/world.json against the live client
+- [ ] Survey seed places; replace approximate OSGB with measured (I-002)
+- [ ] Drop first photo set into reference/photos/
+
+SESSION LOG
+2026-10-11  Created project from Minecraft Magic kit wisdom; no builds.

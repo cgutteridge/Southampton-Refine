@@ -1,0 +1,16 @@
+SOUTHAMPTON REFINE — QUEUE
+Mark [x] when done. One open item per chat. Newest work at the top of
+the open list; keep setup items until the world is editable.
+
+[ ] Q-001  SETUP: open Southampton2023 under Fabric MCP; verify
+           scripts/mcp.py tools/list on :8765 and client_status on :8766;
+           confirm player UUID; document instance path in site/NOTES.txt.
+[ ] Q-002  SURVEY: stand at Civic Centre seed (osgb 441900 112100); record
+           real ground Y, photograph in-game vs reference; update PLACES.txt.
+[ ] Q-003  PROOF: tiny kit build (one corrected detail near Civic or a
+           decided place) through plan → preview → apply → readback →
+           views; prove the pipeline end to end.
+
+BACKLOG (do not block setup)
+[ ] Q-010  BACKLOG: pick first real façade refinement from photo evidence
+[ ] Q-011  BACKLOG: aerial check of Old Town wall line vs LIDAR footprint
