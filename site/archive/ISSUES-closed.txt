@@ -1,0 +1,128 @@
+SOUTHAMPTON REFINE — ISSUES (archived done/fixed, oldest first)
+
+I-001  L  SETUP  done  Fabric instance + MCP + OSGB verified 11 Oct 2026
+  instance/, launcher profile, migrated region_path, live player/block
+  checks passed. Reopen only if MCP or region path breaks after updates.
+
+I-003  M  REFS  done  SO17 3SF / focus street façades via KartaView (Q-002)
+  11 Oct 2026: useful=yes KartaView frames on disk for PORTSWOOD_X_BROADLANDS
+  + SO173SF (see manifest). Geograph still weak on exact Grosvenor/Kitchener
+  names. Optional later: Mapillary token or own photos for exact plot match.
+
+I-004  M  PORTSWOOD  done  Ring1 kerb Y band includes y18–23 (~991 cells)
+  Q-013: restored low-Y smooth_stone → prior gray_terracotta/air from
+  structure backup (q013-lowy-restore.json / streetscape_q013). Future
+  kerb detectors: require near WORLD_SURFACE.
+
+I-006  M  PORTSWOOD  done  Geocraft roads = OSM centreline + fixed width
+  User (2026-10-11): generated carriageways may be too wide or too narrow vs
+  real Broadlands / Portswood. Q-013: Portswood focus corridor X7065..7135
+  trimmed to ~10 m kerb-to-kerb at top street Y (aerial ~9–10 m asphalt);
+  Broadlands arms already ~8–11 asphalt away from junction merge. Generator
+  detail remains in site/GEOCRAFT.txt §3 — do not trust stock edges elsewhere.
+
+I-007  M  PORTSWOOD  done  Broadlands / focus streetscape mess after kit kerbs
+  Q-013 patrol + streetscape_q013 + _q013b (surface-Y fix). I-004/I-006
+  closed; I-005 still sched for future façades; door→wall → I-008.
+
+I-008  L  PORTSWOOD  done  terrace_facade_1b door opens onto solid brick
+  Patrol 2026-10-11: oak_door at 7088,27,-5530 → bricks at 7088,27,-5529
+  (outer shell before pavement -5528). Left as-is in Q-013 (façade depth-2).
+  Action: when next touching that bay, clear/open street-side column or
+  move door to outer face.
+  Q-012: cleared facing-axis ±X at door height + diagonal +Z stoop
+  (terrace_facade_2b/2c); patrol door_to_wall=0; walk through door REACHABLE.
+
+I-009  H  PORTSWOOD  done  Façades built on the pavement, not on the house fronts
+  User 11 Oct 2026: "walls direct on the road when the houses have front
+  gardens in Broadlands Road". terrace_facade_1/_1b/_2 pinned the front wall
+  to "eastmost building column with pavement east" (Geocraft surface blocks).
+  Real fronts (OSM footprints, nos. 20–34) are ~12 blocks from the centreline,
+  so the shell stood in front of 4–7 blocks of front garden. Doors faced east,
+  along the street. The evidence photo (kartaview-1471277657) shows hedges and
+  gardens. 2b/2c were patches for doors its own walls blocked. readback/walk/
+  patrol all passed — they only test plan consistency.
+  Fix: broadlands_facade_revert (536 cells, snaps Q-010/Q-012, readback 0).
+  Prevention: scripts/osm_footprints.py + site_kit footprint guard (rejects
+  the old façade_2 plan: 138 cells), .cursor/rules/frontage-and-evidence.mdc.
+
+I-010  M  PORTSWOOD  done  Focus labelled "Portswood × Broadlands junction"
+  MC X7097 Z-5521 is on Broadlands Road. The real junction is MC X7198 Z-5461
+  (OSM). Builds and notes called Broadlands houses the "Portswood Rd SW
+  terrace". COVERAGE/PLACES/PROCESS/NOTES relabelled. Focus coords kept.
+
+I-012  M  ALL  done  Scope ruling: whole properties, not façades (user, 11 Oct 2026)
+  Unit of work = whole property: house on all sides + roof + floors and one
+  stair (no rooms/furniture) + front garden + back garden layout from aerial
+  (no garden furniture). Rules, NOTES §6/§8, PROCESS, PLACE-TEMPLATE,
+  LOGGING §6, handoff prompt and Q-014 updated. New: osm_footprints.py plots
+  (first-guess plot per house); guard allows ≤4-high sheds in back gardens.
+
+I-013  H  BROADLANDS  done  Cursor whole-property builds failed visual review
+  broadlands_rd_20_22 / _24_26 / _28_30 / _28_30_b and the 32+34
+  placeholders: jagged diagonal brick, flat slab roofs, no bays, stray
+  pavement slabs, builds overlapping each other. Replaced 11 Oct 2026 by
+  terrace.py builds broadlands_rd_14_24 + broadlands_rd_26_36 (+ passage).
+  Rules: .cursor/rules/terrace-builds.mdc; craftsmanship roof rule corrected
+  (45° slate for Victorian terraces; 1:2 slabs only for shallow roofs).
+
+I-015  M  BROADLANDS  done  #48 (OSM 177978838) Geocraft blob abuts 44/46
+  broadlands_rd_40_46 keeps #48's outline (+0.8) untouched, so the brick
+  Geocraft mass west of 44/46 reads as a ruin in views. Action: Q-021
+  (48-52 whole properties) replaces it; then the west fence of 44/46 can
+  go straight on x7041.
+  DONE Q-021: broadlands_rd_48_54 replaced it (wedge x7041-7045 behind 46's
+  wall is #48's yard/lawn). 46's existing diagonal fence kept as the
+  boundary, so no Q-020 modification was needed.
+
+I-020  L  HIGHFIELD_B35  done  B30 road front reads as a tall dark wall, not a recessed colonnade
+  kartaview-1519868249: B30's one-storey front is dark glazing set back behind square
+  columns and a low brick wall with stone coping, the silver floors overhanging it.
+  highfield_b29_b30 'b30_front' is a flush gray_concrete/grey-glass box at the road.
+  Action: Q-026 (wall + coping) and, if a review asks, recess the glazing 1 block.
+  Done Q-026 (highfield_b30_b37_grounds): glazing 2 cells back, columns every 4,
+  fascia kept, gravel strip, brick wall + smooth_stone_slab coping, stepped entrance gap.
+
+I-021  L  HIGHFIELD_B35  done  B37 glazed stair tower missing
+  kartaview-1471281241 shows a full-height glazed stair tower at the NW end of the
+  long SW face. highfield_b37 is plain brick there. Action: Q-026.
+  Done Q-026: camera 6308,-5462 looks NNW along the face, so the tower (nearest, right
+  edge) is at the SE end by the OSM kink uv(-59.2,45.1), not NW. White glass 55-67 + cap.
+
+I-028  M  TOOL fixed  view_capture (view MCP, port 8766) returned 429 on its first call while
+  the world MCP (8765) was fine: instance/config/minecraft_fabric_mcp/client.json had no
+  rate_limit_rpm (config.json had 600). Set 600 in client.json; the mod reads it only at
+  Minecraft start. Raising a limit = edit BOTH files, then restart the game.
+
+I-032  M  BROADLANDS  done  Back gardens were axis-aligned north-south strips (terrace.py party
+  fences at fixed x). Q-041 (2026-10-12): nos 2–36 re-applied on a 1:3 stair (OSM/aerial ~22°).
+  Houses stay squared. No. 2's wedge up to the converging lanes (about X7150 Z-5540) is garden.
+  Custom 40–62 remain axis-aligned under I-016.
+
+I-034  M  BROADLANDS/TOOL  done  Roof ridge jogged sideways on broadlands_rd_56_62 (Q-022)
+  The custom Pair model stepped the party column every few z rows to follow the ~22 deg OSM
+  axis (7013→7015→7017 on 56/58). roof_y() used that column per row, so the ridge shifted
+  and every deepslate_tile_stair on the seam changed height — zig-zag “misaligned” roof
+  (verification/site/views/roof-fixbroadlands-56-62-*.png). Prevention: scripts/roof_lint.py
+  + site_kit.apply() guard (plan.roof_jog_ok only with evidence); one party column for the
+  whole two-storey roof. Fixed 2026-10-12: merged 2-storey segs to one party line per pair,
+  re-applied broadlands_rd_56_62.
+
+I-031  M  UNI/CHAMBERLAIN  fixed  Geocraft procedural oak trees left standing in signed-off
+  Chamberlain Road 48, 50, 52, 54, 56 (prop:w159893749 / 765 / 774 / 755 / 740; 29-95
+  leaf/log blocks each, e.g. 6026,58,-5529), build chamberlain_rd_8_58. Missed by the old
+  surface-only leftover check; found 12 Oct 2026 when the user ruled that processed ground
+  keeps no Geocraft at all (CRAFTSMANSHIP §3, coverage.py "structure" leftovers: any exposed
+  block above the build floor that no build wrote and is unchanged from pristine; the
+  --allow-geocraft override was removed). `coverage.py status --check` now exits 1 on these.
+  Action: revoke the five sign-offs, re-apply chamberlain_rd_8_58 clearing the trees (plant
+  aerial-evidenced trees from the plan instead), re-sign. Sign-offs revoked 12 Oct; work = Q-042.
+  2026-10-12 Q-042: gardens() now clears plot columns (no skip on leaves/log); 43 aerial-canopy
+  back-garden trees planted; re-applied chamberlain_rd_8_58 (3881 blocks); readback 0;
+  signed props 48/50/52/54/56; views q042-contact.png.
+
+I-030  M  BROADLANDS/UNI  closed 2026-10-12  Leftover Geocraft carpet on built plots
+  (coverage.py signoff refused, Q-038 backfill). Q-040 fixed Broadlands 46/48/56
+  (re-apply owning builds + signoff). Q-043 fixed campus bike shed prop:w242322573
+  (highfield_b35_grounds shelters(): strip pristine carpet/structure above deck to
+  LEFTOVER_TOP; re-applied; signoff 96/96).

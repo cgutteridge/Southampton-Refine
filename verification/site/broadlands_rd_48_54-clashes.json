@@ -1,0 +1,157 @@
+{
+ "(7017, 32, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:stone",
+  "minecraft:dirt"
+ ],
+ "(7017, 33, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:grass_block"
+ ],
+ "(7017, 34, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7017, 35, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7017, 36, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7017, 37, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:deepslate_tile_slab[type=bottom]",
+  "minecraft:air"
+ ],
+ "(7017, 32, -5568)": [
+  "broadlands_rd_56_62",
+  "minecraft:stone",
+  "minecraft:grass_block"
+ ],
+ "(7017, 33, -5568)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7017, 34, -5568)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7017, 35, -5568)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7017, 36, -5568)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7017, 37, -5568)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7017, 38, -5568)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7017, 39, -5568)": [
+  "broadlands_rd_56_62",
+  "minecraft:deepslate_tile_stairs[facing=west,half=bottom]",
+  "minecraft:deepslate_tile_slab[type=bottom]"
+ ],
+ "(7020, 32, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:stone",
+  "minecraft:dirt"
+ ],
+ "(7020, 33, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:grass_block"
+ ],
+ "(7020, 34, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7020, 35, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:glass_pane[east=true,west=true]",
+  "minecraft:air"
+ ],
+ "(7020, 36, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7020, 37, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:deepslate_tile_slab[type=bottom]",
+  "minecraft:air"
+ ],
+ "(7020, 38, -5576)": [
+  "broadlands_rd_56_62",
+  "minecraft:deepslate_tile_stairs[facing=west,half=bottom]",
+  "minecraft:air"
+ ],
+ "(7021, 32, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:stone",
+  "minecraft:dirt"
+ ],
+ "(7021, 33, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:grass_block"
+ ],
+ "(7021, 34, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7021, 35, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7021, 36, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:bricks",
+  "minecraft:air"
+ ],
+ "(7021, 37, -5585)": [
+  "broadlands_rd_56_62",
+  "minecraft:deepslate_tile_slab[type=bottom]",
+  "minecraft:air"
+ ],
+ "(7017, 39, -5572)": [
+  "broadlands_rd_56_62",
+  "minecraft:deepslate_tile_stairs[facing=west,half=bottom]",
+  "minecraft:deepslate_tile_slab[type=bottom]"
+ ],
+ "(7017, 39, -5571)": [
+  "broadlands_rd_56_62",
+  "minecraft:deepslate_tile_stairs[facing=west,half=bottom]",
+  "minecraft:deepslate_tile_slab[type=bottom]"
+ ],
+ "(7017, 39, -5570)": [
+  "broadlands_rd_56_62",
+  "minecraft:deepslate_tile_stairs[facing=west,half=bottom]",
+  "minecraft:deepslate_tile_slab[type=bottom]"
+ ],
+ "(7017, 39, -5569)": [
+  "broadlands_rd_56_62",
+  "minecraft:deepslate_tile_stairs[facing=west,half=bottom]",
+  "minecraft:deepslate_tile_slab[type=bottom]"
+ ]
+}

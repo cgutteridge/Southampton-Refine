@@ -1,0 +1,59 @@
+---
+description: Build houses like a careful Minecraft player — readable, airtight, glass-flanked; OSM guides, does not demand jagged walls. Full guide site/CRAFTSMANSHIP.txt. Read before planning or applying any build.
+globs: scripts/build_*.py,scripts/terrace.py,scripts/site_kit.py,scripts/campus.py,site/QUEUE.txt,site/CRAFTSMANSHIP.txt
+alwaysApply: false
+---
+
+# Minecraft craftsmanship (not millimetre OSM)
+
+Full guide: `site/CRAFTSMANSHIP.txt`. OSM/LIDAR/photos set **where** and **what**;
+this rule is **how** blocks are placed. Prefer a careful human build.
+
+## Footprint
+- On the surveyed plot only (never pavement — I-009).
+- Square long runs, clean corners, match party walls; nudge ±1–2 when photo +
+  aerial still agree. Do not diamond-trace every OSM jag.
+
+## Fabric
+- **Airtight shell** — no holes at corners, eaves, bays, roof joins.
+- **Glass:** punch from solids; opaque L/R flanks; sill + lintel/head.
+  No floating panes, no glass corners, no glass with air beside it.
+- Bays are structural bumps from the ground, not stick-on frames.
+
+## Roofs (pitch is arithmetic)
+- Ridge type/direction from aerial; Y from LIDAR. Then pick rise÷run.
+- **Victorian/Edwardian terraces (Broadlands Rd type): slate at ~40° →
+  45° `deepslate_tile_stairs`, ridge parallel to the street.** Build them with
+  `scripts/terrace.py` (see terrace-builds.mdc) — do not hand-roll roofs.
+  (The old "default 1:2 slabs" rule read as flat roofs and is withdrawn for
+  these; 1:2 slabs only for genuinely shallow modern roofs.)
+- Visible roof surface = one sealed skin (stairs at 45°, slabs for shallow). Full blocks are
+  wall-plate / gable / hip fill — never a stepped full-block pyramid and
+  never Geocraft carpet/stone lattice left as the roof.
+- Overhang ≥1 past walls; flat ceiling under the attic; chimney through the
+  roof, not parked beside it.
+
+## Processed ground holds no Geocraft
+- **Nothing of Geocraft survives on ground a build processes.** Every column
+  of every parcel the build covers (house, front garden, back garden, and
+  any road/path/gap parcel it takes) is rebuilt or deliberately cleared:
+  carpet roofs, stone band / undercroft, stock pavement in gardens, stray
+  wall blocks, procedural trees. No "envelope" limit, no later tidy-up pass.
+- A Geocraft fragment that straddles the plot line (e.g. carpet fringe just
+  outside the OSM cells) is cleared **whole** by the build that owns the
+  house it belonged to.
+- Also strip stair-skins and other remnants of earlier refine applies on the
+  same ground.
+- Never leave full brick (or other wall blocks) **above** the roof skin in a column; eaves slab ≥ wall top on the footprint; one chimney stack only.
+- Before apply, the preview must show no Geocraft on the plot; after apply,
+  `coverage.py signoff` must pass (no override; to keep a Geocraft block
+  on purpose, write it in the plan).
+
+## Reject in preview (hard fail — fix before apply)
+Lattice/striped carpet roofs, stair-only roofs on shallow pitches, stepped
+full-block roof pyramids, flush hats, unflanked glass, jagged OSM
+knife-walls, any Geocraft block left on/beside the plot.
+
+## Good enough
+Readable sealed massing + street character beats pixel OSM. Still whole
+property (all sides, floors + stair, both gardens). No chimney-pot chase.

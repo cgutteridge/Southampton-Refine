@@ -1,0 +1,27 @@
+{
+ "planned": 42088,
+ "mismatches": 4,
+ "mismatch_sample": {
+  "(6348, 53, -5878)": [
+   "minecraft:grass_block",
+   "minecraft:dirt"
+  ],
+  "(6349, 52, -5874)": [
+   "minecraft:grass_block",
+   "minecraft:dirt"
+  ],
+  "(6334, 52, -5875)": [
+   "minecraft:grass_block",
+   "minecraft:dirt"
+  ],
+  "(6276, 55, -5800)": [
+   "minecraft:grass_block",
+   "minecraft:dirt"
+  ]
+ },
+ "checked": "2026-10-12 21:52:27",
+ "fill_results": [
+  "fills_applied: 6738\nblocks_changed: 33088"
+ ],
+ "entities": []
+}

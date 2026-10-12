@@ -1,0 +1,15 @@
+{
+  "structure": "southampton_refine:before_portswood_ring1_streetscape_kerbs",
+  "from": [
+    6911,
+    18,
+    -5761
+  ],
+  "to": [
+    7296,
+    37,
+    -5376
+  ],
+  "result": "saved southampton_refine:before_portswood_ring1_streetscape_kerbs",
+  "time": "2026-10-11 16:21:18"
+}

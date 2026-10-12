@@ -1,0 +1,47 @@
+{
+ "outside": {
+  "(6155, 56, -5620)": [
+   "minecraft:stone",
+   5,
+   "back",
+   "University Road",
+   107.1
+  ],
+  "(6155, 57, -5620)": [
+   "minecraft:stone",
+   6,
+   "back",
+   "University Road",
+   107.1
+  ],
+  "(6166, 53, -5584)": [
+   "minecraft:stone",
+   5,
+   "back",
+   "University Road",
+   95.1
+  ],
+  "(6166, 54, -5584)": [
+   "minecraft:stone",
+   6,
+   "back",
+   "University Road",
+   95.1
+  ],
+  "(6166, 55, -5584)": [
+   "minecraft:stone",
+   7,
+   "back",
+   "University Road",
+   95.1
+  ],
+  "(6153, 49, -5500)": [
+   "minecraft:stone",
+   5,
+   "back",
+   "Chamberlain Road",
+   82.9
+  ]
+ },
+ "blind": []
+}

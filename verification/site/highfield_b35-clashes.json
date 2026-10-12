@@ -1,0 +1,32 @@
+{
+ "(6372, 56, -5519)": [
+  "highfield_b35_grounds",
+  "minecraft:oak_leaves[persistent=true]",
+  "minecraft:granite_slab[type=top]"
+ ],
+ "(6373, 56, -5518)": [
+  "highfield_b35_grounds",
+  "minecraft:oak_leaves[persistent=true]",
+  "minecraft:granite_slab[type=top]"
+ ],
+ "(6370, 56, -5515)": [
+  "highfield_b35_grounds",
+  "minecraft:oak_leaves[persistent=true]",
+  "minecraft:granite_slab[type=top]"
+ ],
+ "(6371, 56, -5516)": [
+  "highfield_b35_grounds",
+  "minecraft:oak_leaves[persistent=true]",
+  "minecraft:granite_slab[type=top]"
+ ],
+ "(6372, 56, -5518)": [
+  "highfield_b35_grounds",
+  "minecraft:oak_leaves[persistent=true]",
+  "minecraft:granite_slab[type=top]"
+ ],
+ "(6371, 56, -5517)": [
+  "highfield_b35_grounds",
+  "minecraft:oak_log",
+  "minecraft:granite_slab[type=top]"
+ ]
+}

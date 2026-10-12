@@ -1,10 +1,67 @@
 SOUTHAMPTON REFINE — TODO
 
 SETUP
-- [ ] Confirm Fabric MCP can open Southampton2023 (I-001)
-- [ ] Verify player UUID in config/world.json against the live client
+- [x] Create project instance + unpack Southampton2023.zip (11 Oct 2026)
+- [x] MCP connect + OSGB + migrated region_path (I-001)
+- [x] Done-bar + height policy + region backup rule documented
 - [ ] Survey seed places; replace approximate OSGB with measured (I-002)
-- [ ] Drop first photo set into reference/photos/
+- [x] Street photos for focus + SO17 3SF via KartaView (I-003 / Q-002)
+
+DEFER UNTIL NEEDED
+- Mapillary access token (KartaView covered Q-002 without it)
+- Bulk Hampshire portal downloads (Uni z18 tiles OK for now)
+- [x] OSM Hampshire PBF + osm_extract.py (buildings/highways/… clips)
+- CCO z19 redistribute licence check (only if publishing z19 crops)
+- Own phone photos for exact plot façades when refining a named house
 
 SESSION LOG
 2026-10-11  Created project from Minecraft Magic kit wisdom; no builds.
+2026-10-11  Focus = Portswood × Broadlands (MC 7097,-5521); COVERAGE.txt
+            + good-enough / radial rules in PROCESS + cursor rule.
+2026-10-11  Q-002: KartaView street façades indexed (focus + SO173SF).
+2026-10-11  Q-003: kit pipeline proof — portswood_x_broadlands_kerb_proof
+            (smooth_stone kerb, readback clean, q003-contact views).
+2026-10-11  Q-004: ring 0+1 streetscape kerbs; 9 cells in COVERAGE; I-004 open.
+2026-10-11  Q-010: first Portswood SW terrace façade (brick 2-storey + openings).
+
+2026-10-11  Q-011 PAUSED mid-survey (user). Lock released. Resume with
+            python3 scripts/site_handoff.py next
+            Done so far: 3× z18 5x5 OLDTOWN mosaics in reference/aerial/oldtown/
+            + manifest; LIDAR ridge scan W wall ~E44173–44180 (ΔY up to ~33 vs
+            park); audits in verification/site/audits/q011-*.
+            Still to do: finish aerial↔ridge visual check (overlay + west crop),
+            OSM/HER wall polyline compare, update PLACES/ISSUES/REVIEWS, handoff.
+2026-10-11  User: stop Old Town / Q-011. Focus back on Broadlands mess.
+            Note logged: OSM+fixed-width roads often wrong width (I-006).
+            Next chat: Q-013 via site_handoff.py next.
+2026-10-11  Q-013 done: Portswood corridor width/kerbs + I-004 restore;
+            I-008 door leftover; next open backlog Q-012 façade bay.
+2026-10-11  Q-013 done: low-Y kerb restore + Portswood width 13→10 + re-kerb
+            (q013/q013b). Next: Q-012 façade bay or I-008 door stoop.
+2026-10-11  Q-012 done: next SW terrace bay façade_2 (+2b/2c door fix);
+            closed I-008. Next open: backlog or further terrace bay.
+2026-10-11  Q-019 done: Broadlands Rd 2-12 (broadlands_rd_2_12) + passage x7121;
+            I-014 opened (lane mouth / #2 side structure). Next: Q-020.
+2026-10-11  Q-020 done: Broadlands Rd 40-46 (broadlands_rd_40_46), two post-war
+            hipped blocks; I-014 written up, I-015 opened (#48 Geocraft).
+            Next: Q-021 (48-52).
+2026-10-11  Q-021 done: Broadlands Rd 48-54 (broadlands_rd_48_54); 54 added to
+            finish the 52/54 semi. I-015 done, I-016 opened (N-S garden drift).
+            terrace.py: House.out_storeys. Next: Q-022 (56-58).
+2026-10-12  Q-022 done: Broadlands Rd 56-62 (broadlands_rd_56_62), two
+            front-gabled pairs, one roof each; modifies 48_54 eave. I-017
+            opened (56 shares 54's strip). Next: Q-023 (66-74).
+- 2026-10-12 Q-024 B35 Highfield + grounds built (highfield_b35, highfield_b35_grounds); Q-025 queued for neighbours.
+2026-10-12  Q-025 done: Highfield campus B30/B29/B37/Early Years/Estates + shed
+            (highfield_b29_b30, highfield_b37, highfield_early_years_estates) via
+            scripts/campus.py. Broadlands paused to notes (Q-023 [-]). Next: Q-026.
+2026-10-12  Q-026 done: Highfield grounds around B30/B37 (highfield_b30_b37_grounds):
+            B30 colonnade + brick wall, B37 forecourt + stands, SW hedge/trees,
+            glazed stair tower. I-020/I-021 done, I-023 opened. Queue next: none
+            new on campus; Broadlands paused (notes only).
+2026-10-12  Q-011 done (resumed): finished aerial↔LIDAR wall survey — west + Bargate
+            contact sheets, OSM city_wall extract, q011-oldtown-wall-result.json; I-034
+            (west curtain missing from OSM). No world edit. Next: new queue item or
+            Broadlands notes (Q-023).
+2026-10-12  Radial replan: focus HIGHFIELD_CAMPUS_UNI cell 48,-44; Q-023 cancelled;
+            Q-048..Q-050 queued; scripts/cell_marker.py + PROCESS §2e.

@@ -341,6 +341,36 @@ def apply(plan, protect=None, dry=False, modifies=()):
     if floats and not getattr(plan, 'allow_float', False):
         raise SystemExit(f'{len(floats)} posts would float over half-height blocks, e.g. {floats[:5]}; '
                          'extend them down or put a full block under them (or set plan.allow_float)')
+    # guard (I-009): building-like blocks standing >2 above Geocraft ground outside every OSM
+    # footprint are almost always a façade built on the pavement / front garden
+    import osm_footprints
+    fp = osm_footprints.guard(plan.cells)
+    if fp['outside'] or fp['blind']:
+        (OUT / f'{plan.name}-footprint-hits.json').write_text(json.dumps(
+            {'outside': {str(q): v for q, v in fp['outside'].items()},
+             'blind': [list(q) for q in fp['blind']]}, indent=1))
+        why = getattr(plan, 'outside_footprint_ok', None)
+        if not why:
+            raise SystemExit(
+                f'{len(fp["outside"])} building-like cells stand outside OSM footprints and '
+                f'{len(fp["blind"])} have no OSM clip; see {plan.name}-footprint-hits.json. House fronts '
+                'go on the OSM footprint line (scripts/osm_footprints.py frontage), not at the kerb. '
+                'Missing clip: osm_extract.py --layers buildings,highways. Genuinely unmapped structure '
+                '(evidence in hand): set plan.outside_footprint_ok = "<reason + evidence id>".')
+        print(f'footprint guard overridden ({len(fp["outside"]) + len(fp["blind"])} cells): {why}')
+    # guard (I-034): a ridge that shifts sideways between rows zig-zags every stair on the seam
+    import roof_lint
+    jogs = roof_lint.ridge_jogs(plan.cells)
+    if jogs:
+        (OUT / f'{plan.name}-roof-jogs.json').write_text(json.dumps(jogs, indent=1))
+        why = getattr(plan, 'roof_jog_ok', None)
+        if not why:
+            raise SystemExit(
+                f'{len(jogs)} roof ridge(s) jog sideways between rows; see {plan.name}-roof-jogs.json. '
+                'Keep each roof on one straight ridge line (square the footprint, do not step it '
+                'with the OSM rotation). Real offset roofs (evidence in hand): set '
+                'plan.roof_jog_ok = "<reason + evidence id>".')
+        print(f'roof jog guard overridden ({len(jogs)} seams): {why}')
     owned = built_cells(exclude=set(modifies) | {plan.name})
     clash = {str(q): [owned[q][0], owned[q][1], st] for q, st in plan.cells.items()
              if q in owned and owned[q][1] != st}

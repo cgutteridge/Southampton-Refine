@@ -1,0 +1,15 @@
+{
+  "structure": "southampton_refine:before_highfield_grounds_nc",
+  "from": [
+    6149,
+    50,
+    -5969
+  ],
+  "to": [
+    6350,
+    64,
+    -5784
+  ],
+  "result": "saved southampton_refine:before_highfield_grounds_nc",
+  "time": "2026-10-12 21:52:12"
+}

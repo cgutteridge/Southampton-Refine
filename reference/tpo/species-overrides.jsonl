@@ -1,0 +1,3 @@
+# One JSON object per line: {"reference":"T2-560-T3","species":"Oak","source":"tpo-pdf","notes":"…"}
+# Keys match planning.data tree reference (organisation-entity 318). Southampton's
+# published tree.csv leaves tree-species blank; add rows here from TPO schedules.

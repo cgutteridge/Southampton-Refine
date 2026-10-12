@@ -12,6 +12,8 @@ map-maker-status.json). Convention used by Geocraft for this save:
   python3 scripts/osgb.py to-mc 441900 112100
   python3 scripts/osgb.py to-osgb 5652 -2492
   python3 scripts/osgb.py info
+
+  WGS84 and survey helpers: scripts/geo.py (convert, probe, slope, view, …).
 """
 from __future__ import annotations
 

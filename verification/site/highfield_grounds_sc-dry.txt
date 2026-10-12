@@ -1,0 +1,4 @@
+highfield_grounds_sc campus 37759 scope 21824 surfaced 20563 skipped {'grass_block': 286, 'granite': 129, 'dirt': 34, 'stone': 26, 'spruce_planks': 5, 'black_wool': 5}
+kinds {'grass': 9148, 'pave': 5902, 'road': 2410, 'wood': 1800, 'asph': 639, 'brick': 334, 'park': 225, 'gravel': 83, 'flower': 22} aerial-only 6316
+bays 21 marks 89 barriers {'oak_leaves[persistent=true]': 18, 'brick_wall': 28, 'iron_bars': 1} trees 68
+highfield_grounds_sc: 38953 cells in 7338 boxes; bounds (6150, 29, -5584)..(6349, 62, -5375); no clashes

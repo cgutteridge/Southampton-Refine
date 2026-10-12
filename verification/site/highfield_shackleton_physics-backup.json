@@ -1,0 +1,15 @@
+{
+  "structure": "southampton_refine:before_highfield_shackleton_physics",
+  "from": [
+    6003,
+    38,
+    -5683
+  ],
+  "to": [
+    6122,
+    84,
+    -5501
+  ],
+  "result": "saved southampton_refine:before_highfield_shackleton_physics",
+  "time": "2026-10-12 02:13:02"
+}

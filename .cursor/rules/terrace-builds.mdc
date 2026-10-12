@@ -1,0 +1,37 @@
+---
+description: Build Victorian/Edwardian terraces with scripts/terrace.py, never by hand. Read before any terrace or Broadlands-type house build.
+globs: scripts/build_broadlands_*.py,scripts/build_portswood_*.py,scripts/terrace.py,scripts/test_terrace.py,site/QUEUE.txt
+alwaysApply: false
+---
+
+# Terraces: use the generator
+
+Since 11 Oct 2026 every Broadlands-type terrace is built by `scripts/terrace.py`
+(Claude). The hand-built Q-014..Q-017 attempts (jagged OSM traces, flat slab
+roofs, no bays) were all replaced by `broadlands_rd_14_24` and
+`broadlands_rd_26_36`. Copy `scripts/build_broadlands_rd_14_24.py` for the next
+terrace; change only the data:
+
+- **One build per whole terrace** (every house between two gaps in the OSM
+  roofs), not per pair — neighbours must share party walls and roof steps.
+- **Party walls**: squared columns, pitch 4 or 5 so the row keeps the real
+  ~4.5 m frontage. Pick wall x's at the midpoints between OSM centroids and
+  round; each house centre should land within ~1.5 of its OSM centroid.
+- **Front row** per house from the OSM front edge (`front_row()`), floor `b`
+  = pristine pavement Y at the house (`pav_y()`).
+- **Door side** alternates in pairs (doors share a party wall, bays share the
+  next). Take it from the street photo; label it `hint` if unseen.
+- Per-house `roof='granite'` for red clay tiles (aerial colour); default slate.
+- Find the terrace ends first: `.venv/bin/python scripts/aerial_annot.py x0,z0,x1,z1 out.png`.
+- Plot angle: `python3 scripts/geo.py slope --bearing …` or `--points x0,z0,x1,z1`
+  → `plot_slope=(dx,dz)`. Frontage pitch: `geo.py party --bbox …`.
+- Per-house extras from evidence only: `wall` (render → `smooth_sandstone`),
+  `front_boundary` hedge/wall, `shed`/`tree` where the aerial shows them.
+- Pass every earlier build that touched the plots in `modifies`.
+
+If something looks wrong, fix `terrace.py` and re-apply the same build name
+(the backup stays the pre-build state). Do not stack _b/_c patch builds.
+
+Verify: readback, `osm_footprints.py check`, walks door→first floor and
+door→back garden for every house, contact sheet (photo camera, front 3/4, rear,
+top).

@@ -1,0 +1,112 @@
+{
+  "q": "Q-011",
+  "conclusion": "Geocraft LIDAR roof-mass shows a continuous ~y44-48 band along the Western Esplanade park edge (MC x\u22485492-5508) matching the visible stone wall on z18 aerial; it is not a separate tall gatehouse mass (Bargate/Westgate are low DSM footprints). OSM has 22 barrier=city_wall/wall ways in the audit bbox but none along the Western Esplanade corridor (x 5470-5530, z -2280..-1900)\u2014that west curtain is aerial+LIDAR only until mapped.",
+  "western_esplanade": {
+    "sample_columns": [
+      5492,
+      5496,
+      5500,
+      5504
+    ],
+    "top_y_range": [
+      40,
+      51
+    ],
+    "prominent_cells_in_corridor": 25,
+    "max_prominence": 14.88
+  },
+  "osm_city_wall_lines": 22,
+  "osm_vertices_in_west_corridor": 0,
+  "osm_wall_lidar_samples": [
+    {
+      "osm_id": "966292224",
+      "x": 5592,
+      "z": -2267,
+      "ground": 40,
+      "top": 40
+    },
+    {
+      "osm_id": "966292224",
+      "x": 5586,
+      "z": -2266,
+      "ground": 40,
+      "top": 40
+    },
+    {
+      "osm_id": "966292224",
+      "x": 5571,
+      "z": -2260,
+      "ground": 40,
+      "top": 40
+    },
+    {
+      "osm_id": "966292224",
+      "x": 5586,
+      "z": -2231,
+      "ground": 40,
+      "top": 40
+    },
+    {
+      "osm_id": "27333923",
+      "x": 5795,
+      "z": -2028,
+      "ground": 40,
+      "top": 40
+    },
+    {
+      "osm_id": "913694002",
+      "x": 5604,
+      "z": -2027,
+      "ground": 40,
+      "top": 40
+    },
+    {
+      "osm_id": "913694002",
+      "x": 5611,
+      "z": -2027,
+      "ground": 40,
+      "top": 40
+    },
+    {
+      "osm_id": "913694002",
+      "x": 5605,
+      "z": -2025,
+      "ground": 40,
+      "top": 40
+    },
+    {
+      "osm_id": "27341830",
+      "x": 5581,
+      "z": -1457,
+      "ground": 40,
+      "top": 40
+    },
+    {
+      "osm_id": "96922571",
+      "x": 5859,
+      "z": -1444,
+      "ground": 40,
+      "top": 40
+    },
+    {
+      "osm_id": "96922571",
+      "x": 5850,
+      "z": -1384,
+      "ground": 40,
+      "top": 40
+    }
+  ],
+  "artifacts": [
+    "verification/site/audits/q011-west-wall-survey.png",
+    "verification/site/audits/q011-bargate-survey.png",
+    "verification/site/audits/q011-aerial-west-crop.png",
+    "verification/site/audits/q011-aerial-lidar-ridge-overlay.png",
+    "verification/site/audits/q011-lidar-height-west.png",
+    "verification/site/audits/q011-oldtown-wall-prominence.json",
+    "reference/aerial/oldtown/mosaic-z18-5x5-centre-130048-87874.png",
+    "reference/aerial/oldtown/mosaic-z18-5x5-centre-130049-87870.png",
+    "reference/aerial/oldtown/mosaic-z18-5x5-centre-130050-87877.png",
+    "reference/osm/oldtown/lines-bbox-5480--2320-5920--1420.geojson",
+    "reference/osm/oldtown/buildings+highways-bbox-5480--2320-5920--1420.geojson"
+  ]
+}

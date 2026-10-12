@@ -1,0 +1,620 @@
+# Parcel sign-offs (append-only; written by scripts/coverage.py signoff — do not hand-edit).
+# One JSON record per line. Latest record per parcel wins; {"revoke": true} clears it.
+# A parcel is DONE only while it is 100% touched AND has an active sign-off here.
+{"parcel": "prop:w177978836", "area": "broadlands", "build": "broadlands_rd_40_46", "date": "2026-10-12", "columns": 154, "digest": "6e4a42cb66df", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978846", "area": "broadlands", "build": "broadlands_rd_26_36", "date": "2026-10-12", "columns": 222, "digest": "ed3ef8c0f893", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978849", "area": "broadlands", "build": "broadlands_rd_14_24", "date": "2026-10-12", "columns": 231, "digest": "6d1a01490b05", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978855", "area": "broadlands", "build": "broadlands_rd_26_36", "date": "2026-10-12", "columns": 120, "digest": "ef4721df0a5b", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978856", "area": "broadlands", "build": "broadlands_rd_48_54", "date": "2026-10-12", "columns": 150, "digest": "1d4ca2cce202", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978859", "area": "broadlands", "build": "broadlands_rd_14_24", "date": "2026-10-12", "columns": 227, "digest": "3d03a1c490b7", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978864", "area": "broadlands", "build": "broadlands_rd_2_12", "date": "2026-10-12", "columns": 177, "digest": "635a3ebb8d1c", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978867", "area": "broadlands", "build": "broadlands_rd_28_30_b", "date": "2026-10-12", "columns": 266, "digest": "3b1581bb1da4", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978869", "area": "broadlands", "build": "broadlands_rd_14_24", "date": "2026-10-12", "columns": 219, "digest": "e8cfe8be1865", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978871", "area": "broadlands", "build": "broadlands_rd_40_46", "date": "2026-10-12", "columns": 205, "digest": "055634eef027", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978876", "area": "broadlands", "build": "broadlands_rd_14_24", "date": "2026-10-12", "columns": 134, "digest": "5adbeec0182f", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978878", "area": "broadlands", "build": "broadlands_rd_40_46", "date": "2026-10-12", "columns": 431, "digest": "2ead3e93f010", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978882", "area": "broadlands", "build": "broadlands_rd_48_54", "date": "2026-10-12", "columns": 119, "digest": "5874de92532b", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978885", "area": "broadlands", "build": "broadlands_rd_26_36", "date": "2026-10-12", "columns": 224, "digest": "a6cc919f96fd", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978886", "area": "broadlands", "build": "broadlands_rd_14_24", "date": "2026-10-12", "columns": 226, "digest": "a56b31e36ca6", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978890", "area": "broadlands", "build": "broadlands_rd_56_62", "date": "2026-10-12", "columns": 303, "digest": "7871b9b3d696", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978895", "area": "broadlands", "build": "broadlands_rd_24_26", "date": "2026-10-12", "columns": 232, "digest": "6d73e6737dbd", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978901", "area": "broadlands", "build": "broadlands_rd_48_54", "date": "2026-10-12", "columns": 552, "digest": "2115560a4c58", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978907", "area": "broadlands", "build": "broadlands_rd_2_12", "date": "2026-10-12", "columns": 310, "digest": "68cd2a0a0994", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978912", "area": "broadlands", "build": "broadlands_rd_14_24", "date": "2026-10-12", "columns": 210, "digest": "420632347cf8", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978915", "area": "broadlands", "build": "broadlands_rd_2_12", "date": "2026-10-12", "columns": 207, "digest": "9f265dd52f0d", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978916", "area": "broadlands", "build": "broadlands_rd_26_36", "date": "2026-10-12", "columns": 305, "digest": "914869fb4f33", "note": "Q-038 backfill"}
+{"parcel": "prop:w177978921", "area": "broadlands", "build": "broadlands_rd_56_62", "date": "2026-10-12", "columns": 131, "digest": "32df82ad2633", "note": "Q-038 backfill"}
+{"parcel": "prop:w271816492", "area": "broadlands", "build": "portswood_ring1_streetscape_kerbs", "date": "2026-10-12", "columns": 1, "digest": "e387875a673a", "note": "Q-038 backfill"}
+{"parcel": "prop:w146985470", "area": "highfield", "build": "highfield_b35", "date": "2026-10-12", "columns": 1530, "digest": "4672fd116fdc", "note": "Q-038 backfill"}
+{"parcel": "prop:w146988290", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 64, "digest": "a402b5279885", "note": "Q-038 backfill"}
+{"parcel": "prop:w159860988", "area": "highfield", "build": "university_rd_26_28", "date": "2026-10-12", "columns": 139, "digest": "e6d2ac3b816f", "note": "Q-038 backfill"}
+{"parcel": "prop:w159860991", "area": "highfield", "build": "university_rd_26_28", "date": "2026-10-12", "columns": 152, "digest": "61f0438f16e9", "note": "Q-038 backfill"}
+{"parcel": "prop:w159865612", "area": "highfield", "build": "hartley_ave_17_31", "date": "2026-10-12", "columns": 301, "digest": "d4c868fa4e19", "note": "Q-038 backfill"}
+{"parcel": "prop:w159865630", "area": "highfield", "build": "hartley_ave_17_31", "date": "2026-10-12", "columns": 368, "digest": "05d4d4a401cf", "note": "Q-038 backfill"}
+{"parcel": "prop:w159893740", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 162, "digest": "8796f9073353", "note": "Q-038 backfill"}
+{"parcel": "prop:w159893747", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 279, "digest": "7e543344a24d", "note": "Q-038 backfill"}
+{"parcel": "prop:w159893749", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 312, "digest": "d5302e08d56d", "note": "Q-038 backfill"}
+{"parcel": "prop:w159893755", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 201, "digest": "af772e186ec4", "note": "Q-038 backfill"}
+{"parcel": "prop:w159893765", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 227, "digest": "2da536f7244b", "note": "Q-038 backfill"}
+{"parcel": "prop:w159893774", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 178, "digest": "7bb23b6623c7", "note": "Q-038 backfill"}
+{"parcel": "prop:w159893783", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 219, "digest": "853e9a790e8a", "note": "Q-038 backfill"}
+{"parcel": "prop:w159893785", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 166, "digest": "07bca205b9b7", "note": "Q-038 backfill"}
+{"parcel": "prop:w187918193", "area": "highfield", "build": "highfield_maths_murray", "date": "2026-10-12", "columns": 23, "digest": "e5e7f95d9fec", "note": "Q-038 backfill"}
+{"parcel": "prop:w221022608", "area": "highfield", "build": "highfield_engineering", "date": "2026-10-12", "columns": 2014, "digest": "0a6c250d584a", "note": "Q-038 backfill"}
+{"parcel": "prop:w294963447", "area": "highfield", "build": "highfield_susu_west", "date": "2026-10-12", "columns": 16, "digest": "7b8e364c01c7", "note": "Q-038 backfill"}
+{"parcel": "prop:w93729745", "area": "highfield", "build": "highfield_library_b34_b18", "date": "2026-10-12", "columns": 5161, "digest": "298e3d59c9de", "note": "Q-038 backfill"}
+{"parcel": "road:Chamberlain Road@47,-44", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 1, "digest": "09b71a1cb49a", "note": "Q-038 backfill"}
+{"parcel": "path:w1147402500@49,-44", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 4, "digest": "97d1e8d754de", "note": "Q-038 backfill"}
+{"parcel": "path:w1148011428@49,-44", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 241, "digest": "a70047faadd3", "note": "Q-038 backfill"}
+{"parcel": "path:w1148011428@50,-44", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 119, "digest": "eaeb9f88167f", "note": "Q-038 backfill"}
+{"parcel": "path:w1148011429@49,-44", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 7, "digest": "a20d74b99c7f", "note": "Q-038 backfill"}
+{"parcel": "path:w1256896080@48,-44", "area": "highfield", "build": "highfield_susu_west", "date": "2026-10-12", "columns": 1, "digest": "efcd97da183b", "note": "Q-038 backfill"}
+{"parcel": "path:w146987519@49,-43", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 109, "digest": "725e485b4f0f", "note": "Q-038 backfill"}
+{"parcel": "path:w225775085@49,-43", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 56, "digest": "4511b0900a17", "note": "Q-038 backfill"}
+{"parcel": "path:w225775085@49,-44", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 39, "digest": "959c02a599ad", "note": "Q-038 backfill"}
+{"parcel": "path:w230359496@49,-44", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 25, "digest": "3636710754bc", "note": "Q-038 backfill"}
+{"parcel": "path:w230359498@49,-44", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 13, "digest": "40660841504d", "note": "Q-038 backfill"}
+{"parcel": "path:w230359499@50,-44", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 32, "digest": "a12df4f8fc1b", "note": "Q-038 backfill"}
+{"parcel": "path:w265695542@49,-43", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 117, "digest": "9174811a66d9", "note": "Q-038 backfill"}
+{"parcel": "path:w265695542@49,-44", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 80, "digest": "c39d4636d31f", "note": "Q-038 backfill"}
+{"parcel": "path:w266839959@49,-44", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 21, "digest": "5c4119241c6d", "note": "Q-038 backfill"}
+{"parcel": "path:w371586379@49,-44", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 16, "digest": "eff2c86feeec", "note": "Q-038 backfill"}
+{"parcel": "path:w93733742@50,-44", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 27, "digest": "c0a8d9b073fb", "note": "Q-038 backfill"}
+{"parcel": "gap:6296,-5515", "area": "highfield", "build": "highfield_b30_b37_grounds", "date": "2026-10-12", "columns": 21, "digest": "dd69d232717a", "note": "Q-038 backfill"}
+{"parcel": "gap:6303,-5501", "area": "highfield", "build": "highfield_b30_b37_grounds", "date": "2026-10-12", "columns": 24, "digest": "3f032da6dddc", "note": "Q-038 backfill"}
+{"parcel": "gap:6358,-5537", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 43, "digest": "9b0419e626ef", "note": "Q-038 backfill"}
+{"parcel": "gap:6371,-5517", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 12, "digest": "f2c026aed528", "note": "Q-038 backfill"}
+{"parcel": "gap:6380,-5517", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 16, "digest": "c854954ca2b3", "note": "Q-038 backfill"}
+{"parcel": "gap:6382,-5521", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 43, "digest": "71e4bdfbf934", "note": "Q-038 backfill"}
+{"parcel": "gap:6388,-5486", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 36, "digest": "88cbe09c6e5e", "note": "Q-038 backfill"}
+{"parcel": "gap:6389,-5477", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 25, "digest": "814910fcda1d", "note": "Q-038 backfill"}
+{"parcel": "gap:6395,-5515", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 14, "digest": "2eec725ba5fc", "note": "Q-038 backfill"}
+{"parcel": "gap:6400,-5453", "area": "highfield", "build": "highfield_early_years_estates", "date": "2026-10-12", "columns": 9, "digest": "643f56140249", "note": "Q-038 backfill"}
+{"parcel": "gap:6400,-5517", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 40, "digest": "da5de681b29a", "note": "Q-038 backfill"}
+{"parcel": "gap:6401,-5466", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 39, "digest": "09e23a9a37c0", "note": "Q-038 backfill"}
+{"parcel": "gap:6413,-5504", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 16, "digest": "5df40e6f4ea7", "note": "Q-038 backfill"}
+{"parcel": "gap:6413,-5505", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 28, "digest": "9b4bd29f52ef", "note": "Q-038 backfill"}
+{"parcel": "prop:w159893749", "revoke": true, "date": "2026-10-12", "reason": "I-031: Geocraft procedural oak trees left standing (stricter leftover check, 12 Oct 2026)"}
+{"parcel": "prop:w159893765", "revoke": true, "date": "2026-10-12", "reason": "I-031: Geocraft procedural oak trees left standing (stricter leftover check, 12 Oct 2026)"}
+{"parcel": "prop:w159893774", "revoke": true, "date": "2026-10-12", "reason": "I-031: Geocraft procedural oak trees left standing (stricter leftover check, 12 Oct 2026)"}
+{"parcel": "prop:w159893755", "revoke": true, "date": "2026-10-12", "reason": "I-031: Geocraft procedural oak trees left standing (stricter leftover check, 12 Oct 2026)"}
+{"parcel": "prop:w159893740", "revoke": true, "date": "2026-10-12", "reason": "I-031: Geocraft procedural oak trees left standing (stricter leftover check, 12 Oct 2026)"}
+{"parcel": "prop:w177978873", "area": "broadlands", "build": "broadlands_rd_2_12", "date": "2026-10-12", "columns": 224, "digest": "ffb9828e7cff", "note": "Q-041 angled gardens"}
+{"parcel": "prop:w177978877", "area": "broadlands", "build": "broadlands_rd_2_12", "date": "2026-10-12", "columns": 227, "digest": "c54e4b367c3c", "note": "Q-041 angled gardens"}
+{"parcel": "prop:w177978883", "area": "broadlands", "build": "broadlands_rd_2_12", "date": "2026-10-12", "columns": 317, "digest": "fa16a2380518", "note": "Q-041 angled gardens"}
+{"parcel": "prop:w177978920", "area": "broadlands", "build": "broadlands_rd_40_46", "date": "2026-10-12", "columns": 122, "digest": "a809e754f1d0", "note": null}
+{"parcel": "prop:w177978838", "area": "broadlands", "build": "broadlands_rd_48_54", "date": "2026-10-12", "columns": 128, "digest": "991721883cff", "note": null}
+{"parcel": "prop:w177978911", "area": "broadlands", "build": "broadlands_rd_56_62", "date": "2026-10-12", "columns": 402, "digest": "ab6ef41d3404", "note": null}
+{"parcel": "prop:w177978920", "revoke": true, "date": "2026-10-12", "reason": "Q-040: signed by a --dry-run that ignored the flag; credited to the wrong build"}
+{"parcel": "prop:w177978920", "area": "broadlands", "build": "broadlands_rd_48_54", "date": "2026-10-12", "columns": 122, "digest": "a809e754f1d0", "note": "Q-040: #48 Geocraft fringe on 46's west line cleared by 48_54 wedge(); rest of the plot is broadlands_rd_40_46"}
+{"parcel": "road:Broadlands Road@54,-44", "area": "broadlands", "build": "broadlands_rd_streetscape", "date": "2026-10-12", "columns": 1813, "digest": "22a6cc6de615", "note": null}
+{"parcel": "road:Broadlands Road@56,-43", "area": "broadlands", "build": "broadlands_rd_streetscape", "date": "2026-10-12", "columns": 437, "digest": "478dd7803aaf", "note": null}
+{"parcel": "path:w156591073@54,-45", "area": "broadlands", "build": "broadlands_rd_streetscape", "date": "2026-10-12", "columns": 269, "digest": "93c22729f7ba", "note": null}
+{"parcel": "path:w156591073@54,-44", "area": "broadlands", "build": "broadlands_rd_streetscape", "date": "2026-10-12", "columns": 439, "digest": "6fdee7c66146", "note": null}
+{"parcel": "path:w156591073@55,-44", "area": "broadlands", "build": "broadlands_rd_streetscape", "date": "2026-10-12", "columns": 709, "digest": "7c83f4870817", "note": null}
+{"parcel": "path:w156591073@56,-44", "area": "broadlands", "build": "broadlands_rd_streetscape", "date": "2026-10-12", "columns": 7, "digest": "c1b8eafe14e9", "note": null}
+{"parcel": "road:Broadlands Road@55,-44", "area": "broadlands", "build": "broadlands_rd_streetscape", "date": "2026-10-12", "columns": 1341, "digest": "a9179601a37f", "note": null}
+{"parcel": "road:Broadlands Road@55,-43", "area": "broadlands", "build": "broadlands_rd_streetscape", "date": "2026-10-12", "columns": 484, "digest": "cfbe2d86522e", "note": null}
+{"parcel": "path:w1021988335@56,-44", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 132, "digest": "263e1bef8433", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w1039703270@56,-43", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 18, "digest": "2f3ce88ecea0", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w1039703271@56,-43", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 50, "digest": "53de0022f107", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w116387635@55,-43", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 2, "digest": "9bce8ef84e8a", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w116387635@55,-44", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 225, "digest": "5d32859e7d54", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w116387635@56,-44", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 274, "digest": "0bd8bb28b0d0", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w140004021@56,-45", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 276, "digest": "41b4831b1b3b", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w176441832@56,-43", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 778, "digest": "730722e4b87a", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w176441832@56,-44", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 238, "digest": "f8d803abd5c0", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w176648867@55,-43", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 81, "digest": "621c18ddd46d", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w176648868@54,-43", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 542, "digest": "e12f6918d96d", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w177807843@55,-43", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 306, "digest": "c1c7e8aff085", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w177807844@55,-43", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 438, "digest": "b1c396d1bdb4", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w177807845@55,-43", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 237, "digest": "f520ae131637", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w177963540@55,-45", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 16, "digest": "5f27ba2106dc", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w177963540@56,-45", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 484, "digest": "d8b41e17e618", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w178001287@55,-45", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 90, "digest": "df7a28e04062", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w178001288@55,-45", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 13, "digest": "f6f896dd826d", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w178001288@56,-45", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 273, "digest": "b84dd03aac26", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w178001289@55,-45", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 538, "digest": "4c52ee93279e", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w178209829@56,-45", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 59, "digest": "82633701b5ca", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w178209830@56,-45", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 437, "digest": "aca109f80ff8", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w271816493@55,-45", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 68, "digest": "7ca46a639d68", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w820869320@56,-43", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 240, "digest": "08a77e42e8d1", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "path:w820869321@56,-43", "area": "broadlands", "build": "broadlands_ring1_lanes", "date": "2026-10-12", "columns": 35, "digest": "f04d6d2d7e72", "note": "Q-045 ring-1 lanes/driveways"}
+{"parcel": "road:Harrison Road@55,-45", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 1557, "digest": "6bb1585fb159", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Mayfield Road@54,-45", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 1811, "digest": "a473f972ff3b", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Mayfield Road@55,-44", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 1006, "digest": "054a5575796b", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Mayfield Road@55,-45", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 805, "digest": "0f0d157a17dc", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Portswood Road@55,-43", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 543, "digest": "8f457c4fcbf7", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Portswood Road@56,-43", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 1323, "digest": "d0a3757f046f", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Portswood Road@56,-44", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 1338, "digest": "50b8a0d6e9fe", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Sirdar Road@54,-43", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 1743, "digest": "94fe04181f85", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Sirdar Road@55,-43", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 1264, "digest": "ae7b2e7143e2", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Thomas Lewis Way@56,-43", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 1374, "digest": "839f304fc4d9", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Belgrave Road@56,-43", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 909, "digest": "6dcb710a940f", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Harrison Road@56,-45", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 1754, "digest": "98f1dad0ea0f", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Mayfield Road@56,-44", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 1831, "digest": "1fccfdf25f5f", "note": "Q-046 ring-1 roads"}
+{"parcel": "road:Sirdar Mews@54,-43", "area": "broadlands", "build": "broadlands_ring1_roads", "date": "2026-10-12", "columns": 770, "digest": "71dc98a94e93", "note": "Q-046 ring-1 roads"}
+{"parcel": "prop:w159893740", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 162, "digest": "8796f9073353", "note": null}
+{"parcel": "prop:w159893749", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 312, "digest": "d5302e08d56d", "note": null}
+{"parcel": "prop:w159893755", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 201, "digest": "af772e186ec4", "note": null}
+{"parcel": "prop:w159893765", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 227, "digest": "2da536f7244b", "note": null}
+{"parcel": "prop:w159893774", "area": "highfield", "build": "chamberlain_rd_8_58", "date": "2026-10-12", "columns": 178, "digest": "7bb23b6623c7", "note": null}
+{"parcel": "prop:w242322573", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 96, "digest": "9b42c50cb210", "note": "Q-043 I-030 campus bike shed"}
+{"parcel": "prop:w242322573", "area": "highfield", "build": "highfield_b35_grounds", "date": "2026-10-12", "columns": 96, "digest": "9b42c50cb210", "note": "bike shed bottom slab + iron bar cage"}
+{"parcel": "prop:w159865609", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 391, "digest": "4a9f337a2baf", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "prop:w159865619", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 356, "digest": "85d9e3b713a4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "prop:w159865622", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 433, "digest": "1d8473c927b9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "prop:w159865623", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 460, "digest": "7830c13e57ef", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "prop:w159865633", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 348, "digest": "94f70179d2a9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "prop:w159893748", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 251, "digest": "42c07a1c49a9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "prop:w159893753", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 270, "digest": "a931fff5d04e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "prop:w159893758", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 222, "digest": "1cf33f9188a2", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "prop:w159893760", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 260, "digest": "012392443297", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "prop:w159893769", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 330, "digest": "b7846d692f0c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "prop:w30064170", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 975, "digest": "25a5a6f59622", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "prop:w305968656", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 39, "digest": "9cdcef979658", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1030214384@48,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 282, "digest": "a5bb5cd9d268", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1124824424@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 31, "digest": "36efe131c0f5", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1124824424@48,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 176, "digest": "bb93121aa600", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1124824424@49,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 147, "digest": "83e0f1988bcb", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1124824440@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 3, "digest": "22080c49e11d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1124824441@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 35, "digest": "d0d79bc7e3e5", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1124824443@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 100, "digest": "037215ac46d3", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1124824443@48,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 132, "digest": "46ef0cfdb1cb", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1124824444@47,-47", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 111, "digest": "bb2e10e663e4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1124824445@48,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 12, "digest": "3b2637817bfa", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1124824446@48,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 10, "digest": "20314eb5ad81", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703339@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 1, "digest": "0a3aa818cb0c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703341@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 14, "digest": "84a82f8a66fe", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703341@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 390, "digest": "83708e7c3dd7", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703343@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 228, "digest": "6c5784ec0f26", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703343@49,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 292, "digest": "cee662a4c388", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703344@49,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 14, "digest": "54e7a36a76ee", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703345@48,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 140, "digest": "fec6d26003b3", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703346@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 6, "digest": "6660aba6be88", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703348@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 76, "digest": "fc1e767818d5", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703348@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 1, "digest": "37408c8f9640", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703354@49,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 181, "digest": "20b7b533f47b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703354@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 261, "digest": "d1777a094d19", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703355@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 17, "digest": "54b57cfaf110", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703356@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 34, "digest": "d0c26cfebe8a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703358@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 1, "digest": "3a12985b9ae5", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703360@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 8, "digest": "5bfb63dbbe7e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703360@49,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 27, "digest": "235aea443bfd", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1125703363@49,-43", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 19, "digest": "87e8d580dcab", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1136685796@48,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 1, "digest": "f27b2f843c15", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1136685799@47,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 14, "digest": "551d20035eb7", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1136685805@47,-44", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 14, "digest": "effdff0f0cfa", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138032577@48,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 3, "digest": "f8a4ac7dc688", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138032579@49,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 45, "digest": "ed3a7a433733", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138033170@49,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 58, "digest": "7e31b35fccb8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138033171@49,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 2, "digest": "4603c442d09a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138033172@49,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 69, "digest": "8eab0800d455", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138033924@48,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 2, "digest": "7f781478d307", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138033925@48,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 1, "digest": "bb0944e372b9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138033926@49,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 2, "digest": "d36e97a0a205", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138034304@50,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 13, "digest": "668251e97c53", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138034305@50,-44", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 7, "digest": "15e9e05a1f5a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138034305@50,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 21, "digest": "68a4a76fc89d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138034306@50,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 24, "digest": "7e54fb875dda", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1138034307@50,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 47, "digest": "a7692f3d0dad", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1147085904@49,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 80, "digest": "bed1036f7eb5", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1147085906@49,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 33, "digest": "8213b35808ab", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1147085907@49,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 7, "digest": "93fe06ccb513", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1148011426@49,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 5, "digest": "f258ebcf9c14", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1148011427@49,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 29, "digest": "f04cae353792", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1151047351@48,-46", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 31, "digest": "574b6c84c06a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1151048184@47,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 18, "digest": "abe98b217163", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1152542398@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 169, "digest": "031c8ebecb22", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1152542398@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 5, "digest": "ebf4b4e00bf8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1153875581@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 2, "digest": "d24ea7103d80", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1157081623@50,-44", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 89, "digest": "8b7785806dcc", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1157081625@50,-44", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 90, "digest": "cc76c652b5e6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1170405960@49,-43", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 84, "digest": "4bd1a064f793", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317550@48,-43", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 60, "digest": "7ee4bf6a011c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317552@48,-43", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 102, "digest": "caa67b9b9dde", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317552@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 3, "digest": "dca66964d799", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317553@48,-43", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 5, "digest": "01161a516336", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317554@47,-43", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 17, "digest": "a42ba3c98bcb", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317554@48,-44", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 49, "digest": "91d2718b2b43", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317555@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 4, "digest": "ced57b1afd26", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317556@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 211, "digest": "61ee8660ce6b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317557@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 6, "digest": "252b0622a022", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317558@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 18, "digest": "251749182161", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317559@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 237, "digest": "66c3057afb0d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317560@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 5, "digest": "5f60f180f5ab", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317561@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 2, "digest": "43633e919017", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317562@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 2, "digest": "69451d22f680", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317564@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 60, "digest": "76ce7eeff5fe", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317565@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 7, "digest": "c8ea63102332", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317568@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 71, "digest": "ace665ba11c5", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317569@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 101, "digest": "626aee0be93c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317570@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 64, "digest": "9ecf4d50a180", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317572@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 15, "digest": "bfee50e61596", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317573@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 17, "digest": "44f0a19aa3d8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317574@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 18, "digest": "2f0441682bfc", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317575@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 34, "digest": "08ba0ce14c5e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317576@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 4, "digest": "1fdc3cd9c3da", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317577@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 236, "digest": "962ea24e2964", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317578@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 23, "digest": "9867122532d7", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317579@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 52, "digest": "d526c7047574", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317581@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 74, "digest": "3ff73825c65a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317582@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 76, "digest": "ed3a02798825", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317583@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 17, "digest": "8e247dbcb10f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317585@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 9, "digest": "407a20b93a2d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317586@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 53, "digest": "c87a1710c616", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317587@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 47, "digest": "7708712b49c7", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317590@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 39, "digest": "041904344416", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317592@48,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 6, "digest": "a066e22813e0", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317593@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 73, "digest": "0c28a09b6e4e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317593@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 165, "digest": "73724f827814", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317594@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 8, "digest": "b44a0fd3dc04", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317594@48,-46", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 45, "digest": "e73701e09fa4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317595@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 3, "digest": "7fe4348facee", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317595@48,-46", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 74, "digest": "109db6813335", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317596@48,-46", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 183, "digest": "7c13eae99e27", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317597@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 25, "digest": "d3e8545fc33a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317598@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 44, "digest": "16bd3e2ed7a8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317600@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 79, "digest": "4016501e50e7", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317600@48,-46", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 144, "digest": "afcb178d1391", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317601@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 53, "digest": "d872d0acc26f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317602@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 246, "digest": "d849e0d07e7b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317606@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 14, "digest": "06cc2e8b8382", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317608@47,-46", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 117, "digest": "7ccc28b3fdc2", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317609@47,-46", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 206, "digest": "fec1b8e0865f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317611@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 10, "digest": "433fe98f9396", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317612@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 117, "digest": "3a927ebdd5fd", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317613@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 136, "digest": "31b393bf1447", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174317614@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 77, "digest": "6ae1fcdeff4c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174345812@47,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 15, "digest": "5de005632912", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174345818@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 22, "digest": "9ce2cac580d6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174345819@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 5, "digest": "27e80ad79ac5", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174345827@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 1, "digest": "43b207ab2cc8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174345828@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 10, "digest": "87e51f1bd75d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174345833@46,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 163, "digest": "76aa4386bb2c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174345833@46,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 49, "digest": "cea929eca50b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174345834@46,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 11, "digest": "78284cd86b7e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174345835@46,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 1, "digest": "7998a8ebe9ce", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174345837@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 81, "digest": "e928b4b5a5ec", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174345837@49,-46", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 87, "digest": "a08ea8f24a8d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174345838@49,-46", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 9, "digest": "82bb8b2a56f4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1174564651@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 38, "digest": "ac260f0bc3db", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1175915938@49,-46", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 11, "digest": "adf552b677f1", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1175915940@49,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 183, "digest": "a4cea94d91b5", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1175915940@50,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 27, "digest": "f8dc2bbb79a1", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1177208797@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 140, "digest": "1e5595064cb6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1177208806@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 12, "digest": "11f533103eca", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1177208807@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 163, "digest": "76383d1f3972", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1177685575@47,-46", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 2, "digest": "073f636768da", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1177697674@47,-46", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 11, "digest": "5e56a916cf18", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1212509764@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 10, "digest": "0df91e810ba1", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1212686315@48,-43", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 8, "digest": "3e76b8c65b17", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1213423767@48,-43", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 3, "digest": "40a7cee0ea36", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1214097962@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 14, "digest": "fe9d671d6652", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1214097963@47,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 30, "digest": "04d34a0f2737", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1214535480@47,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 32, "digest": "82e798e2ab6b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1214536860@48,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 12, "digest": "526a0c011e63", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1220996552@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 3, "digest": "aa00b3c572c4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1220996553@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 26, "digest": "e191edbcc899", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1227583422@48,-43", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 19, "digest": "b5b82afdb262", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1227583422@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 19, "digest": "f1f64850d16c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1229914382@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 6, "digest": "50bc1272dbf9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1229914383@48,-46", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 7, "digest": "7d1ee1434508", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1246796425@47,-46", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 138, "digest": "9b3fa9003e1c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1246796425@48,-46", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 59, "digest": "71949ee0f50b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1246796426@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 69, "digest": "95892a9745cf", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1246796426@47,-46", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 37, "digest": "2344f2f8a1c2", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1246796430@47,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 6, "digest": "3f0fe7974344", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1247709901@47,-44", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 165, "digest": "51d1791ade32", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1248096708@47,-46", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 18, "digest": "9938331252da", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1250453614@47,-44", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 76, "digest": "882582b1762b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1250453616@48,-43", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 7, "digest": "45864b34285b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1255256086@48,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 15, "digest": "6175b65331ff", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1255256087@48,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 13, "digest": "6f246768f9e5", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1255256088@47,-47", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 5, "digest": "9b9f6e023e90", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1255256088@48,-47", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 6, "digest": "e608c186fc99", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1255994946@50,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 17, "digest": "4f91131e3877", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896071@48,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 4, "digest": "996afc8746d6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896073@48,-47", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 18, "digest": "168944a6e4b8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896074@47,-46", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 135, "digest": "51f18c3597c5", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896074@47,-47", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 41, "digest": "200883e4a2cc", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896075@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 2, "digest": "1026173150c6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896076@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 3, "digest": "323ba48c497a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896078@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 5, "digest": "84aeaf30838d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896081@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 2, "digest": "c18e2676b03d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896082@49,-44", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 79, "digest": "400270074155", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896087@49,-44", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 82, "digest": "63c5fe5d5fcc", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896089@49,-44", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 137, "digest": "ef9033f66f68", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896092@49,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 18, "digest": "e805140f9d44", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896095@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 2, "digest": "4d1dd9b2def9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896096@49,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 8, "digest": "33f622d7b8f4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1256896098@49,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 10, "digest": "6decf361f576", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1263025773@49,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 23, "digest": "eecd43e6a257", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1263025774@49,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 69, "digest": "ebcb4023780e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1263025775@49,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 2, "digest": "6ac4d7d146be", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1263025776@49,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 18, "digest": "8b4c190b32c1", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1283718771@49,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 1, "digest": "811fc645073d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1284433171@50,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 2, "digest": "317712a8319c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1284433171@50,-46", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 61, "digest": "3b249ccf8539", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w1373170928@50,-46", "area": "highfield", "build": "highfield_grounds_ne", "date": "2026-10-12", "columns": 58, "digest": "b5d90f401ce8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w141612502@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 13, "digest": "3e65ce2c13c7", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w141677935@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 26, "digest": "9badace8da22", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w141677939@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 16, "digest": "c53369af4494", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w141684393@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 10, "digest": "db9827d45bcd", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w147004834@47,-44", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 25, "digest": "d653243e7780", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w147004835@47,-44", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 4, "digest": "fcf2644354b6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w147187051@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 4, "digest": "cb0713438cfc", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w147187051@49,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 3, "digest": "78cc57d6249a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w147603909@47,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 25, "digest": "d2b4ec916558", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w147603910@47,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 17, "digest": "27d81a2c0aa2", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w147603911@47,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 22, "digest": "ae18f04e16c0", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w148564540@49,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 25, "digest": "3be50d4165b4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w154066094@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 14, "digest": "4568212d1d86", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w154067898@49,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 16, "digest": "56301cedbe6a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w159803118@48,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 1, "digest": "4814bfdc4a16", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w159803118@48,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 5, "digest": "17ef404ae8d6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w159803123@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 10, "digest": "2e522ff8f16e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w159803124@48,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 26, "digest": "a721837b4909", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w160016177@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 23, "digest": "d1ea057e59db", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w160016179@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 30, "digest": "b66e7dfae64e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w160016188@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 19, "digest": "81a8b62ec923", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w160016189@48,-43", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 37, "digest": "58f2478fd92a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w160016189@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 10, "digest": "f3619b6e4255", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w160016190@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 15, "digest": "70fafd10c758", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w160280756@48,-46", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 10, "digest": "f88c494d9022", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w160280761@48,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 7, "digest": "9f8d6467169c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w160280762@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 4, "digest": "c1ab14131e3f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w169224998@47,-44", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 2, "digest": "d500039edc07", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w169492011@47,-46", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 17, "digest": "c0330a002e6c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w170572710@47,-44", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 125, "digest": "9c77b3a8697d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w170572719@47,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 254, "digest": "ffdfaee2b68c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w171869337@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 14, "digest": "505e0fe73e90", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w185962705@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 6, "digest": "adf010ee7c29", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w219899642@47,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 6, "digest": "1dc3ffee1c6f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w219899642@48,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 1, "digest": "f725187718b0", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w225274961@48,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 8, "digest": "2d2c81da41a3", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w225851887@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 7, "digest": "bb61c25fad46", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w226141827@46,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 21, "digest": "fc7690384e57", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w226141828@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 20, "digest": "033b18df31b9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w226247431@47,-44", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 13, "digest": "bcb63b263e34", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w230357626@49,-44", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 29, "digest": "80560d913de6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w230357627@49,-44", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 14, "digest": "269a1b5e6b35", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w231551356@49,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 14, "digest": "485fefbcb267", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w236057344@50,-44", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 17, "digest": "09f7dd80a850", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w236071518@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 15, "digest": "7e6342c7795f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w236071519@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 31, "digest": "aa13ff5496bf", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w236071520@49,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 68, "digest": "a205cfd225e4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w236071520@49,-46", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 4, "digest": "7ebd0a7342ce", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w244808651@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 1, "digest": "360e14219883", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w265816435@48,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 8, "digest": "3c740644487a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w265816436@48,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 24, "digest": "5c12a99289ae", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w265932532@48,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 7, "digest": "500091e4a9ea", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w265932533@48,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 16, "digest": "5300aa328514", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w265962755@48,-43", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 180, "digest": "b0448a567266", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w265962809@48,-43", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 24, "digest": "f0328bfe9b3a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w266831418@50,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 7, "digest": "2ebbff3e5160", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w266831420@50,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 5, "digest": "59fed1ea0820", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w266831422@50,-45", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 16, "digest": "1d282a7ca0ed", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w266839960@50,-44", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 24, "digest": "ea0fd043c4b3", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w266839961@49,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 35, "digest": "46b0e4610176", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w266864431@49,-44", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 37, "digest": "82a68ca2d619", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w266864432@49,-44", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 8, "digest": "2a5ab0582db1", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w266864433@49,-44", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 95, "digest": "b5972bd12bef", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w266864435@49,-44", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 28, "digest": "3e669a17ef2c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w294963448@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 15, "digest": "659167afe2f4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w32772549@47,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 2, "digest": "d4f193c34795", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w32772549@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 1, "digest": "2e1f30a5715f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w32772549@48,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 8, "digest": "b8234e9881cb", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w32772549@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 222, "digest": "8c40a6f2e3d4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w33830526@48,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 28, "digest": "71efb8102fe9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w371586980@49,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 9, "digest": "fa3bb97f835b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w4527219@47,-46", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 42, "digest": "52c1a46eff2b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w470763440@49,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 108, "digest": "d8ed4f0859fc", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w673793504@49,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 597, "digest": "11b064ff8e53", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w723819388@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 13, "digest": "48ee2fbbffc6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w723819389@48,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 39, "digest": "25cd9c8d1c1f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w750430330@46,-44", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 192, "digest": "c910679bdc6a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w750430330@47,-44", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 24, "digest": "9497de49434d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w892915854@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 259, "digest": "b528735f6cec", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w892915854@48,-46", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 208, "digest": "e9bf9a9d6a57", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "path:w93742845@47,-43", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 22, "digest": "d0a6017facee", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "open:w1256896097@49,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 158, "digest": "d8f54fe5facc", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "open:w168207361@49,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 1, "digest": "dd13f72c0ac7", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "open:w168207363@48,-47", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 6, "digest": "8b70d91e75df", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "open:w226141839@47,-45", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 1, "digest": "1511b2e40322", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "open:w391790376@49,-46", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 13, "digest": "328d0a6fc0a2", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:5982,-5576", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 256, "digest": "ad3770ae6460", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:5994,-5599", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 110, "digest": "f5ed0fbc0783", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:5998,-5595", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 199, "digest": "7ae78237fddb", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6005,-5635", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 33, "digest": "b3a036d752a8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6014,-5656", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 12, "digest": "39a2c35eb63d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6016,-5555", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 14, "digest": "367f1a00c537", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6016,-5632", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 255, "digest": "28266dbe79c3", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6016,-5638", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 48, "digest": "f1164262f708", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6016,-5648", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 326, "digest": "201f7f71565b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6016,-5662", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 26, "digest": "e8982f963d35", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6028,-5552", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 150, "digest": "1fe16ac643ea", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6029,-5726", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 8, "digest": "75aeb6270ac6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6030,-5709", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 72, "digest": "85ea3ed2fb4e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6033,-5737", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 289, "digest": "123792ee0f6a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6034,-5745", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 209, "digest": "28733126bd23", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6042,-5551", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 25, "digest": "c78c24b01e5b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6044,-5540", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 86, "digest": "82aea0ec0419", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6044,-5762", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 28, "digest": "a4b14ea0f454", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6051,-5776", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 100, "digest": "7844e4cc2abd", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6067,-5598", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 6, "digest": "31df9213456c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6070,-5760", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 9, "digest": "9731643fb650", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6071,-5762", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 99, "digest": "f798ae767c21", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6075,-5616", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 29, "digest": "18014441e54e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6075,-5838", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 27, "digest": "d971159520fe", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6086,-5499", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 79, "digest": "0ad03b495a0e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6089,-5505", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 41, "digest": "6acc22196f6e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6092,-5605", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 109, "digest": "8f630d0cedf6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6097,-5492", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 80, "digest": "e51c2b6e510c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6097,-5523", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 102, "digest": "5b754703ed95", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6100,-5735", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 9, "digest": "918b80da4ced", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6103,-5703", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 12, "digest": "780b2aaab89b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6103,-5771", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 199, "digest": "314f65561e97", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6104,-5783", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 9, "digest": "282ed1793943", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6106,-5488", "area": "highfield", "build": "highfield_grounds_sw", "date": "2026-10-12", "columns": 80, "digest": "0203987f8984", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6108,-5589", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 105, "digest": "79797e171e81", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6109,-5857", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 193, "digest": "ba615fa66f56", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6111,-5825", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 7, "digest": "d2256afbf10b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6114,-5607", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 11, "digest": "f55f8df7ba60", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6116,-5739", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 50, "digest": "09aacd2f3c0a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6118,-5710", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 9, "digest": "afea1caf4bc9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6120,-5833", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 24, "digest": "22ff2228af29", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6127,-5846", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 7, "digest": "a1723825b144", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6128,-5763", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 57, "digest": "cb248badbfb5", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6133,-5867", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 213, "digest": "e3d07766fa19", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6136,-5847", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 6, "digest": "dfe1922d56ac", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6136,-5891", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 6, "digest": "2dd2c929632a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6137,-5916", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 12, "digest": "91e6d5450059", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6141,-5889", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 12, "digest": "e8db800711ec", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6144,-5740", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 22, "digest": "9d5975d03c6b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6144,-5797", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 6, "digest": "049f7498301b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6144,-5888", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 300, "digest": "a1cb593d2cbb", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6144,-5896", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 51, "digest": "530544316295", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6146,-5802", "area": "highfield", "build": "highfield_grounds_nw", "date": "2026-10-12", "columns": 11, "digest": "a52f73bab91b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6146,-5922", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 27, "digest": "b479007e0a62", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6148,-5915", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 127, "digest": "29cbca8a7940", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6151,-5700", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 6, "digest": "d2e05e042ad3", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6153,-5612", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 6, "digest": "dd98e1d013b4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6154,-5782", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 48, "digest": "fe418d3f1568", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6156,-5750", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 6, "digest": "7264c22f517d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6158,-5755", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 8, "digest": "644fed8f1dad", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6159,-5543", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 203, "digest": "59134c98143e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6161,-5711", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 170, "digest": "c7f6fba930fe", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6163,-5792", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 19, "digest": "cf5922772607", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6165,-5923", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 17, "digest": "304acfb1f4bb", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6166,-5699", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 25, "digest": "1b684337131c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6166,-5769", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 136, "digest": "2c36597854fa", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6166,-5781", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 24, "digest": "15b40d8ac0be", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6167,-5506", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 19, "digest": "6bef48103d53", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6167,-5638", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 54, "digest": "b905e7a27a78", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6169,-5791", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 13, "digest": "13e1d26579c8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6170,-5708", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 12, "digest": "5d68c9a3ca25", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6172,-5672", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 152, "digest": "ac33f98a4e73", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6173,-5715", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 35, "digest": "590ace9d13bf", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6174,-5615", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 163, "digest": "5c197d93a09d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6177,-5723", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 61, "digest": "e1041bd97b7a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6178,-5924", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 40, "digest": "62340d720dd8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6180,-5872", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 12, "digest": "50c5abbe7526", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6181,-5774", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 6, "digest": "e8739a8d7ae3", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6182,-5758", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 278, "digest": "6390c2d4e8e0", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6182,-5919", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 7, "digest": "91a2ade82b61", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6184,-5876", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 37, "digest": "d715e5630765", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6188,-5648", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 193, "digest": "df216cc03f30", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6188,-5719", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 113, "digest": "07edfd2aace4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6191,-5662", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 158, "digest": "9977ceb2027f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6191,-5920", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 6, "digest": "5684a5619293", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6193,-5853", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 198, "digest": "f81edfdb403c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6196,-5521", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 189, "digest": "b315871d4045", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6197,-5625", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 320, "digest": "09ed1c2c0cfd", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6197,-5767", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 235, "digest": "32f407e5180f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6198,-5575", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 39, "digest": "74195cc78a5a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6202,-5927", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 8, "digest": "48ec52f671d4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6203,-5807", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 39, "digest": "ddff1381175c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6206,-5505", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 38, "digest": "903c7b49ca3f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6208,-5786", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 136, "digest": "3b1bf6a8cb40", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6209,-5562", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 56, "digest": "a4eb0017dd07", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6211,-5655", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 73, "digest": "17c19bed21a7", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6213,-5571", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 68, "digest": "f15e9a5ad1bf", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6213,-5635", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 6, "digest": "85e4f3204d06", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6213,-5760", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 93, "digest": "88f5c8facf76", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6215,-5640", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 59, "digest": "18807a414bc3", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6217,-5581", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 239, "digest": "89a30fe32d00", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6217,-5706", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 9, "digest": "828f70f4291e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6220,-5875", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 6, "digest": "f289fb6cc25c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6220,-5939", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 11, "digest": "486fc24b8592", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6226,-5877", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 9, "digest": "0bb896482de0", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6227,-5857", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 38, "digest": "ea5412127726", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6229,-5687", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 48, "digest": "235c854f7760", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6230,-5575", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 151, "digest": "397b48df35c6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6233,-5760", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 83, "digest": "eeb38626de31", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6234,-5720", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 75, "digest": "179845b0c636", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6238,-5858", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 9, "digest": "c7db3ce6f9e0", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6245,-5679", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 10, "digest": "90d1661192bb", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6246,-5739", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 207, "digest": "27493658175a", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6247,-5776", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 31, "digest": "876c6097fd5f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6253,-5553", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 14, "digest": "4283a091d0a5", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6263,-5533", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 6, "digest": "33d9b8e75aa9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6265,-5527", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 55, "digest": "9bcc172453b4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6271,-5580", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 8, "digest": "dea36fe1d1d9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6271,-5906", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 7, "digest": "666644ff99a9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6272,-5524", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 14, "digest": "7379193afd82", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6272,-5579", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 51, "digest": "92364ff51a45", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6272,-5906", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 77, "digest": "6d6fb8e0d77e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6273,-5565", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 225, "digest": "c3637f3ee4ec", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6273,-5703", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 7, "digest": "5381fec8c9f3", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6273,-5845", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 6, "digest": "72d5750002b8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6274,-5836", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 8, "digest": "9b23b4208af1", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6279,-5843", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 21, "digest": "e707588dc4cb", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6280,-5837", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 35, "digest": "5356a075a776", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6281,-5831", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 165, "digest": "d950f903beef", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6283,-5618", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 112, "digest": "dc69c5156b91", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6284,-5534", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 24, "digest": "0295a13fda7d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6285,-5570", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 72, "digest": "7bec08a17fb0", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6287,-5544", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 442, "digest": "bd868d6e4fa8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6287,-5688", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 9, "digest": "1f93be7ebf84", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6289,-5524", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 28, "digest": "4c4b132796d1", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6289,-5703", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 7, "digest": "b5a9e9d99d86", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6290,-5633", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 1104, "digest": "4471206f027f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6290,-5760", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 23, "digest": "9629b7dea3e0", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6290,-5918", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 17, "digest": "770eb2af513f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6292,-5593", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 67, "digest": "226abb4de3de", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6292,-5743", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 107, "digest": "57fa2cc4e726", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6294,-5893", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 22, "digest": "7599db4a7004", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6296,-5712", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 194, "digest": "080b19394a11", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6296,-5846", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 18, "digest": "86b858dd3934", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6296,-5901", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 85, "digest": "b69acd47b76c", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6301,-5835", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 1267, "digest": "52d51efeb8b9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6305,-5572", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 195, "digest": "35b0f6d1fb1d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6308,-5782", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 104, "digest": "6a9e94e2a0bf", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6314,-5475", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 13, "digest": "9d4f0f0bd0e8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6314,-5482", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 9, "digest": "3a64e212bbb2", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6314,-5557", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 71, "digest": "3f1b37f60804", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6315,-5781", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 107, "digest": "c718b25e54f2", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6317,-5570", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 44, "digest": "a49a42de20eb", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6318,-5467", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 80, "digest": "4211b5e7c218", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6318,-5563", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 11, "digest": "bbafd61d53c7", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6319,-5479", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 262, "digest": "915384af95bb", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6319,-5699", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 73, "digest": "9ccdcdb4cf12", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6321,-5713", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 78, "digest": "0aac982f81e4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6322,-5590", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 43, "digest": "d22a12632147", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6322,-5894", "area": "highfield", "build": "highfield_grounds_nc", "date": "2026-10-12", "columns": 178, "digest": "bae04739f803", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6330,-5565", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 13, "digest": "1d1aaa5ae51e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6334,-5697", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 807, "digest": "fe17e1a90be0", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6336,-5688", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 128, "digest": "70ece83d53e6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6338,-5554", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 33, "digest": "a27764542777", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6338,-5562", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 70, "digest": "7ddff13ab416", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6343,-5509", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 449, "digest": "4854b29469cf", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6344,-5504", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 95, "digest": "fbb4d35e5892", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6355,-5546", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 330, "digest": "5f16f45d54e8", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6356,-5591", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 78, "digest": "9a446c022ea6", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6361,-5587", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 254, "digest": "7fd4b6bffe30", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6369,-5577", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 100, "digest": "0d9ee8c23284", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6380,-5598", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 7, "digest": "d7ad829737f3", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6385,-5595", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 12, "digest": "e2b4a8630b68", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6397,-5839", "area": "highfield", "build": "highfield_grounds_ne", "date": "2026-10-12", "columns": 76, "digest": "d87c9ebf32b1", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6399,-5445", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 6, "digest": "14a206c815a4", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6400,-5526", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 114, "digest": "4f8a9ffe5c9b", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6400,-5583", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 140, "digest": "c2f75fe1812d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6400,-5674", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 254, "digest": "cc05084f2b88", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6400,-5814", "area": "highfield", "build": "highfield_grounds_ne", "date": "2026-10-12", "columns": 402, "digest": "9e2a33c4c4b3", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6400,-5859", "area": "highfield", "build": "highfield_grounds_ne", "date": "2026-10-12", "columns": 528, "digest": "01ba491877cd", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6416,-5633", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 86, "digest": "83e5725b439f", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6418,-5628", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 46, "digest": "9bd7ace0c9c1", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6422,-5590", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 6, "digest": "0d79b4cc2373", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6436,-5509", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 28, "digest": "4391f31b8396", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6441,-5504", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 36, "digest": "efff6744fce1", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6442,-5521", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 13, "digest": "23c68c4833b0", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6442,-5597", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 568, "digest": "56ef948ac6f9", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6442,-5647", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 312, "digest": "45be8780f040", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6449,-5637", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 20, "digest": "74d468dc7843", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6456,-5857", "area": "highfield", "build": "highfield_grounds_ne", "date": "2026-10-12", "columns": 14, "digest": "5186d735bca7", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6459,-5633", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 9, "digest": "21131ef88f8d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6460,-5505", "area": "highfield", "build": "highfield_grounds_se", "date": "2026-10-12", "columns": 155, "digest": "f26f5be9c160", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6487,-5678", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 197, "digest": "76c78288bd02", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6491,-5688", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 16, "digest": "47e604a3665d", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6523,-5678", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 27, "digest": "e259b7221d0e", "note": "Q-047 campus grounds 9 zones"}

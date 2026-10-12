@@ -1,0 +1,89 @@
+{
+ "outside": {
+  "(6082, 57, -5790)": [
+   "minecraft:stone",
+   5,
+   "back",
+   "University Service Road West",
+   20.0
+  ],
+  "(6082, 58, -5790)": [
+   "minecraft:stone",
+   6,
+   "back",
+   "University Service Road West",
+   20.0
+  ],
+  "(6082, 59, -5790)": [
+   "minecraft:stone_brick_stairs[facing=north,half=bottom]",
+   7,
+   "back",
+   "University Service Road West",
+   20.0
+  ],
+  "(6083, 57, -5790)": [
+   "minecraft:stone",
+   5,
+   "back",
+   "University Service Road West",
+   20.9
+  ],
+  "(6083, 58, -5790)": [
+   "minecraft:stone",
+   6,
+   "back",
+   "University Service Road West",
+   20.9
+  ],
+  "(6083, 59, -5790)": [
+   "minecraft:stone_brick_stairs[facing=north,half=bottom]",
+   7,
+   "back",
+   "University Service Road West",
+   20.9
+  ],
+  "(6082, 57, -5789)": [
+   "minecraft:stone",
+   5,
+   "back",
+   "University Service Road West",
+   20.3
+  ],
+  "(6082, 58, -5789)": [
+   "minecraft:polished_andesite",
+   6,
+   "back",
+   "University Service Road West",
+   20.3
+  ],
+  "(6083, 57, -5789)": [
+   "minecraft:stone",
+   5,
+   "back",
+   "University Service Road West",
+   21.3
+  ],
+  "(6083, 58, -5789)": [
+   "minecraft:polished_andesite",
+   6,
+   "back",
+   "University Service Road West",
+   21.3
+  ],
+  "(6084, 57, -5789)": [
+   "minecraft:stone",
+   5,
+   "back",
+   "University Service Road West",
+   22.2
+  ],
+  "(6084, 58, -5789)": [
+   "minecraft:polished_andesite",
+   6,
+   "back",
+   "University Service Road West",
+   22.2
+  ]
+ },
+ "blind": []
+}

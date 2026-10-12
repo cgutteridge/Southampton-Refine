@@ -1,0 +1,19 @@
+{
+ "planned": 17983,
+ "mismatches": 2,
+ "mismatch_sample": {
+  "(7012, 35, -5585)": [
+   "minecraft:glass_pane[east=true,west=true]",
+   "minecraft:glass_pane[east=false,north=false,south=false,waterlogged=false,west=true]"
+  ],
+  "(7004, 35, -5587)": [
+   "minecraft:glass_pane[east=true,west=true]",
+   "minecraft:glass_pane[east=false,north=false,south=false,waterlogged=false,west=true]"
+  ]
+ },
+ "checked": "2026-10-12 19:51:57",
+ "fill_results": [
+  "fills_applied: 634\nblocks_changed: 1749"
+ ],
+ "entities": []
+}

@@ -1,0 +1,15 @@
+{
+  "structure": "southampton_refine:before_chamberlain_rd_8_58",
+  "from": [
+    5987,
+    42,
+    -5549
+  ],
+  "to": [
+    6180,
+    84,
+    -5394
+  ],
+  "result": "saved southampton_refine:before_chamberlain_rd_8_58",
+  "time": "2026-10-12 04:02:47"
+}

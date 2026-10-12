@@ -1,10 +1,14 @@
 {
   "world_name": "Southampton2023",
-  "save_path": "/Users/cjg/Library/Application Support/minecraft/saves/Southampton2023",
-  "region_path": "/Users/cjg/Library/Application Support/minecraft/saves/Southampton2023/dimensions/minecraft/overworld/region",
-  "map_maker_status": "/Users/cjg/Library/Application Support/minecraft/saves/Southampton2023/map-maker-status.json",
+  "save_path": "/Users/cjg/Projects/Southampton Refine/instance/saves/Southampton2023",
+  "region_path": "/Users/cjg/Projects/Southampton Refine/instance/saves/Southampton2023/dimensions/minecraft/overworld/region",
+  "map_maker_status": "/Users/cjg/Projects/Southampton Refine/instance/saves/Southampton2023/map-maker-status.json",
   "geocraft_status_copy": "/Users/cjg/Projects/geocraft/saves/Southampton2023/map-maker-status.json",
   "structure_namespace": "southampton_refine",
   "player_uuid": "f89f7477-c4ee-4997-a8ee-be75b4d8b75a",
-  "notes": "save_path is the live Geocraft world (geocraft/saves is a symlink into Application Support). Offsets are mirrored in config/map-maker-offsets.json without POINTS/REGIONS."
+  "instance_path": "/Users/cjg/Projects/Southampton Refine/instance",
+  "launcher_profile": "Southampton Refine",
+  "notes": "World unpacked from Downloads/Southampton2023.zip into this project's Fabric instance (MCP + Fabric API same versions as Minecraft Magic). Classic Anvil layout (region/ at world root). After first open in MC 26.2 the game may migrate regions under dimensions/minecraft/overworld/region \u2014 if readback breaks, update region_path here. Updated 11 Oct 2026: regions migrated to dimensions/minecraft/overworld/region after MC 26.2 open.",
+  "pristine_region_path": "/Users/cjg/Projects/geocraft/saves/Southampton2023/dimensions/minecraft/overworld/region",
+  "pristine_note": "Untouched Geocraft output (read-only). Ground reference for the footprint guard; never write here."
 }

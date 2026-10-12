@@ -1,16 +1,21 @@
 SOUTHAMPTON REFINE — QUEUE
 Mark [x] when done. One open item per chat. Newest work at the top of
 the open list; keep setup items until the world is editable.
+Done items: site/archive/QUEUE-done.txt (moved by scripts/site_archive.py).
 
-[ ] Q-001  SETUP: open Southampton2023 under Fabric MCP; verify
-           scripts/mcp.py tools/list on :8765 and client_status on :8766;
-           confirm player UUID; document instance path in site/NOTES.txt.
-[ ] Q-002  SURVEY: stand at Civic Centre seed (osgb 441900 112100); record
-           real ground Y, photograph in-game vs reference; update PLACES.txt.
-[ ] Q-003  PROOF: tiny kit build (one corrected detail near Civic or a
-           decided place) through plan → preview → apply → readback →
-           views; prove the pipeline end to end.
+[ ] Q-048  CELL 48,-44 (r=0) REVIEW + PLAN. No world apply unless user asks.
+           Review: coverage.py status --cell 48,-44 --list; gaps --area highfield;
+           map --area highfield. Reconcile LEGACY campus done-bar vs parcel rollup.
+           Write ACTIVE CELL 48,-44 todos in site/TODO.txt (roads, gaps, Geocraft
+           stragglers, character hooks; straddle OK). Queue follow-ups below.
+           See site/PROCESS.txt §2e and site/COVERAGE.txt IN FLIGHT.
+
+[ ] Q-049  CELL 48,-44 marker RAISE. scripts/cell_marker.py --raise 48,-44
+           (black/yellow wool perimeter ~30 m up; skips built_cells conflicts).
+           After Q-048 todos exist; before build todos on this cell.
+
+[ ] Q-050  CELL 48,-44 gaps + open parcels (batch). First build todo from Q-048
+           ACTIVE CELL list — sign off gap/no_osm and open parcels blocking
+           cell 100%; minimal Geocraft clears only. Good-enough bar.
 
 BACKLOG (do not block setup)
-[ ] Q-010  BACKLOG: pick first real façade refinement from photo evidence
-[ ] Q-011  BACKLOG: aerial check of Old Town wall line vs LIDAR footprint

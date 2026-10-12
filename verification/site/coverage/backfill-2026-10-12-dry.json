@@ -1,0 +1,62 @@
+{
+ "signed": [
+  [
+   "prop:w177978873",
+   "broadlands_rd_2_12"
+  ],
+  [
+   "prop:w177978877",
+   "broadlands_rd_2_12"
+  ]
+ ],
+ "already": [
+  "prop:w177978846",
+  "prop:w177978849",
+  "prop:w177978855",
+  "prop:w177978859",
+  "prop:w177978864",
+  "prop:w177978867",
+  "prop:w177978869",
+  "prop:w177978871",
+  "prop:w177978876",
+  "prop:w177978878",
+  "prop:w177978885",
+  "prop:w177978886",
+  "prop:w177978895",
+  "prop:w177978907",
+  "prop:w177978912",
+  "prop:w177978915",
+  "prop:w177978916"
+ ],
+ "short": [
+  [
+   "prop:w177978852",
+   "property",
+   12,
+   614,
+   "Portswood Road 655"
+  ],
+  [
+   "prop:w177978883",
+   "property",
+   309,
+   317,
+   "Broadlands Road 2"
+  ],
+  [
+   "road:Broadlands Road@55,-44",
+   "road",
+   995,
+   1341,
+   "Broadlands Road"
+  ],
+  [
+   "path:w116387635@55,-44",
+   "path",
+   53,
+   225,
+   "highway=service w116387635"
+  ]
+ ],
+ "refused": []
+}

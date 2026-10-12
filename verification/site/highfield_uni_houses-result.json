@@ -1,0 +1,160 @@
+{
+ "verify": {
+  "readback": {
+   "planned": 374913,
+   "mismatches": 28762,
+   "checked": "2026-10-12 02:33:34"
+  },
+  "footprint": [],
+  "walks": [
+   [
+    "door 6093,52,-5457 south",
+    false
+   ],
+   [
+    "door 6003,54,-5522 south",
+    false
+   ],
+   [
+    "door 6076,52,-5469 south",
+    false
+   ],
+   [
+    "door 6051,53,-5487 south",
+    false
+   ],
+   [
+    "door 6024,53,-5507 south",
+    false
+   ],
+   [
+    "door 6132,51,-5429 south",
+    false
+   ],
+   [
+    "door 6054,53,-5485 south",
+    false
+   ],
+   [
+    "door 6009,54,-5518 south",
+    false
+   ],
+   [
+    "door 6154,50,-5409 south",
+    false
+   ],
+   [
+    "door 5995,54,-5528 south",
+    false
+   ],
+   [
+    "door 6043,53,-5493 south",
+    false
+   ],
+   [
+    "door 6062,53,-5479 south",
+    false
+   ],
+   [
+    "door 6111,52,-5444 south",
+    false
+   ],
+   [
+    "door 6020,53,-5510 south",
+    false
+   ],
+   [
+    "door 6129,51,-5431 south",
+    false
+   ],
+   [
+    "door 6147,51,-5414 south",
+    false
+   ],
+   [
+    "door 6039,53,-5496 south",
+    false
+   ],
+   [
+    "door 6100,52,-5452 south",
+    false
+   ],
+   [
+    "door 6143,51,-5419 south",
+    false
+   ],
+   [
+    "door 6012,54,-5516 south",
+    false
+   ],
+   [
+    "door 6122,52,-5436 south",
+    false
+   ],
+   [
+    "door 6105,52,-5448 south",
+    false
+   ],
+   [
+    "door 6073,52,-5471 south",
+    false
+   ],
+   [
+    "door 6118,52,-5439 south",
+    false
+   ],
+   [
+    "door 6066,53,-5476 south",
+    false
+   ],
+   [
+    "door 6139,51,-5422 south",
+    false
+   ],
+   [
+    "door 6439,47,-5420 east",
+    false
+   ],
+   [
+    "door 6444,49,-5475 east",
+    false
+   ],
+   [
+    "door 6439,48,-5447 east",
+    false
+   ],
+   [
+    "door 6441,49,-5458 east",
+    false
+   ],
+   [
+    "door 6439,48,-5440 north",
+    false
+   ],
+   [
+    "door 6442,49,-5467 east",
+    false
+   ],
+   [
+    "door 6439,47,-5428 east",
+    false
+   ],
+   [
+    "door 6443,49,-5483 east",
+    false
+   ],
+   [
+    "door 6332,54,-5439 west",
+    false
+   ],
+   [
+    "door 6334,53,-5430 west",
+    false
+   ],
+   [
+    "door 6453,55,-5848 east",
+    false
+   ]
+  ]
+ }
+}

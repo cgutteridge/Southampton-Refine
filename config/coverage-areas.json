@@ -1,0 +1,12 @@
+{
+  "areas": {
+    "broadlands": {
+      "cells": [54, -45, 56, -43],
+      "note": "Frozen partial from Q-004..Q-046; no dedicated queue — finish when radial ring reaches these cells"
+    },
+    "highfield": {
+      "cells": [46, -46, 50, -42],
+      "note": "Campus radial origin 48,-44 (UNI); ring 0–2 bbox; extend with coverage.py build as rings grow"
+    }
+  }
+}

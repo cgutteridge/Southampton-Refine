@@ -8,11 +8,27 @@ Bounds (MC): X……..…… Z……..……
 EVIDENCE
 - Photos: reference/photos/…
 - Aerial: reference/aerial/…
+- Manifest ids (useful=yes): …
 - Other: survey / OSM / planning docs …
+(Do not list every discarded fetch — see reference/manifest.jsonl.)
+
+SCOPE
+Whole properties: house on all sides + roof + floors/stair (no rooms or
+furniture) + front garden + back garden layout from aerial. Public-building
+interiors only if interior refs are listed here.
+Hint refs allowed: nearby same-typology exteriors if exact house photos
+are missing (label as hint in manifest / notes; LIDAR footprint wins).
+
+STREET (from scripts/osm_footprints.py frontage)
+Real street name(s) + house numbers; front-wall setback from centreline;
+front garden depth; boundary type from photo.
 
 GOAL
-What accuracy problem are we fixing? (footprint, height, façade, roof,
-street furniture, water edge, …)
+What accuracy problem are we fixing? (footprint, height, elevations, roof,
+plots/gardens,
+road width/kerbs, street furniture, water edge, …)
+Geocraft prior: trust plan shape + road route + LIDAR Y; distrust road
+width and stock materials — see site/GEOCRAFT.txt.
 
 PROTECTED
 What must not be damaged (rail lines, water, adjacent correct builds)?
@@ -22,12 +38,21 @@ PHASES
 2. Plan kit build (offline) with explicit air for excavation.
 3. Preview → apply → readback → walk → views → records.
 
-ACCEPTANCE
-- Footprint within ~1 block of evidence.
-- Storey count / eaves height matches photo or survey.
-- Openings and materials read correctly from street level.
-- Readback mismatches = 0 (or explained).
-- Contact sheet reviewed; issues logged.
+ACCEPTANCE (default done-bar — escalate only if listed below)
+- Footprint within ~1 block of evidence (aerial + LIDAR).
+- House fronts on the OSM footprint line (osm_footprints.py check OK);
+  front garden depth + boundary type match the photo.
+- Client view from the reference photo camera beside the photo; 3 written
+  matches/mismatches.
+- Storey count / eaves band vs neighbours (photos); Y massing from LIDAR.
+- Main openings and materials readable from the public street.
+- Every property: all elevations, roof form, floors + stair, front and back
+  garden layout (plots from osm_footprints.py plots, fences from aerial).
+- No rooms/furniture in private houses; public interiors only if listed.
+- Readback mismatches = 0 (or explained); region snap if wide edit.
+- Manifest Evidence updated; TOKEN NOTES on handoff.
+- Out of scope unless named here: chimney pots/aerials, garden furniture,
+  planting detail, rooms/furniture.
 
 CHANGE LOG
 - 

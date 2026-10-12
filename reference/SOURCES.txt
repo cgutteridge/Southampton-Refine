@@ -1,0 +1,179 @@
+REFERENCE IMAGE SOURCES — Southampton
+Updated: 11 Oct 2026
+
+Priority when sources disagree (also in README.txt):
+  1. measured survey / LIDAR footprint
+  2. dated photography (prefer modern, note capture date)
+  3. OSM / generalised maps
+
+Geocraft already baked (1)+(3) into Southampton2023 — trust plan shapes
+and road routes; distrust fixed road widths and placeholder materials.
+See site/GEOCRAFT.txt.
+
+------------------------------------------------------------------------
+A. University of Southampton aerial tiles (local, convenient)
+------------------------------------------------------------------------
+Base:  https://tiles.maps.southampton.ac.uk/aer/{z}/{x}/{y}.png
+Viewer: https://maps.southampton.ac.uk/
+Example (z19): https://tiles.maps.southampton.ac.uk/aer/19/260108/175669.png
+
+IMPORTANT — zoom levels are NOT the same dataset scaled up:
+
+  Zoom ≤18   Hampshire Hub orthophoto (same family as the Hampshire Data
+             Portal 25cm aerial). City-wide working layer for footprint /
+             roof reading. Open Government Licence (OGL) — same terms as
+             http://hampshire.geodata.soton.ac.uk/
+
+  Zoom 19    Channel Coastal Observatory (CCO) tiles.
+             Higher resolution, but:
+               - thinner geographic coverage
+               - more oblique / angled (especially over the river)
+             Prefer for dockside / waterfront detail where coverage exists;
+             do not assume z19 is “just sharper z18”.
+             Licence: confirm CCO / maps.southampton.ac.uk attribution
+             before redistributing z19 tiles.
+
+Tile scheme appears to be standard web-mercator XYZ (confirm against a
+known OSGB point before relying on x/y maths). Hotlink / Referer rules may
+apply; fetch from a browser session or with an appropriate Referer if
+scripting downloads.
+
+For scripted crops: prefer z18 (Hampshire Hub / OGL) for general work;
+use z19 only where the extra CCO detail is worth the angle/coverage trade-off.
+
+Stitch mosaics (one image per place, not a pile of tiles):
+  python3 scripts/aerial_mosaic.py --wm 18/x/y --place ID --dir aerial/<slug> [--add]
+  python3 scripts/aerial_mosaic.py --at X,Z --zoom 18 --place ID --dir aerial/<slug>
+
+------------------------------------------------------------------------
+B. Open / national aerial
+------------------------------------------------------------------------
+Hampshire Data Portal / Hampshire Hub (OGL, 25cm + IR)
+  http://hampshire.geodata.soton.ac.uk/
+  Also served as Uni map z≤18 aerial tiles (see section A).
+
+APGB / Bluesky (PSGA member — Uni may already have access)
+  https://apgb.blueskymapshop.com/maps
+
+Channel Coastal Observatory (coast / Southampton Water)
+  https://data.channelcoast.org/cco/
+  (same family as the z19 layer above)
+
+------------------------------------------------------------------------
+C. Ground / street façades
+------------------------------------------------------------------------
+Geograph Britain & Ireland (CC BY-SA, OS grid keyed)
+  https://www.geograph.org.uk/
+  Dense around Civic / Old Town (e.g. SU4112, SU4111).
+  Agent can fetch pages / keep attributed crops for local reference.
+
+Mapillary (street sequences; Graph API + tiles)
+  https://www.mapillary.com/
+  https://www.mapillary.com/developer
+  Needs a free access token (none in this project yet). With a token the
+  agent can list images by bbox and download for attributed local use.
+  Best programmatic street-level option.
+
+KartaView (ex-OpenStreetCam) — similar open crowdsourced street imagery
+  https://kartaview.org/
+  API (no project token needed): https://api.openstreetcam.org/2.0/photo/
+    ?lat=&lng=&radius=&join=sequence
+  Q-002 (11 Oct 2026): good coverage on Portswood × Broadlands and
+  Grosvenor/Kitchener approaches — used as primary durable façades.
+
+Own phone photos — best for “exact façade today”.
+
+Rightmove sold prices / listings (per postcode)
+  Example: https://www.rightmove.co.uk/house-prices/so17-3sf.html
+  (~44 sold records for SO17 3SF — Kitchener Rd, Grosvenor Rd, etc.)
+  Use: exterior / street-facing listing photos and rough address pins for
+  façade materials, bay windows, storey count.
+  Do NOT use: interior galleries, floorplans, or garden shots as modelling
+  targets (private interiors rule — LOGGING.txt §6).
+  Licence: commercial site; look in-browser for reference. Do not bulk-
+  scrape or commit listing images to the public repo without checking
+  Rightmove terms. Prefer own photos or Geograph/Mapillary for anything
+  we keep on disk long-term. Manifest source tag: rightmove.
+
+Zoopla / OnTheMarket — same pattern (exteriors only; look-don't-hoard).
+
+Google Street View
+  Browser: agent can open Maps / Street View and look (cookie consent).
+  API: Street View Static API needs Google Cloud billing + API key; ToS
+  generally forbid caching/storing imagery (look / ephemeral use only).
+  No Google Maps key in this environment today.
+  Verdict: fine for interactive inspection; poor as a project archive.
+
+Bing Streetside — similar commercial look-only constraints.
+
+------------------------------------------------------------------------
+D. Historic aerial / change
+------------------------------------------------------------------------
+Historic England Aerial Photo Explorer
+Britain from Above — https://britainfromabove.org.uk/  (frames carry E/N)
+NLS OS air mosaics 1944–50 — Southampton at 1:1,250
+  https://maps.nls.uk/os/air-photos/
+Cambridge University Collection — southampton area list
+  https://www.cambridgeairphotos.com/areas/southampton/
+
+------------------------------------------------------------------------
+E. OpenStreetMap extracts (third check after LIDAR + photos)
+------------------------------------------------------------------------
+Geofabrik Hampshire .osm.pbf (~59 MB, ODbL) — local under downloads/
+  https://download.geofabrik.de/europe/united-kingdom/england/hampshire-latest.osm.pbf
+  (Geofabrik moved UK extracts under united-kingdom/; old great-britain/
+  england/ paths 404.)
+
+Place-scoped clips (GeoJSON, no tile tree):
+  python3 scripts/osm_extract.py --at 7097,-5521 --radius-m 200 \
+      --layers buildings --place PORTSWOOD_X_BROADLANDS --add
+  python3 scripts/osm_extract.py --at 7097,-5521 --cell \
+      --layers buildings,highways --place PORTSWOOD_X_BROADLANDS
+
+Writes reference/osm/<place>/…geojson + optional manifest (kind=map,
+source=geofabrik-hampshire). Backend: ogr2ogr OSM driver. Presets:
+buildings, highways, railway, waterway, water, landuse, amenity, shops.
+
+------------------------------------------------------------------------
+G. Tree Preservation Orders (protected trees only)
+------------------------------------------------------------------------
+Council page (look-up UI, not authoritative geometry):
+  https://www.southampton.gov.uk/environment/trees-grass-hedges/protected/tpo-map/
+
+Reverse-engineered (Oct 2026): that page embeds ArcGIS Experience
+  https://experience.arcgis.com/experience/c0ad4ce95f8e46cfb28bb8cb126eaec0
+  owned by Wigan Borough Council (layers under services.arcgis.com/Uk58AEewwvNNTAX2).
+  Do not use that map for Southampton coordinates — use the feeds below.
+
+Authoritative Southampton feeds (planning.data.gov.uk register):
+  Trees (points): WFS Data:TPOS_TREES_DATA_EXT
+  TPO zones:      WFS Data:TPOS_DATA_EXT
+  Base URL pattern:
+    https://www.southampton.gov.uk/geoserver/Data/ows?service=WFS&version=1.0.0
+    &request=GetFeature&typeName=Data%3ATPOS_TREES_DATA_EXT&outputFormat=csv
+    &srsName=EPSG:4326
+  GeoServer may return Incapsula HTML to datacentre IPs; bulk CSV works without that.
+
+National mirror (OGL, filter organisation-entity 318 = Southampton):
+  https://files.planning.data.gov.uk/dataset/tree.csv
+  ~4494 tree points; tree-species column is empty for Southampton as of Oct 2026.
+  Species live in TPO PDF schedules (modernGov) or may appear in local WFS columns —
+  track overrides in reference/tpo/species-overrides.jsonl.
+
+Project tool:
+  python3 scripts/tpo_fetch.py --warm-cache          # once: download + index
+  python3 scripts/tpo_fetch.py --at X,Z --radius-m 250 --place ID
+  python3 scripts/tpo_fetch.py --bbox-mc x0,z0,x1,z1 --out reference/tpo/….geojson
+  Local cache (gitignored): reference/tpo/cache/planning-tree.csv +
+  southampton-trees.jsonl (~4.5k rows, fast bbox queries). Refresh weekly or
+  --refresh-cache after planning.data updates.
+
+Geocraft builds: TPO trees are legally protected individuals, not every garden
+tree. Placement for ordinary plots still comes from aerial; use TPO data to avoid
+removing protected trees and to label species when known.
+
+------------------------------------------------------------------------
+F. Already in Geocraft stack
+------------------------------------------------------------------------
+UKDEFRA LIDAR via Geocraft Southampton2023 — height / massing authority.
+Photos resolve façades, openings, materials, and disputed outlines.

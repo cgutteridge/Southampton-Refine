@@ -1,0 +1,37 @@
+SOUTHAMPTON REFINE — MINECRAFT INSTANCE
+Created: 11 Oct 2026
+
+LOCATION
+  Project gameDir:  instance/   (gitignored)
+  World:            instance/saves/Southampton2023/
+  Source zip:       /Users/cjg/Downloads/Southampton2023.zip (copied in)
+
+STACK (mirrors Minecraft Magic)
+  Minecraft 26.2 + Fabric Loader 0.19.3
+  fabric-api-0.155.2+26.2.jar
+  minecraft-fabric-mcp-1.1.0+26.2.jar
+  MCP world :8765 (write)  view :8766 (read)
+  Config: instance/config/minecraft_fabric_mcp/
+
+LAUNCH
+  Minecraft Launcher → profile **Southampton Refine**
+  (gameDir points at this project's instance/)
+  Open world Southampton2023. Then F3+P / reload MCP clients if needed.
+
+REGION PATH
+  Migrated after MC 26.2 open (11 Oct 2026):
+  instance/saves/Southampton2023/dimensions/minecraft/overworld/region
+  (415 .mca). config/world.json region_path updated.
+
+BACKUPS
+  Whole-world clones waste disk. Prefer:
+    - kit structure backups (automatic on apply)
+    - sparse region snaps: scripts/region_backup.py snap --bbox … --name …
+      → backups/regions/ (gitignored); prune --keep 5
+    - cold zip: Downloads/Southampton2023.zip (already have)
+  See PROCESS.txt §2a.
+
+NOTES
+  instance/ is gitignored (large). Do not commit region files.
+  Application Support geocraft copy remains a separate live save; this
+  project instance is the working copy for Refine.

@@ -1,8 +1,236 @@
 SOUTHAMPTON REFINE — REVIEWS
 One dated line per review; details in ISSUES or place briefs.
+Older reviews: site/archive/REVIEWS-archive.txt (scripts/site_archive.py).
 
 ------------------------------------------------------------------------
 
-2026-10-11  Project bootstrap. No world edits. Kit + process ported from
-            Minecraft Magic town tooling; accuracy-only rules; OSGB offsets
-            from Southampton2023 map-maker-status.json.
+2026-10-12  Ad-hoc: Staff Club B38 courtyard pond (~6226,-5685). build_staff_club_pond_fix:
+            levelled east shelf (y55 water), polished diorite rim beside white paving; 74 cells,
+            readback 0. Views: verification/site/views/staff-club-pond-{player,after}.png.
+
+2026-10-12  Q-035 done: Highfield campus C9 — Maths B54 tower (+ core 187918193), Murray B58,
+            Turner Sims B52, Health Service B48, Maths Sciences B56, Stats B39, small blocks
+            (Claude). Build highfield_maths_murray.
+            EVIDENCE: Commons 114890282 (grey concrete tower, blank end = B54), 134990247
+            (Murray: grey concrete, dark ribbon windows), 7578708 (Turner Sims: faceted grey
+            metal pitched roof), 144943022 (2019: John Hansard Gallery site demolished —
+            LIDAR already ground, nothing to clear). Turner Sims roof = pitched_part on the
+            LIDAR surface in deepslate tiles (campus.SLATE).
+            readback 181795: 2 benign (settled water at the brook); footprint OK; all doors
+            REACHABLE (Murray + B39 doors re-anchored: B39 W side is the brook; rooftop
+            plant 305968656 at base 62 gets no door).
+            Matches: (1) Turner Sims camera: low brick hall under a dark faceted roof,
+            grey Maths tower + Murray beyond; (2) top: tower, Murray courtyards, brook kept
+            in its channel; (3) Maths tower plain grey with the core (was a Geocraft brick
+            sliver).
+            Mismatches: (1) Turner Sims spire-like flue not modelled; (2) Maths tower blank
+            end wall has windows (kit glazes every single-faced wall); (3) Health Service
+            roof flat (no tile detected).
+
+2026-10-12  Q-036 done: Highfield campus C10 — university-owned houses as whole properties
+            (Claude): chamberlain_rd_8_58 (26 houses), hartley_ave_17_31 (8),
+            university_rd_26_28 (H&S Office 26, Counselling 28). Script
+            build_highfield_uni_houses.py (HOUSES=<group>; one build per street — one backup
+            box for all 37 timed out structure_save_from_world, nothing was changed).
+            EVIDENCE: kartaview-1381543297 (Chamberlain Rd looking SE: cream-rendered 2-storey
+            houses, white bays, mock-Tudor gables, slate roofs, closeboard fences at the
+            pavement). Hartley Ave / University Rd: no photo, brick as hint. Roof colour per
+            house from the aerial (16 red tile → granite, rest slate); roof = LIDAR surface
+            above eaves forced to ground+6 (two storeys, floors ground/+3, one stair each).
+            Gardens on osm_footprints.py plots (--reach 20): lawn, path from the door,
+            2-high spruce fences on plot edges with the path as the gate gap; trees kept.
+            readback: grass→dirt only (31 / 2 / 4); footprint OK x3; 36 doors REACHABLE
+            (1 with a natural jump); views/q036-contact.png.
+            Matches: (1) photo camera: rendered houses behind timber fences along the left
+            pavement; (2) backs: fenced strip gardens per plot; (3) top: slate/tile roofs
+            per the aerial colours.
+            Mismatches: (1) no two-storey bays / mock-Tudor gables / arched porches;
+            (2) white_terracotta reads pinker than the cream render; (3) some roofs flat-
+            topped where LIDAR ridge is under eaves+2.
+            NOT built: 159868612 (uni ref 1630) = 185 Broadlands Road — Broadlands builds
+            are paused by the user; recorded in NOTES "Broadlands improvements".
+
+2026-10-12  Q-037 done: Highfield campus grounds + FULL PLACE REVIEW (Claude).
+            Inventory (campus polygon, OSM way 1170405958): every OSM building is built
+            except 18 small ways left on purpose (building=roof canopies, no LIDAR height,
+            cars on the aerial, 185 Broadlands Rd paused). Tall non-OSM Geocraft masses:
+            the rest of the demolished Faraday complex cleared (highfield_faraday_site,
+            843 columns, coarse_dirt site on the pristine slope 44-49; photo 171521042);
+            B/C/D masses kept → I-026.
+            Grounds: Geocraft paths/roads/lawns/trees kept (good-enough §2d); building
+            envelopes level only ±2 and never cut natural ground or water (kit rules from
+            Q-029); house gardens built per plot (Q-036).
+            CHECKLIST: Integrity — patrol sweep: 0 campus hits after fixing one Chamberlain
+            door lip (path over the door step; gardens now leave the approach alone);
+            audit drift only known/benign (B37 detectors, water settle, grass→dirt).
+            Footprint — osm_footprints check OK on every campus build. Height — LIDAR bands
+            / surfaces throughout. Openings — door per building, all REACHABLE (a few with
+            a natural 1-block jump). Roof — flat by LIDAR band, pitched/saw-tooth/barrel
+            where the aerial or photos show them. Materials — per photo (Commons/KartaView)
+            or brick hint, listed per cluster. Access — truly dark walkable cells (no block
+            or sky light): ≤0.1% in every build (houses got one invisible light per storey).
+            Privacy — houses floors + one stair only. Records — PLACES/QUEUE/COVERAGE/
+            NOTES/manifest updated. Backups — kit backups for every build + region snaps.
+            Evidence views: views/q027..q037-contact.png (+ q027/q028 evidence sheets).
+TOKEN NOTES (campus run Q-027..Q-037)
+- Per cluster: campus_survey.py (one Read) + commons_fetch list/get + one photo sheet,
+  then lidar_parts/auto_parts; ~40-60K tokens per cluster when nothing goes wrong.
+- Most tokens went on kit bugs found live: waterlogged≠water, envelope cutting banks,
+  verify walk starts. Test new kit rules on one cluster's dry-run plan first.
+- Door anchors at building centroids land in courtyards / by brooks ~1 in 8: check the
+  walk list before records, re-anchor by hand.
+2026-10-12  Q-039 done: Highfield campus relight finished (Claude). Re-applied with
+            relight_diff.py: highfield_library_b34_b18, _nuffield_law, _mountbatten,
+            _shackleton_physics, _maths_murray, chamberlain_rd_8_58, hartley_ave_17_31,
+            university_rd_26_28 (with the 8 from earlier: all 16 relit builds).
+            Checks: sea_lantern 0 in all 16 -cells.json; readback mismatches only the known
+            benign ones (Shackleton courtyard pond 25, Maths brook 2, grass->dirt 1 each at
+            Chamberlain/Hartley). Top view views/q028-top-lib.png: library/Nuffield flat
+            decks plain grey with parapets, no lamp dots.
+TOKEN NOTES (Q-039)
+- Cheap run (~1 build loop). Only waste: two 3-min screenshot retries against an
+  unraised view-MCP limit (I-028). On a 429 from 8766, check client.json first.
+2026-10-12  Q-038 done: parcel coverage tracker scripts/coverage.py (Claude). Tooling
+            only, no world edits. Areas (config/coverage-areas.json): broadlands = cells
+            54..56 x -45..-43 (390 parcels), highfield = 46..51 x -47..-43 (1515).
+            Parcels from OSM + the PRISTINE save (stable while the live world changes):
+            footprints > highway corridors at Geocraft half-widths > open polygons >
+            gardens (osm_footprints.grow_plots, refactored out of plots(); output
+            identical) > street-surface fringe <=3 > residual gaps. First pass had 692
+            Broadlands gaps, 99.6% of their columns stock road surface past the fixed
+            corridors -> fringe rule; 1-5 column slivers join their longest-edge
+            neighbour (still count against its 100%). Left: 9 Broadlands / 330 campus
+            named gaps + 16 no_osm parcels on area edges. Backfill over 35 non-reverted builds
+            (I-009 façades excluded): 73 signed (24 Broadlands houses, 49 campus
+            parcels), 388 short of 100% (most campus buildings 97-99%: OSM footprint
+            edge columns the squared walls missed), 4 refused for carpet (I-030).
+            No cell is done; 55,-44 is 26.6% done / 37.5% touched. Campus grounds read
+            untouched — correct, Q-037 kept Geocraft paths/lawns (dry runs only).
+            Found I-029 (World.ground treats stairs as air). 15 unit tests
+            (scripts/test_coverage.py). PROCESS §2c, NOTES 10, radial rule updated.
+TOKEN NOTES (Q-038)
+- Waste: one pass building parcels before checking what the residual was made of;
+  a 1-query surface census of small gaps would have found the fringe rule first.
+- Pristine/live region reads are fast (2k columns in 0.1 s) — no need to cache surfaces.
+- Next: run `coverage.py status --cell tx,tz --list` before planning a build; it
+  replaces reading COVERAGE history by hand.
+2026-10-12  Q-045 done: ring-1 rear lanes, driveways and car-park aisles round the
+            Broadlands focus (Claude). Build broadlands_ring1_lanes (5,948 cells), 25 path
+            parcels signed at 100% (cells 54..56, -45..-43; all ring-1 service/path ways
+            except the Q-044 lane). Only 4 ways are service=alley: surface follows the OSM
+            tag (user): driveways / parking_aisle / asphalt -> gray_concrete whole parcel, no
+            kerb; w116387635 alley asphalt 2 m + verge; w176648868/867 §3a gravel mix + verge;
+            footpath w140004021 dirt mix + grass. Readback 0; footprint check OK; signoff
+            dry-run clean then signed. Seams 161/1,424 cols -> 87/322 (rest: road, gap, prop,
+            no_osm parcels -> Q-046). Snap backups/regions/2026-10-12-192004-Q-045.
+            Kept on purpose: 43 one-column wall rows of unrebuilt Geocraft buildings rasterised
+            into the lanes (brick kept, carpet fringe removed — clearing would hole them).
+            Walks: Sirdar alley REACHABLE (127); w178001289 and w176441832 only with 1-block
+            jumps, same as pristine (I-033).
+            Evidence: aerial mosaic-z18-5x5-centre-130063-87835 + overlay
+            verification/site/q045/aerial-lanes.png beside views/q045contact.png.
+            Matches: (1) driveway branches off Harrison Rd to the flats sit on the grey paved
+            strips of the aerial; (2) the asphalt loop behind Portswood Rd follows the paved
+            service road round the block by the railway; (3) the Sirdar Rd alley is a narrow
+            strip behind gardens, as the aerial. Mismatches: (1) the flats' and store's car
+            parks beside the driveways are still Geocraft ground (gap/open parcels, not lanes);
+            (2) widths are Geocraft's service band, not measured; (3) no photo-camera views
+            (roads, CRAFTSMANSHIP §3a).
+TOKEN NOTES (Q-045)
+- "Swap parcel ids" was not enough: 16 of 20 ways were driveways / car-park aisles; check
+  OSM service=/surface= tags (1 query) before applying the alley rule. Now in §3a.
+- The portswood 3x3 mosaic does not reach Harrison Rd or east of X7211; the new 5x5
+  (bbox_mc 6823,-5836..7310,-5351) covers ring 1 — use it for ring-1 work.
+- site_walk.py default box is elsewhere (Highfield): always pass a box.
+
+2026-10-12  Q-044 done: Broadlands Road streetscape + rear lane w156591073 (Claude).
+            Build broadlands_rd_streetscape (8,840 cells, re-applied once same name to
+            re-solidify the bed under old r0/q013/q013b trims). Readback 0; footprint
+            check OK; walks west end → Portswood junction (371 steps) and along the lane
+            REACHABLE. All 8 parcels signed at 100%. Palette (user): gray_concrete road,
+            light_gray_concrete pavements, flush smooth_stone kerbs, gravel-mix lane with
+            grass verges. Region snap backups/regions/2026-10-12-184115-Q-044.
+            Matches: (1) ~14-row boundary-to-boundary corridor = aerial ~13 m; (2) dropped
+            kerbs at alley w116387635 and driveway w177807843 mouths; (3) lane ~3 m worn
+            strip, as the aerial's brown track. Mismatches: (1) lane verge mostly on the
+            south side (OSM line sits north of Geocraft's band); (2) carriageway width is
+            Geocraft's, not re-measured; (3) no photo-camera views (user: roads are boring).
+            Rules of thumb for every future street: CRAFTSMANSHIP.txt §3a.
+TOKEN NOTES (Q-044)
+- Waste: three aerial crops + colour profiles + ownership censuses for a road that
+  needed none of them. User: "crazy effort — rules of thumb that look ok".
+- Next street: copy the script, swap parcel ids, dry-run, apply, signoff. No survey.
+- built_cells(exclude=modifies) drops an excluded build's air writes too: reverted
+  I-009 façades re-appear as owners unless they are in modifies as well.
+
+2026-10-12  Q-041 done: Broadlands Road nos 2–36 back gardens follow the plot
+            angle. terrace.py party lines snap to a block stair; this row is
+            1:3 east of north (BROADLANDS_N_SLOPE). Houses stayed squared.
+            Re-applied broadlands_rd_2_12 (gore east of no. 2), _14_24, _26_36,
+            passage_24_26. osm_footprints check OK. Walks door→first floor and
+            door→back garden OK for all 18. Readback: fence connection booleans
+            (game auto-connect) and grass→dirt — same benign class as before.
+            Broadlands Road 44 had lapsed to 413/431 when the shear dropped 18
+            columns west of no. 36; those stay lawn in the 26–36 plan and the
+            parcel is 100% again (431/431), sign-off kept.
+            Matches: (1) party fences step 1 east / 3 north, same sense as the
+            aerial and the OSM edges (~22°, snapped to 18.4°); (2) fronts, bays
+            and 45° slate roofs unchanged; (3) no. 2's triangle between the rear
+            lane and the lane to Portswood is garden, and that parcel is 100%.
+            Mismatches: (1) at the far end of a ~29-row garden, 1:3 sits about
+            3 blocks west of a true 22° line; (2) the 24|26 and 14|12 passages
+            widen to 2–4 columns at the lane; (3) 40–46, 48–54 and 56–62 are
+            still axis-aligned (I-016).
+            Evidence: verification/site/views/q041-evidence.png (aerial + tops
+            + rear). Do not re-Read it.
+            Follow-up (user, 16:10): stepped fence runs only touched at a corner,
+            so they never joined. _on_fence_line now adds one join post per step,
+            inside the house's own plot (runs overlap by one: 4,4,…). Re-applied
+            2_12 / 14_24 / 26_36: no clashes; readback only grass→dirt (the fence
+            auto-connect diffs are gone); geocraft check 0. Rear view:
+            views/q041-join-contact.png.
+TOKEN NOTES (Q-041)
+- One aerial annot of the whole row plus an OSM bearing was enough to pick 1:3.
+  Next time read only the evidence contact sheet, not the previews as well.
+- Do not re-Read verification/site/views/q041-evidence.png.
+- The 18-column lapse was a generator skip on rows the shear never reaches;
+  check a signed neighbour parcel after a garden rebuild before handoff.
+
+2026-10-12  Q-040 done: Broadlands Road coverage close-out on the built terraces (Claude).
+            I-030 carpet (Broadlands part) cleared in the owning builds, re-applied
+            under the same names: broadlands_rd_56_62 (one column 7018,-5572 under 54's
+            rear eave: #56's Geocraft bricks/carpet → ground; new self.cap rule) and
+            broadlands_rd_48_54 (wedge() now cell-by-cell over every column 40_46's owner
+            rule leaves to #48, keeping only 40_46's own wall/eave cells: 238 cells,
+            15 cols of #48's raster fringe that 40_46 had re-written from its snap).
+            48_54 also picked up Q-041's terrace.py step moves (9 cells on 48/50) and
+            now adopts 56_62's recorded state on the 31 cells 56_62 modified
+            (yield_to_later); 56_62 ignores those copies when sizing its columns.
+            Both scripts re-plan to their records with 0 diff. readback 0 (48_54) /
+            1 (56_62: grass→dirt tick); footprint check OK both; patrol = the known 10
+            door_to_wall (NOTES). Signed 46 (by 48_54), 48, 56/56a; no. 6 was already.
+            62 stays 282/288: the 6 cols are #66's Geocraft roof fringe → Q-023 (user).
+            Seams: all stock road/lane surface inside untouched Broadlands Road and
+            lane w156591073 parcels (no build ever did them) → Q-044 (user).
+            Tooling: coverage.py signoff --dry-run was ignored for named ids (it signed
+            for real; 46 was revoked + re-signed) — fixed + unit test. Region snaps for
+            Q-020/Q-021 were pruned, so restore_orphans is a no-op in 40_46 and keeps
+            the recorded state in 48_54. Snap: backups/regions/2026-10-12-181448-Q-040.
+            Evidence: geometry unchanged except the fringe yard (q021 aerial: #48's
+            rear part / yard there), so no new photo-camera views.
+TOKEN NOTES (Q-040)
+- Re-plan every owning build and diff it against its cells file BEFORE editing:
+  snap pruning + generator changes made two of three builds drift.
+- Census a seam's surface (1 query) before planning seam work: these were slivers
+  of never-processed road/lane parcels, not build edges.
+- Named-id signoff --dry-run used to sign; trust it only after this fix.
+
+2026-10-12  Q-043 done: Highfield campus bike shed OSM w242322573 (prop:w242322573).
+            Geocraft carpet roof sat one block above the covered-shed deck (y52 vs deck
+            y51); highfield_b35_grounds shelters() now clears pristine-matching blocks
+            from deck+1 through LEFTOVER_TOP and includes the shed polygon in scope.
+            Re-applied highfield_b35_grounds (228 blocks changed); readback 0;
+            coverage signoff 96/96; I-030 closed.
+            Patrol (user): flat roof was type=top slabs in open air — switched to
+            type=bottom for canopy + bike shed; bike shed perimeter is iron_bars
+            (secure cage), not sparse stone_brick_wall posts. Re-applied; readback 0.

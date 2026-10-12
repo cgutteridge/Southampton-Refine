@@ -1,0 +1,788 @@
+SOUTHAMPTON REFINE — REVIEWS (archived entries, oldest first)
+
+2026-10-11  Project bootstrap. No world edits. Kit + process ported from
+            Minecraft Magic town tooling; accuracy-only rules; OSGB offsets
+            from Southampton2023 map-maker-status.json.
+
+2026-10-11  Q-002 SURVEY done. No world edits. KartaView (openstreetcam API)
+            filled useful=yes street façades near PORTSWOOD_X_BROADLANDS and
+            SO173SF; Geograph remained thin on named Grosvenor/Kitchener.
+            I-003 → done. Next open: Q-003 proof kit build.
+
+TOKEN NOTES (Q-002)
+- Grid-polled KartaView (~98 photos) then contact sheet — good; avoid
+  re-fetching sequences next time (reuse _tmp or sequence ids in NOTES).
+- Full-size Read of 4 frames after contact was enough; do not re-Read
+  useful=maybe siblings on the same sequence.
+- Mapillary token not required here; prefer KartaView first for this area.
+
+2026-10-11  Q-003 PROOF done. Live world edit: portswood_x_broadlands_kerb_proof
+            at MC ~X7091..7096 Z-5526..-5524 Y26 (Portswood Rd SW kerb near
+            Broadlands). Region snap backups/regions/*-Q-003; kit backup
+            southampton_refine:before_portswood_x_broadlands_kerb_proof;
+            readback mismatches=0; walk road↔pavement REACHABLE; views
+            verification/site/views/q003-contact.png. Pipeline proven.
+            Cell done-bar deferred to Q-004 (this was proof-only).
+
+TOKEN NOTES (Q-003)
+- Matplotlib missing on system Python — use project .venv for preview.
+- Contact sheet of 3 views enough; do not open full-size unless a kerb
+  block looks wrong.
+- Stopped at 6 kerb cells (good-enough); do not extend kerb ring here —
+  Q-004 owns contiguous cell coverage.
+
+2026-10-11  Q-004 COVERAGE done (streetscape scope). Ring 0+1 (9×128²) logged
+            in COVERAGE.txt. Builds: portswood_x_broadlands_streetscape_r0
+            (360 cells) + portswood_ring1_streetscape_kerbs (7384 cells);
+            readback mismatches=0; region snaps Q-004-r0 / Q-004-r1; views
+            verification/site/views/q004-contact.png (+ q004-r0-contact).
+            Aerial mosaic on disk (user Terminal). Façades deferred Q-010.
+            Open I-004: review low-Y kerbs (y<24).
+
+TOKEN NOTES (Q-004)
+- Do not start fetch sidecars at handoff; one-shot aerial_mosaic in Terminal.
+- Avoid per-block MCP scans (rate limit); use site_kit.World offline.
+- Contact sheets only; do not re-Read full KartaView after mosaic+sheet.
+- Good-enough: streetscape kerbs, not every façade (Q-010).
+
+2026-10-11  Q-010 FAÇADE done. First real refinement: Portswood Rd SW terrace
+            bay MC X7083..7093 Z-5532..-5528 from kartaview-1471277657
+            (useful=yes). Geocraft was low gray_terracotta / no openings →
+            brick 2-storey shell + door/windows + pitched strip. Builds
+            terrace_facade_1 then _1b (modifies façade_1 + r0 kerbs that cut
+            the edge at y26). Region snap Q-010; readback mismatches=0;
+            road→kerb REACHABLE; views/q010b-contact.png. Good-enough: one
+            bay only (Q-012 for next).
+
+TOKEN NOTES (Q-010)
+- Contact sheet + one primary façade Read was enough; do not re-Read SO173SF
+  frames for a Portswood bay.
+- Auto edge=max(X) crossed the road into the east terrace — pin surveyed EDGE
+  polylines; never max-X hunt across carriageway.
+- r0 kerbs on building edge blocked the door — expect modifies=(…streetscape_r0)
+  when raising a façade through old kerb cells.
+
+2026-10-11  Q-013 STREETSCAPE done. Patrol + aerial width check at focus.
+            I-004: 991 low-Y ring1 kerbs restored to gray_terracotta (NBT).
+            Portswood corridor X7065..7135: trim 13→10 kerb-to-kerb at top
+            street Y (aerial ~9–10 m asphalt); pave margins; re-kerb.
+            Builds: streetscape_q013 (I-004 + botched subsurface trim) then
+            _q013b (surface-Y fix, modifies q013). Region snaps Q-013/Q-013b;
+            readback 0; road walk REACHABLE; views/q013c-contact.png.
+            Closed I-004/I-006/I-007; opened I-008 (façade door→stone).
+
+TOKEN NOTES (Q-013)
+- First trim wrote at y22–23 (first ROAD hit) — always use top street Y /
+  WORLD_SURFACE for kerb/road edits; refuse apply if y>=24 cell count tiny.
+- Parsing full ring1 structure NBT (~3M blocks) for 991 cells cost ~45s once;
+  cache restore JSON (q013-lowy-restore.json) — do not re-parse next time.
+- E-W slices of a diagonal road look “20 wide”; measure perpendicular to
+  centreline (here N–S span ~13) before deciding trim amount.
+
+2026-10-11  Q-012 FAÇADE done. Next Portswood Rd SW terrace bay SW of
+            façade_1b: EDGE X7068..7078 Z-5537..-5533 (y26 eastmost building
+            before pavement — same evidence sequence as Q-010; typology from
+            kartaview-1471277657). Geocraft low gray_terracotta → brick
+            2-storey shell + door/windows. Builds: terrace_facade_2 then
+            _2b (I-008 + new-door facing-axis clear; modifies 1/1b/2/q013b)
+            then _2c (stoop y26 floors). Region snap Q-012; readback 0;
+            patrol door_to_wall=0; street↔through-door REACHABLE;
+            views/q012-contact.png. Closed I-008. Good-enough: one bay.
+
+TOKEN NOTES (Q-012) — SUPERSEDED by I-009: do NOT pin façades to a surface
+  'EDGE'; use osm_footprints.py frontage. Kept for history only.
+- Pin EDGE at y26 with road/pavement east; y28 max-X still crosses carriageway
+  or hits q013 pavement on the building line.
+- door_to_wall patrol checks ±facing (east/west here), not only diagonal +Z;
+  clear both street (+X) and one shell depth (−X) at door height.
+- Do not air the stoop floor (y26); only y27–28 — 2c restored floors.
+
+2026-10-11  Q-011 PAUSED (user ask). Aerial fetch + W-wall LIDAR ridge sampling only —
+not closed. Artifacts: reference/aerial/oldtown/mosaic-z18-5x5-centre-130049-87870.png
+(+ 130048-87874, 130050-87877); verification/site/audits/q011-oldtown-wall-prominence.json,
+q011-lidar-height-west.png, q011-aerial-lidar-ridge-overlay.png, q011-aerial-west-crop.png.
+Interim: LIDAR roof-mass ridge tracks Western Esplanade wall corridor; no tall
+stone gatehouse masses (Geocraft DSM pancakes). Seed OLDTOWN coords still approx.
+
+2026-10-11  Q-015 / I-009 (Claude Code). User reported walls on the road where
+            Broadlands Rd houses have front gardens. Confirmed: façade shells
+            stood on the pavement line, ~6 blocks in front of the OSM house
+            fronts; doors faced along the street. Reverted all five façade
+            builds (broadlands_facade_revert, region snap I-009-revert,
+            readback 0). Added osm_footprints.py frontage/check and a
+            footprint guard in site_kit.apply(); live audit OK. Rewrote Q-014
+            to the frontage method. Relabelled focus (I-010).
+            Lesson: every check was self-consistency. Evidence comparison
+            (photo camera view + footprint check) is now part of done.
+
+2026-10-11  User ruling (I-012): rebuild WHOLE properties — house all sides,
+            floors + stair only inside, front + back garden (aerial). Docs and
+            Q-014 converted; plots tool added (plots-7040_-5575_7140_-5495).
+
+2026-10-11  Q-014 EVIDENCE (before plan) — Broadlands Rd 20+22 (north side).
+            Frontage: #20 front [7104,-5531] setback 12.3; #22 [7099,-5533]
+            setback 12.4; live profile road terracotta → pavement → stone
+            front garden → house. OSM semis share party wall; footprints
+            ~5×13 cells (ways 177978869 / 177978886).
+            Street (kartaview-1471277657 @7071,-5531): 2-storey red brick,
+            white frames, dark pitched roofs, chimneys, tall trimmed front
+            hedges, GF bay typology. Aerial (portswood-x-broadlands mosaic):
+            grey/dark roofs, ridge ≈ parallel to street; pale patio just
+            behind rear wall; lawn then tree canopy deeper back. LIDAR top
+            ≈ y35 carpet. Same-terrace hint for rear openings.
+
+2026-10-11  Q-014 PROPERTIES done. broadlands_rd_20_22 — whole plots on OSM
+            footprints (not pavement). Region snap Q-014; readback 0;
+            walk street→door→FF→back REACHABLE both houses; footprint check
+            OK; views/q014-contact.png + q014-evidence-contact.png.
+            Matches: (1) fronts at OSM setback ~12 with front garden hedge/
+            path, not on the kerb; (2) brick 2-storey + south-facing doors +
+            stair/floors walkable; (3) back lawn/patio/fence/trees from aerial.
+            Mismatches: (1) street-camera silhouette still reads as heavy
+            brick mass — weak bay/roof pitch vs photo semis; (2) neighbouring
+            Geocraft carpet/stone remains beside the pair; (3) party wall open
+            between 20/22 and diagonal tip makes the GF bay thin. Pattern OK
+            to continue on 24+26 (Q-016); tighten roof/bay next pass.
+            Queued Q-016 broadlands_rd_24_26.
+
+TOKEN NOTES (Q-014)
+- One street crop + one aerial ASCII classify beat re-Reading full KartaView.
+- Restore structure + re-apply same name while iterating access; do not stack
+  _b geometry patches (stoop/stair direction were plan bugs, fixed in-script).
+- site_walk treats fence_gate as solid — use air gate gaps; stoop = slab at GF.
+
+2026-10-11  Q-016 EVIDENCE (before plan) — Broadlands Rd 24+26 (north side).
+            Frontage: #24 front [7090,-5537] setback 12.4; #26 [7084,-5539]
+            setback 12.5; live profile road terracotta → pavement → stone
+            front garden → house. OSM semis share party wall; footprints
+            ~61/59 cells (ways 177978849 / 177978895). LIDAR carpet top ≈ y35–36.
+            Street (kartaview-1471277657 @7071,-5531; same terrace as Q-014,
+            nearer houses west of 20+22): 2-storey red brick, white frames,
+            dark pitched roofs, chimneys, tall trimmed front hedges, GF bay
+            typology. Aerial (portswood-x-broadlands mosaic crop
+            views/q016-aerial-24-26-annot.png): grey/dark roofs, ridge ≈
+            parallel to street; long back gardens — pale patio band just
+            behind rear wall, lawn, tree canopy deeper north. Same-terrace
+            hint for rear openings.
+
+2026-10-11  Q-016 PROPERTIES done. broadlands_rd_24_26 — whole plots on OSM
+            footprints (not pavement). Region snap Q-016; readback 0;
+            walk street→door→FF→back REACHABLE both houses; footprint check
+            OK; views/q016-contact.png + q016-evidence-contact.png.
+            Matches: (1) fronts at OSM setback ~12.4–12.5 with front garden
+            hedge/path, not on the kerb; (2) brick 2-storey + south-facing
+            doors + stair/floors walkable; (3) back lawn/patio/fence/trees
+            from aerial (long plots north of ridge).
+            Mismatches: (1) street-camera silhouette still reads as heavy
+            brick mass — weak bay/roof pitch vs photo semis; (2) neighbouring
+            Geocraft carpet/stone remains beside the pair; (3) shared fence
+            with 20+22 reclaimed via modifies — plot line still approximate.
+            Queued Q-017 broadlands_rd_28_30.
+
+TOKEN NOTES (Q-016)
+- Cloned Q-014 script; front_zone includes carriageway — must reject live
+  STREET surfaces and cap outward depth or dry-run clashes with streetscape.
+- Back-garden flood must re-check outward each cell (else wraps into neighbour
+  bays); tighten along margin to ±0.5; modifies=('broadlands_rd_20_22') for
+  shared fence strip only.
+- Dirt under tree trunks — grass ticks to dirt and fails region readback.
+
+2026-10-11  Q-017 EVIDENCE (before plan) — Broadlands Rd 28+30 (north side).
+            Frontage: #28 front [7080,-5541] setback 12.4; #30 [7075,-5543]
+            setback 12.4; live profile road terracotta → pavement → stone
+            front garden → house. OSM semis share party wall; footprints
+            ~62/57 cells (ways 177978867 / 177978885). LIDAR carpet top ≈ y35–36.
+            Street (kartaview-1471277657 @7071,-5531; camera beside 30/32):
+            2-storey red brick (cream render on nearer #32 hint only), white
+            frames, dark pitched roofs, chimneys, tall trimmed front hedges,
+            GF bay typology. Aerial (q017-aerial-28-30-annot.png): grey/dark
+            roofs, ridge ≈ parallel to street; long back gardens — pale patio
+            band just behind rear wall, lawn, tree canopy deeper north.
+            Same-terrace hint for rear openings.
+
+2026-10-11  Q-017 PROPERTIES done. broadlands_rd_28_30 — whole plots on OSM
+            footprints (not pavement). Region snap Q-017; restore+reapply
+            after rear-door tip fix; readback 0; walk street→door→FF→back
+            REACHABLE both houses; footprint check OK; views/q017-contact.png
+            + q017-evidence-contact.png.
+            Matches: (1) fronts at OSM setback ~12.4 with front garden
+            hedge/path, not on the kerb; (2) brick 2-storey + south-facing
+            doors + stair/floors walkable; (3) back lawn/patio/fence/trees
+            from aerial (long plots north of ridge).
+            Mismatches: (1) street-camera silhouette still reads as heavy
+            brick mass — weak bay/roof pitch vs photo semis; (2) neighbouring
+            Geocraft carpet/stone remains beside the pair; (3) shared fence
+            with 24+26 reclaimed via modifies — plot line still approximate.
+            Queued Q-018 broadlands_rd_32_34.
+
+TOKEN NOTES (Q-017)
+- Cloned Q-016; rear door on OSM tip cells can be unreachable — require
+  interior neighbour before picking rear_door (fixed in-plan, restored via
+  structure_load_to_world, reapplied; not a _b patch).
+- Use .venv/bin/python for matplotlib preview; site_walk box is x0,z0,x1,z1
+  (no box: prefix despite docstring).
+- Kartaview @7071 is beside 28+30 — cream render on nearer #32 is hint only
+  for Q-018 materials, not for 28+30 brick.
+
+2026-10-11  Q-017b CRAFTSMANSHIP fix. broadlands_rd_28_30_b — cleared Geocraft
+            carpet + leftover stair skins on footprint + envelope; roof now
+            1:2 stone slab courses (no stair skin, no full-block underlay
+            pyramid); FF headroom restored (no ceiling at Y_EAVES). readback 0;
+            walks OK; footprint check OK; views/q017b-contact.png.
+            Rules hardened: site/CRAFTSMANSHIP.txt + minecraft-craftsmanship.mdc
+            (stair roofs on shallow pitches and leftover carpet = hard fail).
+
+2026-10-11  Q-017 REVERTED. Loaded southampton_refine:before_broadlands_rd_28_30
+            (pre first apply). Craftsmanship patching on 28+30 failed visual
+            check (stray brick, messy slab roof, jagged massing). Do not treat
+            broadlands_rd_28_30 / _b as live. Redo from survey with squared
+            footprint + envelope clear + 1:2 slabs; verify with client views
+            before calling done.
+
+2026-10-11  Q-017 EVIDENCE (redo, before plan) — Broadlands Rd 28+30.
+            Frontage re-checked: #28 [7080,-5541] setback 12.4; #30 [7075,-5543]
+            setback 12.4; road terracotta → pavement → stone front garden → house.
+            Street kartaview-1471277657: 2-storey red brick, white frames, dark
+            pitched roofs, chimneys, tall front hedges, GF bay typology.
+            Aerial q017-aerial-28-30: ridge ≈ // street; patio band + lawn + trees
+            north. Squared 5×11 AABBs (30: x7076–7080 z-5553…-5543; 28: x7081–7085
+            z-5551…-5541), party wall 7080|7081, within OSM margin 2.
+
+2026-10-11  Q-017 PROPERTIES done (redo). broadlands_rd_28_30 — squared 5×11
+            AABBs on OSM (±2), Geocraft + I-009 façade leftovers cleared on
+            plot/front strip, 1:2 stone-slab roofs (no stair skin). Region snap
+            Q-017; readback 0; walks street→door→FF→back REACHABLE both;
+            footprint check OK; views/q017-contact.png + q017-evidence-contact.png.
+            Matches: (1) fronts at squared setback with hedge/path, not on kerb;
+            (2) brick 2-storey semis + south doors + floors/stair walkable;
+            (3) back lawn/patio/fence/trees from aerial (long plots north).
+            Mismatches: (1) axis-aligned mass vs diagonal street — party line
+            and roof ridge are Minecraft-square, not OSM diamond; (2) neighbour
+            Geocraft (#32 west / #26 east) still reads beside the pair; (3) bay
+            / opening rhythm still lighter than kartaview semis.
+
+TOKEN NOTES (Q-017 redo)
+- Squared AABB footprints first; diamond-trace OSM failed visual check twice.
+- Front-garden full-height air wipe must re-assert the stoop after.
+- Pavement-façade cell owners (terrace_facade_1*) need modifies to clear I-009
+  leftovers in front of the pair — otherwise street camera still shows ruin pillars.
+
+2026-10-11  Q-017 fringe follow-up. User: do not leave unfixed Geocraft beside
+            finished plots. Added rough sealed placeholders for Broadlands 32+34
+            (squared shells, ceiling+slab roofs, front grass/hedge) and cleared
+            carpet/stair junk west of 30. Full 32+34 rebuild remains Q-018.
+
+2026-10-11  Q-018 PROPERTIES done (Claude takeover). Broadlands Rd north side
+            14-36 rebuilt as two whole terraces with scripts/terrace.py:
+            broadlands_rd_26_36 (26..36, party walls 7064..7090) and
+            broadlands_rd_14_24 (14..24, 7092..7120), 1-wide gravel passage at
+            x7091 (aerial gap). Region snaps Q-018 / Q-018-A; readback ≤3
+            (grass→dirt); osm_footprints check OK x3; walks street→door→FF
+            and →back garden REACHABLE all 12; views/q018b-contact.png.
+            Matches vs kartaview-1471277657 + aerial: (1) red-brick two-storey
+            terrace with GF bays under tile hoods, paired doors with white
+            hoods, FF window over bay + small one over door; #32 cream render;
+            (2) slate gables, ridge // street, party-wall stacks, stepped
+            fronts following the diagonal street; (3) rear outriggers, side
+            returns, patio band, long lawns to the rear lane, fenced plots.
+            Mismatches: (1) houses squared N-S while real plots run NNE
+            (±1.5 at front/rear corners); (2) ridge ~1 above LIDAR on some
+            houses; (3) door side for 14-24 is a hint (not in photo frame).
+
+TOKEN NOTES (Q-018)
+- A generator (terrace.py) beat per-pair hand plans: 12 houses in ~one pass;
+  iterate by re-applying the same build name, not _b patches.
+- site_walk only climbs +1 onto stairs/slabs: give stairs 4 treads with an
+  open well, and stone steps where lawns terrace up.
+- Walk targets: avoid shed cells; use pristine pav_row/lane_row helpers.
+
+2026-10-11  Q-019 EVIDENCE (before plan) — Broadlands Rd 2-12 (north side).
+            Aerial q019-aerial-2-12-annot.png: one roof run 12..2 (OSM ways
+            177978907/864/915/877/873/883), narrow dark gap after #14, end at #2
+            against the NE lane to Portswood Rd; #12..#4 slate, #2 red tile;
+            lawns + tree crowns mid-plot, pale outbuilding at the back of #12,
+            gardens to the diagonal rear lane. kartaview-1471277737 (GPS
+            7134,-5505) looks ESE past the terrace end (buff wall, trees beyond
+            the lane): fronts unseen, so typology/doors/boundaries = hint.
+
+2026-10-11  Q-019 PROPERTIES done (Claude). broadlands_rd_2_12 via terrace.py:
+            party walls 7122/26/30/35/39/44/48 (centres ≤0.6 from OSM
+            centroids), 1-wide gravel passage x7121 rising with #12's lawn to
+            the lane (stone steps). terrace.py gained House.roof ('granite' =
+            red clay tile) for #2. Region snap Q-019; readback 0 mismatches;
+            osm_footprints check OK; walks door→FF and →back garden REACHABLE
+            all 6, passage pavement→lane REACHABLE; views/q019contact.png.
+            Matches: (1) continuous two-storey bay terrace stepping back with
+            the diagonal street, slate roofs + party stacks; (2) #2 red tile
+            roof and gable end on the lane, as in the aerial; (3) gap after
+            #14, long lawns + trees to the rear lane.
+            Mismatches: (1) fronts not in any photo (doors/boundaries hint);
+            (2) houses squared N-S while plots run NNE (as 14-36); (3) lane
+            mouth + #2 side structure still Geocraft (I-014). Photo-camera
+            view only shows the street end (photo GPS ~15 m east).
+
+TOKEN NOTES (Q-019)
+- An annotated aerial crop (OSM outlines + MC grid) answered "where does the
+  terrace end" in one image; an ASCII top-block map found the lanes.
+- Pristine pavement dips to y23 near the lane: the 26_36 pav_row helper
+  (y24+) failed; scan with P.ground instead.
+- Passages need to follow the neighbouring lawn levels or they become trenches.
+
+2026-10-11  Q-020 EVIDENCE (before plan) — Broadlands Rd 40-46 (north side).
+            kartaview-1471277609 (camera ~7035,-5546, looking ENE): after the
+            white Victorian #48, a two-storey red-brick block (bins "44"):
+            hipped brown tile roof, chimney on the front slope by the ridge,
+            white 3-light casements, beige render panel between GF and FF
+            windows of the end bays; front garden raised ~1.5 m behind brick
+            retaining walls, steps + handrail at the west end. Second block of
+            the same type (40/42) behind ivy/hedges, chimney on the ridge, gap
+            between the blocks. Aerial q020-aerial-annot.png: 871+836 one roof,
+            878+920 one roof with a lower rear part (LIDAR y35 = single storey),
+            lawns to the rear lane, shed/outbuildings by the lane. No bays: the
+            Victorian generator does not apply.
+
+2026-10-11  Q-020 PROPERTIES done (Claude). broadlands_rd_40_46 (own generator in
+            the build script, not terrace.py): 40/42 walls x7051..7063 rows
+            -5551..-5561 b30; 44/46 x7041..7049 rows -5555..-5564 b31 + rear part
+            7043..7049 to -5569; 1:2 brick-slab hips, ridges y40 (LIDAR 40),
+            gap path x7050 to the patios, common doors at the rear/side.
+            #48 (OSM 838) still Geocraft: owner test keeps its outline +0.8;
+            first apply cut its fringe, re-apply restored those cells from
+            region snap Q-020 (same build name, no _b). Readback 7 (grass→dirt
+            under sheds/tree, fence state at #36); osm_footprints check OK;
+            walks pavement→FF all 4 and →all 4 back gardens REACHABLE;
+            views/q020-contact.png.
+            Matches: (1) two plain two-storey brick blocks, hipped roofs,
+            chimney stacks, render panels in the end bays, no bays; (2) raised
+            front gardens behind brick retaining walls, west-end steps, hedge/ivy
+            in front of 40/42, gap between the blocks; (3) single-storey rear
+            part of 44/46 and long fenced lawns to the lane with outbuildings.
+            Mismatches: (1) blocks squared N-S while OSM runs NNE: corners off
+            ~2, the 44/46 rear part sits ~3 west of the real one; (2) entrances
+            are a hint (not visible in the photo); (3) roof is brick slab (red)
+            where the photo shows brown concrete tile; #48 Geocraft blob next to
+            44/46 reads as a ruin until Q-021.
+
+TOKEN NOTES (Q-020)
+- Map the pristine LIDAR (y + block initial) over the plots once: it gave
+  ground, house, eaves and ridge levels and the lane in one table.
+- A neighbour left as Geocraft needs an owner test from its OSM polygon, not
+  an extended party line — the line version fenced across a garden.
+- Re-applying the same build name keeps the first backup; restore any cells
+  the earlier apply took from the region snap inside the plan.
+
+2026-10-11  Q-021 EVIDENCE (before plan) — Broadlands Rd 48-54 (north side).
+            kartaview-1471277609 (camera ~7035,-5546, ENE): only #48's east
+            corner — white render, two storeys, sash windows, brick boundary
+            pier, front garden raised above the pavement. 50/52/54 behind the
+            camera: fronts/doors/bays are a same-street hint. Aerial
+            q021-aerial-annot.png: 838 (48) + 901 (50) dark slate, 901 has an
+            east-side rear outrigger; 856 (52) red-brown + 882 (54) dark grey
+            under one hipped roof (LIDAR ridge y41-42 continuous); long lawns
+            to the diagonal lane (z-5597..-5607), pale shed behind 50, grey
+            outbuilding by the lane behind 48, pale building by the lane behind
+            54, tree crowns behind 50/52. LIDAR: #48 rear part y35 (one storey),
+            #50 outrigger y36-39 (two). 911 (#56) runs back behind #54.
+
+2026-10-11  Q-021 PROPERTIES done (Claude). broadlands_rd_48_54: 48/50 via
+            terrace.py (party walls 7030/35/40, fronts -5560/-5558, b31; #48
+            white_concrete render, door W, single-storey rear outrigger via new
+            House.out_storeys=1 — 2_12 regenerates byte-identical); semi 52/54
+            own generator (walls 7018..7029, party 7023, rows -5571..-5563, b32,
+            1:2 slab hip, granite over 52 / deepslate over 54, shared stack).
+            Raised front gardens: brick retaining face + stone-stair gates; no
+            wall on top where the face is 2 high (guard + 44/46 photo). Region
+            snap Q-021. Re-applied 3x under the same name (#56 carpet test also
+            caught the semi's own Geocraft row; stepped fence on #56's edge closed
+            #54's strip; #52 back door onto the 52|54 fence) — orphan cells
+            restored from the snap. Readback 5 (grass→dirt); osm_footprints
+            check OK; walks pavement→FF and →back garden REACHABLE all 4;
+            views/q021-contact.png.
+            Matches: (1) white-rendered two-storey #48 attached to the 44/46
+            block, brick #50 beside it, both slate with stacks; (2) 52/54 one
+            hipped roof, red-brown over 52 and grey over 54 as the aerial; (3)
+            long fenced lawns to the diagonal lane with the outbuildings and
+            tree crowns where the aerial has them, #48 single-storey rear.
+            Mismatches: (1) the photo only shows #48's corner; bays, doors and
+            50-54 materials are hint; (2) squared N-S: semi front row -5563 is
+            ~1.5 ahead of 882 / ~2 behind 856, gardens drift west of the real
+            NNE plots (I-016); (3) #56's Geocraft long rear still abuts #54's
+            garden (Q-022).
+
+TOKEN NOTES (Q-021)
+- The OSM rings carry no addr tags; the plots JSON (osm id per number) is
+  the quickest way to map way ids to numbers.
+- Every re-apply came from a plan rule that only a walk showed (exclusion
+  test too broad, stepped fence, door onto fence): run the walks on a
+  dry-run plan before the first apply next time.
+- Fixed-step tests (walks) need the start on the top pavement row; the
+  walk tool cannot jump the pristine 1-block pavement kerb.
+
+2026-10-12  Q-022 EVIDENCE (before plan) — Broadlands Rd 56-62 (north side).
+            kartaview-1471277529 (new; camera 6980,-5569, ESE): the north side
+            ahead-left is a row of two-storey front-gabled houses, dark tile,
+            white bargeboards; one gable white-rendered with brick sides and
+            quoins, the next red brick (which number is which = hint).
+            kartaview-1471277561 (camera 7012,-5556) shows only 54 and east.
+            Aerial q022-aerial-annot.png: 890/911 (58/56) dark grey and 921/897
+            (60/62) pale/dark, split exactly on the party line; long lawns to
+            the lane, tree crowns behind 60/62. LIDAR: ridge y42 ON the party
+            wall running front-to-back, eaves ~y37 on the outer walls = one
+            gabled roof per pair (the colour split is the sunlit E / shaded W
+            slope). Two storeys to -5581 / -5584, one storey (y37) behind.
+            OSM: same ~22 deg rotation as 48-54; the houses are ~17 deep, 4.3 wide.
+
+2026-10-12  Q-022 PROPERTIES done (Claude). broadlands_rd_56_62 (own generator,
+            Pair class): each pair squared as 3 stepped N-S segments (party
+            cols 7013/7015/7017 and 7005/7007/7009, jogs of 2 so the 3-wide
+            interiors connect), front gable on the street, 45 deg stair roof
+            b+5 eave to b+10 ridge on the party wall (y43, LIDAR 42), shared
+            stack, canted 2-col bays, doors at the outer sides with white
+            hoods, floors + one stair each, single-storey rear with slab roof
+            and back doors. 60/62 front white render, 56/58 red brick (hint).
+            Raised front gardens (brick face + low wall, stone-stair gates);
+            squared back gardens fenced at 7002/7009/7013 (+54's 7017).
+            Modifies broadlands_rd_48_54: its west eave (x7017, y39) and a few
+            strip cells under 56's squared walls (882|911 are only ~1.7 m
+            apart). Region snap Q-022. Applied once; readback 3 (grass→dirt,
+            2 pane states); osm_footprints check OK; walks pavement→FF and
+            →back garden REACHABLE all 4, 54's back walk still REACHABLE;
+            views/q022-contact.png.
+            Matches: (1) two front-gabled two-storey pairs, white-rendered
+            gable beside a red-brick one, dark tile, as the photo row; (2) one
+            roof per pair with the ridge on the party wall, stepping NNE with
+            the 22 deg plots (aerial/LIDAR); (3) fronts set back behind raised
+            gardens, 60/62 ~3 behind 56/58 as OSM.
+            Mismatches: (1) which pair is rendered is a hint (photo is far and
+            oblique); bays/doors are typology; (2) squared gardens drift west
+            (I-016): 56 has no own strip and opens onto 54's squared strip,
+            which really is 56's garden line (I-017); (3) the photo view is
+            dominated by Geocraft 66-74 still (Q-023).
+
+TOKEN NOTES (Q-022)
+- Running the walks on a plan overlay (World + plan.get) before apply caught
+  the gate wall, the door/bay clash and the jog that cut 58's rear off:
+  one apply, no re-applies. Keep that script pattern (in the build next time).
+- 'air' in state also matches 'stairs': compare bid(state) when filtering air.
+- KartaView API search by lat/lng (radius 60-150) found the photo in one call.
+
+2026-10-12  Q-024 done: Highfield campus B35 (David Kiddle) + grounds/car parks
+            (highfield_b35, highfield_b35_grounds). User paused Broadlands.
+            Evidence vs world (q024-evidence-contact.png):
+            + north range from the photo camera: dark brick, white band over a
+              semi-basement ground floor, 3 window rows, thin coping — matches.
+            + top view vs aerial: grey flat roofs with courtyard, brown pitched
+              NW wing, west car park with bays + green verge/trees — matches.
+            - windows thinner than the photo's paired multi-pane units (I-018);
+              B30 opposite is silver cladding, still Geocraft brick (Q-025).
+
+TOKEN NOTES (Q-024)
+- Rotated (u,v) frame from OSM vertices made the part list trivial; reuse it
+  for other rotated campus blocks instead of hand-squaring.
+- Aerial shadows are dark teal here: green test needs g > r+15 and g > b+15
+  (first pass planted trees in B30's shadow) — check samples before planting.
+- site_walk needs headroom above the approach cell of a stair; cut the hole
+  one cell longer from the start.
+
+2026-10-12  Q-025 done: Highfield campus neighbours of B35 (Claude). User: keep on
+            the university; Broadlands paused to notes only (QUEUE Q-023 [-]).
+            EVIDENCE (before plan): B30 = silver aluminium cladding, ribbon windows,
+            upper floors over a dark glazed 1-storey road front (kartaview-1519868249);
+            LIDAR top 77 main block, 72-73 N/S ranges, 54-56 low wings + front.
+            B29 = row of ~7 silver units stepping along the road (aerial 902 + photo
+            249), LIDAR 77 the whole length, ground 51 → 48. B37 = brick, 4 rows of
+            regular windows, flat roof (1519868121 north, 1471281241 SW, 1471281353
+            west); aerial: solar rows on north block, tan triangular wing roof; LIDAR
+            65. Early Years 2 storeys (LIDAR 59 over u -32..-21 only), Estates 1 tall
+            storey (52-53 on 47-48); no elevation photos (brick = hint).
+            Builds highfield_b29_b30, highfield_b37, highfield_early_years_estates via
+            new scripts/campus.py. Region snap Q-025. B29 had no stair on first apply
+            (plan gap, caught by the walk) → campus.py multi-stair, same build
+            re-applied (48 blocks changed, interior only). readback 0 / 180 detector
+            power; footprint check OK; 8 walks REACHABLE; patrol: no hits on these
+            builds (10 door_to_wall all Broadlands → NOTES).
+            Matches: (1) 1471281241 vs view: long red-brick SW face of B37 with
+            gridded windows, trees and pavement in the same place; (2) top views vs
+            aerial: B30 light roof block, B29 saw-tooth row along the road, B37 dark
+            north block with solar strip + tan triangle, EY/Estates grey roofs on
+            their OSM lines; (3) 1519868121: 4-storey B37 north face right, B30 a
+            white/blue-banded block beyond.
+            Mismatches: (1) B30 road front is a flush dark box, photo has columns,
+            recess + brick wall (I-020); (2) no glazed stair tower on B37 (I-021);
+            (3) B37 brick redder than the photo's brown (I-022).
+
+TOKEN NOTES (Q-025)
+- Generic campus.py (Parts in a frame) made five buildings one short script each;
+  write the shared kit first next time instead of copying a build script.
+- Do not call site_views.py with --help: it takes argv[0] as a prefix and
+  captures every registered view (left the player in spectator).
+- LIDAR uv grid printout (top Y per 2 u/v) settled part splits in one read;
+  colour heatmaps alone were ambiguous at low heights (Estates looked like ground).
+- KartaView API by lat/lng + one contact sheet of 9 frames: 3 useful in one read.
+
+2026-10-12  Q-026 done: Highfield campus grounds around B30/B37 (Claude).
+            EVIDENCE (before plan): 249 = B30 one-storey front: dark columns under a
+            projecting fascia, glazing set back, gravel strip, low brick wall + stone
+            coping on a ~1 m footway. 121 = B37 north: red-brown block paving kerb to
+            wall, ~10 Sheffield stands along the kerb. 241 = B37 SW face: clipped hedge
+            at the wall, grass verge with young street trees, footway at the kerb, glazed
+            stair tower at the NEAR (SE) end. Survey: B30 wall row v-31, 1 fringe + 1-2
+            footway cells; B37 north 9 bare-stone cells; SW verge 9 cells.
+            Build highfield_b30_b37_grounds (modifies highfield_b29_b30, highfield_b37).
+            readback 0 / 1982; footprint check OK; 5 walks REACHABLE (B30 door through
+            the stepped wall gap, B37 forecourt, SW verge, wing door, along the verge);
+            patrol: no hits on this build.
+            Matches: (1) 249 camera: wall + coping in front of a dark recessed colonnade
+            under the fascia, silver floors above; (2) 241 camera: hedge, tree line,
+            footway, glazed tower at the near end; (3) 121 camera + top-west: brown
+            paved forecourt to the kerb with stands along it.
+            Mismatches: (1) stands are single posts, not U hoops (I-023); (2) wall reads
+            2.5 high at B30's east end where the footway drops to 49 (photo ~1 m all
+            along); (3) only 3 columns visible (photo ~5) — the entrance gap took one.
+            Process slip: the first re-apply read its own blocks back as "ground" and
+            stacked bricks on the coping; reverted from the kit backup, survey reads now
+            frozen in highfield_b30_b37_grounds-survey.json, then one clean apply (and a
+            hedge thinned to 1 cell + entrance step in the same build, not a _b patch).
+
+TOKEN NOTES (Q-026)
+- Grounds plans that classify the LIVE world must freeze their reads (survey JSON)
+  before apply, or re-applies drift; campus.py does this implicitly via PRISTINE.
+- zsh does not word-split "$a": use ${=a} in loops over site_walk.py args.
+- Leaves: plan 'oak_leaves[persistent=true]' only — distance= mismatches readback.
+- Matplotlib lives in .venv: run builds with .venv/bin/python for preview().
+
+2026-10-12  Q-027 done: Highfield campus C1 — Chemistry B27 (+ roof flues), B28, B26,
+            eScience B25 (Claude). User 2026-10-12: "finish the university" (campus queued
+            as Q-027..Q-037) + "add a note about the chimneys on the main chemistry
+            building" (NOTES "Highfield campus notes").
+            EVIDENCE: commons-51225046 (B27 from ~6486,-5543 looking W): red brick, blue-grey
+            window panels, pale barrel roof, five steel flues in a row on the ridge; DS Pugh
+            2016 views from University Rd (brick perimeter, low east ranges). LIDAR bands via
+            new campus.lidar_parts: B27 61 (W range) / 57 / east block 56; B28 60/56; B26 59;
+            B25 61/58. No photos of B25/B26/B28 (brick = hint). LIDAR shows no flue spikes.
+            Build highfield_b25_b28 (new kit: campus.lidar_parts / way_cells / avoid_built /
+            step_down_stairs). readback 0 / 149800; footprint check OK; 6 door walks + stair
+            walks REACHABLE (scripts/campus_verify.py); views/q027-contact.png +
+            q027-evidence-contact.png.
+            Matches: (1) photo camera: five pale flues in a row above a long red-brick range
+            with banded glazing; (2) top vs aerial: pale long roof over the east block, dark
+            roofs W, B25 U-shape with its courtyard; (3) heights follow LIDAR bands.
+            Mismatches: (1) photo shows a 3-storey gable-ended block in front and a 5-storey
+            centre block — LIDAR bands merge these into one 56 range (massing rule wins);
+            (2) flues are 2x2 square iron, photo round; (3) one window style everywhere
+            (photo: white sash windows on the low block).
+            Not built: 1255994955 + 148269706 (no LIDAR height, cars on the aerial).
+            Process slip: first apply had door approaches stepping down with no stair
+            (unwalkable back up) and a stepped-pyramid roof; same build re-applied with
+            the fixes (backup from the first apply kept), not a _b patch.
+TOKEN NOTES (Q-027)
+- KartaView covers only the roads round campus; Wikimedia Commons geosearch (new
+  scripts/commons_fetch.py) has Geograph shots of most named buildings — list once per
+  cluster, fetch 2-4, sheet them (kartaview_fetch.py sheet).
+- campus_survey.py (aerial | LIDAR roof map + per-way bands) = one Read per cluster.
+- Never pass --help to site_views.py: it treats it as a prefix and captures every view.
+
+2026-10-12  Q-028 done: Highfield campus C2 — Hartley Library B36, Education B34, SU Retail
+            B57, Jubilee Sports B18 + its 2025 extension (Claude).
+            EVIDENCE: Commons (licences in manifest): library W front tall plain 1930s brick
+            hall, rear curved cream render + glass ribbons; B34 dark red brick, 2-3 storeys,
+            big multi-pane steel windows; sports a long low brick box; 2025 photo of the
+            Jubilee extension (orange brick, 2 tall storeys) — LIDAR still shows its
+            ~2270 footprint cells at ground, so it is photo-massed (deck ground+9).
+            Aerial colour per cell (new campus.aerial_rgb / tiled) finds the library's
+            red-tile hall strip → new campus.pitched_part (roof follows the LIDAR surface,
+            granite stairs up-slope, eaves 65, ridge ~70). Merged campus aerial:
+            aerial/highfield-campus/mosaic-z18-8x8-centre-130055-87834.png.
+            Build highfield_library_b34_b18. readback 0 / 435574 (stair shapes are now
+            unplanned: the game sets inner/outer corners); footprint OK; 6 door walks +
+            stairs REACHABLE; views/q028-contact.png + q028-evidence-contact.png.
+            Matches: (1) B34 camera: three-row brick range with regular two-pane windows
+            along the street; (2) top vs aerial: tiled hall strip W of the flat library
+            ranges, curved E end, white sports roof; (3) sports camera: long brick wall
+            along the road.
+            Mismatches: (1) sports hall in the photo is mostly blank brick (ours has two
+            window rows); (2) library camera view blocked by a Geocraft tree (no compare);
+            (3) B34 windows smaller than the photo's large steel ones.
+            Also: corner_glass now on for brick styles in C1 + C2 (stepped 2:1 walls had
+            solid corners → sparse slit windows); both builds re-applied, readback 0.
+            Not built: 171869344 (no LIDAR height, no photo).
+
+2026-10-12  Q-029 done: Highfield campus C3 — West Building B40 (1930s former Union), Staff
+            Club B38, Blue Room, SUSU B42 + Compactor Store 42a (Claude).
+            EVIDENCE: Commons 114892434 / 123638152 / 113513149 / 7578485 (B40: brown-red
+            brick, red tile roofs, tall gabled ends, ivy), 24864637 (SUSU 2013 white+glass
+            entrance). Aerial: B40 tiles (weathered brown → campus.tiled(loose=True), 827
+            cells), B38 white flat roofs round courtyards, B42 grey flat roofs down the slope.
+            Build highfield_susu_west. Footprint OK. Walks: 6 REACHABLE, B40 east door
+            REACHABLE-WITH-1-BLOCK-JUMPS (natural 2-cell Geocraft hump past the approach).
+            readback 284152: 45 benign (pristine flowing water settled into sources at the
+            pond surface; grass→dirt under blocks).
+            INCIDENT (fixed same session): the envelope cleared the old Geocraft SUSU wall
+            that was the bank of the pristine brook/pond W of SUSU (x6140-6155) and cut the
+            natural stone bank at (6154,-5563) → water ran out. Kit fixes (new-style builds,
+            max_fill set): pristine water columns are re-planned exactly; ground beside
+            ground-level pristine water stays at its surface; natural ground outside old
+            footprints is never cut below pristine terrain (and cut banks are restored);
+            fringe fill capped at +2 (max_fill). osm_footprints guard: water is not
+            building-like. Follow-up audit: 29 stone cells cut by the first apply (old SUSU
+            undercroft = pond side) restored → 0 holes; water vs pristine +208 = 188 trapped
+            falling water in sealed voids under the bank (y30-36, invisible) + 20 settled
+            surface sources. C1/C2 boxes: water identical to pristine. (Count water by
+            block id: 'water' also matches 'waterlogged=false'.) The same build was re-applied; backup from the first apply kept.
+            Matches: (1) lawn view: long 2-storey brick range under a tall tile-coloured
+            pitched roof (photos); (2) top: white flat B38 roofs round courtyards, grey SUSU;
+            (3) brook back in its channel W of SUSU.
+            Mismatches: (1) gabled ends with tall stone-framed windows not modelled; (2) SUSU
+            2013 white entrance range not distinguished (all brick); (3) photo cameras from
+            Commons geotags land in trees — evidence views taken from the lawn instead.
+            Not built: 391790374 (canopy).
+TOKEN NOTES (Q-029)
+- Commons geotags are loose (tens of metres): pick evidence cameras by eye from the
+  survey sheet, not from the geotag.
+- Always classify readback mismatches (water/grass are physics, not build errors).
+
+2026-10-12  Q-030 done: Highfield campus C4 — engineering quarter (Lanchester B7, Tizard B13,
+            B5, Workshops B9 + 13A, ISVR B15, Cochlear B19, B17, 236057339, Tank B8) + the
+            cleared site of the demolished Faraday Tower (Claude).
+            EVIDENCE: Commons 171521131 (2025 Lanchester: grey concrete bands, blue ribbon
+            windows, stone-clad cantilevered lecture theatre), 171521099 (Engineering
+            Square), 13017064 (2008 Faraday Tower) + 171521042 (2025 "site of the former
+            Faraday Tower, recently demolished": fenced sandy ground). OSM no longer maps
+            Faraday; the world still had the Geocraft tower (y89-93, 498 columns at
+            x6470-6498 z-5647..-5642 core) → cleared to ground 48, coarse_dirt surface.
+            B9 white saw-tooth roof → pitched_part on the raw LIDAR surface (quartz/white).
+            Build highfield_engineering. readback 0 / 314726; footprint OK; 11 door walks
+            REACHABLE (B19 + B17 doors re-anchored off a courtyard / a tree).
+            Matches: (1) Lanchester camera: grey concrete floors with blue ribbon glazing
+            along the road; (2) top: long white B9 roof between dark flat ranges;
+            (3) Faraday Tower gone from the skyline (SE view).
+            Mismatches: (1) Lanchester's cantilevered stone lecture theatre over the road
+            not modelled; (2) B9 saw-teeth read as a flat white roof (LIDAR teeth 1 block);
+            (3) Faraday site camera landed inside B25 (no close view).
+            KIT BUG (fixed): 'water' in state also matched waterlogged=false on leaves, so
+            tree columns were copied from pristine (C3 re-applied: 456 blocks corrected).
+            campus.is_water() now tests the block id.
+
+2026-10-12  Q-031 done: Highfield campus C5 — Life Sciences B85, B32, Nightingale B67,
+            High Voltage Lab B20, 293165048 (Claude). Build highfield_life_sciences.
+            EVIDENCE: Commons 123638288 / 171521163 (B85 silver-grey vertical cladding,
+            glazed corner; B32 behind), 5578930 (B32 blue glass curtain wall), 123638253 /
+            113513366 (B67 white render, dark ribbon windows, brick plinth). LIDAR ground 55;
+            B85 72/75, B32 71, B67 71, B20 61.
+            readback 0 / 203860; footprint OK; 5 door walks + stairs REACHABLE;
+            views/q031-contact.png.
+            Matches: (1) B67 camera: white ribbon-windowed block on a brick plinth;
+            (2) B32: dark-framed blue glass bands; (3) B85 grey finned mass, tallest here.
+            Mismatches: (1) B85 glazed corner stair + wide entrance steps not modelled;
+            (2) B32 curtain wall reads as bands (frame every floor), photo is near-seamless;
+            (3) B20 / 293165048 brick by hint only.
+
+2026-10-12  Q-032 done: Highfield campus C6 — Centenary B100, Nuffield Theatre B6, Law B4,
+            B2, Annex 2A, Interchange Kiosk, 93742827, 1024630088 (Claude). Build
+            highfield_nuffield_law. EVIDENCE: Commons 144943043 (B100 white ribbed cladding,
+            punched windows, dark brick ground floor), 126269265 / 114890264 (Nuffield:
+            verdigris copper blocks over brick), 148052260 (2020 view from B100), 113513296
+            (bus interchange). Copper fly tower = Nuffield's upper LIDAR band (65-68).
+            Kit: Campus.clear_to now follows the tallest part (B100 deck 89 > old 84 cap).
+            readback 0 / 266159; footprint OK; doors REACHABLE (B2 east door with a 1-block
+            natural jump; 1024630088 door moved off a Geocraft wall).
+            Matches: (1) Centenary camera: white ribbed mass, punched dark windows, dark base;
+            (2) Nuffield: green copper fly tower above a brick base; (3) B100 roof view
+            composes like photo 148052260 (copper theatre, white ribbon blocks, brick ranges).
+            Mismatches: (1) Nuffield pool + sculpture court not modelled; (2) bus interchange
+            timber canopy (154067444) not built; (3) Law/B2 concrete style by the B100 view
+            only.
+            Not built: 1482280003/4, 236241511 (no LIDAR height, no photo).
+
+2026-10-12  Q-033 done: Highfield campus C7 — Mountbatten B53, Zepler B59, Gower B60, B1,
+            B16, small blocks + guardhouse (Claude). Build highfield_mountbatten.
+            EVIDENCE: Commons 8457501 (B53/B59 white, horizontal louvres, green panels),
+            123638194 (New Zepler: white render, punched dark windows), 154577598 (2021 Gower:
+            white blocks + glazed stair tower), 104745586 (Salisbury Rd ranges). LIDAR: B53
+            69/73/76, B59 71, B60 62/69, B1 63, B16 64/67.
+            readback 0 / 214224; footprint OK; doors REACHABLE (B16 east door with one
+            natural 1-block jump); views/q033-contact.png.
+            Matches: (1) Zepler camera: white 4-5 storey block with punched windows on
+            Salisbury Rd; (2) Gower: white ranges, tall narrow end block; (3) top: white
+            roofs following the Mountbatten L and Gower's curved strip.
+            Mismatches: (1) Mountbatten louvres + green panels not modelled; (2) Gower's
+            stair tower is white, photo fully glazed; (3) B1/B16 style by street hint.
+            Not built: 224489179, 391790378 (no LIDAR height).
+
+2026-10-12  I-034 fix (ad-hoc): Broadlands Rd 56–62 roof ridge jogs — re-applied
+            broadlands_rd_56_62 (one party column per pair); roof_lint guard + --all
+            in PROCESS, test regression + scripts/run_tests.py + GitHub Actions.
+            Views: verification/site/views/roof-fix-afterbroadlands-56-62-*.png.
+
+2026-10-12  Q-046 done: ring-1 main roads round the Broadlands focus (Composer). Build
+            broadlands_ring1_roads (18,270 cells), 14 road parcels signed 100% (Mayfield,
+            Harrison, Sirdar, Sirdar Mews, Portswood, Thomas Lewis Way, Belgrave; cells
+            54..56, -45..-43). §3a gray_concrete / light_gray_concrete / smooth_stone kerb
+            at pristine Y; 63 Geocraft building-edge columns kept (carpet cleared); granite
+            pavement fringe + grass under street trees. Readback 0; footprint check OK.
+            Seams 76/309 cols (mostly prop/gap boundaries, down from 87/322 post-Q-045).
+            Evidence: top + street views verification/site/views/q046roadscontact.png
+            (Portswood/Broadlands junction, Mayfield/Harrison, Portswood north — no photo
+            survey per §3a). Matches: (1) kerb–asphalt–pavement band reads consistently
+            with Q-044 Broadlands Rd; (2) Harrison/Portswood junction grey carriageway
+            continuous across the old kerb-only strips; (3) Sirdar Mews cobble-free asphalt
+            corridor. Mismatches: (1) widths still Geocraft buffers, not measured;
+            (2) Belgrave/TLW east cells (-42) not in this parcel set; (3) gap/no_osm
+            parcels beside the roads untouched (queued separately).
+
+2026-10-12  Q-042 done: Chamberlain Rd 48–56 — cleared Geocraft procedural oaks (I-031),
+            re-applied chamberlain_rd_8_58 (build_highfield_uni_houses.py: plot columns
+            cleared to air, 43 back-garden trees from z18 canopy heuristic).
+            EVIDENCE: kartaview-1381543297 (front), mosaic-z18 campus aerial (backs).
+            Matches: (1) cream-rendered terrace + closeboard fences still read on photo view;
+            (2) top view shows lawn backs without tall Geocraft crowns on 48–56;
+            (3) coverage signoff + geocraft check 0 leftovers on five parcels.
+            Mismatch: aerial trees are coarse (one crown per green patch, max 3/house) — OK
+            for radial good-enough.
+
+2026-10-12  Q-034 done: Highfield campus C8 — Physics & Astronomy B5 + B46, Shackleton B44,
+            Psychology 44A, three sheds (Claude). Build highfield_shackleton_physics.
+            EVIDENCE: Commons 14474802 (Shackleton: grey concrete bands, blue ribbon
+            windows), 171520763 / 171520794 / 13527539 (2025 + gardens and stream W).
+            LIDAR: B5 66/69, B44 55/66/69 round a courtyard (pristine pond kept), 44A 56.
+            readback 184297: 25 benign (the pristine courtyard pond's uneven surface
+            levelled by the game); footprint OK; all doors REACHABLE (campus_verify now picks
+            the approach cell nearest the door's level across 2-6 out — it had been starting
+            walks on neighbouring roofs).
+            Matches: (1) Shackleton camera: grey concrete with blue ribbon glazing over
+            the gardens; (2) top: courtyard square with its pond, long Physics strip;
+            (3) gardens view: low brick/greenery W of the grey blocks as in 171520794.
+            Mismatches: (1) Physics B46 tower in photo 171520763 reads taller than LIDAR's
+            58; (2) entrance canopies not modelled; (3) sheds grey by hint.
+            Cross-check: library build readback now 3 (west fringe ground restored to stone
+            by the later SUSU re-apply — overlapping envelopes, later wins; benign).
+            Not built: roof canopies 147603916 / 154417140 / 226117630; 220434721,
+            148212337 (no LIDAR height).
+
+2026-10-12  Q-011 done: Old Town wall circuit — aerial vs Geocraft LIDAR footprint (survey only).
+            EVIDENCE: z18 mosaics (manifest aerial-oldtown-mosaic-*); OSM clips
+            reference/osm/oldtown/; audits verification/site/audits/q011-* +
+            q011-oldtown-wall-result.json.
+            Matches: (1) Western Esplanade — Hampshire aerial stone wall aligns with
+            LIDAR top-Y band y≈44–48 (west-wall-survey contact sheet); (2) Bargate/Westgate
+            are low carpet DSM footprints, not tall gatehouse massing; (3) OSM city_wall ways
+            sit on mapped N/E/Arcades segments with matching ground level.
+            Mismatches: (1) OSM has no city_wall linework on the west curtain (I-034);
+            (2) sampling exactly on OSM wall nodes often reads flat y40 — use prominence
+            scan / offset columns for wall height; (3) HER polylines not fetched — OSM+HUB only.
+
+2026-10-12  Q-047 done: Highfield campus grounds — applied all 9 zones of
+            build_highfield_grounds.py (OSM roads/paths/parking + aerial fill inside campus
+            polygon; skips water, I-026 carpet masses, existing builds). ~275k cells total;
+            readback mismatches only grass_block↔dirt (except se 0); coverage backfill signed
+            477 parcels (281 path + open/gap campus parcels). Snap
+            backups/regions/2026-10-12-214834-Q-047. Campus open/path parcels ~96%/82%
+            touched; outer highfield ring (Burgess/Lovers Walk bbox) still partial — not scope.
+            Evidence: z18 campus mosaic + OSM grounds clip (same as script header).
+            Matches: (1) NW lawns/paving read green/grey like the aerial; (2) NC car parks
+            bay lines + asphalt; (3) MC central quads grass/pave mix. Mismatches: (1) Geocraft
+            carpet lumps (I-026) unchanged; (2) widths still OSM half-width heuristics not survey;
+            (3) no new street-photo views (grounds-only).
+TOKEN NOTES (Q-047)
+- Use .venv/bin/python (matplotlib) + MPLCONFIGDIR in repo; system python3 fails at preview.
+- One region snap for whole campus bbox before the loop; ~13 min for 9 applies via MCP.

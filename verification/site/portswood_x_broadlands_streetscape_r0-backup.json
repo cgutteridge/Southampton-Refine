@@ -1,0 +1,15 @@
+{
+  "structure": "southampton_refine:before_portswood_x_broadlands_streetscape_r0",
+  "from": [
+    7048,
+    26,
+    -5570
+  ],
+  "to": [
+    7146,
+    27,
+    -5515
+  ],
+  "result": "saved southampton_refine:before_portswood_x_broadlands_streetscape_r0",
+  "time": "2026-10-11 16:19:28"
+}

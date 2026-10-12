@@ -1,0 +1,162 @@
+SOUTHAMPTON REFINE — MINECRAFT CRAFTSMANSHIP
+Updated: 11 October 2026 (Europe/London)
+
+How to place blocks so houses read as careful Minecraft builds, not as
+jagged OSM extrusions or Geocraft LIDAR carpets. Accuracy still wins for
+*where* and *what*; this file is *how*.
+
+Sources distilled for this project (do not re-fetch every session):
+  - Minecraft Wiki: Tutorial:Roof construction guidelines
+  - MineSpecs: How to Build a Roof That Actually Looks Right (2026)
+  - Project fails: I-009 (pavement façades); Geocraft lattice/carpet roofs;
+    Q-014/Q-016/Q-017 stair roofs on shallow pitches (fixed Q-017b: 1:2
+    slabs + envelope carpet clear)
+
+Cursor always-on summary: .cursor/rules/minecraft-craftsmanship.mdc
+
+------------------------------------------------------------------------
+1. FOOTPRINT — GUIDE, NOT PRISON
+------------------------------------------------------------------------
+ Keep the house on the surveyed plot. Never on pavement/kerb (I-009).
+
+ OSM polygons are ragged at 1 m. At house scale, a 1:1 stair-step wall on
+ every diagonal reads as noise. Prefer what a human would place:
+  - Axis-align long wall runs; square corners.
+  - Nudge/straighten ±1–2 blocks when street photo + aerial still agree.
+  - Match party walls with the neighbour so semis meet cleanly.
+  - Skip one-block OSM dents that make holes or knife-edge zigzags.
+
+ Wiki note: non-axis buildings only look convincing at large scale. For
+ Broadlands-sized semis, square the mass; do not diamond-trace the OSM.
+
+ site_kit footprint guard still blocks pavement builds. It is not a licence
+ to demand pixel-perfect OSM walls.
+
+------------------------------------------------------------------------
+2. WALLS AND OPENINGS
+------------------------------------------------------------------------
+ Airtight outer shell: no sky/air holes at corners, eaves, party walls,
+ bay joins, or roof/wall junctions. Interior void only for floors + stair.
+
+ Windows (always):
+  - Punch openings from a solid wall plane — never float glass in a gap.
+  - Every pane (or pane column) has opaque blocks left and right.
+  - Sill under (slab or upside-down stair); lintel/head above.
+  - Prefer glass *panes* inset one step if the wall is ≥2 thick; if the
+    wall is 1 thick, still keep solid flanks and a coherent surround.
+  - No glass as a corner block; no 1-wide glass strip with air beside it.
+
+ Doors: solid surround, facing the numbered street, walkable stoop.
+
+ Depth (good-enough, not decoration chase):
+  - Bays/porches are structural bumps from the ground, not stick-on frames.
+  - A one-block reveal (frame vs fill) beats a flat brick sheet.
+
+------------------------------------------------------------------------
+3. ROOFS — PITCH IS ARITHMETIC
+------------------------------------------------------------------------
+ Evidence first: ridge direction and roof *type* (gable/hip/valley) from
+ the aerial; eaves/ridge Y from LIDAR. Then pick a Minecraft pitch that
+ matches the rise÷run, not a default stair carpet.
+
+ Standard pitches (span S = wall width + overhang both sides; prefer odd S):
+
+  Ratio   Angle (approx)   Surface pattern
+  1:2     ~22.5°           Bottom/top slab alternate (shallow)
+  1:1     45°              Stairs ascending inward
+  2:1     ~63°             Full block + stair per column (steep; rare here)
+
+ Southampton ordinary semis/terraces: usually **shallower than a full
+ stair**. Default to **1:2 slab courses**. Do **not** put stair blocks on
+ the roof skin unless evidence is clearly ~45°. Fantasy/Victorian tutorial
+ “steep roofs always” does **not** override local evidence.
+
+ Hard rules:
+  - Stair blocks on the roof = 45° tell. On Broadlands-type semis that is
+    usually wrong — use bottom/top slabs (1:2). Q-017 was rejected for this.
+  - Full blocks are **wall-plate / gable / hip fill**, not the visible pitch.
+    A stepped pyramid of full blocks (or Geocraft stone/carpet stripes) is
+    the beginner / generator tell — replace it.
+  - Processed ground holds no Geocraft. Every column of every parcel a build
+    covers is rebuilt or cleared (carpet, stone band / undercroft, stock
+    pavement in gardens, stray walls, procedural trees, prior stair skins).
+    A fragment straddling the plot line is cleared whole by the owning build.
+  - One pitch per house (wings/bays match the main).
+  - Overhang ≥1 block past the wall on eaves (and gable ends). Flush roofs
+    look like a hat glued on a box.
+  - Roof is at least two layers thick where stairs are the skin: solid or
+    upside-down stair underlay so the attic is not see-through.
+  - Seal light holes: stairs leave gaps; fill with upside-down stairs,
+    slabs, or a flat ceiling course under the pitch. Airtight from outside.
+  - Chimney passes **through** the roof (swap roof blocks for full blocks
+    where it crosses); stack rises above the ridge — not a block parked
+    beside the pitch.
+  - Ridge: odd span → single ridge line; cap with slab or deliberate beam.
+    Even span → accept a 2-wide flat ridge capped with slabs, or widen
+    the plan by one.
+
+ Hips: stair auto-mitre only looks clean at 1:1. At 1:2 (slabs) cut the
+ hip diagonal by hand with full blocks and die the slab courses into it.
+
+ Clear Geocraft carpet/"stone roof" and undercroft where the real house
+ replaces them (see GEOCRAFT.txt).
+
+------------------------------------------------------------------------
+3a. STREETS — RULES OF THUMB, NO SURVEY (user, Q-044, 12 Oct 2026)
+------------------------------------------------------------------------
+ Roads are boring: no aerial crops, colour profiles or per-column surveys
+ unless a street plainly breaks these rules. Copy
+ scripts/build_broadlands_rd_streetscape.py and change only the parcel ids.
+  - Keep Geocraft's corridor (OSM route is trusted; house builds already sit
+    against its pristine edges). Every column at the PRISTINE surface Y.
+  - Stock gray_terracotta → gray_concrete; a terracotta cell with any
+    non-terracotta N4 neighbour → smooth_stone kerb, flush. Junction and
+    driveway mouths stay asphalt (dropped kerb).
+  - Stock polished_diorite, and Geocraft stone inside a road parcel →
+    light_gray_concrete pavement at the adjoining street Y.
+  - Rear lanes / alleys: gravel 60% / coarse_dirt 28% / dirt_path 12%
+    within 1.5 of the OSM centreline, grass_block verge on the rest.
+  - Service ways go by OSM tag (user, Q-045; scripts/build_broadlands_ring1_lanes.py):
+    service=driveway / parking_aisle (untagged) and surface=asphalt → gray_concrete
+    over the whole parcel, no kerb; asphalt alley → gray_concrete within width/2 +
+    verge; highway=path dirt → coarse_dirt / dirt_path within 1 + grass. Check the
+    tags first — most "lanes" near flats and shops are driveways.
+  - A column whose pristine top is not ground (carpet over brick) is the wall row of
+    an unrebuilt Geocraft building rasterised into the street: write it unchanged,
+    drop only the carpet, lay no street there (clearing holes the building).
+  - Clear unowned blocks above (Geocraft road-label signs, orphan posts);
+    re-solidify the bed down to the lowest cell any superseded streetscape
+    pass wrote (their trims left air: gravel falls, signoff sees "structure").
+  - Never write cells owned by house builds; put old streetscape passes and
+    the reverted I-009 façades (+ facade_revert) in modifies.
+
+------------------------------------------------------------------------
+4. ANTI-PATTERNS (REJECT IN PREVIEW / REVIEW)
+------------------------------------------------------------------------
+  ✗ Walls on pavement or at "last solid before road" (I-009)
+  ✗ Jagged 1:1 OSM wall trace with missing corner teeth
+  ✗ Geocraft lattice / carpet / striped full-block roof left in place
+  ✗ Any Geocraft block left on (or straddling) a processed plot
+  ✗ Stair-only 45° roof when aerial shows a shallow pitch (Broadlands default)
+  ✗ Full-block underlay pyramid reading as the roof surface
+  ✗ Roof flush with walls (no overhang)
+  ✗ Single-layer stair skin with sky visible through gaps
+  ✗ Floating or unflanked glass
+  ✗ Chimney sitting on top of the roof without cutting through
+
+------------------------------------------------------------------------
+5. CHECK BEFORE MARKING A PROPERTY DONE
+------------------------------------------------------------------------
+ Add to the usual PROCESS done list:
+  [ ] Shell airtight from street and aerial angles (no lattice/carpet roof)
+  [ ] No Geocraft left anywhere on the processed parcels (coverage.py
+      signoff passes)
+  [ ] Roof is 1:2 slabs (not stairs) unless evidence is steep; overhang ≥1
+  [ ] Every window has sill, head, and solid L/R flanks
+  [ ] Footprint squared for Minecraft, still on the plot (check OK)
+  [ ] Contact views still used for evidence — craftsmanship is extra,
+      not a substitute for photo/aerial match
+
+ Good enough: do not chase chimney pots, ridge cresting, or trapdoor
+ gutters unless the place brief raises the bar. Readable massing + sealed
+ shell + correct street character is the default.

@@ -1,0 +1,172 @@
+REFERENCE LOGGING — avoid token waste
+Updated: 11 Oct 2026 (user request)
+
+Goal: fetch once, judge once, re-open only when a build step needs a
+specific visual fact. Files + a manifest are memory; chat is not.
+
+------------------------------------------------------------------------
+1. WHAT WE KEEP ON DISK
+------------------------------------------------------------------------
+ reference/aerial/<place-id>/     ortho / tile crops (prefer z18 OGL)
+ reference/photos/<place-id>/     ground / street photos
+ reference/photos/<place-id>/ATTRIBUTION.txt
+ reference/manifest.jsonl         ONE line per asset (append-only log)
+ reference/LOGGING.txt            this plan
+
+Images stay gitignored (size / licence). The manifest MAY be committed
+if it contains no proprietary URLs that must stay private — default:
+commit the schema + place notes; keep bulky blobs local.
+
+------------------------------------------------------------------------
+2. MANIFEST LINE (JSONL) + SPARSE TILE INDEX
+------------------------------------------------------------------------
+Files stay in place folders. Do NOT create a folder-per-tile tree (dupes /
+empty-grid bloat). Spatial keys live only on the manifest line:
+
+Required fields:
+  id           stable slug, e.g. so173sf-aer-z18-mosaic
+  place        PLACES.txt id (SO173SF, CIVIC, …)
+  path         relative path under reference/
+  kind         aerial | street | facade | detail | map | other
+  source       hampshire-hub | cco-z19 | geograph | mapillary | own | …
+  url          canonical remote URL if any (empty for own photos)
+  sha256       of file bytes (dedupe key with url)
+  captured     ISO date of photo if known, else ""
+  added        ISO date we added it
+  useful       yes | maybe | no
+  models       what it is good for (see tags below)
+  not_for      what it must NOT drive (see privacy)
+  notes        one short line; no essays
+
+Spatial fields (scripts/ref_manifest.py fills these):
+  wm_tiles     web-mercator ids \"z/x/y\" — aerial fetch unit (z18 Hub / z19 CCO)
+  mc_tiles     sparse Minecraft cells \"128:{tx}:{tz}\" covering bbox_mc
+  bbox_mc      [x0,z0,x1,z1] inclusive block bounds
+  mc_tile_size 128
+
+Aerial identity → wm_tiles. Build queries → mc_tiles around the edit.
+Street photos → usually a point/small bbox → few mc_tiles (not every
+overlapping aerial tile folder).
+
+Model tags (models): footprint | roof | height | facade | openings |
+  materials | street_furniture | landscape | context | discard | hint
+
+Privacy / scope tags (not_for): private_interior | backyard_detail |
+  people_faces | vehicles_plates | speculative
+
+Hint refs (user, 11 Oct 2026): when the exact plot has no façade photo,
+nearby same-terrace / same-typology exteriors may be logged useful=maybe
+with models including "hint", and notes naming the target address/plot.
+They must not override LIDAR/aerial footprint for the target plot.
+
+Example:
+{"id":"…","place":"SO173SF","path":"aerial/so17-3sf/mosaic-….png","kind":"aerial","source":"hampshire-hub","url":"https://tiles.maps.southampton.ac.uk/aer/18/130062/87838.png","sha256":"…","useful":"yes","models":["footprint","roof"],"not_for":["private_interior"],"wm_tiles":["18/130061/87837","18/130062/87838",…],"mc_tiles":["128:54:-42",…],"bbox_mc":[6880,-5408,7100,-5200],"mc_tile_size":128,"notes":"primary mosaic"}
+
+------------------------------------------------------------------------
+3. BEFORE FETCHING
+------------------------------------------------------------------------
+1. python3 scripts/ref_manifest.py find --xz X,Z [--useful yes]
+   and/or find --wm z/x/y / find --place ID — also grep url/sha256.
+2. If url or sha256 already present → do not download again.
+3. If useful=no → do not open the image in chat; trust the note.
+4. Prefer one mosaic / contact sheet over a pile of near-duplicate tiles.
+
+------------------------------------------------------------------------
+4. AFTER FETCHING (judge once)
+------------------------------------------------------------------------
+1. Write the JSONL line immediately.
+2. Set useful:
+   - yes    = will inform a kit build (footprint / façade / roof / …)
+   - maybe  = keep on disk; do not re-read until a named build needs it
+   - no     = wrong place, too old, interior/private, pure street clutter
+3. For useful=no: one-line reason in notes; never Read the image again
+   unless the user overrides.
+4. Update site/PLACES.txt Evidence: path only (not a dump of every file).
+
+------------------------------------------------------------------------
+5. WHEN WORKING A BUILD (token rules)
+------------------------------------------------------------------------
+- Start from PLACES + manifest grep for that place — not from re-listing
+  the photo folder in chat.
+- Open at most ONE primary aerial (usually the mosaic) and ONE primary
+  façade per elevation being modelled.
+- Use contact sheets / mosaics for triage; full-size Read only to settle
+  a disputed detail (window count, material, entrance position).
+- Do not re-Read an image already judged in this chat unless the build
+  step explicitly needs a new fact from it.
+- Never paste image bytes or long EXIF dumps into notes.
+
+------------------------------------------------------------------------
+6. PRIVACY & INTERIORS — UPDATED 11 Oct 2026: whole properties are rebuilt;
+   private houses get storey floors + one stair only (no rooms/furniture), and
+   back gardens are modelled from the AERIAL only. Still never research private
+   interiors (no listing galleries, floorplans, through-window shots) and never
+   use over-the-fence photos. Original ruling below for history.
+6. PRIVACY & INTERIORS (user ruling, 11 Oct 2026)
+------------------------------------------------------------------------
+- We do NOT model or research the interior of private property
+  (homes, private gardens beyond what is visible from the public street
+  / public aerial for roof & massing only).
+- Back-garden clutter, through-windows, and private rooms are out of
+  scope. Tag such refs not_for:private_interior and useful=no if that
+  was the only content.
+- Public-building interiors (stations, libraries, civic foyers, museums,
+  churches open to the public, etc.) ONLY when we have explicit
+  reference images or plans intended for that purpose — never invent
+  an interior from a street façade alone.
+- Prefer publicly visible elevations, roofs, footprints, and streetscape.
+- Estate-agent sites (Rightmove etc.): exteriors may inform façades; ignore
+  interior galleries / floorplans for modelling. Do not bulk-download into
+  reference/ without a licence call — prefer look + notes, or own photos.
+
+------------------------------------------------------------------------
+7. HELPER
+------------------------------------------------------------------------
+  Cursor agent shells use an allowlist HTTPS proxy — Hampshire Hub /
+  KartaView / Geograph get CONNECT 403 from the agent. Policy: no
+  per-handoff network chore for the user.
+
+  Default: agent uses reference/ already on disk (manifest find).
+  Missing mosaic: user (or agent instructions) runs ONE Terminal command
+  when needed — not a long-lived sidecar each session:
+
+  python3 scripts/aerial_mosaic.py --wm 18/130062/87838 --place SO173SF \
+      --dir aerial/so17-3sf [--add] [--size 3] [--dry-run]
+  python3 scripts/aerial_mosaic.py --at 6949,-5345 --zoom 18 --place SO173SF \
+      --dir aerial/so17-3sf
+  (stitches N×N aer tiles → one mosaic; prefer over reading singles)
+
+  OSM clips from local Hampshire PBF (third check; not a tile tree):
+  python3 scripts/osm_extract.py --at 7097,-5521 --radius-m 200 \
+      --layers buildings --place PORTSWOOD_X_BROADLANDS --add
+  python3 scripts/osm_extract.py --at 7097,-5521 --cell \
+      --layers buildings,highways --place PORTSWOOD_X_BROADLANDS --dry-run
+
+  Optional: scripts/ref_fetch_agent.py lets the *agent* fetch via
+  localhost if you already have that process up — never required at
+  handoff. Agent-started sidecars cannot reach Hub (sandbox).
+  python3 scripts/ref_manifest.py add PATH --place … --kind … --source …
+      --useful yes|maybe|no [--url …] [--wm z/x/y] [--at x,z] [--bbox …]
+  python3 scripts/ref_manifest.py find --xz 6949,-5345 --useful yes
+  python3 scripts/ref_manifest.py find --wm 18/130062/87838
+  python3 scripts/ref_manifest.py list --place SO173SF
+  python3 scripts/ref_manifest.py backfill
+
+------------------------------------------------------------------------
+8. END-OF-STAGE / HANDOFF CHECK (user, 11 Oct 2026)
+------------------------------------------------------------------------
+Before `site_handoff.py end` (or closing a queue stage), the agent MUST
+briefly spot token wastage in that stage and suggest concrete fixes.
+Examples: re-Read images, re-fetched tiles, cat of whole scripts, wrong
+Geograph square, private-interior dead ends, oversized contact sheets.
+Write 2–5 lines into site/REVIEWS.txt (or the place brief CHANGE LOG)
+under a "TOKEN NOTES" heading — what leaked, what to do next time.
+Do not skip this when the stage otherwise succeeded.
+
+------------------------------------------------------------------------
+9. SO17 3SF / FOCUS STREET REFS (after Q-002)
+------------------------------------------------------------------------
+Aerial: reference/aerial/so17-3sf (Hampshire Hub mosaic useful=yes).
+Street: KartaView useful=yes under photos/portswood-x-broadlands/ and
+photos/so17-3sf/; triage photos/q002-kartaview-contact.png.
+Prefer those over Geograph SU4314 samples for terrace typology.

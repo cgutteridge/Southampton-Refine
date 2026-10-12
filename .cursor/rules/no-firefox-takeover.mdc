@@ -1,0 +1,15 @@
+---
+description: Never control Firefox without explicit user consent
+alwaysApply: true
+---
+
+# Browser control — no Firefox takeover
+
+Do **not** launch, connect to, automate, or take over **Firefox** unless the
+user has given clear, explicit consent in the current request (e.g. “use
+Firefox” / “control Firefox”).
+
+Default browsers for agent work: Cursor’s built-in browser tab, or Chrome /
+Chromium only when the user asks for a real Chrome profile.
+
+Silent or assumed use of Firefox is forbidden.

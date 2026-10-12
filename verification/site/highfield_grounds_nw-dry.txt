@@ -1,0 +1,4 @@
+highfield_grounds_nw campus 13514 scope 6964 surfaced 6869 skipped {'gray_terracotta': 21, 'stone': 15, 'granite': 11, 'black_wool': 3, 'stone_brick_stairs': 1, 'grass_block': 1}
+kinds {'pave': 3192, 'grass': 2125, 'proad': 655, 'road': 479, 'wood': 312, 'asph': 103, 'brick': 3} aerial-only 988
+bays 0 marks 0 barriers {'iron_bars': 1} trees 16
+highfield_grounds_nw: 12712 cells in 1772 boxes; bounds (6040, 50, -5937)..(6149, 65, -5787); no clashes

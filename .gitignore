@@ -8,17 +8,30 @@ vendor/
 *.pyc
 *.pyo
 .DS_Store
+.matplotlib-cache/
+
+# Live builder lock (scripts/site_lock.py)
+site/LOCK.json
 
 # Large verification artefacts stay local unless deliberately committed
 verification/site/**/*.png
 verification/site/patrol/
+verification/site/coverage/touched-cache.json
 
-# Reference imagery is local (copyright / size)
+# Reference imagery / OSM clips are local (copyright / size)
 reference/photos/**
 reference/aerial/**
+reference/osm/**
 !reference/photos/.gitkeep
 !reference/aerial/.gitkeep
+!reference/osm/.gitkeep
+reference/tpo/cache/**
+!reference/tpo/.gitkeep
+!reference/tpo/species-overrides.jsonl
 !reference/README.txt
+!reference/SOURCES.txt
+!reference/LOGGING.txt
+!reference/manifest.jsonl
 
 # handoff stop-hook marker
 site/.handoff-pending.json

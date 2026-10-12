@@ -9,6 +9,36 @@ Format:
     Status: listed | surveying | refining | reviewed
 
 ------------------------------------------------------------------------
+FOCUS ORIGIN (radial rebuild start — see site/COVERAGE.txt)
+------------------------------------------------------------------------
+
+PORTSWOOD_X_BROADLANDS  Broadlands Road (17–42), ~120 m WSW of the Portswood Rd junction
+  (id is historical. Real junction MC X7198 Z-5461. Use osm_footprints.py frontage)
+  OSGB E 443345 N 115129  |  MC X 7097 Z -5521
+  Evidence: OSM intersection node 21637743; aerial via Hampshire Hub;
+            aerial/portswood-x-broadlands/mosaic-z18-3x3-centre-130063-87836.png;
+            reference/photos/portswood-x-broadlands/ (KartaView seq 5063417+);
+            triage photos/q002-kartaview-contact.png; primary useful=yes
+            kartaview-1471277657-seq5063417.jpg;
+            osm/portswood-x-broadlands/buildings-r200m-at-7097--5521.geojson
+            (Hampshire PBF clip, third-check footprints)
+  Builds: portswood_x_broadlands_kerb_proof (Q-003);
+            portswood_x_broadlands_streetscape_r0 + portswood_ring1_streetscape_kerbs
+            (Q-004); views/q004-contact.png;
+            portswood_x_broadlands_terrace_facade_1 + _1b (Q-010);
+            views/q010b-contact.png;
+            streetscape_q013 + _q013b (Q-013); views/q013c-contact.png;
+            terrace_facade_2 + _2b + _2c (Q-012); views/q012-contact.png
+            → ALL façade builds REVERTED by broadlands_facade_revert (I-009)
+            broadlands_rd_14_24 + _26_36 (Q-018); broadlands_rd_2_12 (Q-019);
+            broadlands_rd_40_46 (Q-020, post-war flats; kartaview-1471277609,
+            views/q020-contact.png); broadlands_rd_48_54 (Q-021, Victorian
+            pair 48/50 + hipped semi 52/54; views/q021-contact.png);
+            broadlands_rd_56_62 (Q-022, front-gabled pairs 56/58 + 60/62;
+            kartaview-1471277529, views/q022-contact.png)
+  Status: focus — streets refined; façades reverted (I-009), redo = Q-014
+
+------------------------------------------------------------------------
 SEED (approximate civic / city-centre anchors — verify on load)
 ------------------------------------------------------------------------
 
@@ -18,19 +48,59 @@ CIVIC   Southampton Civic Centre
   Status: listed — offline probe 2026-10-11: top gray_terracotta @ Y27 (seed E/N still approximate)
 
 OLDTOWN Old Town walls / Bargate area
-  OSGB E 441900 N 111700  |  MC X 5652 Z -2092
-  Evidence: TBD
-  Status: listed
+  OSGB E 441994 N 111639  |  MC X 5652 Z -2092  (Bargate OSM w27050359 centroid; seed E441900 updated)
+  Evidence: reference/aerial/oldtown/ (3× z18 5×5 mosaics, manifest);
+            reference/osm/oldtown/ (buildings+highways + barrier=city_wall lines, Q-011);
+            verification/site/audits/q011-* (aerial↔LIDAR surveys + result JSON)
+  Status: surveyed 2026-10-12 (Q-011) — Geocraft LIDAR ridge tracks the visible wall on
+          aerial along Western Esplanade (y≈44–48); OSM city_wall ways cover N/E circuit
+          but not the west curtain MC x 5470–5530 (see I-034). No Minecraft build yet.
 
-UNI     Highfield / University campus (approximate)
+UNI     Highfield / University campus (OSM way 1170405958, MC X5955..6545 Z-5985..-5375)
   OSGB E 442400 N 115200  |  MC X 6152 Z -5592
-  Evidence: TBD
-  Status: listed
+  Evidence: osm/highfield-campus/ (campus polygon + buildings/highways/landuse);
+            aerial/highfield-campus/ (four z18 5x5 mosaics); photos/highfield-campus/
+            (KartaView + Wikimedia Commons, licence in manifest notes)
+  Builds: highfield_b25_b28, highfield_library_b34_b18, highfield_susu_west,
+          highfield_engineering, highfield_life_sciences, highfield_nuffield_law,
+          highfield_mountbatten, highfield_shackleton_physics, highfield_maths_murray,
+          chamberlain_rd_8_58, hartley_ave_17_31, university_rd_26_28,
+          highfield_faraday_site (Q-027..Q-037) + the HIGHFIELD_B35 builds below
+  Builds: + highfield_grounds_{nw,nc,ne,mw,mc,me,sw,sc,se} (Q-047)
+  Status: done-bar 2026-10-12 (buildings Q-027..Q-037; campus grounds remade Q-047;
+          I-026 carpet masses + water left; low issues I-018..I-027 open)
 
 DOCKS   Eastern docks / Ocean Village (approximate)
   OSGB E 443200 N 110800  |  MC X 6952 Z -1192
   Evidence: TBD
   Status: listed
 
+SO173SF  Postcode SO17 3SF (Grosvenor Rd / Kitchener Rd, Portswood)
+  OSGB E 443197 N 114953  |  MC X 6949 Z -5345  |  SU431149
+  Evidence: reference/aerial/so17-3sf/ (Hampshire Hub z18 mosaic);
+            reference/photos/so17-3sf/ (KartaView useful=yes façades + Geograph);
+            Rightmove sold list https://www.rightmove.co.uk/house-prices/so17-3sf.html
+            (exteriors only — see SOURCES.txt)
+  Status: surveying — aerial OK; KartaView street façades useful=yes on disk;
+  Geograph/Rightmove still OK as *hints* for missing exact plots
+
 Add places as you commit to refining them. Prefer real OS grid refs from
 a survey or mapping tool over these seed approximations.
+
+------------------------------------------------------------------------
+HIGHFIELD_B35  University of Southampton Highfield campus, Building 35
+               (David Kiddle; OSM way 146985470, loc_ref 35)
+  OSGB E 442633 N 115107  |  MC X 6385 Z -5499  (ground 48 east .. 52 west car park)
+  Evidence: osm/highfield-b35/buildings+highways+landuse-r180m-at-6385--5499.geojson;
+            aerial/highfield-b35/mosaic-z18-3x3-centre-130056-87836.png;
+            photos/highfield-b35/kartaview-1519868249.jpg (north range, useful=yes);
+            LIDAR massing via pristine Geocraft.
+            photos/highfield-b35/kartaview-1519868121.jpg (B37 N + B30), -1471281241
+            (B37 SW), -1471281353 (B37 W); q025-kartaview-contact.png
+  Builds: highfield_b35 + highfield_b35_grounds (Q-024); highfield_b29_b30,
+            highfield_b37, highfield_early_years_estates (Q-025, scripts/campus.py);
+            views/q024contact.png, q024-evidence-contact.png, q024-top.png,
+            q025-contact.png, q025-evidence-contact.png;
+            highfield_b30_b37_grounds (Q-026): q026contact.png, q026-evidence-contact.png
+  Status: refining (B35, B29, B30, B37, Early Years, Estates + their road-side
+            grounds at done-bar; I-022/I-023 cosmetic, left open)

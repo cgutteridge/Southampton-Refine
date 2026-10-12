@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "multipolygons-bbox-6150--5935-6250--5800",
+"southampton_refine": { "source": "geofabrik-hampshire", "pbf": "downloads\/hampshire-latest.osm.pbf", "pbf_url": "https:\/\/download.geofabrik.de\/europe\/united-kingdom\/england\/hampshire-latest.osm.pbf", "bbox_mc": [ 6150, -5935, 6250, -5800 ], "spat_wgs84": [ -1.3979786299533601, 50.936549924138902, -1.3965398156351401, 50.937771206418802 ], "layers": [ "multipolygons" ], "place": "UNI" },
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::27700" } },
+"features": [
+
+]
+}

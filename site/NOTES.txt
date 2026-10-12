@@ -9,32 +9,106 @@ districts, themes or whimsy — accuracy only.
 
 START HERE
 - PROCESS.txt: cadence, one-builder lock, plan → apply → readback.
+- .cursor/rules/frontage-and-evidence.mdc: WHERE HOUSE FRONTS GO and how to
+  check a build against evidence (I-009). WHOLE PROPERTIES are the unit of
+  work. Mandatory before any house/plot work.
+- GEOCRAFT.txt: how the prior Geocraft phase built this world — what
+  to trust (footprints, road routes, LIDAR Y) vs not (road widths,
+  materials, openings). Read before streetscape or property work.
+- CRAFTSMANSHIP.txt: how to place blocks (airtight shells, flanked glass,
+  roof pitch/overhang, squared footprints). Cursor rule mirrors it.
+- COVERAGE.txt: radial focus + processed 128² ground cells (no gaps).
 - QUEUE.txt: ordered work items (one per chat).
 - PLACES.txt: real places being refined (OSGB + Minecraft coords).
 - ISSUES.txt / REVIEWS.txt: snags and review log.
+- archive/: done queue items, closed issues, older reviews (site_archive.py).
 - TODO.txt: smaller tasks and session notes.
 - HANDOFF.txt: starter for the next chat.
 - config/world.json: path to the Southampton2023 save.
 - config/map-maker-offsets.json: OSGB36 ↔ Minecraft transform.
 
 WORLD
-- Source world: Southampton2023 (Geocraft UKDEFRA LIDAR + OSM).
+- Working copy: instance/saves/Southampton2023 (from Downloads zip).
+  See site/INSTANCE.txt. Launcher profile: **Southampton Refine**.
+- Source: Geocraft UKDEFRA LIDAR + OSM.
 - Grid: OSGB36. OFFSET_E=436248, OFFSET_N=109608 (see config/).
 - Minecraft: +X = east, −Z = north. SEA_LEVEL=11 (Geocraft).
 - Bounds (MC): X 0..11604, Z −8666..0.
-- Convert with: python3 scripts/osgb.py …
+- Convert: python3 scripts/osgb.py (MC ↔ OSGB) or scripts/geo.py for the full
+  hub — WGS84, probe ground/LIDAR Y, slope/bearing → plot_slope, handoff
+  --view from heading, survey bboxes, party pitch, WM tiles (`geo.py --help`).
 
 COORDINATE RULE
 Always record both OSGB (E,N) and Minecraft (X,Y,Z) for a place. Never
-guess offsets — use scripts/osgb.py and the map-maker status.
+guess offsets — use osgb.py / geo.py convert and the map-maker status.
+Diagonal streets: geo.py slope --bearing … or --points … before terrace builds.
 
 ACCURACY RULES
+   (Detail + generator widths: site/GEOCRAFT.txt. Source: ~/Projects/geocraft.)
+0. GEOCRAFT TRUST (user, 11 Oct 2026): road *routes* and building *plan
+   shapes* from OSM+LIDAR are usually good; road/pavement *widths* are
+   arbitrary fixed buffers (OSM width tags ignored). Do not treat stock
+   kerb/road edges as survey — trim or widen to aerial/street evidence.
+   Keep corridor + footprint; replace materials/openings/roofs from photos.
 1. Match real footprint, height band and openings before decorating.
+   Footprint is a guide: square for Minecraft (±1–2 OK) — see
+   site/CRAFTSMANSHIP.txt. Never put walls on the pavement (I-009).
 2. Materials should read as the real surface (brick, stone, render, roof
-   type) within Minecraft’s palette — not a fantasy substitute.
+   type) within Minecraft’s palette — not Geocraft’s brick/carpet defaults.
+   Roofs: sealed pitch (usually slab 1:2 here), not Geocraft lattice;
+   glass needs solid flanks (CRAFTSMANSHIP.txt).
 3. Prefer small, reversible kit builds with backup + cells archive.
-4. Do not “improve” or invent features absent from evidence.
-5. LIDAR is the height authority; photos resolve façades and details.
+4. Do not invent features with no evidence. If the exact house has no photo,
+   nearby houses of the same terrace / period / typology may be used as
+   *hints* for materials, openings rhythm, and eaves (user, 11 Oct 2026) —
+   mark the build/notes as hint-based, prefer the closest match, and never
+   override footprint or height fixed by LIDAR/aerial for that plot.
+5. HEIGHT (user-ready rule, 11 Oct 2026): Geocraft/LIDAR Y is the massing
+   authority (terrain and overall building volume). Photos settle storey
+   count, eaves/ridge *relative to neighbours*, and openings — do not
+   fight absolute real-world metres into Minecraft Y without a written
+   exception in the place brief.
+6. PRIVACY + WHOLE PROPERTIES (user, 11 Oct 2026): rebuild whole properties
+   — house on all sides, roof, front garden, back garden layout. Private
+   houses get storey FLOORS + one stair only: no rooms, partitions or
+   furniture, and no research of interiors. Back gardens from the AERIAL
+   only (fences, lawn/patio, sheds, trees); no garden furniture, no
+   over-the-fence photos. Public-building interiors only with explicit
+   interior references.
+7. Reference logging: fetch once, judge once — see reference/LOGGING.txt
+   (manifest.jsonl + sparse wm/mc tiles). Do not re-download or re-Read
+   useless images.
+8. DONE BAR per property (default): footprint within ~1–2 blocks of
+   OSM/aerial after squaring; airtight shell + flanked windows; roof form
+   from aerial with pitch/overhang per CRAFTSMANSHIP.txt (Y from LIDAR);
+   all elevations with openings (street side from photos, sides/rear from
+   aerial + same-terrace hints); floors + stair inside; front boundary +
+   garden matching the photo; back garden fences/lawn/patio/sheds/trees
+   matching the aerial; routes walkable; readback clean; osm_footprints
+   check OK; evidence views logged.
+   OUT of default done: chimney pots/TV aerials, garden furniture, planting
+   detail, rooms/furniture. Raise the bar only in the place brief.
+9. GOOD ENOUGH (user, 11 Oct 2026): big project — do not obsess a detail
+   burning tokens. Hit the done-bar, log, move on.
+10. RADIAL COVERAGE (user, 11 Oct 2026): rebuild ALL of an area — no gap
+    holes. Work outward from the current focus (default: Portswood Rd ×
+    Broadlands Rd; the focus point itself is on Broadlands Rd, the real
+    junction is MC X7198 Z-5461). Coverage is per parcel (scripts/coverage.py,
+    Q-038): sign parcels off after builds; COVERAGE.txt cells are generated.
+    Focus may change; update COVERAGE FOCUS when it does.
+11. REVISITS (user, 11 Oct 2026): improving already-processed ground is
+    allowed (snags, better evidence) but is not the focus — keep expanding
+    the unfinished front unless a queued ISSUE says otherwise.
+12. FRONTAGE AUTHORITY (I-009, 11 Oct 2026): house fronts come from OSM
+    footprints via scripts/osm_footprints.py frontage; plots via
+    osm_footprints.py plots (refine fences from aerial). Never from "last
+    solid block before the pavement". site_kit.apply() refuses building-like
+    blocks outside footprints (>2 high street side, >4 in back gardens). Street names come from OSM
+    addr:street — the focus label is not a street name.
+13. EVIDENCE CHECK: readback/walk/patrol only prove blocks match the plan.
+    Done needs a view from the reference photo's camera beside the photo, a
+    top-down view beside the aerial, and 3 written matches/mismatches. A build that needs a geometry fix build is
+    a survey error: revert and re-survey, do not patch.
 
 WISDOM KEPT FROM THE TOWN KIT (without town fiction)
 - One builder at a time (site/LOCK.json).
@@ -53,6 +127,54 @@ WISDOM KEPT FROM THE TOWN KIT (without town fiction)
 MCP
 World: http://127.0.0.1:8765/mcp
 View:  http://127.0.0.1:8766/mcp
-Requires Fabric + Minecraft Fabric MCP in the client that has this world
-open. The Geocraft save lives under Application Support; open it from a
-Fabric profile that mounts that save (or copy/symlink into an instance).
+Open launcher profile **Southampton Refine**, load Southampton2023, then
+use the MCP endpoints (instance already has Fabric API + MCP jars).
+
+REF FETCH (aerial / KartaView from agent)
+Cursor sandbox blocks Hub HTTPS. Default: work from on-disk reference/
+(manifest). No daemon at handoff. If a tile is missing, one Terminal
+one-liner: `python3 scripts/aerial_mosaic.py … --add` (see LOGGING §7).
+Optional escape hatch (rare): scripts/ref_fetch_agent.py / start-ref-fetch.command.
+
+------------------------------------------------------------------------
+Broadlands (no dedicated queue — radial cell completion when ring arrives)
+------------------------------------------------------------------------
+User 2026-10-12: radial replan from campus UNI (site/COVERAGE.txt). No standalone
+Broadlands queue items while expanding outward. When a 128² cell overlaps
+Broadlands, use normal ACTIVE CELL todos: finish unsigned parcels/gaps only;
+keep existing terrace/streetscape builds; do not re-terrace signed-off work.
+Hints (optional, not mandatory rework):
+- Q-023 (nos. 66-74) cancelled — see site/archive/QUEUE-done.txt.
+- I-014, I-016, I-017 — fix only if a cell todo explicitly picks them up.
+- Patrol 2026-10-12: door_to_wall on several broadlands_rd_* builds.
+- 185 Broadlands Rd (OSM 159868612) — only if that cell’s review adds a todo.
+
+------------------------------------------------------------------------
+Highfield campus notes (user 2026-10-12: "finish the university")
+------------------------------------------------------------------------
+Scope: OSM "Highfield Campus" amenity=university way 1170405958, MC bbox
+X5955..6545 Z-5985..-5375; ~120 OSM buildings. Clips:
+reference/osm/highfield-campus/; aerial reference/aerial/highfield-campus/
+(four z18 5x5 mosaics). Buildings done Q-027..Q-037; campus grounds remade
+Q-047 (highfield_grounds_* nine zones). Move on unless revisiting I-026 masses.
+- CHEMISTRY (B27, OSM 66696206, MC ~6435,-5543) — CHIMNEYS (user
+  2026-10-12): the main Chemistry building has chimneys on its roof; the
+  B27 build must model them, not a plain flat roof. The z18 aerial does
+  not resolve them (long roof shadow + plant on the SE side), so take
+  their number/position/height from a street photo (KartaView) or LIDAR
+  spikes in pristine Geocraft before building; if no evidence, ask.
+  Checked 2026-10-12: pristine LIDAR has NO spikes over B27 (tops 53-61;
+  61 = the tall NW range, ~380 cells flat) — chimneys must come from a
+  street photo.
+  EVIDENCE: photos/highfield-campus/commons-51225046.jpg (Mountain-Eric,
+  CC BY-SA 3.0; camera ~6486,-5543 looking W): the tall Chemistry block is
+  5 storeys of red brick with blue-grey window panels under a light-grey
+  curved (barrel) metal roof; FIVE tall cylindrical steel flues stand in a
+  row on a plant deck along the ridge (one with a thin pipe beside it),
+  each ~5-6 m (5-6 blocks) above the roof, ~2 blocks across. Lower
+  3-storey brick block with gabled end in front (east). Build: 5 pale
+  flues (iron_block / smooth_quartz-ringed 2x2 or round-ish 3x3 minus
+  corners) on the long axis of the tall range.
+  Also commons-134990184 / -134990153 (DS Pugh, CC BY-SA 2.0, 2016, from
+  University Rd ~6512,-5545): brick perimeter wall + 'NO ENTRY' service
+  gate; second view shows a white flue/lantern over a hipped brick range.

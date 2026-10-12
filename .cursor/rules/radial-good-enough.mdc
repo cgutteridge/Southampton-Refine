@@ -1,0 +1,32 @@
+---
+description: Radial contiguous rebuild; good-enough done-bar; parcel coverage via coverage.py. Read before choosing, planning or signing off build work.
+globs: scripts/build_*.py,scripts/coverage.py,site/COVERAGE.txt,site/QUEUE.txt,site/NOTES.txt
+alwaysApply: false
+---
+
+# Spatial cadence + token discipline
+
+- **Good enough:** hit `NOTES` done-bar and move on. Do not burn tokens on
+  chimney-pot/garden-furniture/single-block fights unless the place brief raised
+  the bar. The unit of work is the WHOLE PROPERTY (house all sides + floors +
+  front and back garden layout; see frontage-and-evidence.mdc). Good enough
+  never means "skip the survey" or "front face only".
+- **No gaps:** rebuild ALL of an area. Work radially from the current focus
+  in `site/COVERAGE.txt` (default: Highfield campus UNI, MC X6152 Z-5592,
+  origin cell tx=48 tz=-44). Finish 128×128 cells by Chebyshev ring before
+  the next ring. One ACTIVE CELL at a time (PROCESS §2e).
+- **Log ground (parcels, Q-038):** coverage is tracked per parcel by
+  `scripts/coverage.py`. Every column is a parcel (property, road, path,
+  open, gap, no_osm); done = 100% of its columns touched by builds AND a sign-off
+  (`coverage.py signoff <id> --build <name>`, refused below 100% or on
+  leftover Geocraft). After each build: `coverage.py signoff …` for the
+  parcels it finished, then `coverage.py status --write`; check
+  `coverage.py gaps` for gaps/seams the build left. PROCESSED CELLS in
+  `site/COVERAGE.txt` is generated — never hand-edit it. A cell is done
+  only at 100%. Chat is not the coverage record.
+- **No repeat work:** skip signed-off parcels; minimal Geocraft clears where
+  signoff blocks; when the ring reaches Broadlands, keep existing builds.
+- **Character:** queue explicit todos for distinctive local features (PROCESS §2e).
+- **Revisits OK, not focus:** you may touch processed ground to improve
+  it; default work stays on unfinished cells at the radial front.
+- Focus may change later — update COVERAGE FOCUS; do not leave holes behind.

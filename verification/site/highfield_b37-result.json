@@ -1,0 +1,251 @@
+{
+ "planned": 75485,
+ "mismatches": 180,
+ "mismatch_sample": {
+  "(6292, 67, -5539)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6292, 67, -5537)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6293, 67, -5541)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6293, 67, -5539)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6293, 67, -5537)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6294, 67, -5543)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6294, 67, -5541)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6294, 67, -5539)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6294, 67, -5538)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6294, 67, -5536)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6295, 67, -5543)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6295, 67, -5542)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6295, 67, -5540)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6295, 67, -5538)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6295, 67, -5536)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6296, 67, -5542)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6296, 67, -5540)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6296, 67, -5538)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6296, 67, -5537)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6296, 67, -5535)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6297, 67, -5542)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6297, 67, -5541)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6297, 67, -5539)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6297, 67, -5537)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6297, 67, -5535)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6298, 67, -5541)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6298, 67, -5539)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6298, 67, -5537)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6298, 67, -5536)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6298, 67, -5534)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6299, 67, -5541)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6299, 67, -5540)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6299, 67, -5538)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6299, 67, -5536)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6299, 67, -5534)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6300, 67, -5540)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6300, 67, -5538)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6300, 67, -5536)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6300, 67, -5535)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6300, 67, -5533)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6301, 67, -5540)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6301, 67, -5539)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6301, 67, -5537)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6301, 67, -5535)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6301, 67, -5533)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6302, 67, -5539)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6302, 67, -5537)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6302, 67, -5535)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6302, 67, -5534)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6302, 67, -5532)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6303, 67, -5539)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6303, 67, -5538)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6303, 67, -5536)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6303, 67, -5534)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6303, 67, -5532)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6304, 67, -5538)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6304, 67, -5536)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6304, 67, -5534)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6304, 67, -5533)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ],
+  "(6304, 67, -5531)": [
+   "minecraft:daylight_detector[inverted=false,power=0]",
+   "minecraft:daylight_detector[inverted=false,power=10]"
+  ]
+ },
+ "checked": "2026-10-12 13:18:53",
+ "fill_results": [
+  "fills_applied: 2601\nblocks_changed: 567"
+ ],
+ "entities": []
+}

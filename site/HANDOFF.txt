@@ -2,28 +2,67 @@ SOUTHAMPTON REFINE — HANDOFF
 Files in site/ are the memory. Prefer a fresh chat per QUEUE item.
 
 Refresh starter:  python3 scripts/site_handoff.py next
-Session end:      python3 scripts/site_handoff.py end Q-nnn
+Session end:      python3 scripts/site_handoff.py end Q-nnn --summary "…" --view x,y,z
+                  (agents: Shell required_permissions ["all"] — sandbox mutes say)
 
 ------------------------------------------------------------------------
-Q-001 STARTER (copy into a fresh session)
+Q-048 STARTER (copy into a fresh session)
 ------------------------------------------------------------------------
 You are refining the Southampton Geocraft world in /Users/cjg/Projects/Southampton Refine.
 
-Read site/PROCESS.txt and follow it. Accuracy only — no fictional regions
-or whimsy. Run: python3 scripts/site_lock.py status
-If free: python3 scripts/site_lock.py claim <unique-owner> "Q-001 …"
-Then do Q-001 from site/QUEUE.txt.
+Read site/PROCESS.txt and follow it exactly. Accuracy to the real place only —
+no regions, themes or whimsy. Use the SESSION BRIEF below
+(from scripts/site_handoff.py next) instead of reading every site file.
+Run: python3 scripts/site_lock.py status
+If free: python3 scripts/site_lock.py claim <unique-owner> "Q-048 …"
+Then do Q-048 from site/QUEUE.txt end to end (frontage survey / plan → preview
+→ apply with SITE_OWNER=<you> → readback → walk → evidence check → records).
 
-Top open item: Q-001 (SETUP Fabric MCP + Southampton2023).
+Before ANY house, plot or streetscape plan, read .cursor/rules/frontage-and-
+evidence.mdc, minecraft-craftsmanship.mdc, geocraft-accuracy.mdc and
+radial-good-enough.mdc (+ terrace-builds.mdc for terraces,
+reference-token-budget.mdc before any imagery); they are not always loaded.
+The unit of work is a WHOLE PROPERTY: house on all sides with
+roof, floors + one stair (no rooms/furniture), front garden, back garden from
+the aerial. Houses sit on the OSM footprints from
+`python3 scripts/osm_footprints.py frontage|plots --bbox …`, never at the kerb.
+Readback/walk/patrol only prove blocks match your plan. Done also needs
+`osm_footprints.py check --build <name>`, a view from the reference photo's
+camera beside the photo, and a top-down view beside the aerial. If your build
+needs a fix build for its own geometry, revert and re-survey instead of
+patching.
 
-When done: mark QUEUE [x], release the lock, run
-  python3 scripts/site_handoff.py end Q-001
-Then stop — new chat for the next item.
+Parcel coverage: commands are in the SESSION BRIEF below (not coverage.py --help).
+
+Top open item:
+  Q-048  CELL 48,-44 (r=0) REVIEW + PLAN. No world apply unless user asks. Review: coverage.py status --cell 48,-44 --list; gaps --area highfield; map --area highfield. Reconcile LEGACY campus done-bar vs parcel rollup. Write…
+
+Context lives in files, not chat (grep / sed -n what you need):
+- site/QUEUE.txt (top open item)
+- site/PROCESS.txt
+- site/COVERAGE.txt (focus + generated cells; coverage CLI in SESSION BRIEF)
+- site/ISSUES.txt
+- site/REVIEWS.txt
+- site/PLACES.txt
+- site/NOTES.txt
+- config/world.json
+
+When the item is done: mark QUEUE [x], release the lock, then hand off with a
+short session summary and a creative-mode view of the main change:
+  python3 scripts/site_handoff.py end Q-048 --summary "…" --view x,y,z[,lx,ly,lz]
+Summary: open with one sentence naming the area and task, then what you did
+(not an essay). That speaks "ready for handoff", prints area/task + summary,
+and teleports the player.
+Run that Shell call with required_permissions: ["all"] — seatbelt sandbox
+mutes `say`. Then stop — open a new chat for the next item (do not chain here).
+Needs: Minecraft open with Southampton2023 + Fabric MCP (F3+P), sole MCP client.
 
 ------------------------------------------------------------------------
 GENERIC BOOT PROMPT
 ------------------------------------------------------------------------
 You are refining Southampton2023 in /Users/cjg/Projects/Southampton Refine.
-Read site/PROCESS.txt. Use python3 scripts/site_handoff.py next for the
-top open QUEUE item. Files are memory; one item per chat; SITE_OWNER lock
-before any live edit.
+Read site/PROCESS.txt and site/COVERAGE.txt. Use
+python3 scripts/site_handoff.py next for the top open QUEUE item. Files
+are memory; one item per chat; SITE_OWNER lock before any live edit.
+Honour radial no-gaps + good-enough + done-bar + sparse ref manifest +
+region snaps. Log finished ground cells in COVERAGE.txt.

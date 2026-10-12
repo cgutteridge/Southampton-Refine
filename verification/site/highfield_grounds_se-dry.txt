@@ -1,0 +1,4 @@
+highfield_grounds_se campus 18906 scope 5018 surfaced 4890 skipped {'light_gray_carpet': 57, 'stone': 41, 'grass_block': 20, 'spruce_planks': 5, 'gray_terracotta': 4, 'bricks': 1}
+kinds {'pave': 1865, 'road': 1467, 'park': 676, 'grass': 476, 'wood': 389, 'proad': 13, 'asph': 3, 'brick': 1} aerial-only 2485
+bays 60 marks 0 barriers {'iron_bars': 4} trees 13
+highfield_grounds_se: 9088 cells in 1777 boxes; bounds (6350, 45, -5582)..(6496, 59, -5403); no clashes
