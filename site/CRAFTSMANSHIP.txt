@@ -199,3 +199,9 @@ blocks each), flat/pitched, ridge axis, trees over roof, OSM buildings under it 
 feature and use it for storeys and roof instead of guessing. --write keeps verification/site/lidar/<tx>_<tz>.npz.
 Audit the live world against it: scripts/lidar_audit.py --cell tx,tz. Tables for touched cells: site/cells/<tx>_<tz>-LIDAR.txt.
 Storeys come from ridge height (eave is ~4 whatever the levels); OSM building:levels is shown as 'lvl' when mapped.
+
+
+DOORS ARE FRAMED (user, 2026-10-16)
+ A door has a jamb each side and a lintel above, at both door heights. campus.doors adds them; site_kit.apply refuses a
+ plan whose door lacks one (plan.allow_unframed_doors for a genuinely free-standing door). scripts/door_audit.py lists
+ the old ones (142 of 700 doors on 2026-10-16, mostly Chamberlain Road and the campus builds): see the QUEUE item.

@@ -12,6 +12,11 @@ Done items: site/archive/QUEUE-done.txt (moved by scripts/site_archive.py).
            STAGES file. When done: site_handoff.py end Q-180 --review-status look|features|done; Q-179 now queues the next row
            automatically (advance_to_next_cell), so nothing is added by hand.
 
+[ ] Q-182  TOOLING DOORS Repair unframed doors (user, 2026-10-16: a door at (6163,49,-5537) had no jamb, fixed).
+           door_audit.py found 142 of 700 doors without a jamb or lintel: chamberlain_rd_8_58 25, chamberlain_rd_9_51 21,
+           highfield_engineering 10, maths_murray 8, nuffield_law 7 and others. Per build: add the missing jambs/lintels as a
+           small plan (modifies=<build>), or re-plan the doors; check a few in game first, some may be porches. RULES: tooling.
+
 [ ] Q-181  TOOLING (I-029) site_kit.World.ground() skips any id containing "air", so *_stairs count as air.
            Match air by exact id, then re-run osm_footprints check and the footprint guard over earlier builds;
            note any result that changes. RULES: tooling. No Minecraft apply.

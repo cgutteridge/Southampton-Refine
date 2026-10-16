@@ -1,173 +1,201 @@
 {
- "cell": "48,-44",
- "stages": {
-  "ground-layer": {
-   "status": "verified",
-   "plan": "highfield_48_m44_ground",
-   "blocks": 8355,
-   "readback": {
-    "planned": 8355,
-    "mismatches": 0,
-    "mismatch_sample": {},
-    "checked": "2026-10-14 11:48:58"
-   },
-   "note": "first-principles ground (OSM + aerial); verify: patrol, visuals; trees and decor re-run after | signed off by user 2026-10-14 (first-principles redo)"
+  "cell": "48,-44",
+  "stages": {
+    "ground-layer": {
+      "status": "verified",
+      "plan": "highfield_48_m44_ground",
+      "blocks": 8355,
+      "readback": {
+        "planned": 8355,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-14 11:48:58"
+      },
+      "note": "first-principles ground (OSM + aerial); verify: patrol, visuals; trees and decor re-run after | signed off by user 2026-10-14 (first-principles redo)"
+    },
+    "trees": {
+      "status": "verified",
+      "plan": "highfield_48_m44_trees",
+      "blocks": 8082,
+      "crowns": 48,
+      "readback": {
+        "planned": 8082,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-14 11:49:17"
+      },
+      "mask": "verification/site/masks/trees-48_-44.mask.json",
+      "note": " | signed off by user 2026-10-14 (first-principles redo)"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_48_m44_decor",
+      "blocks": 28,
+      "readback": {
+        "planned": 28,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-14 16:33:05"
+      },
+      "mask": "verification/site/masks/decor-48_-44.mask.json"
+    },
+    "feature-highfield_susu_west-greeblies": {
+      "status": "applied",
+      "plan": "highfield_susu_west-greeblies",
+      "owner": "claude-q180",
+      "started": "2026-10-16 18:46:31",
+      "blocks": 2017,
+      "structure": {
+        "name": "southampton_refine:before_highfield_susu_west-greeblies_20261016184631",
+        "from": [
+          6148,
+          53,
+          -5579
+        ],
+        "to": [
+          6223,
+          63,
+          -5492
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_susu_west-greeblies-planned.json",
+      "finished": "2026-10-16 18:46:38",
+      "readback": {
+        "planned": 2017,
+        "mismatches": 0,
+        "checked": "2026-10-16 18:46:38"
+      }
+    },
+    "feature-highfield_library_b34_b18-greeblies-restore": {
+      "status": "applied",
+      "plan": "highfield_library_b34_b18-greeblies-restore",
+      "owner": "claude-q180",
+      "started": "2026-10-16 18:03:18",
+      "blocks": 409,
+      "structure": {
+        "name": "southampton_refine:before_highfield_library_b34_b18-greeblies-restore",
+        "from": [
+          6214,
+          64,
+          -5529
+        ],
+        "to": [
+          6280,
+          67,
+          -5470
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_library_b34_b18-greeblies-restore-planned.json",
+      "finished": "2026-10-16 18:03:25",
+      "readback": {
+        "planned": 409,
+        "mismatches": 0,
+        "checked": "2026-10-16 18:03:25"
+      }
+    },
+    "feature-highfield_library_b34_b18-greeblies-yardclear": {
+      "status": "applied",
+      "plan": "highfield_library_b34_b18-greeblies-yardclear",
+      "owner": "claude-q180",
+      "started": "2026-10-16 18:17:58",
+      "blocks": 225,
+      "structure": {
+        "name": "southampton_refine:before_highfield_library_b34_b18-greeblies-yardclear",
+        "from": [
+          6214,
+          65,
+          -5520
+        ],
+        "to": [
+          6224,
+          67,
+          -5507
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_library_b34_b18-greeblies-yardclear-planned.json",
+      "finished": "2026-10-16 18:18:04",
+      "readback": {
+        "planned": 225,
+        "mismatches": 0,
+        "checked": "2026-10-16 18:18:04"
+      }
+    },
+    "feature-highfield_susu_west-lower": {
+      "status": "applied",
+      "plan": "highfield_susu_west-lower",
+      "owner": "claude-q180",
+      "started": "2026-10-16 18:46:20",
+      "blocks": 5412,
+      "structure": {
+        "name": "southampton_refine:before_highfield_susu_west-lower",
+        "from": [
+          6167,
+          57,
+          -5539
+        ],
+        "to": [
+          6207,
+          63,
+          -5491
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_susu_west-lower-planned.json",
+      "finished": "2026-10-16 18:46:26",
+      "readback": {
+        "planned": 5412,
+        "mismatches": 0,
+        "checked": "2026-10-16 18:46:26"
+      }
+    },
+    "feature-highfield_susu_west-doorframe": {
+      "status": "applied",
+      "plan": "highfield_susu_west-doorframe",
+      "owner": "claude-q180",
+      "started": "2026-10-16 18:52:37",
+      "blocks": 2,
+      "structure": {
+        "name": "southampton_refine:before_highfield_susu_west-doorframe",
+        "from": [
+          6161,
+          49,
+          -5538
+        ],
+        "to": [
+          6163,
+          50,
+          -5536
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_susu_west-doorframe-planned.json",
+      "finished": "2026-10-16 18:52:44",
+      "readback": {
+        "planned": 2,
+        "mismatches": 0,
+        "checked": "2026-10-16 18:52:44"
+      }
+    }
   },
-  "trees": {
-   "status": "verified",
-   "plan": "highfield_48_m44_trees",
-   "blocks": 8082,
-   "crowns": 48,
-   "readback": {
-    "planned": 8082,
-    "mismatches": 0,
-    "mismatch_sample": {},
-    "checked": "2026-10-14 11:49:17"
-   },
-   "mask": "verification/site/masks/trees-48_-44.mask.json",
-   "note": " | signed off by user 2026-10-14 (first-principles redo)"
-  },
-  "decor": {
-   "status": "applied",
-   "plan": "highfield_48_m44_decor",
-   "blocks": 28,
-   "readback": {
-    "planned": 28,
-    "mismatches": 0,
-    "mismatch_sample": {},
-    "checked": "2026-10-14 16:33:05"
-   },
-   "mask": "verification/site/masks/decor-48_-44.mask.json"
-  },
-  "feature-highfield_susu_west-greeblies": {
-   "status": "applied",
-   "plan": "highfield_susu_west-greeblies",
-   "owner": "claude-q180",
-   "started": "2026-10-16 18:46:31",
-   "blocks": 2017,
-   "structure": {
-    "name": "southampton_refine:before_highfield_susu_west-greeblies_20261016184631",
-    "from": [
-     6148,
-     53,
-     -5579
+  "google_review": {
+    "status": "features in progress (2026-10-16): B42 + Jubilee greeblies done (lanterns, membrane, hatches, domes); red-tile range w34391673, SU retail w33830236, B42 height fix, ground not yet",
+    "matches": [
+      "Jubilee w93729745: footprint and white flat roof match Google; woodland on its west side matches",
+      "OSM outlines line up with the roofs on the central grey block and the SU retail strip"
     ],
-    "to": [
-     6223,
-     63,
-     -5492
-    ]
-   },
-   "snapshot": null,
-   "planned": "verification/site/highfield_susu_west-greeblies-planned.json",
-   "finished": "2026-10-16 18:46:38",
-   "readback": {
-    "planned": 2017,
-    "mismatches": 0,
-    "checked": "2026-10-16 18:46:38"
-   }
-  },
-  "feature-highfield_library_b34_b18-greeblies-restore": {
-   "status": "applied",
-   "plan": "highfield_library_b34_b18-greeblies-restore",
-   "owner": "claude-q180",
-   "started": "2026-10-16 18:03:18",
-   "blocks": 409,
-   "structure": {
-    "name": "southampton_refine:before_highfield_library_b34_b18-greeblies-restore",
-    "from": [
-     6214,
-     64,
-     -5529
+    "mismatches": [
+      "small white outbuilding east of the central block (about 6250,-5545): check it is built",
+      "Jubilee hall standing-seam roof lines not drawn (only the two main seams)",
+      "Roof terrace north of the SW wing (beige decking, benches, about 6158-6177,-5554..-5538) is not part of the B42 cells (live ground 48): its owner building not identified yet"
     ],
-    "to": [
-     6280,
-     67,
-     -5470
-    ]
-   },
-   "snapshot": null,
-   "planned": "verification/site/highfield_library_b34_b18-greeblies-restore-planned.json",
-   "finished": "2026-10-16 18:03:25",
-   "readback": {
-    "planned": 409,
-    "mismatches": 0,
-    "checked": "2026-10-16 18:03:25"
-   }
-  },
-  "feature-highfield_library_b34_b18-greeblies-yardclear": {
-   "status": "applied",
-   "plan": "highfield_library_b34_b18-greeblies-yardclear",
-   "owner": "claude-q180",
-   "started": "2026-10-16 18:17:58",
-   "blocks": 225,
-   "structure": {
-    "name": "southampton_refine:before_highfield_library_b34_b18-greeblies-yardclear",
-    "from": [
-     6214,
-     65,
-     -5520
-    ],
-    "to": [
-     6224,
-     67,
-     -5507
-    ]
-   },
-   "snapshot": null,
-   "planned": "verification/site/highfield_library_b34_b18-greeblies-yardclear-planned.json",
-   "finished": "2026-10-16 18:18:04",
-   "readback": {
-    "planned": 225,
-    "mismatches": 0,
-    "checked": "2026-10-16 18:18:04"
-   }
-  },
-  "feature-highfield_susu_west-lower": {
-   "status": "applied",
-   "plan": "highfield_susu_west-lower",
-   "owner": "claude-q180",
-   "started": "2026-10-16 18:46:20",
-   "blocks": 5412,
-   "structure": {
-    "name": "southampton_refine:before_highfield_susu_west-lower",
-    "from": [
-     6167,
-     57,
-     -5539
-    ],
-    "to": [
-     6207,
-     63,
-     -5491
-    ]
-   },
-   "snapshot": null,
-   "planned": "verification/site/highfield_susu_west-lower-planned.json",
-   "finished": "2026-10-16 18:46:26",
-   "readback": {
-    "planned": 5412,
-    "mismatches": 0,
-    "checked": "2026-10-16 18:46:26"
-   }
+    "greeblies": {
+      "B42": "build_highfield_susu_west.py --greeblies (Google z20 sheet; plinth height 2 from pristine lidar 62 vs deck 60)",
+      "Jubilee": "build_highfield_library_b34_b18.py --greeblies (extension roof/panels/strip on its own cells only; plant yard flat: lidar 64 = deck)",
+      "B42_lowered": "build_highfield_susu_west.py --lower: low block east of the fans cut 60->57, membrane roof 60->58 (pristine lidar); run before --greeblies",
+      "B42_fans": "the three square units NW of the membrane roof are extract fans (user), built as grille housings"
+    }
   }
- },
- "google_review": {
-  "status": "features in progress (2026-10-16): B42 + Jubilee greeblies done (lanterns, membrane, hatches, domes); red-tile range w34391673, SU retail w33830236, B42 height fix, ground not yet",
-  "matches": [
-   "Jubilee w93729745: footprint and white flat roof match Google; woodland on its west side matches",
-   "OSM outlines line up with the roofs on the central grey block and the SU retail strip"
-  ],
-  "mismatches": [
-   "small white outbuilding east of the central block (about 6250,-5545): check it is built",
-   "Jubilee hall standing-seam roof lines not drawn (only the two main seams)",
-   "Roof terrace north of the SW wing (beige decking, benches, about 6158-6177,-5554..-5538) is not part of the B42 cells (live ground 48): its owner building not identified yet"
-  ],
-  "greeblies": {
-   "B42": "build_highfield_susu_west.py --greeblies (Google z20 sheet; plinth height 2 from pristine lidar 62 vs deck 60)",
-   "Jubilee": "build_highfield_library_b34_b18.py --greeblies (extension roof/panels/strip on its own cells only; plant yard flat: lidar 64 = deck)",
-   "B42_lowered": "build_highfield_susu_west.py --lower: low block east of the fans cut 60->57, membrane roof 60->58 (pristine lidar); run before --greeblies",
-   "B42_fans": "the three square units NW of the membrane roof are extract fans (user), built as grille housings"
-  }
- }
 }

@@ -467,6 +467,36 @@ def owned_in(cells, exclude=()):
     return owned
 
 
+def door_frame_issues(plan, block):
+    """Doors in a plan that are not framed: a lower door half whose two side cells (along the wall) or whose lintel
+    (the cell above the upper half) is air at either door height (user, 2026-10-16: a door set in a stepped corner had no jamb).
+
+    @param plan: Plan to check
+    @param block: callable (x, y, z) -> block id/state or None, used for cells the plan does not set (the live world)
+    @returns: [(x, y, z, 'jamb west' | 'jamb east' | ... | 'lintel')] one entry per missing piece
+    """
+    def solid(x, y, z):
+        st = plan.cells.get((x, y, z))
+        if st is None:
+            st = block(x, y, z)
+        return bool(st) and bid(st)[10:] not in ('air', 'cave_air', 'void_air')
+
+    out = []
+    for (x, y, z), st in plan.cells.items():
+        n = bid(st)[10:]
+        if not n.endswith('_door') or 'half=lower' not in st:
+            continue
+        face = st.split('facing=')[1].split(',')[0].rstrip(']')
+        sides = ((1, 0), (-1, 0)) if face in ('north', 'south') else ((0, 1), (0, -1))
+        for dx, dz in sides:
+            for dy in (0, 1):
+                if not solid(x + dx, y + dy, z + dz):
+                    out.append((x, y + dy, z, f'jamb {"east" if dx > 0 else "west" if dx < 0 else "south" if dz > 0 else "north"}'))
+        if not solid(x, y + 2, z):
+            out.append((x, y + 2, z, 'lintel'))
+    return out
+
+
 def apply(plan, protect=None, dry=False, modifies=(), stage=None, cell=None, meta=None, strict=False):
     """protect: optional callable(pos, existing_state) -> bool; True = refuse to overwrite.
     Cells owned by earlier builds are always protected unless that build is in `modifies`.
@@ -509,6 +539,13 @@ def apply(plan, protect=None, dry=False, modifies=(), stage=None, cell=None, met
                 'Missing clip: osm_extract.py --layers buildings,highways. Genuinely unmapped structure '
                 '(evidence in hand): set plan.outside_footprint_ok = "<reason + evidence id>".')
         print(f'footprint guard overridden ({len(fp["outside"]) + len(fp["blind"])} cells): {why}')
+    # guard: every door needs a jamb either side and a lintel (a door in air can be walked round)
+    bad = door_frame_issues(plan, w.block)
+    if bad and not getattr(plan, 'allow_unframed_doors', False):
+        (OUT / f'{plan.name}-door-frames.json').write_text(json.dumps([list(b) for b in bad], indent=1))
+        raise SystemExit(f'{len(bad)} door frame piece(s) missing, e.g. {bad[:3]}; see {plan.name}-door-frames.json. '
+                         'Doors go in a wall with a jamb each side and a lintel above (campus.doors adds them). '
+                         'A door that is really free-standing: set plan.allow_unframed_doors = "<reason>".')
     # guard (I-034): a ridge that shifts sideways between rows zig-zags every stair on the seam
     import roof_lint
     jogs = roof_lint.ridge_jogs(plan.cells)

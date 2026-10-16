@@ -290,6 +290,16 @@ class Campus:
             self.set(x, f + 2, z, f'dark_oak_door[facing={face},half=upper,hinge=left,open=false]')
             self.set(x - dx, f + 1, z - dz, 'air')
             self.set(x - dx, f + 2, z - dz, 'air')
+            # frame: a jamb each side and a lintel, in the part's wall (a door at a stepped corner had open air beside it)
+            side = ((1, 0), (-1, 0)) if dx == 0 else ((0, 1), (0, -1))
+            for sx, sz in side:
+                for yy in (f + 1, f + 2):
+                    st = self.p.get(x + sx, yy, z + sz)
+                    if st is None or st.endswith('air'):
+                        self.set(x + sx, yy, z + sz, pt.wall)
+            st = self.p.get(x, f + 3, z)
+            if st is None or st.endswith('air'):
+                self.set(x, f + 3, z, pt.wall)
             self.door_cells.append((pname, x, f + 1, z, face))
             prev = f
             for k in range(1, 6):
