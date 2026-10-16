@@ -1,0 +1,5 @@
+2026-10-16 region-snaps: removed 309 (1,747 MB)
+2026-10-16 views: removed 0 (0 MB)
+2026-10-16 screenshots: removed 0 (0 MB)
+2026-10-16 cells-cache: removed 25 (5 MB)
+2026-10-16 audits: removed 6 (3 MB)

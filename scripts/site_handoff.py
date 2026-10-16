@@ -1140,6 +1140,13 @@ def cmd_end(argv):
         print(f'WARNING: site_archive failed ({e}); live files left as they were.\n'
               '         Re-run: python3 scripts/site_archive.py run', file=sys.stderr)
 
+    try:
+        import site_cleanup
+        if why := site_cleanup.due_reason():
+            print(f'CLEANUP DUE ({why}): python3 scripts/site_cleanup.py apply, then report (site/CLEANUP.txt)')
+    except Exception as e:
+        print(f'WARNING: site_cleanup check failed ({e})', file=sys.stderr)
+
     nxt = top_open()
     if nxt and nxt['id'] == done:
         nxt = None      # never name the finished item as the next one
