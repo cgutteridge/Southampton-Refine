@@ -302,3 +302,9 @@ I-071  L  QUEUE  open  Feature queue text and cell_gaps: make the lidar table pa
   building on a bank above the road is measured too tall by the bank height (Oakdene Court: lidar 3, photo + OSM 4). DONE 2026-10-16
   (18d11d5): flat/pitched judged on the interior of wide lumps (rim blur read as eave). Open: lumps over ~400 columns merge several
   buildings, so one flat/pitched label per lump is not meaningful (report "mixed" or judge per OSM building).
+I-072  M  SOURCES  open  Wrong aerial in cell SOURCES files (found 2026-10-16 reviewing Oakdene Court, 49,-42). references_for_cell() matched any manifest
+  row whose mc_tiles touched the cell, so an aerial clipping a cell edge counted as "primary aerial" / "[HAVE] aerial". FIXED in code (cell_coverage(), an aerial
+  must show >= 50% of the cell; test_cell_sources) and in 49,-42 (new mosaic aerial/highfield-welbeck, manifest + SOURCES regenerated). STILL WRONG: 14 of the 33
+  cells whose SOURCES name a primary aerial cover < 50% of the cell: 46,-42 46,-44 47,-42 47,-44 48,-42 48,-43 48,-44 48,-45 50,-42 50,-45 51,-42 51,-43 51,-44 51,-45
+  (several at 0-5%). Per cell: aerial_mosaic.py --at <cell centre> --zoom 18 --dir aerial/<name>, ref_manifest add, cell_sources --cell tx,tz --write. Do it as each cell is
+  opened, not in bulk. Note 48,-44 and 48,-45 are the two finished cells (their ground/decor were built from whatever aerial existed).

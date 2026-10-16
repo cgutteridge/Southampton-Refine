@@ -34,7 +34,7 @@ from coverage import (  # noqa: E402
     union,
 )
 from geo import tiles_for_bbox  # noqa: E402
-from ground_sources import mc_tile_for_cell, references_for_cell  # noqa: E402
+from ground_sources import cell_coverage, mc_tile_for_cell, references_for_cell  # noqa: E402
 from osgb import to_osgb  # noqa: E402
 from osm_footprints import OSMIndex  # noqa: E402
 
@@ -199,8 +199,8 @@ def manifest_summary(tx: int, tz: int) -> list[str]:
     """
     tile = mc_tile_for_cell(tx, tz)
     refs = references_for_cell(tx, tz, useful_only=False)
-    aerial_yes = [r for r in refs if r.get('kind') == 'aerial' and r.get('useful') == 'yes']
-    aerial_any = [r for r in refs if r.get('kind') == 'aerial']
+    aerial_any = [r for r in refs if r.get('kind') == 'aerial' and cell_coverage(r, tx, tz) >= MIN_AERIAL_COVERAGE]
+    aerial_yes = [r for r in aerial_any if r.get('useful') == 'yes']
     street = [r for r in refs if r.get('kind') in ('street', 'facade') and r.get('useful') in ('yes', 'maybe')]
     lines = [f'  mc_tile {tile}  manifest rows overlapping: {len(refs)}']
     if aerial_yes:
@@ -237,6 +237,7 @@ SOURCE_FAMILIES: dict[str, dict] = {
                          '(reference/SOURCES.txt). Skip for non-residential cells.'},
 }
 RESULTS = ('found', 'partial', 'none', 'blocked')
+MIN_AERIAL_COVERAGE = 0.5   # an aerial counts for a cell only if it shows at least this share of it (not just a clipped edge)
 
 
 def attempts_path(tx: int, tz: int) -> Path:
@@ -307,7 +308,8 @@ def source_status(tx: int, tz: int) -> dict[str, dict]:
     out: dict[str, dict] = {}
     for name, fam in SOURCE_FAMILIES.items():
         kinds = {fam['kind']} | ({'facade'} if fam['kind'] == 'street' else set())
-        hits = [r for r in refs if fam['tags'] and r.get('source') in fam['tags'] and r.get('kind') in kinds]
+        hits = [r for r in refs if fam['tags'] and r.get('source') in fam['tags'] and r.get('kind') in kinds
+                and (fam['kind'] != 'aerial' or cell_coverage(r, tx, tz) >= MIN_AERIAL_COVERAGE)]
         mine = [a for a in attempts if a['source'] == name]
         if hits:
             out[name] = {'state': 'have', 'detail': f'{len(hits)} manifest row(s), e.g. {hits[0]["id"]}'}

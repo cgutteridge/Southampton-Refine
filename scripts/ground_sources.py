@@ -482,6 +482,27 @@ def mc_tile_for_cell(tx: int, tz: int, size: int = 128) -> str:
     return mc_tile_id(x0 + size // 2, z0 + size // 2, size)
 
 
+def cell_coverage(row: dict, tx: int, tz: int, size: int = 128) -> float:
+    """Fraction of a coverage cell's area inside a manifest row's ``bbox_mc`` (0 when it has none).
+
+    ``mc_tiles`` lists every tile a row merely touches, so a mosaic that clips a cell edge by a few rows still
+    lists the cell. This is the test for "does this aerial actually show the cell".
+
+    @param row: manifest row
+    @param tx: cell X
+    @param tz: cell Z
+    @param size: cell size in blocks
+    @returns: 0.0 to 1.0
+    """
+    b = row.get('bbox_mc')
+    if not b:
+        return 0.0
+    x0, z0 = tx * size, tz * size
+    w = min(b[2], x0 + size - 1) - max(b[0], x0) + 1
+    h = min(b[3], z0 + size - 1) - max(b[1], z0) + 1
+    return max(0, w) * max(0, h) / (size * size)
+
+
 def references_for_cell(
     tx: int,
     tz: int,
