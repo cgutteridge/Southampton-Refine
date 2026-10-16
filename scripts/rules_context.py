@@ -53,6 +53,7 @@ _ALWAYS = (
 )
 _IMAGERY = (
     ReadingItem('rules/reference-token-budget.md', 'before any ref fetch/Read'),
+    ReadingItem('rules/evidence-order.md', 'which source answers which question'),
 )
 
 

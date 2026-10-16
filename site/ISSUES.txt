@@ -324,8 +324,7 @@ I-070  L  LUMPS  done  Re-run the lump report on all cells and settle I-048 (49,
 I-071  L  QUEUE  open  Feature queue text and cell_gaps: make the lidar table part of "cell done" (every lump built or excepted,
   Implemented together with Q-179 (same code: cell_gaps / advance_to_next_cell); do not edit those functions in two chats.
   every tree-over-roof resolved), and have the feature item show storeys/roof/ridge from lidar_heightmap automatically.
-  Storey evidence order (user, 2026-10-16): Street View / Rightmove / other-side photos, then OSM building:levels, then the lidar
-  estimate as a fallback; label lidar counts as estimates. Known lidar bias: ground_y is the median of the ring AROUND the lump, so a
+  Storey evidence order (user, 2026-10-16) now lives in rules/evidence-order.md. Known lidar bias: ground_y is the median of the ring AROUND the lump, so a
   building on a bank above the road is measured too tall by the bank height (Oakdene Court: lidar 3, photo + OSM 4). DONE 2026-10-16
   (18d11d5): flat/pitched judged on the interior of wide lumps (rim blur read as eave). Open: lumps over ~400 columns merge several
   buildings, so one flat/pitched label per lump is not meaningful (report "mixed" or judge per OSM building).
@@ -341,8 +340,8 @@ I-073  H  GOOGLE  open  REDO umbrella (user, 2026-10-16): Google satellite (goog
   Per cell, in this order:
   1 LOOK      google_aerial.py sheet --cell TX,TZ (then --at X,Z for single buildings), record with cell_sources --record google. Write what it shows per building group.
   2 FEATURES  each building against Google: roof form and ridge axis (the lidar flat/pitched label is only an estimate, I-071), roof colour and material (every roof is
-              deepslate_tile = hint today), rear wings, extensions, outbuildings, missing or extra buildings. Storeys: photo first, then OSM levels, then lidar (memory:
-              storey-count-prefer-photos-over-lidar). Redo = edit the house_build / campus spec and re-apply that street or building run (stop rule I-009: a geometry fix is
+              deepslate_tile = hint today), rear wings, extensions, outbuildings, missing or extra buildings. Storeys: photo first, then OSM levels, then lidar
+              (rules/evidence-order.md). Redo = edit the house_build / campus spec and re-apply that street or building run (stop rule I-009: a geometry fix is
               revert + re-survey, no _b/_c patches). Houses: rules/frontage-and-evidence.md; terraces: rules/terrace-builds.md.
   3 GROUND    applied ground vs Google: lawn, paving, drives, car parks, paths, surface type; fold in I-068 (this is its evidence source now). Layered ground pass, masks.
   Keep in mind: aerial lean puts a tall roof a few blocks off its ground footprint (the roof of Oakdene Court sat 2-3 blocks off the OSM outline); judge roofs on roofs.

@@ -49,8 +49,7 @@ and patrol all passed. All five were reverted.
 porches, opening rhythm, materials, roof form (aerial), front boundary line
 (street photo). Name the photo or aerial id for each. Same-terrace typology
 may be used as a hint for side and rear elevations; label it `hint`.
-Storeys: photo evidence first (Street View, Rightmove, other-side photos), then OSM
-`building:levels`, then the lidar estimate only if nothing else exists; label it.
+What to trust per question (storeys, roof, walls, ground): `rules/evidence-order.md`.
 
 ## 4. Check the result against the evidence, not against itself
 Readback, walk and patrol prove the blocks match the plan, not that the plan

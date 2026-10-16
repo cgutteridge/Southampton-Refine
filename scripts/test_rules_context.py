@@ -31,6 +31,7 @@ class RulesContextTests(unittest.TestCase):
         plan = plan_for_item(it)
         paths = {r.path for r in plan.readings}
         self.assertIn('rules/radial-good-enough.md', paths)
+        self.assertIn('rules/evidence-order.md', paths)
         self.assertNotIn('rules/frontage-and-evidence.md', paths)
 
     def test_terrace(self) -> None:

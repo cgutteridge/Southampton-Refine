@@ -55,6 +55,7 @@ auto-loaded: read only what the brief lists for this item.
 
  Before fetch / Read of reference imagery (any context that opens photos/aerial):
    rules/reference-token-budget.md
+   rules/evidence-order.md (which source answers which question; Google sheet every cell)
    + committed site/cells/<tx>_<tz>-SOURCES.txt when CELL is set
 
  GROUND:

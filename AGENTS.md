@@ -29,6 +29,7 @@ is the go-ahead. Do not read every rule file or all of `site/PROCESS.txt`.
 | House footprints, frontage, evidence, interiors | `rules/frontage-and-evidence.md` |
 | Terraces | `rules/terrace-builds.md` |
 | Reference imagery | `rules/reference-token-budget.md` |
+| What to trust per question (storeys, roof, ground) | `rules/evidence-order.md` |
 | How blocks are placed (walls, glass, roofs, streets) | `site/CRAFTSMANSHIP.txt` |
 | Pass order, who clears Geocraft, masks | `site/HANDOFF-LAYERED-PASSES.txt` |
 | Vegetation, saplings | `site/FOLIAGE.txt` |

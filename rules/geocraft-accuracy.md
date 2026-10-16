@@ -18,8 +18,8 @@ widths, history): `site/GEOCRAFT.txt`.
 - Road and pavement widths: fixed buffers by highway class (road half-width
   4, pavement half-width 6). OSM `width=*` was ignored. Stock kerb and road
   edges are not survey.
-- Materials, openings, roof colour and pitch, hollow interiors, procedural trees. Read
-  roofs and materials from the Google sheet (`scripts/google_aerial.py`, always looked at).
+- Materials, openings, roof colour and pitch, hollow interiors, procedural trees. Ranking per
+  question, Google first for roofs and materials: `rules/evidence-order.md`.
 - Front gardens: the pavement fringe (half-width 6) swallows them. The raised
   stone band between pavement and houses is usually gardens or hedges at
   LIDAR height, not building. House fronts come from
