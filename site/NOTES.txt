@@ -23,8 +23,7 @@ START HERE
 - PLACES.txt: real places being refined (OSGB + Minecraft coords).
 - ISSUES.txt / REVIEWS.txt: snags and review log.
 - archive/: done queue items, closed issues, older reviews (site_archive.py).
-- TODO.txt: smaller tasks and session notes.
-- HANDOFF.txt: starter for the next chat.
+- HANDOFF.txt: static boot prompt (the live starter is `site_handoff.py next` output).
 - config/world.json: path to the Southampton2023 save.
 - config/map-maker-offsets.json: OSGB36 ↔ Minecraft transform.
 

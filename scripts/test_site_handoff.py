@@ -123,7 +123,7 @@ class EndTest(Base):
     def run_end(self, *args):
         out = io.StringIO()
         with contextlib.redirect_stdout(out), contextlib.redirect_stderr(io.StringIO()), \
-                mock.patch.object(H, 'write_handoff_starter'), mock.patch('site_archive.run'):
+                mock.patch('site_archive.run'):
             rc = H.main(['end', *args, '--summary', 's', '--skip-say', '--skip-view'])
         return rc, out.getvalue()
 
@@ -147,8 +147,7 @@ class EndTest(Base):
     def test_state_changes_survive_a_later_crash(self):
         (self.site / 'LOCK.json').write_text(json.dumps({'owner': 'me', 'task': 'Q-001', 'heartbeat': time.time()}))
         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()), \
-                mock.patch('site_archive.run', side_effect=IndexError('boom')), \
-                mock.patch.object(H, 'write_handoff_starter', side_effect=IndexError('boom')):
+                mock.patch('site_archive.run', side_effect=IndexError('boom')):
             rc = H.main(['end', 'Q-001', '--summary', 's', '--skip-say', '--skip-view'])
         self.assertEqual(rc, 0)
         self.assertFalse((self.site / 'LOCK.json').exists())

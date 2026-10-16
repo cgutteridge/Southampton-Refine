@@ -272,7 +272,6 @@ def format_rules_brief(plan: ContextPlan) -> str:
     lines = [
         f'RULES CONTEXT: {plan.context.value} ({plan.detect_note})',
         '  Index: site/RULES-CONTEXT.txt — read each path below once this chat; grep slices later.',
-        '  Do not read site/HANDOFF.txt starter if you already ran site_handoff.py next.',
         '',
         '  PROCESS.txt slices (sed -n / grep — not the whole file):',
     ]
@@ -305,6 +304,5 @@ def format_starter_rules_line(plan: ContextPlan) -> str:
     extra = '…' if len(names) > 4 else ''
     return (
         f'Rules: context={plan.context.value} — read {head}{extra} and any site/*.txt '
-        f'listed under RULES READING in the SESSION BRIEF (once per chat). '
-        f'Do not re-read HANDOFF.txt starter.'
+        f'listed under RULES READING in the SESSION BRIEF (once per chat).'
     )

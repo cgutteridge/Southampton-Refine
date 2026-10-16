@@ -7,8 +7,7 @@ auto-loaded: read only what the brief lists for this item.
 0. ANTI-REREAD (every session)
 ------------------------------------------------------------------------
  - Run `python3 scripts/site_handoff.py next` once at start. That output
-   (starter + SESSION BRIEF) is enough — do NOT also read the Q-nnn STARTER
-   block in site/HANDOFF.txt (duplicate).
+   (starter + SESSION BRIEF) is enough.
  - Read each listed file once per chat unless the work clearly crosses into
    another context (e.g. you start planning a whole house after a ground-only
    item — then read PROPERTY rules before plan).

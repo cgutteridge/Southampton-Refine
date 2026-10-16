@@ -19,7 +19,6 @@ districts / vibe / whimsy. Goal: real-world accuracy.
  site/ISSUES.txt        issue register
  site/REVIEWS.txt       review log
  site/BUILDS-INDEX.txt  generated list of kit builds (scripts/site_index.py)
- site/TODO.txt          small tasks + session log
  site/QUEUE.txt         ordered next work (one item per chat)
  site/archive/          done queue items, closed issues, older reviews
                         (scripts/site_archive.py; run by site_handoff.py end)
@@ -115,10 +114,8 @@ BUILT plan in place to “fix” the world.
  that already has partial builds (e.g. Broadlands), keep existing work and
  finish only unsigned parcels/gaps in that 128² cell.
 
- Work in 128×128 MC cells (aligned with sparse mc_tiles). Expand by
- Chebyshev ring from the focus cell. Finish every cell on ring r
- (100% parcel sign-off in that cell — see generated PROCESSED CELLS)
- before opening r+1. When a session ends mid-cell, leave IN FLIGHT in
+ 128×128 MC cells (aligned with sparse mc_tiles), ring order per
+ rules/radial-good-enough.md. When a session ends mid-cell, leave IN FLIGHT in
  COVERAGE.txt.
 
  PARCEL COVERAGE (Q-038, scripts/coverage.py): every block column of an
@@ -143,10 +140,7 @@ BUILT plan in place to “fix” the world.
  it. A cell is done only when 100% of its columns are in done parcels.
  That record is how we prove ground was processed — chat memory is not enough.
 
- Revisits: you MAY touch already-processed ground to fix snags or improve
- evidence (log a short note / ISSUE if useful). That is allowed but not
- the focus — default attention stays on unfinished cells at the radial
- front, not polishing finished rings.
+ Revisits of processed ground: see rules/radial-good-enough.md.
 
 ------------------------------------------------------------------------
 2e. CELL CADENCE (128² active patch, layered passes)

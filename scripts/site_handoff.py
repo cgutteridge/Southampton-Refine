@@ -4,7 +4,7 @@
   python3 scripts/site_handoff.py next
   python3 scripts/site_handoff.py next --no-brief
   python3 scripts/site_handoff.py next --copy
-  python3 scripts/site_handoff.py next --write
+  python3 scripts/site_handoff.py next --copy
   python3 scripts/site_handoff.py next --plan      (read-only: cells/items it would re-queue)
   python3 scripts/site_handoff.py end Q-nnn --summary "…" --view x,y,z[,lx,ly,lz]
   python3 scripts/site_handoff.py status
@@ -569,7 +569,6 @@ def starter_text(item, owner_placeholder='<unique-owner>'):
 
 Accuracy to the real place only — no regions, themes or whimsy. Use the SESSION
 BRIEF below (from `{NEXT_CHAT_CMD}`) instead of reading every site file.
-Do not read the Q-nnn block in site/HANDOFF.txt if you already have this output.
 
 {AUTO_START_RULE}
 
@@ -600,33 +599,6 @@ Run it outside any command sandbox (a sandbox mutes `say`). Then stop — open a
 {CHAIN_RULE}
 Needs: Minecraft open with Southampton2023 + Fabric MCP (F3+P), sole MCP client.
 """.strip() + '\n'
-
-
-def write_handoff_starter(item):
-    """Replace the Q-nnn STARTER block in HANDOFF.txt with one for ``item``.
-
-    @param item: open queue item dict
-    @returns: path written
-    """
-    body = HANDOFF.read_text()
-    block = (
-        f'------------------------------------------------------------------------\n'
-        f'{item["id"]} STARTER (copy into a fresh session)\n'
-        f'------------------------------------------------------------------------\n'
-        f'{starter_text(item)}\n'
-    )
-    pat = re.compile(
-        r'------------------------------------------------------------------------\n'
-        r'Q-\d+ STARTER \(copy into a fresh session\)\n'
-        r'------------------------------------------------------------------------\n'
-        r'.*?'
-        r'(?=------------------------------------------------------------------------\nGENERIC BOOT PROMPT)',
-        re.S,
-    )
-    if not pat.search(body):
-        raise SystemExit('HANDOFF.txt missing Q-nnn STARTER block before GENERIC BOOT PROMPT')
-    HANDOFF.write_text(pat.sub(block, body, count=1))
-    return HANDOFF
 
 
 def set_pending(done_id, next_item, session_summary=None, view=None):
@@ -850,8 +822,6 @@ def cmd_next(argv):
         return 1
     text = starter_text(item)
     do_copy = '--copy' in argv
-    if '--write' in argv or do_copy:
-        write_handoff_starter(item)
     sys.stdout.write(text)
     if not text.endswith('\n'):
         sys.stdout.write('\n')
@@ -866,7 +836,7 @@ def cmd_next(argv):
 
 
 def cmd_end(argv):
-    """Mark session end: announce, summarise, move player, archive, refresh HANDOFF, arm hook.
+    """Mark session end: announce, summarise, move player, archive, arm hook.
 
     Archiving (``site_archive.run``) moves ``[x]`` queue items, closed issues
     and older reviews into ``site/archive/``; a failure there only warns.
@@ -967,14 +937,6 @@ def cmd_end(argv):
     nxt = top_open()
     if nxt and nxt['id'] == done:
         nxt = None      # never name the finished item as the next one
-    if nxt:
-        try:
-            write_handoff_starter(nxt)
-            print(f'HANDOFF.txt starter -> {nxt["id"]}')
-        except (Exception, SystemExit) as e:
-            print(f'WARNING: HANDOFF.txt starter not updated ({type(e).__name__}: {e})', file=sys.stderr)
-    else:
-        print('HANDOFF.txt unchanged (no open queue item)')
     set_pending(done, nxt, session_summary=summary.strip(), view=view)
     print(f'Armed stop-hook nudge (done={done}, next={nxt["id"] if nxt else None})')
     sys.stdout.write(format_next_chat_copy_block())
@@ -1046,7 +1008,7 @@ def cmd_hook_start(_argv):
             f'Southampton Refine handoff: top open QUEUE item is {item["id"]} — {summary}. '
             f'Accuracy only (no fictional districts). Run `{NEXT_CHAT_CMD}` once; '
             f'follow RULES READING in the SESSION BRIEF (site/RULES-CONTEXT.txt). '
-            f'Do not read HANDOFF.txt starter or whole PROCESS.txt. '
+            f'Do not read the whole PROCESS.txt. '
             f'{AUTO_START_RULE} '
             f'Prefer a fresh chat per queue item; files in site/ are the memory.'
         )

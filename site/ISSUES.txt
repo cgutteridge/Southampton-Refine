@@ -26,33 +26,20 @@ I-047  M  CELL 49,-43  sched  Unrefined Geocraft lumps either side of University
 I-048  M  CELL 49,-43/50,-43  open  Two small lumps recorded as lump_sweep exceptions, not built: 49,-43 canopy
   strip (6348..6375, -5465..-5454; OSM w146988290 building=roof, 36 cols diagonal carpet edge) and 50,-43 outbuilding
   (6422..6435, -5498..-5492, 17 cols, no OSM way). Action: look at them in game / aerial, build or delete, clear exception.
-I-049  M  TOOL  done  (2026-10-15, see I-057) next_cell/layers_done only test ground/trees/decor, so finished cells are never re-queued for
-  missing features or lumps. Action: make layers_done also require stages.lump_sweep verified (re-queues ring 0-3
-  cells), after running lump_scan --record on them. Marker 50,-42 untouched.
-  DONE: next_cell/layers_done now use cell_gaps (residual Geocraft + trees rule), see I-057.
 I-060  L  HIGHFIELD  open  Review the trees in Library Square (user, 2026-10-15): it currently has an open lawn.
   Standing at (6232,85,-5639) at the time (cell 48,-45, inside zone mc, x 6150..6349, z -5787..-5583).
   site/HIGHFIELD-ZONES.txt gives zone mc "Library Square formal lawn (no scatter trees)" and
-  site/PARKED-2026-10-14.txt has an unchecked item "Library Square south lawn (open:w160022677, formal, no
+  site/archive/PARKED-2026-10-14.txt has an unchecked item "Library Square south lawn (open:w160022677, formal, no
   scatter trees)". So the empty lawn is by an earlier decision, not an accident; the review is whether that
   decision matches imagery (aerial + Street View look-only): are there real trees around/in the square that
   the zone rule wiped out? Part of the I-059 family (tree phase vs reality) and I-057: if the answer is yes,
   fix it through the same tree-phase mechanism (cover from imagery decides), not a special case for this
   square. Backlog item; nothing inspected or changed yet.
-I-062  H  PROCESS  done  (2026-10-15; user to confirm in the next run) Aborted runs leave half-applied cells (symptom of I-057): a run that
-  died after some writes (or a mask undo whose re-apply never finished; 46,-43 slip, undo stopped on 2 stale air
-  blocks but the caller went on and overwrote the mask) left no record, so the cell looked done or bare.
-  ONE mechanism: site_kit.apply() records the stage as 'applying' (plan, owner, structure backup for this apply,
-  region snapshot, planned-cells file) before the first live write and 'applied' after readback (scripts/site_stages.py);
-  cell_gaps reports 'in-flight: <plan>' (never done); scripts/site_recover.py status|recover <cell> [--apply] compares
-  the world with the plan -> 'applied', else restores the recorded structure -> 'rolled-back', releases the stale lock
-  only for the same owner, refuses on a fresh lock. Fail-closed: mask_undo raises on conflict / failed flush / readback
-  mismatch (stage stays 'applying'); ground apply raises if the world cannot be flushed. Tests: scripts/test_site_recover.py.
 I-061  M  TREES  open  Half-cut trees at cell borders (user, 2026-10-15): tree at (6064,68,-5504) is cut in
   half exactly on the 47,-43 / 47,-44 border. Cause: every tree pass before the overhang rule (one rule: a tree
   belongs to the cell its trunk is in; crown may overhang neighbours) clipped crowns at the cell edge, so every
   border of every earlier cell has flat-cut crowns. The I-059 rerun only redoes cells that need MORE density
-  (2x rule), so 47,-43 and 47,-44 (both 'skip' in site/TREE-DENSITY-BACKLOG.txt) keep their cut trees. Symptom of
+  (2x rule), so 47,-43 and 47,-44 (both 'skip' in site/archive/TREE-DENSITY-BACKLOG.txt) keep their cut trees. Symptom of
   I-059 / I-057, not a new rule: tree sites are deterministic (not shifted by neighbours), so re-running the tree
   pass under the new rule in ALL finished cells restores whole crowns with no extra detector.
   UPDATE 2026-10-15 (I-057): detection is a rule stamp, not a check step: pass_mask.build_mask writes rule
@@ -89,7 +76,7 @@ I-059  H  TREES  open  BIG: dense woodland came out very sparse across a whole n
   own mask, never overwriting any other block. trees_layer.may_plant; HANDOFF-LAYERED-PASSES §6. Applied to 46,-45 only.
   2026-10-15 REDO (dense trees, one cell at a time, region snapshots, readback 0, patrol floating 0, doors still reachable):
   redone 46,-44 (52 -> 267 crowns), 46,-46 (20 -> 247), 47,-45 (39 -> 44), 46,-43 (92 -> 143), 47,-46 (8 -> 20).
-  Skipped (dry run adds < ~2x, or built-up / already fine): all other cells, table in site/TREE-DENSITY-BACKLOG.txt
+  Skipped (dry run adds < ~2x, or built-up / already fine): all other cells, table in site/archive/TREE-DENSITY-BACKLOG.txt
   (47,-44 left to I-058; 49,-44 built-up campus; 50,-43 / 50,-44 already denser than the dry run). 48,-44 / 48,-45
   hand-made and Library Square zone mc (I-060) untouched. Hard-surface rule added: trees_layer.TREES_ON_PAVING = False
   (trunks on lawn only; the old paving-pit allowance is off). Process slip on 46,-43: undo aborted (2 stale-air
@@ -109,32 +96,6 @@ I-058  M  CELL 47,-44  done  (2026-10-15; user to confirm visually) Unrefined Ge
   physics build had left out. Built as open flat canopies (deck y58 gray_concrete, paved floor y53 / y54 from natural
   ground, concrete posts every 3rd edge cell, building-side overlap cells as wall) with scripts/build_highfield_physics_canopies.py;
   lump_scan 0 left. Not added: doors into the building walls under the canopies (no evidence of door positions).
-I-057  H  PROCESS  done  (2026-10-15; user to confirm in the next run) UMBRELLA for I-047, I-049, I-051..I-056 (and the lump_scan step added for I-047).
-  User direction 2026-10-15: the goal is to find and REFINE the underlying process, not to add a stack of
-  edge-case rules and extra checking steps. Common root: work is organised as a queue of features taken from
-  OSM (plus per-layer passes), and "done" means the queued items passed, not that the original Geocraft in the
-  cell has been replaced. Anything OSM lacks, mislabels or dates differently (unmapped building, tree filed as
-  a building, orphan canopy) therefore never gets an item and survives. Proposed direction (to decide, not
-  yet done): make the residual original-Geocraft mass in a cell the work list and the definition of done, one
-  mechanism: after the passes, whatever pristine Geocraft remains is classified once from imagery (building,
-  tree, ground, nothing) and handled by the existing builds/passes. That replaces scripts/lump_scan.py as an
-  extra step (fold it into layers_done / next_cell and the cell tick) and removes the need for per-symptom
-  rules (tree-as-building check, floating-leaf check).
-  DONE 2026-10-15: one mechanism. 'Done' = site_handoff.cell_gaps empty: layers applied, trees mask on the current
-  overhang rule, and no unrefined original Geocraft (residual_features = cell_features.missing_features + lump_scan
-  lumps, grouped per street; unmapped / outside-clip buildings get items too; recorded stages.lump_sweep.exceptions
-  excepted). next_cell/advance_to_next_cell re-queue any finished cell that fails it, as feature items or a trees
-  re-run; `next --plan` is the read-only preview (real site: 32 cells, 78 items). No separate sweep step in the docs
-  (HANDOFF-LAYERED-PASSES §1). Tests: scripts/test_site_handoff.py, test_lump_scan.py, test_pass_mask.py. Old text: Until decided: log new location reports as symptoms
-  of I-057, don't add new rules or checks.
-  2026-10-15 CELL 50,-42 (I-057 symptom work, user to check visually; marker NOT cleared, I-045): 16 Welbeck Avenue lumps built house-only from OSM
-  (scripts/build_welbeck_ave_50_lumps.py, 12 front S + 4 front N, readback 0, region snapshots backups/regions/*welbeck_ave_50_lumps*), trees re-run
-  after mask undo (127 -> 121 crowns, dry run: dense fill only +12), cell_gaps empty, doors 33 -> 61 all in one site_walk component. Process refinements,
-  now in the build script (not new rules): floors from lawn ring by a downward surface scan (never from y41); fringe lump remnants (bricks/carpet)
-  retexed to lawn; door stoop + steps are stairs where the ground in front is 2+ lower (full-block steps are not walkable UP in site_walk; the first
-  apply left one door at 6464,-5276 sealed off). Order learnt: undo the tree mask BEFORE houses when footprints overlap it (619 blocks here).
-  Patrol sweep: 0 floating, 0 post_on_half_block, 0 broken_bed_or_door, 13 door_to_wall, all in Broadlands Rd builds (cell ~7000,-5580; owners
-  broadlands_rd_2_12, 14_24, 26_36, 40_46, 48_54, 56_62), none in 50,-42: pre-existing, not touched.
 I-056  L  CELL 47,-45  done (2026-10-15, user to check)  Floating leaves reported by the user at (6133,61,-5709), 2026-10-15 (cell 47,-45,
   ~32 blocks north of I-055). Logged only; nothing inspected yet. Cell 47,-45 is one of the older cells (trees and
   decor from an earlier pass, before patrol's floating check was tuned; tonight's patrol sweeps only reported
@@ -198,22 +159,6 @@ I-051  M  CELL 51,-42  open  More unrefined Geocraft buildings reported by the u
   scripts/lump_scan.py on 51,-42 (and 52,-42, 51,-43, 52,-43), identify each lump from imagery, then queue a
   feature build per street. See also I-049 (finished cells are never re-queued) and the proposed sweep of all
   cells finished in the 2026-10-15 run.
-I-050  L  OSM  done  (2026-10-15) Cause: no single clip covered the east/north. osm_footprints.extents is the bounding box of the
-  BUILDINGS in each clip; campus clip ran x5950..6550 z-5990..-5370 and the 51,-4x clips are highways-only, so lumps east of x6550
-  and north of z~-5298 read "outside any OSM clip" / "not in OSM". Local downloads/hampshire-latest.osm.pbf already covers it (no
-  Overpass fetch). Re-ran osm_extract.py --bbox-mc 5760,-6144,6783,-5120 --layers buildings,highways,landuse --place HIGHFIELD_CAMPUS
-  --add (cells x45..52, z-48..-41): reference/osm/highfield-campus/buildings+highways+landuse-bbox-5760--6144-6783--5120.geojson.
-  Existing clips and STAGES untouched. lump_scan over the 32 plan cells: 167 lumps, 164 now have an OSM way (was 8 before, 159
-  'not in OSM'), 3 truly unmapped. Table: site/LUMP-BACKLOG.txt. Lumps with OSM ways are normal mapped-feature items (I-047 flow).
-I-046  M  TOOL  done  (2026-10-15) site_handoff.py end (seen Q-109..Q-176, 2026-10-15 overnight run): repeatedly leaves the
-  queue item unticked, LOCK.json held and a stale pending nudge naming the finished item (sometimes IndexError
-  after printing the starter, never teleports the player). Every builder fixed all three by hand. Action: debug
-  `end`, add a test, make tick + lock release + nudge clear atomic, then stop hand-fixing.
-  FIXED: `end` never ticked or released at all; it armed the nudge from top_open(), which was the unticked finished
-  item itself (the stale nudge), and the cosmetic tail (archive, starter write) could crash after. Now finish_item()
-  (tick QUEUE, release LOCK, clear nudge) runs first, then say/move/archive/starter (errors only warn), then the
-  nudge is armed for the real next item (never the done one). Done id defaults to the lock task's Q-nnn. Test:
-  scripts/test_site_handoff.py (temp SITE). The IndexError itself could not be reproduced; it can no longer strand state.
 I-045  M  CELL 50,-42  open  Cell marker (site/CURRENT-CELL.json) still on 50,-42 awaiting the user's visual check
   since Q-111. cell_marker --raise refuses while it holds focus, so no later cell (49,-42 .. 51,-42, 46,-43 ..)
   was ever raised; all overnight builds ran with the marker on 50,-42. Action: visual check 50,-42, clear it,
@@ -315,3 +260,7 @@ I-037  M  HIGHFIELD  open  Building at player position (6089,68,-5599) is badly 
   grass_block as ground and goes down to y30 (the 50,-42 scan skipped grass_block and stopped at y41: fails where lawn is y39-40); stoop stairs also for a 1-block rise; rear door only onto open ground;
   fringe roof that meets an earlier build's roof is dropped, not clashed; door check is component size (the old fixed goal point 10 out gave false alarms). Patrol: 13 door_to_wall, all Broadlands Rd (not this cell).
   Check by eye: Oakdene Court (4 levels, flat roof assumed from roof:levels=0), garages w280523743 (single storey, flat, no aerial checked), roofs all deepslate tile = hint.
+I-063  L  HIGHFIELD  open  Parked character tasks (moved from the old TODO/PARKED files, 2026-10-16; see site/archive/PARKED-2026-10-14.txt).
+  Library Square south lawn (open:w160022677; see I-060), Law forecourt (prop:w93729747 paths + lawn edges, aerial z18),
+  Staff Club courtyard (prop:r2139045 plaza/pond). Non-Minecraft, only if needed: measured OSGB for seed places (I-002),
+  Mapillary token, CCO z19 licence check before publishing crops, own phone photos for a named house.
