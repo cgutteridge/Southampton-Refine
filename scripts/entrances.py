@@ -62,7 +62,7 @@ def wall_cell(cells, px, pz, width='single', world=None):
     return best
 
 
-def door(plan, world, x, z, dx, dz, notes, width='single', y0=None):
+def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_door'):
     """A framed glazed door (or pair) at wall cell (x, z) facing (dx, dz).
 
     @param plan: Plan to add to
@@ -74,6 +74,7 @@ def door(plan, world, x, z, dx, dz, notes, width='single', y0=None):
     @param notes: list the one-line description is appended to
     @param width: 'double' | 'pair' | 'single' | 'narrow' (WIDTHS)
     @param y0: door height override (default: ground outside + 1)
+    @param leaf: door block: 'iron_door' (grey metal: the glazed metal-framed doors in the portal photos) or 'dark_oak_door'
     """
     face = FACE[(dx, dz)]
     y0 = y0 or top(world, x + dx, z + dz) + 1
@@ -84,8 +85,8 @@ def door(plan, world, x, z, dx, dz, notes, width='single', y0=None):
         cx, cz = x + k * ax, z + k * az
         if k in doors:
             hinge = 'right' if (width in ('double', 'pair') and k == 1) else 'left'
-            plan.set(cx, y0, cz, f'minecraft:dark_oak_door[facing={face},half=lower,hinge={hinge},open=false]')
-            plan.set(cx, y0 + 1, cz, f'minecraft:dark_oak_door[facing={face},half=upper,hinge={hinge},open=false]')
+            plan.set(cx, y0, cz, f'minecraft:{leaf}[facing={face},half=lower,hinge={hinge},open=false]')
+            plan.set(cx, y0 + 1, cz, f'minecraft:{leaf}[facing={face},half=upper,hinge={hinge},open=false]')
             plan.set(cx - dx, y0 - 1, cz - dz, 'minecraft:smooth_stone')       # floor inside, level with the door
             for yy in (y0, y0 + 1):
                 plan.set(cx - dx, yy, cz - dz, 'minecraft:air')
@@ -94,10 +95,10 @@ def door(plan, world, x, z, dx, dz, notes, width='single', y0=None):
             for yy in (y0, y0 + 1):
                 plan.set(cx, yy, cz, blk)
         plan.set(cx, y0 + 2, cz, WALL)                                          # lintel
-    notes.append(f'{width} door at {x},{y0},{z} facing {face}, ground outside {y0 - 1}')
+    notes.append(f'{width} {leaf} at {x},{y0},{z} facing {face}, ground outside {y0 - 1}')
 
 
-def entrances(plan, world, cells, found, notes, double=()):
+def entrances(plan, world, cells, found, notes, double=(), flat=(), wood=()):
     """Add a door for each portal.
 
     @param plan: Plan
@@ -106,8 +107,16 @@ def entrances(plan, world, cells, found, notes, double=()):
     @param found: {portal id: (x, z)}
     @param notes: list of report lines
     @param double: portal ids that are double doors (main entrances)
+    @param flat: portal ids whose wall is made flush first (flatten) so a double door fits
+    @param wood: portal ids with a dark wooden door (the rest are glazed metal: iron_door); chosen from the portal photos and
+                 scripts/block_reference.py (iron_door light grey, dark_oak_door very dark brown)
     """
     for pid, (px, pz) in found.items():
+        if pid in flat:
+            f = flatten(plan, world, cells, px, pz, notes)
+            if f:
+                door(plan, world, f[0], f[1], f[2], f[3], notes, 'double', leaf='dark_oak_door' if pid in wood else 'iron_door')
+                continue
         order = ('double', 'pair', 'single', 'narrow') if pid in double else ('single', 'narrow')
         cands = [(wd, wall_cell(cells, px, pz, wd, world)) for wd in order]
         cands = [(wd, c) for wd, c in cands if c]
@@ -122,4 +131,50 @@ def entrances(plan, world, cells, found, notes, double=()):
                          'mapped footprint): skipped')
             continue
         notes.append(f'{pid}: portal {px},{pz} -> wall {x},{z} {FACE[(dx, dz)]}, {round(d ** 0.5)} blocks away')
-        door(plan, world, x, z, dx, dz, notes, wd)
+        door(plan, world, x, z, dx, dz, notes, wd, leaf='dark_oak_door' if pid in wood else 'iron_door')
+
+
+def flatten(plan, world, cells, px, pz, notes, ks=range(-2, 4)):
+    """Make the wall flush along a 6-cell stretch near a portal so a double door fits.
+
+    Takes the narrow straight wall nearest the portal for the direction, then for each column along the stretch finds its
+    outermost wall cell and extends the shorter columns out to the outermost one by copying their wall blocks (the facade steps
+    out by one or two cells at most; the building is never cut back). Returns the door cell on the new flush plane.
+
+    @param plan: Plan to add the extension cells to
+    @param world: site_kit.World
+    @param cells: set of (x, z) of the building
+    @param px: portal X
+    @param pz: portal Z
+    @param notes: report lines
+    @param ks: stretch offsets along the wall
+    @returns: (x, z, dx, dz) of the door cell on the flush plane, or None
+    """
+    w = wall_cell(cells, px, pz, 'narrow', world)
+    if w is None or w[4] > MAX_AWAY ** 2:
+        return None
+    x, z, dx, dz, _d = w
+    ax, az = abs(dz), abs(dx)
+    edge = {}
+    for k in ks:                                       # outermost building cell of each column, along the outward direction
+        cx, cz = x + k * ax, z + k * az
+        for step in range(-3, 4):
+            q = (cx + dx * step, cz + dz * step)
+            if q in cells and (q[0] + dx, q[1] + dz) not in cells:
+                edge[k] = step
+                break
+        else:
+            return None
+    plane = max(edge.values())
+    added = 0
+    for k, e in edge.items():
+        sx, sz = x + k * ax + dx * e, z + k * az + dz * e              # this column's wall cell
+        ytop = max((y for y in range(48, 70) if (world.block(sx, y, sz) or 'minecraft:air').split('[')[0][10:] not in GROUNDISH
+                    and 'air' not in (world.block(sx, y, sz) or 'air')), default=None)
+        for step in range(e + 1, plane + 1):
+            tx, tz = x + k * ax + dx * step, z + k * az + dz * step
+            for y in range(top(world, tx + dx, tz + dz) + 1, (ytop or 60) + 1):
+                plan.set(tx, y, tz, (world.block(sx, y, sz) or 'minecraft:bricks'))
+            added += 1
+    notes.append(f'flush wall: {added} cells added out to the plane {plane} along {FACE[(dx, dz)]} near {x},{z}')
+    return x + dx * plane, z + dz * plane, dx, dz

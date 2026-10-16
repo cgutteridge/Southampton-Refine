@@ -22,6 +22,7 @@ from entrances import entrances  # noqa: E402
 NAME = 'highfield_entrances_48_m44'
 BUILDINGS = {'18': '93729745', '38': '2139045', '40': '34391673'}      # university building number -> OSM way
 DOUBLE = {'18-A', '40-A'}                       # the Main entrances
+WOOD = {'40-A'}                                 # dark recessed entrance under the Us. sign; the rest are glazed metal
 
 
 def build():
@@ -31,7 +32,7 @@ def build():
         b = p['building']
         if b not in BUILDINGS:
             continue
-        entrances(plan, w, way_cells(BUILDINGS[b]), {p['id']: (p['x'], p['z'])}, notes, double=DOUBLE)
+        entrances(plan, w, way_cells(BUILDINGS[b]), {p['id']: (p['x'], p['z'])}, notes, double=DOUBLE, flat=DOUBLE, wood=WOOD)
     return plan, notes
 
 
