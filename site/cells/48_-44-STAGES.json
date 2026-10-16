@@ -519,10 +519,10 @@
       "status": "applied",
       "plan": "highfield_susu_b42",
       "owner": "claude-q180",
-      "started": "2026-10-16 20:17:21",
+      "started": "2026-10-16 20:21:18",
       "blocks": 155694,
       "structure": {
-        "name": "southampton_refine:before_highfield_susu_b42_20261016201720",
+        "name": "southampton_refine:before_highfield_susu_b42_20261016202118",
         "from": [
           6142,
           45,
@@ -536,11 +536,11 @@
       },
       "snapshot": null,
       "planned": "verification/site/highfield_susu_b42-planned.json",
-      "finished": "2026-10-16 20:17:27",
+      "finished": "2026-10-16 20:21:25",
       "readback": {
         "planned": 155694,
         "mismatches": 0,
-        "checked": "2026-10-16 20:17:27"
+        "checked": "2026-10-16 20:21:25"
       }
     }
   },

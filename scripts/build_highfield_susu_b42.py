@@ -47,15 +47,18 @@ PLAZA_X0, PLAZA_Z1 = 6181, -5550          # the plaza frontage: north-facing wal
 
 
 class B42(Campus):
-    """Black steel and glass on the plaza (north) frontage only (a stepped outline has north-facing steps on every side, so a face
-    rule alone paints the west and south black too): the 42-A/B/C photos are the plaza frontage and 42-D (west, by the
-    steps) is white board-marked concrete, so every other face is white concrete."""
+    """The plaza (north) frontage is glass in black steel frames (floor lines and mullions), as in the 42-A/B/C photos; 42-D (west,
+    by the steps) shows white board-marked concrete, so every other face is white concrete. A stepped outline has north-facing
+    steps on every side, so the frontage is picked by position, not by face alone."""
 
     def wall_block(self, x, y, z, pt, ex):
         b = super().wall_block(x, y, z, pt, ex)
-        if b == 'minecraft:black_concrete' or b == 'black_concrete':
-            return b if (any(d == (0, -1) for d in ex) and x >= PLAZA_X0 and z <= PLAZA_Z1) else 'white_concrete'
-        return b
+        if b not in ('minecraft:black_concrete', 'black_concrete'):
+            return b
+        if any(d == (0, -1) for d in ex) and x >= PLAZA_X0 and z <= PLAZA_Z1:
+            floors = set(pt.floors) | {pt.base, pt.deck}
+            return 'black_concrete' if (y in floors or (x + z) % 3 == 0) else 'glass'
+        return 'white_concrete'
 
 
 class PlanOverWorld:
