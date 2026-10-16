@@ -196,6 +196,24 @@ Tool:      python3 scripts/portals.py  (fetch | info | cell tx,tz | bbox | build
   puts a door at each one. See site/CRAFTSMANSHIP.txt "ENTRANCES".
 
 ------------------------------------------------------------------------
+F2. University building pictures + outlines (campus buildings)
+------------------------------------------------------------------------
+Register:  https://maps.soton.ac.uk/data/buildings.json   (added 2026-10-16, user)
+Stored:    reference/buildings/buildings.json  (committed; normalised, Minecraft X/Z for the centre and every outline point)
+Tool:      python3 scripts/buildings.py  (fetch | info | cell tx,tz | bbox | building N | near x,z | download)
+  370 university buildings (312 inside the Geocraft map), 247 with a photo of the building, 232 with the university's own
+  footprint outline. Row: id (building number, "42", "2A"), label, centre lat/lon, photo URL, outline rings.
+  Trust: the photo is a street-level view of the whole building (walls, openings, storeys, roof edge): use it where there is no
+  Street View frame, look-only like the other photos. The outline cross-checks OSM (a wing OSM lacks, a wrong corner); heights
+  stay with lidar. Some outlines are rough and 123 buildings have no photo: absence is not evidence.
+  Photos: the register links 200 px thumbnails; the archive serves the same file at 400/600/800/1000/1600 px (swap the number
+  in the URL, buildings.photos() does it, and turns the register's '+' in a file name into %20). Work at 800 px.
+  Saved locally (user, 2026-10-16): python3 scripts/buildings.py download -> reference/photos/buildings/<number>.jpg at 800 px
+  (247 files, 20 MB, gitignored, each logged in manifest.jsonl as source uos-buildings). Look at those, not the URLs.
+  Feature builds: cell_features.missing_features and the feature queue item list the pictures of each feature's footprint
+  (buildings.for_footprint matches an OSM polygon to its university building). See site/CRAFTSMANSHIP.txt "BUILDING PICTURES".
+
+------------------------------------------------------------------------
 G. Tree Preservation Orders (protected trees only)
 ------------------------------------------------------------------------
 Council page (look-up UI, not authoritative geometry):

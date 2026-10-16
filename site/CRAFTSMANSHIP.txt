@@ -256,3 +256,15 @@ FEATURE FOLLOW-UP STEPS (B42 / Jubilee review, user, 2026-10-16)
     patches on the Google sheet.
   - Doors: a jamb each side and a lintel (Campus.doors adds them; apply refuses a door without; scripts/door_audit.py audits).
 
+BUILDING PICTURES (university register, user, 2026-10-16)
+ reference/buildings/buildings.json: for each university building its number, name, a photo (247 of 370, saved at 800 px in
+ reference/photos/buildings/<number>.jpg) and the university's own outline (232). scripts/buildings.py cell tx,tz | building N |
+ near x,z. The feature queue item and cell_features.py print the picture of each feature's footprint.
+  - Look at the photo once, before planning a campus building: walls (material, bay rhythm), openings (glazing, doors),
+    storeys, roof edge and colour. Write what it shows in the build docstring next to the source id.
+  - Storeys: the photo is a photo (rules/evidence-order.md), so it ranks above OSM levels and lidar for campus buildings.
+  - The outline is a cross-check on the OSM footprint (a missing wing, a wrong corner). Disagreement is a note, not an
+    override: lidar columns and the Google sheet decide, and heights are always lidar.
+  - Many buildings have no photo and several photos show one face or a later extension (the Union has a 2025 shot): say
+    which face you saw. A missing photo is not evidence of anything.
+

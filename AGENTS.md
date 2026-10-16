@@ -37,6 +37,7 @@ is the go-ahead. Do not read every rule file or all of `site/PROCESS.txt`.
 | Terraces | `rules/terrace-builds.md` |
 | Reviewing a built building | `rules/building-review.md` |
 | Reference imagery | `rules/reference-token-budget.md` |
+| University building photos + outlines, entrances | `scripts/buildings.py`, `scripts/portals.py` (`reference/SOURCES.txt` F, F2) |
 | What to trust per question (storeys, roof, ground) | `rules/evidence-order.md` |
 | How blocks are placed (walls, glass, roofs, streets) | `site/CRAFTSMANSHIP.txt` |
 | How a block looks (top, side, angles; nearest to a colour) | `scripts/block_reference.py` (sheets in `instance/block-reference/`, colours in `reference/blocks/blocks.json`) |

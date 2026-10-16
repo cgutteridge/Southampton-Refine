@@ -9,12 +9,12 @@ below the first row `hint` or `estimate`.
 
 | Question | Best | Then | Last resort |
 | --- | --- | --- | --- |
-| Footprint, plan | OSM polygon, and the lidar roof columns where they agree | Google sheet roof outline | university aerial |
+| Footprint, plan | OSM polygon, and the lidar roof columns where they agree (the university's own outline in `reference/buildings` cross-checks a campus building) | Google sheet roof outline | university aerial |
 | Top height, roof surface Y | lidar (`lidar_heightmap.py`) | none: do not guess | |
-| Storeys | photo: Street View, Rightmove, other-side photos | OSM `building:levels` | lidar estimate (label it) |
+| Storeys | photo: Street View, Rightmove, university building photo (`reference/buildings`), other-side photos | OSM `building:levels` | lidar estimate (label it) |
 | Roof form, ridge axis | Google sheet (look at the roof) | lidar interior columns, wide buildings only | same-terrace hint |
 | Roof colour, material | Google sheet | street photo | hint (default tile) |
-| Walls, openings, doors, bays | street photo | Google (wall colour, wings) | same-terrace hint |
+| Walls, openings, doors, bays | street photo, university building photo (`scripts/buildings.py`, campus buildings) | Google (wall colour, wings) | same-terrace hint |
 | Where a university building's entrances are, and their names | `reference/portals` (`scripts/portals.py`), exact position | portal photo, then street photo | OSM `entrance` nodes, same-building hint |
 | Ground surface: lawn, paving, drive, car park, path | Google sheet | university aerial, OSM surface and landuse | Geocraft default |
 | Trees, canopy cover | Google sheet cover, lidar tree columns (kind 2, 3) | university aerial | none: never invent crowns |
