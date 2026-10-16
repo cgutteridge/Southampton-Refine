@@ -1,0 +1,12 @@
+{
+ "outside": {
+  "(7017, 39, -5563)": [
+   "minecraft:deepslate_tile_slab[type=bottom]",
+   7,
+   "front",
+   "Broadlands Road",
+   9.2
+  ]
+ },
+ "blind": []
+}

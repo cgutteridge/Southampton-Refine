@@ -1,0 +1,15 @@
+{
+  "structure": "southampton_refine:before_remove_early_broadlands_houses",
+  "from": [
+    6998,
+    21,
+    -5614
+  ],
+  "to": [
+    7167,
+    49,
+    -5505
+  ],
+  "result": "saved southampton_refine:before_remove_early_broadlands_houses",
+  "time": "2026-10-16 15:34:26"
+}

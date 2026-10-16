@@ -1,0 +1,5 @@
+LIDAR LUMPS cell 46,-44: 3 building(s)
+bbox                       cols ground eave ridge st roof     axis trees lvl osm
+6004,-5590..6015,-5556      268     53   58    71  5 pitched  z        0   - r3006921,r3006924,w226117630
+5993,-5534..6015,-5513      227     53   57    62  2 pitched  -        0   - w159893740,w159893755,w159893757
+5966,-5509..5976,-5505       33     52   56    60  2 pitched  x        0   - w173132122,w173132123

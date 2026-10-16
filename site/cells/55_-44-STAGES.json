@@ -1,0 +1,55 @@
+{
+  "cell": "55,-44",
+  "stages": {
+    "feature-remove_early_broadlands_houses": {
+      "status": "applied-with-mismatches",
+      "plan": "remove_early_broadlands_houses",
+      "owner": "claude-removal",
+      "started": "2026-10-16 15:34:26",
+      "blocks": 136979,
+      "structure": {
+        "name": "southampton_refine:before_remove_early_broadlands_houses",
+        "from": [
+          6998,
+          21,
+          -5614
+        ],
+        "to": [
+          7167,
+          49,
+          -5505
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/remove_early_broadlands_houses-planned.json",
+      "finished": "2026-10-16 15:34:33",
+      "readback": {
+        "planned": 136979,
+        "mismatches": 1,
+        "checked": "2026-10-16 15:34:33"
+      }
+    },
+    "feature-remove_early_broadlands_roads": {
+      "status": "applying",
+      "plan": "remove_early_broadlands_roads",
+      "owner": "claude-removal",
+      "started": "2026-10-16 15:38:22",
+      "blocks": 37381,
+      "structure": {
+        "name": "southampton_refine:before_remove_early_broadlands_roads",
+        "from": [
+          6911,
+          13,
+          -5761
+        ],
+        "to": [
+          7298,
+          38,
+          -5374
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/remove_early_broadlands_roads-planned.json"
+    }
+  }
+}

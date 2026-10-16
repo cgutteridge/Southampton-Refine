@@ -1165,3 +1165,4 @@
 {"parcel": "open:w1255994948@50,-44", "area": "highfield", "build": "highfield_50_m44_leftover_plants", "date": "2026-10-15", "columns": 582, "digest": "d4f490645bba", "note": null}
 {"parcel": "path:w1255994946@50,-44", "area": "highfield", "build": "highfield_50_m44_leftover_plants", "date": "2026-10-15", "columns": 189, "digest": "0bc2bf687097", "note": null}
 {"parcel": "prop:w148212337", "area": "highfield", "build": "highfield_bike_shed_w148212337", "date": "2026-10-15", "columns": 41, "digest": "f98fbacea60f", "note": null}
+{"parcel": "prop:w177978836", "revoke": true, "date": "2026-10-16", "reason": "test"}

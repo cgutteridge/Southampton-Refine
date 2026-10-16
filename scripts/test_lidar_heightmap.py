@@ -56,7 +56,35 @@ class LumpTest(unittest.TestCase):
         self.assertEqual(len(items), 2)
         pitched, flat = items
         self.assertEqual((pitched['roof'], pitched['ridge_axis'], pitched['ground_y']), ('pitched', 'x', 40))
-        self.assertEqual((flat['roof'], flat['ridge_axis'], flat['storeys']), ('flat', None, 2))
+        self.assertEqual((flat['roof'], flat['ridge_axis'], flat['storeys']), ('flat', None, 1))
+
+
+class AuditTest(unittest.TestCase):
+    def maps(self):
+        import numpy as np
+        n = 128
+        mk = lambda: {'cell': (0, 0), 'x0': 0, 'z0': 0, 'h': np.full((n, n), 40, 'int16'), 'base': np.full((n, n), 40, 'int16'),
+                      'roof': np.zeros((n, n), 'int16'), 'kind': np.zeros((n, n), 'uint8')}
+        pri, live = mk(), mk()
+        for x in range(10, 20):
+            for z in range(10, 20):
+                pri['roof'][x, z] = 50
+                pri['h'][x, z] = 49
+                pri['kind'][x, z] = L.ROOF
+                live['h'][x, z] = 50 if x < 15 else 44          # half the house matches, half is 6 too low
+        pri['kind'][100, 100] = L.TREE
+        live['kind'][101, 101] = L.TREE
+        return live, pri
+
+    def test_audit_counts_matches_lumps_and_trees(self):
+        import lidar_audit as A
+        live, pri = self.maps()
+        res = A.audit(live, pri, tol=1)
+        self.assertEqual((res['tree_missing'], res['tree_extra']), (1, 1))
+        (lump,) = res['lumps']
+        self.assertEqual((lump['within'], lump['lowest'], lump['highest'], lump['lidar_ridge']), (0.5, -6, 0, 50))
+        self.assertEqual(res['worst'][0][2:], [44, 50])
+        self.assertIn('LIDAR AUDIT', A.format_audit((0, 0), res, 1))
 
 
 if __name__ == '__main__':

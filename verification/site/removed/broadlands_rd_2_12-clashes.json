@@ -1,0 +1,42 @@
+{
+ "(7121, 28, -5563)": [
+  "broadlands_rd_14_24",
+  "minecraft:spruce_fence[east=true,north=false,south=false,west=false]",
+  "minecraft:stone_brick_stairs[facing=north,half=bottom]"
+ ],
+ "(7122, 28, -5563)": [
+  "broadlands_rd_14_24",
+  "minecraft:spruce_fence[east=true,north=false,south=true,west=true]",
+  "minecraft:stone_brick_stairs[facing=north,half=bottom]"
+ ],
+ "(7123, 28, -5563)": [
+  "broadlands_rd_14_24",
+  "minecraft:spruce_fence[east=false,north=false,south=false,west=true]",
+  "minecraft:stone_brick_stairs[facing=north,half=bottom]"
+ ],
+ "(7124, 28, -5562)": [
+  "broadlands_rd_14_24",
+  "minecraft:spruce_fence[east=true,north=false,south=false,west=false]",
+  "minecraft:stone_brick_stairs[facing=north,half=bottom]"
+ ],
+ "(7125, 28, -5562)": [
+  "broadlands_rd_14_24",
+  "minecraft:spruce_fence[east=false,north=false,south=false,west=true]",
+  "minecraft:stone_brick_stairs[facing=north,half=bottom]"
+ ],
+ "(7126, 27, -5561)": [
+  "broadlands_rd_14_24",
+  "minecraft:spruce_fence[east=true,north=false,south=false,west=true]",
+  "minecraft:stone_brick_stairs[facing=north,half=bottom]"
+ ],
+ "(7127, 27, -5561)": [
+  "broadlands_rd_14_24",
+  "minecraft:spruce_fence[east=true,north=false,south=true,west=true]",
+  "minecraft:stone_brick_stairs[facing=north,half=bottom]"
+ ],
+ "(7128, 27, -5561)": [
+  "broadlands_rd_14_24",
+  "minecraft:spruce_fence[east=false,north=false,south=false,west=true]",
+  "minecraft:stone_brick_stairs[facing=north,half=bottom]"
+ ]
+}

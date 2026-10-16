@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from pathlib import Path
 import statistics
 import sys
 
@@ -33,7 +34,10 @@ from script_env import ROOT  # noqa: E402
 
 TOP = 140
 MIN_COLUMNS = 12                    # ignore slivers (bin stores, small sheds)
-STOREY = 3                          # blocks per storey in the house builds
+STOREY = 3                          # blocks per storey
+RIDGE_BASE = 3                      # ridge height above ground minus this, / STOREY = storeys. Calibrated 2026-10-16 against
+                                    # OSM building:levels of 54 single-building lumps in the touched cells: 57% exact, 89%
+                                    # within one level (eave height is useless: ~4 above ground whatever the levels)
 GROUND, ROOF, TREE, TREE_OVER_ROOF = 0, 1, 2, 3
 OUT = ROOT / 'verification/site/lidar'
 _AIRS = ('minecraft:air', 'minecraft:cave_air', 'minecraft:void_air', 'minecraft:light')
@@ -134,8 +138,8 @@ def _ground(hm: dict, comp: set, reach: int = 3) -> int | None:
 def lumps(hm: dict, min_columns: int = MIN_COLUMNS) -> list:
     """Buildings in the height map (connected roof columns), largest first.
 
-    Each item: bbox, centre, columns, ground_y, eave_y (10th percentile of roof y), ridge_y, height (ridge - ground), storeys (estimate: eave over
-    ground / STOREY, at least 1), roof ('flat' | 'pitched'), ridge_axis ('x' | 'z' | None), trees_over (columns) and
+    Each item: bbox, centre, columns, ground_y, eave_y (10th percentile of roof y), ridge_y, height (ridge - ground), storeys (estimate: (ridge - ground - RIDGE_BASE)
+    / STOREY, at least 1; osm_levels is added by report() when OSM has building:levels), roof ('flat' | 'pitched'), ridge_axis ('x' | 'z' | None), trees_over (columns) and
     cols (the column set, for OSM matching).
     """
     x0, z0 = hm['x0'], hm['z0']
@@ -160,7 +164,7 @@ def lumps(hm: dict, min_columns: int = MIN_COLUMNS) -> list:
             'centre': [(min(xs) + max(xs)) // 2, (min(zs) + max(zs)) // 2],
             'columns': len(comp), 'ground_y': g, 'eave_y': lo, 'ridge_y': hi,
             'height': hi - g if g is not None else None,
-            'storeys': max(1, round((lo - g) / STOREY)) if g is not None else None,
+            'storeys': max(1, round((hi - g - RIDGE_BASE) / STOREY)) if g is not None else None,
             'roof': 'pitched' if pitched else 'flat',
             'ridge_axis': ('x' if rx >= rz else 'z') if pitched and len(ridge) > 1 else None,
             'trees_over': sum(1 for c in comp if hm['kind'][c[0] - x0, c[1] - z0] == TREE_OVER_ROOF),
@@ -175,37 +179,92 @@ def report(hm: dict, with_osm: bool = True) -> list:
         import lump_scan
         from osm_footprints import OSMIndex
         idx = OSMIndex()
+        levels = osm_levels(idx)
         for lp in items:
             lp['osm'] = lump_scan.osm_under(lp, idx)
+            lv = {levels[r] for r in lp['osm'] if r in levels}
+            lp['osm_levels'] = sorted(lv)
     return items
+
+
+def pristine_path() -> Path:
+    """Region folder of the untouched Geocraft save; stops with a clear message when it is missing or empty.
+
+    config/world.json pristine_region_path is outside the repo; a read-only clone is kept in
+    backups/pristine-geocraft/region (set pristine_region_path to it if the original moves).
+    """
+    p = Path(json.loads((ROOT / 'config/world.json').read_text())['pristine_region_path'])
+    if not p.is_dir() or not any(p.glob('r.*.mca')):
+        raise SystemExit(f'pristine Geocraft save not found at {p}\n'
+                         f'  a clone lives in {ROOT / "backups/pristine-geocraft/region"}: point '
+                         'config/world.json pristine_region_path there')
+    return p
 
 
 def pristine_world():
     """World over the untouched Geocraft save."""
     from site_kit import World
-    return World(json.loads((ROOT / 'config/world.json').read_text())['pristine_region_path'])
+    return World(pristine_path())
+
+
+def osm_levels(idx) -> dict:
+    """{osm ref: building:levels as int} for OSM buildings that carry the tag."""
+    import re
+    from coverage import osm_ref
+    out = {}
+    for _rings, p in idx.buildings:
+        m = re.search(r'"building:levels"=>"(\d+)', p.get('other_tags') or '')
+        if m:
+            out[osm_ref(p)] = int(m.group(1))
+    return out
 
 
 def format_report(cell, items: list) -> str:
     """Plain-text table of the lump report."""
     lines = [f'LIDAR LUMPS cell {cell[0]},{cell[1]}: {len(items)} building(s)',
-             'bbox                       cols ground eave ridge st roof     axis trees osm']
+             'bbox                       cols ground eave ridge st roof     axis trees lvl osm']
     for lp in items:
         osm = ','.join(lp.get('osm', [])[:3]) or ('UNMAPPED' if 'osm' in lp else '-')
         b = lp['bbox']
         lines.append(f'{b[0]},{b[1]}..{b[2]},{b[3]}'.ljust(27)
                      + f'{lp["columns"]:>4} {str(lp["ground_y"]):>6} {lp["eave_y"]:>4} {lp["ridge_y"]:>5} '
-                     f'{str(lp["storeys"]):>2} {lp["roof"]:<8} {str(lp["ridge_axis"] or "-"):<4} {lp["trees_over"]:>5} {osm}')
+                     f'{str(lp["storeys"]):>2} {lp["roof"]:<8} {str(lp["ridge_axis"] or "-"):<4} {lp["trees_over"]:>5} '
+                     f'{",".join(map(str, lp.get("osm_levels", []))) or "-":>3} {osm}')
     return '\n'.join(lines)
+
+
+def touched_cells() -> list:
+    """Cells that have a site/cells/<tx>_<tz>-STAGES.json file."""
+    import re
+    out = []
+    for f in sorted((ROOT / 'site/cells').glob('*-STAGES.json')):
+        m = re.match(r'(-?\d+)_(-?\d+)-STAGES', f.name)
+        out.append((int(m[1]), int(m[2])))
+    return out
+
+
+def write_tables() -> int:
+    """Write the lump table of every touched cell next to its STAGES file (regenerable; commit them)."""
+    world = pristine_world()
+    for cell in touched_cells():
+        text = format_report(cell, report(heightmap(world, cell))) + '\n'
+        (ROOT / f'site/cells/{cell[0]}_{cell[1]}-LIDAR.txt').write_text(text)
+        print(f'{cell[0]},{cell[1]}: {text.splitlines()[0]}')
+    return 0
 
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--cell', required=True, help='tx,tz')
+    ap.add_argument('--cell', help='tx,tz')
+    ap.add_argument('--tables', action='store_true', help='write site/cells/<tx>_<tz>-LIDAR.txt for every cell with a STAGES file')
     ap.add_argument('--json', action='store_true', help='print JSON instead of a table')
     ap.add_argument('--write', action='store_true', help='keep the height map as .npz')
     ap.add_argument('--no-osm', action='store_true', help='skip the OSM match (faster)')
     a = ap.parse_args(argv)
+    if a.tables:
+        return write_tables()
+    if not a.cell:
+        ap.error('--cell or --tables is required')
     cell = cellmath.parse_cell(a.cell)
     hm = heightmap(pristine_world(), cell)
     if a.write:

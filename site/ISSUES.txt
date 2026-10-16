@@ -268,7 +268,10 @@ I-064  M  LIDAR  open  BACKLOG umbrella (user, 2026-10-16): no hard reset. Revie
   lidar data (scripts/lidar_heightmap.py: h, roof, tree, storeys, ridge, UNMAPPED) and improve what the data shows is wrong or
   guessed. Houses are out of scope here (house_build specs handle them). Work one item below per chat; each ends with a
   region snapshot, a dry run, and a note in the cell STAGES file. Order: I-065 first (tooling), then I-066..I-071.
-I-065  M  TOOL  open  Lidar audit tool + safety. (a) lidar_heightmap fails loudly when pristine_region_path is missing (today it
+I-065  M  TOOL  done  (2026-10-16) Lidar audit tool + safety. DONE: (a) pristine_path() stops loudly; read-only APFS clone in
+  backups/pristine-geocraft/region; (b) scripts/lidar_audit.py --cell tx,tz; (c) site/cells/<tx>_<tz>-LIDAR.txt for the 35 touched cells
+  (lidar_heightmap.py --tables); (d) storeys = round((ridge - ground - 3) / 3): 57% exact, 89% within one level of OSM
+  building:levels over 54 lumps (eave height is useless). Original request: (a) lidar_heightmap fails loudly when pristine_region_path is missing (today it
   returns empty columns); copy the pristine region folder to backups/ (1.6 GB, read-only source is outside the repo). (b)
   scripts/lidar_audit.py: for a footprint/bbox compare the built top height, roof shape and ridge axis in the live world with
   the pristine map; list columns off by >= 2 blocks. (c) run lidar_heightmap --cell on every touched cell with --write and

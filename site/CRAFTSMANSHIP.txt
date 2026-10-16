@@ -181,4 +181,5 @@ Per column: h (lidar surface; carpet ignored, leaves/logs count, as Geocraft dra
 roof (carpet y), kind (ground/roof/tree/tree-over-roof). Lump report: footprint, ground, eave, ridge, storeys (estimate, 3
 blocks each), flat/pitched, ridge axis, trees over roof, OSM buildings under it (none = UNMAPPED). Read it before planning any
 feature and use it for storeys and roof instead of guessing. --write keeps verification/site/lidar/<tx>_<tz>.npz.
-
+Audit the live world against it: scripts/lidar_audit.py --cell tx,tz. Tables for touched cells: site/cells/<tx>_<tz>-LIDAR.txt.
+Storeys come from ridge height (eave is ~4 whatever the levels); OSM building:levels is shown as 'lvl' when mapped.
