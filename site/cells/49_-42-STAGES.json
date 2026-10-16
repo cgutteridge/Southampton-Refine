@@ -204,6 +204,34 @@
       "checked": "2026-10-15 19:35:36",
       "exceptions": [],
       "note": "lump_scan.py: no Geocraft lumps left"
+    },
+    "feature-oakdene_court": {
+      "status": "applied",
+      "plan": "oakdene_court",
+      "owner": "oakdene-rebuild",
+      "started": "2026-10-16 16:52:43",
+      "blocks": 4843,
+      "structure": {
+        "name": "southampton_refine:before_oakdene_court_20261016165243",
+        "from": [
+          6369,
+          42,
+          -5292
+        ],
+        "to": [
+          6391,
+          60,
+          -5264
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/oakdene_court-planned.json",
+      "finished": "2026-10-16 16:52:50",
+      "readback": {
+        "planned": 4843,
+        "mismatches": 0,
+        "checked": "2026-10-16 16:52:50"
+      }
     }
   }
 }

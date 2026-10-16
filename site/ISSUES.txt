@@ -315,7 +315,9 @@ I-069  L  SPECIAL  done  Small non-house structures vs lidar: Oakdene Court (4 l
   MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   shed, toilets, staff club pond, canopies (47,-45 y54 diagonal, physics canopies 47,-44), Welbeck Ave lump fixes. Roof shape and
   height from the lump table; keep or rebuild.
-  SETTLED 2026-10-16 Oakdene Court w173805553: KEEP. Street View (1 look-only frame, Church Lane yaw 90, logged in 49_-42-SOURCES) shows 4 window rows, flat
+  DONE 2026-10-16 Oakdene Court w173805553: REBUILT roof + openings (scripts/oakdene_court.py, REVIEWS 2026-10-16). Earlier the same day it was judged KEEP on shape
+  and height; the photo + Google comparison then showed dark slate roof and slit windows. Awaiting user check in the game.
+  (earlier note) SETTLED KEEP: Street View (1 look-only frame, Church Lane yaw 90, logged in 49_-42-SOURCES) shows 4 window rows, flat
   roof with white fascia, central stair block a little taller than the wings. Live build: floors y46/49/52/55, flat slab y58 (surface 58.5 vs lidar 58.06, within
   rounding). Only difference: lidar wings read 1 lower than the centre (56 vs 57); left as is (good enough). Lidar said 3 storeys: see I-071.
 I-070  L  LUMPS  done  Re-run the lump report on all cells and settle I-048 (49,-43 canopy strip, 50,-43 outbuilding) and the 3 truly
