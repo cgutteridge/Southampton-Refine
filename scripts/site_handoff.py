@@ -290,6 +290,28 @@ def portal_facts(portals):
             + ['Put a door at each one (Campus door_specs / portals.door_specs); say in the build note any you skip and why.'])
 
 
+def _building_photo(b):
+    """Local saved copy of a university building photo (reference/photos/buildings) when there is one, else its 800 px URL."""
+    from buildings import PHOTO_DIR, photos
+    local = PHOTO_DIR / f'{b["id"]}.jpg'
+    return str(local.relative_to(ROOT)) if local.exists() else photos(b)[0]
+
+
+def building_facts(pictures):
+    """Picture lines for a feature item: university buildings (scripts/buildings.py) that are this footprint.
+
+    @param pictures: building dicts from the feature (cell_features.missing_features)
+    @returns: queue-item lines ([] when none has a photo or an outline)
+    """
+    pictures = [b for b in pictures or [] if b['image'] or b['rings']]
+    if not pictures:
+        return []
+    from buildings import describe
+    return (['University building (reference/buildings, maps.soton.ac.uk; photo is look-only evidence for walls, openings,'
+             ' storeys; the outline cross-checks OSM, lidar still decides heights):']
+            + [f'  {describe(b)}' + (f'  {_building_photo(b)}' if b['image'] else '') for b in pictures[:6]])
+
+
 def resolved_trees_over_roof(cell):
     """stages.lidar.trees_over_roof_resolved from the cell stage file: [{'bbox': [...], 'reason': str}].
 
@@ -452,7 +474,7 @@ def advance_to_next_cell():
             'House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.',
             f'Lidar first: python3 scripts/lidar_heightmap.py --cell {tx},{tz}  (pristine Geocraft: storeys, roof shape, ridge axis, trees over roof, unmapped lumps).',
             'Use scripts/house_build.py: write site/builds/<name>.json (copy the nearest spec; ways, roofs, front), do not copy a build script.',
-        ] + portal_facts(f.get('portals') or []) + lidar_facts(lumps, (x0, z0, x1, z1)) + ([
+        ] + portal_facts(f.get('portals') or []) + building_facts(f.get('pictures') or []) + lidar_facts(lumps, (x0, z0, x1, z1)) + ([
             'Original Geocraft still standing here (lump_scan). Not in OSM or outside its clip: trace the',
             'footprint from the aerial, record source + year (PROCESS.txt 2d-i). Residual after the build must',
             'be 0, or record an exception in the STAGES file (stages.lump_sweep.exceptions).',

@@ -37,6 +37,7 @@ from coverage import (  # noqa: E402
 )
 from osm_footprints import OSMIndex  # noqa: E402
 from portals import describe, for_footprint  # noqa: E402
+from buildings import describe as describe_building, for_footprint as pictures_for  # noqa: E402
 
 COVERED_FRAC = 0.5
 JOIN_GAP = 12         # blocks between footprints that still count as one run of houses
@@ -116,7 +117,8 @@ def missing_features(tx: int, tz: int, idx: OSMIndex | None = None, covered: set
     @param idx: optional shared OSMIndex
     @param covered: optional precomputed feature_columns()
     @returns: [{'kind': 'building'|'houses', 'label': str, 'street': str|None,
-                'refs': [osm ref], 'bbox': (x0, z0, x1, z1), 'portals': [portal]}], buildings first, then streets
+                'refs': [osm ref], 'bbox': (x0, z0, x1, z1), 'portals': [portal],
+                'pictures': [university building (scripts/buildings.py: photo + outline)]}], buildings first, then streets
     """
     idx = idx or OSMIndex()
     covered = feature_columns() if covered is None else covered
@@ -134,11 +136,11 @@ def missing_features(tx: int, tz: int, idx: OSMIndex | None = None, covered: set
             continue
         xs = [x for x, _ in rings[0]]
         zs = [z for _, z in rings[0]]
-        item = {'ref': osm_ref(p), 'label': property_label(p), 'p': p, 'portals': for_footprint(rings),
+        item = {'ref': osm_ref(p), 'label': property_label(p), 'p': p, 'portals': for_footprint(rings), 'pictures': pictures_for(rings),
                 'bbox': (min(xs), min(zs), max(xs), max(zs))}
         (homes if p.get('building') in HOMES else singles).append(item)
     out = [{'kind': 'building', 'label': s['label'], 'street': None, 'refs': [s['ref']],
-            'bbox': s['bbox'], 'portals': s['portals']} for s in sorted(singles, key=lambda s: s['bbox'][:2])]
+            'bbox': s['bbox'], 'portals': s['portals'], 'pictures': s['pictures']} for s in sorted(singles, key=lambda s: s['bbox'][:2])]
     by_street: dict = {}
     for h in homes:
         h['street'] = _street_of(h['p'], h['bbox'], idx.streets)
@@ -152,6 +154,7 @@ def missing_features(tx: int, tz: int, idx: OSMIndex | None = None, covered: set
                 'bbox': (min(o['bbox'][0] for o in run), min(o['bbox'][1] for o in run),
                          max(o['bbox'][2] for o in run), max(o['bbox'][3] for o in run)),
                 'portals': [q for o in run for q in o['portals']],
+                'pictures': [q for o in run for q in o['pictures']],
             })
     return out
 
@@ -165,6 +168,8 @@ def main(argv=None) -> int:
         print(f"{f['kind']:9} {f['label']}  bbox={f['bbox']}  {','.join(f['refs'][:6])}")
         for q in f['portals']:
             print(f'          entrance {describe(q)}')
+        for q in f['pictures']:
+            print(f'          picture  {describe_building(q)}')
     return 0
 
 

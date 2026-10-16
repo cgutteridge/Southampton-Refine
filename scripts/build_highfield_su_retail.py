@@ -9,7 +9,11 @@ Evidence
   lidar    pristine Geocraft, this footprint: flat roof at 61 (282 cells; the 58/59 columns are the rim, lidar reads edges low),
            ground 54 -> 2 storeys.
   Google   z20 sheet at 6238,-5563: pale white flat roof, a long solar array on the north half, one small plant box at the east end.
-  photo    commons-24864637 (SUSU 2013 entrance): white panels with a glazed shopfront.
+  photo    reference/aerial/highfield-user/union-shop-front.webp (user, 2026-10-16), the front face: two storeys; glazed shopfront
+           in dark frames under a bright blue "union shop" sign band across the right three quarters; a brick pier bay at the left end
+           with a glazed door; white rendered upper storey with two dark-framed windows; red brick end walls; a deep flat roof
+           cantilevered ~4 forward over the whole front on two grey steel posts (dark grey fascia, cream soffit).
+  portal   57-A "Union Shop" at 6225,-5566 (no photo): the door position; faces out of the south-west long face.
 
   python3 scripts/build_highfield_su_retail.py            # preview + dry run
   SITE_OWNER=... python3 scripts/build_highfield_su_retail.py --apply
@@ -31,10 +35,12 @@ BASE, DECK = 54, 61
 cells = way_cells(WAY)
 PART = Part('b57', BASE, DECK, floors=(BASE, BASE + 3), cells=cells, wall='white_concrete', glass='glass',
             slab='calcite', rows=(1,), pier=3,      # 2x1 window pairs (facade rhythm rule), not tall slots
-            ground=dict(wall='white_concrete', glass='glass', pier=3, rows=(1, 2)))     # glazed shopfront: 2x2 panes
+            ground=dict(wall='gray_concrete', glass='glass', pier=3, rows=(1, 2)))      # glazed shopfront: 2x2 panes, dark steel frames
 BOX = bbox([PART], pad=3)
 OLD_RETAIL = {'highfield_library_b34_b18', 'highfield_library_b34_b18-greeblies', 'highfield_library_b34_b18-retail-fill', 'highfield_q052_b57'}
 KEEP = {'highfield_48_m44_trees'}
+BAY_X = min(x for x, _ in cells) + 7       # the brick bay at the west end of the front
+CANOPY = 4                                  # the roof overhangs the front by this many blocks
 DOORS = []                                  # portal 57-A "Union Shop" (reference/portals): scripts/entrances.py, below
 # roof features, measured off the Google sheet (see docstring): the solar array and the plant box
 FEATURES = [
@@ -43,8 +49,39 @@ FEATURES = [
 ]
 
 
+class Retail(Campus):
+    """Per-face materials from the photo: the front (south-west, south-facing steps) has the glazed shopfront and the sign band, white
+    render above; everything else (end walls, back) is brick."""
+
+    def wall_block(self, x, y, z, pt, ex):
+        b = super().wall_block(x, y, z, pt, ex).replace('minecraft:', '')
+        front = any(d == (0, 1) for d in ex)
+        if not front:
+            return 'bricks' if b in ('white_concrete', 'gray_concrete') else b
+        if x <= BAY_X and y < BASE + 3:
+            return 'bricks'                                                          # the brick pier bay
+        if y == BASE + 3 and x > BAY_X:
+            return 'light_blue_concrete'                                             # "union shop" sign band
+        return b
+
+
+def canopy(plan, plan_world):
+    """The roof cantilevered over the front: slab rows out from every south-facing wall cell, a dark fascia, two steel posts."""
+    front = sorted((x, z) for (x, z) in cells if (x, z + 1) not in cells)
+    for x, z in front:
+        for k in range(1, CANOPY + 1):
+            q = (x, DECK, z + k)
+            if (plan_world.block(*q) or 'minecraft:air').split('[')[0][10:] in ('air', 'cave_air'):        # never through a tree crown
+                plan.set(x, DECK, z + k, 'light_gray_concrete')
+                if k == CANOPY:
+                    plan.set(x, DECK + 1, z + k, 'gray_concrete')
+    for x, z in (front[0], front[-1]):
+        for y in range(BASE + 1, DECK):
+            plan.set(x, y, z + CANOPY, 'gray_concrete')
+
+
 def make():
-    return Campus(NAME, [PART], (WAY,), BOX, DOORS, [], avoid_built=False)
+    return Retail(NAME, [PART], (WAY,), BOX, DOORS, [], avoid_built=False)
 
 
 class PlanOverWorld:
@@ -59,12 +96,15 @@ class PlanOverWorld:
 
 def build():
     c = make()
-    plan = c.build(lambda cc: print('roof features', roof_greeblies(cc, FEATURES)))
     from site_kit import OUT, World, _parse_cells_file
+    live = World()
+    plan = c.build(lambda cc: print('roof features', roof_greeblies(cc, FEATURES)))
     ep, notes = Plan(NAME), []
     entrances(ep, PlanOverWorld(plan, World()), cells, {'57-A': (6225, -5566)}, notes, double={'57-A'}, flat={'57-A'},
-              style={'57-A': ('iron_door', 'white_concrete')}, check_walls=False)      # Union Shop: glazed shop doors, white frame
+              style={'57-A': ('iron_door', 'gray_concrete')}, check_walls=False)      # Union Shop: glazed shop doors, white frame
     plan.cells.update(ep.cells)
+    canopy(plan, live)                      # after the door: the canopy must not count as the ground outside it
+    OUTSIDE_OK = 'the roof cantilevers ~4 over the front on two steel posts: photo reference/aerial/highfield-user/union-shop-front.webp'
     print('\n'.join(notes))
     try:                                              # an earlier version of this build (Campus door, approach steps): put back what was under it
         oldown, _air = _parse_cells_file(OUT / f'{NAME}-cells.json')
@@ -86,6 +126,7 @@ def build():
     for q in held:
         del clear.cells[q]                                  # the new shell's air clearing must not cut a tree
     clear.signs, clear.entities = plan.signs, plan.entities
+    clear.outside_footprint_ok = OUTSIDE_OK
     return clear, c
 
 
