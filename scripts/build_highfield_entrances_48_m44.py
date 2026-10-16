@@ -53,7 +53,7 @@ if __name__ == '__main__':
     a = ap.parse_args()
     plan, notes = build()
     print('\n'.join(notes))
-    mod = tuple(sorted({b for b, _s in built_cells(within=plan.cells).values()} - {NAME}))
+    mod = tuple(sorted({b for b, _s in built_cells(within=plan.cells).values()} - {NAME} | {'highfield_q061_stragglers'}))
     print('changes cells of', mod)
     preview(plan, ROOT / f'verification/site/{NAME}-preview.png', scale=2)
     apply(plan, dry=not a.apply, modifies=mod)
