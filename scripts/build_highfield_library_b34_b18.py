@@ -132,7 +132,7 @@ if __name__ == '__main__':
     if a.greeblies:
         plan = greeblies_plan()
         preview(plan, ROOT / f'verification/site/{NAME}-greeblies-preview.png', scale=2)
-        apply(plan, dry=not a.apply, modifies=(NAME,))
+        apply(plan, dry=not a.apply, modifies=(NAME, NAME + '-greeblies'))
         raise SystemExit(0)
     c = make()
     plan = c.build()

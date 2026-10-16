@@ -63,6 +63,16 @@ GREEBLIES = [
     ('louvre', [(6197, -5560), (6202, -5558), (6202, -5555), (6196, -5557)]),
     ('louvre', [(6194, -5555), (6200, -5553), (6200, -5551), (6194, -5552)]),
     ('dome', 6175, -5567),
+    # SW wing, lantern block and the dark membrane roof (Google z20, same sheet; lidar: wing 53, lanterns 60-61, membrane 58)
+    ('patch', [(6179, -5526), (6206, -5514), (6197, -5491), (6169, -5506)], 'gray_concrete', 0),
+    *[('line', l, 'light_gray_concrete', 0) for l in ([(6173, -5515), (6202, -5502)], [(6187, -5521), (6176, -5506)],
+                                                      [(6197, -5515), (6190, -5499)])],
+    *[('hatch', x, z) for x, z in [(6181, -5513), (6194, -5507), (6157, -5540), (6163, -5537), (6168, -5535), (6155, -5531),
+                                   (6152, -5524), (6149, -5517), (6165, -5521), (6162, -5514), (6153, -5507), (6158, -5505)]],
+    ('dome', 6154, -5534), ('dome', 6165, -5518),
+    *[i for cx, cz in [(6183, -5546), (6181, -5540), (6178, -5535)] for i in (
+        ('line', [(cx - 2, cz - 2), (cx + 2, cz - 2), (cx + 2, cz + 2), (cx - 2, cz + 2), (cx - 2, cz - 2)], 'smooth_quartz', 1),
+        ('patch', [(cx - 1, cz - 1), (cx + 2, cz - 1), (cx + 2, cz + 2), (cx - 1, cz + 2)], 'light_blue_stained_glass', 1))],
     ('fan', 6174, -5564),
 ]
 EXTRA = lambda c: print('greeblies', roof_greeblies(c, GREEBLIES))  # noqa: E731
@@ -91,7 +101,7 @@ if __name__ == '__main__':
     if a.greeblies:
         plan = greeblies_plan()
         preview(plan, ROOT / f'verification/site/{NAME}-greeblies-preview.png', scale=2)
-        apply(plan, dry=not a.apply, modifies=(NAME,))
+        apply(plan, dry=not a.apply, modifies=(NAME, NAME + '-greeblies'))
         raise SystemExit(0)
     c = make()
     plan = c.build(EXTRA)

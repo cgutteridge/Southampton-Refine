@@ -43,28 +43,28 @@
    "status": "applied",
    "plan": "highfield_susu_west-greeblies",
    "owner": "claude-q180",
-   "started": "2026-10-16 18:17:42",
-   "blocks": 1286,
+   "started": "2026-10-16 18:42:00",
+   "blocks": 2046,
    "structure": {
-    "name": "southampton_refine:before_highfield_susu_west-greeblies_20261016181742",
+    "name": "southampton_refine:before_highfield_susu_west-greeblies_20261016184159",
     "from": [
-     6158,
-     61,
+     6148,
+     53,
      -5579
     ],
     "to": [
      6223,
      63,
-     -5540
+     -5492
     ]
    },
    "snapshot": null,
    "planned": "verification/site/highfield_susu_west-greeblies-planned.json",
-   "finished": "2026-10-16 18:17:56",
+   "finished": "2026-10-16 18:42:06",
    "readback": {
-    "planned": 1286,
+    "planned": 2046,
     "mismatches": 0,
-    "checked": "2026-10-16 18:17:56"
+    "checked": "2026-10-16 18:42:06"
    }
   },
   "feature-highfield_library_b34_b18-greeblies-restore": {
@@ -125,15 +125,16 @@
   }
  },
  "google_review": {
-  "status": "features in progress (2026-10-16): B42 (w33830305) and Jubilee (w93729745) roof greeblies done; red-tile range w34391673, SU retail w33830236, ground not yet",
+  "status": "features in progress (2026-10-16): B42 + Jubilee greeblies done (lanterns, membrane, hatches, domes); red-tile range w34391673, SU retail w33830236, B42 height fix, ground not yet",
   "matches": [
    "Jubilee w93729745: footprint and white flat roof match Google; woodland on its west side matches",
    "OSM outlines line up with the roofs on the central grey block and the SU retail strip"
   ],
   "mismatches": [
    "small white outbuilding east of the central block (about 6250,-5545): check it is built",
-   "B42 SW wing roof terrace, domed rooflights (3) and dark membrane roof (lower right of the sheet) not yet detailed",
-   "Jubilee hall standing-seam roof lines not drawn (only the two main seams)"
+   "Jubilee hall standing-seam roof lines not drawn (only the two main seams)",
+   "B42 height (lidar_audit + live-minus-lidar grid, 2026-10-16): low block east of the lanterns (x6188-6203, z-5535..-5517) built 60, lidar 57; dark membrane roof (x6170-6200, z-5517..-5493) built 60, lidar 58. Not fixed: needs a roof-lowering step in the B42 build.",
+   "Roof terrace north of the SW wing (beige decking, benches, about 6158-6177,-5554..-5538) is not part of the B42 cells (live ground 48): its owner building not identified yet"
   ],
   "greeblies": {
    "B42": "build_highfield_susu_west.py --greeblies (Google z20 sheet; plinth height 2 from pristine lidar 62 vs deck 60)",
