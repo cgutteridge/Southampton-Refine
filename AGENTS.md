@@ -37,6 +37,7 @@ is the go-ahead. Do not read every rule file or all of `site/PROCESS.txt`.
 | Reference imagery | `rules/reference-token-budget.md` |
 | What to trust per question (storeys, roof, ground) | `rules/evidence-order.md` |
 | How blocks are placed (walls, glass, roofs, streets) | `site/CRAFTSMANSHIP.txt` |
+| How a block looks (top, side, angles; nearest to a colour) | `scripts/block_reference.py` (sheets in `instance/block-reference/`, colours in `reference/blocks/blocks.json`) |
 | Pass order, who clears Geocraft, masks | `site/HANDOFF-LAYERED-PASSES.txt` |
 | Vegetation, saplings | `site/FOLIAGE.txt` |
 | Cadence, coverage, session start/end | `site/PROCESS.txt` |

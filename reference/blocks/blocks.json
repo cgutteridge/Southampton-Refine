@@ -1,0 +1,2786 @@
+{
+ "blocks": {
+  "acacia_leaves": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    70,
+    111,
+    52
+   ]
+  },
+  "acacia_planks": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    168,
+    90,
+    50
+   ]
+  },
+  "acacia_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    168,
+    90,
+    50
+   ]
+  },
+  "acacia_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    168,
+    90,
+    50
+   ]
+  },
+  "andesite": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    136,
+    136,
+    136
+   ]
+  },
+  "andesite_slab": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": true,
+   "rgb": [
+    136,
+    136,
+    136
+   ]
+  },
+  "andesite_stairs": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": true,
+   "rgb": [
+    136,
+    136,
+    136
+   ]
+  },
+  "bamboo_mosaic_slab": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    190,
+    170,
+    78
+   ]
+  },
+  "bamboo_mosaic_stairs": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    190,
+    170,
+    78
+   ]
+  },
+  "bamboo_planks": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    193,
+    173,
+    80
+   ]
+  },
+  "bamboo_slab": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    193,
+    173,
+    80
+   ]
+  },
+  "bamboo_stairs": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    193,
+    173,
+    80
+   ]
+  },
+  "basalt": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": false,
+   "rgb": [
+    75,
+    75,
+    80
+   ]
+  },
+  "birch_leaves": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    61,
+    97,
+    45
+   ]
+  },
+  "birch_planks": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    192,
+    175,
+    121
+   ]
+  },
+  "birch_slab": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    192,
+    175,
+    121
+   ]
+  },
+  "birch_stairs": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    192,
+    175,
+    121
+   ]
+  },
+  "black_concrete": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": false,
+   "rgb": [
+    8,
+    10,
+    15
+   ]
+  },
+  "black_glazed_terracotta": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    67,
+    30,
+    32
+   ]
+  },
+  "black_terracotta": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": false,
+   "rgb": [
+    37,
+    22,
+    16
+   ]
+  },
+  "black_wool": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": false,
+   "rgb": [
+    20,
+    21,
+    25
+   ]
+  },
+  "blackstone": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": false,
+   "rgb": [
+    42,
+    35,
+    41
+   ]
+  },
+  "blackstone_slab": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": true,
+   "rgb": [
+    42,
+    35,
+    41
+   ]
+  },
+  "blackstone_stairs": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": true,
+   "rgb": [
+    42,
+    35,
+    41
+   ]
+  },
+  "blue_concrete": {
+   "connects": false,
+   "group": "blue",
+   "partial": false,
+   "rgb": [
+    44,
+    46,
+    143
+   ]
+  },
+  "blue_glazed_terracotta": {
+   "connects": false,
+   "group": "blue",
+   "partial": false,
+   "rgb": [
+    47,
+    64,
+    139
+   ]
+  },
+  "blue_terracotta": {
+   "connects": false,
+   "group": "purple-pink",
+   "partial": false,
+   "rgb": [
+    74,
+    59,
+    91
+   ]
+  },
+  "blue_wool": {
+   "connects": false,
+   "group": "blue",
+   "partial": false,
+   "rgb": [
+    53,
+    57,
+    157
+   ]
+  },
+  "bone_block": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    222,
+    219,
+    198
+   ]
+  },
+  "brick_slab": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    150,
+    97,
+    83
+   ]
+  },
+  "brick_stairs": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    150,
+    97,
+    83
+   ]
+  },
+  "bricks": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    150,
+    97,
+    83
+   ]
+  },
+  "brown_concrete": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    96,
+    59,
+    31
+   ]
+  },
+  "brown_glazed_terracotta": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    119,
+    106,
+    85
+   ]
+  },
+  "brown_mushroom_block": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    201,
+    170,
+    120
+   ]
+  },
+  "brown_terracotta": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    77,
+    51,
+    35
+   ]
+  },
+  "brown_wool": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    114,
+    71,
+    40
+   ]
+  },
+  "calcite": {
+   "connects": false,
+   "group": "grey-white",
+   "partial": false,
+   "rgb": [
+    223,
+    224,
+    220
+   ]
+  },
+  "cherry_leaves": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    108,
+    130,
+    68
+   ]
+  },
+  "cherry_planks": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    226,
+    178,
+    172
+   ]
+  },
+  "cherry_slab": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    226,
+    178,
+    172
+   ]
+  },
+  "cherry_stairs": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    226,
+    178,
+    172
+   ]
+  },
+  "chiseled_quartz_block": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    231,
+    226,
+    217
+   ]
+  },
+  "clay": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    160,
+    166,
+    179
+   ]
+  },
+  "coarse_dirt": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    119,
+    85,
+    59
+   ]
+  },
+  "cobbled_deepslate": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": false,
+   "rgb": [
+    77,
+    77,
+    80
+   ]
+  },
+  "cobbled_deepslate_slab": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    77,
+    77,
+    80
+   ]
+  },
+  "cobbled_deepslate_stairs": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    77,
+    77,
+    80
+   ]
+  },
+  "cobblestone": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    127,
+    127,
+    127
+   ]
+  },
+  "cobblestone_slab": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": true,
+   "rgb": [
+    127,
+    127,
+    127
+   ]
+  },
+  "cobblestone_stairs": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": true,
+   "rgb": [
+    127,
+    127,
+    127
+   ]
+  },
+  "copper_block": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    192,
+    107,
+    79
+   ]
+  },
+  "cracked_stone_bricks": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    118,
+    117,
+    118
+   ]
+  },
+  "crimson_planks": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    101,
+    48,
+    70
+   ]
+  },
+  "crimson_slab": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    101,
+    48,
+    70
+   ]
+  },
+  "crimson_stairs": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    101,
+    48,
+    70
+   ]
+  },
+  "cut_copper": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    191,
+    106,
+    80
+   ]
+  },
+  "cut_copper_slab": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    191,
+    106,
+    80
+   ]
+  },
+  "cut_copper_stairs": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    191,
+    106,
+    80
+   ]
+  },
+  "cut_red_sandstone_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    186,
+    100,
+    31
+   ]
+  },
+  "cut_sandstone": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    219,
+    209,
+    163
+   ]
+  },
+  "cut_sandstone_slab": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    219,
+    209,
+    163
+   ]
+  },
+  "cyan_concrete": {
+   "connects": false,
+   "group": "cyan",
+   "partial": false,
+   "rgb": [
+    21,
+    119,
+    136
+   ]
+  },
+  "cyan_glazed_terracotta": {
+   "connects": false,
+   "group": "cyan",
+   "partial": false,
+   "rgb": [
+    52,
+    118,
+    125
+   ]
+  },
+  "cyan_terracotta": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": false,
+   "rgb": [
+    86,
+    91,
+    91
+   ]
+  },
+  "cyan_wool": {
+   "connects": false,
+   "group": "cyan",
+   "partial": false,
+   "rgb": [
+    21,
+    137,
+    145
+   ]
+  },
+  "dark_oak_leaves": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    71,
+    113,
+    53
+   ]
+  },
+  "dark_oak_planks": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    66,
+    43,
+    20
+   ]
+  },
+  "dark_oak_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    66,
+    43,
+    20
+   ]
+  },
+  "dark_oak_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    66,
+    43,
+    20
+   ]
+  },
+  "dark_prismarine": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    51,
+    91,
+    75
+   ]
+  },
+  "dark_prismarine_slab": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    51,
+    91,
+    75
+   ]
+  },
+  "dark_prismarine_stairs": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    51,
+    91,
+    75
+   ]
+  },
+  "deepslate": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": false,
+   "rgb": [
+    82,
+    82,
+    84
+   ]
+  },
+  "deepslate_brick_slab": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    70,
+    70,
+    71
+   ]
+  },
+  "deepslate_brick_stairs": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    70,
+    70,
+    71
+   ]
+  },
+  "deepslate_bricks": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": false,
+   "rgb": [
+    70,
+    70,
+    71
+   ]
+  },
+  "deepslate_tile_slab": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": true,
+   "rgb": [
+    54,
+    54,
+    55
+   ]
+  },
+  "deepslate_tile_stairs": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": true,
+   "rgb": [
+    54,
+    54,
+    55
+   ]
+  },
+  "deepslate_tiles": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": false,
+   "rgb": [
+    54,
+    54,
+    55
+   ]
+  },
+  "diorite": {
+   "connects": false,
+   "group": "grey-white",
+   "partial": false,
+   "rgb": [
+    188,
+    188,
+    188
+   ]
+  },
+  "diorite_slab": {
+   "connects": false,
+   "group": "grey-white",
+   "partial": true,
+   "rgb": [
+    188,
+    188,
+    188
+   ]
+  },
+  "diorite_stairs": {
+   "connects": false,
+   "group": "grey-white",
+   "partial": true,
+   "rgb": [
+    188,
+    188,
+    188
+   ]
+  },
+  "dirt": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    134,
+    96,
+    67
+   ]
+  },
+  "dripstone_block": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    134,
+    107,
+    92
+   ]
+  },
+  "end_stone": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    219,
+    222,
+    158
+   ]
+  },
+  "end_stone_brick_slab": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    218,
+    224,
+    162
+   ]
+  },
+  "end_stone_brick_stairs": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    218,
+    224,
+    162
+   ]
+  },
+  "end_stone_bricks": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    218,
+    224,
+    162
+   ]
+  },
+  "exposed_copper": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    161,
+    125,
+    103
+   ]
+  },
+  "exposed_cut_copper_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    154,
+    121,
+    101
+   ]
+  },
+  "exposed_cut_copper_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    154,
+    121,
+    101
+   ]
+  },
+  "gilded_blackstone": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    55,
+    42,
+    38
+   ]
+  },
+  "glass": {
+   "connects": false,
+   "group": "cyan",
+   "partial": false,
+   "rgb": [
+    175,
+    213,
+    219
+   ]
+  },
+  "glass_pane": {
+   "connects": true,
+   "group": "cyan",
+   "partial": false,
+   "rgb": [
+    173,
+    212,
+    218
+   ]
+  },
+  "gold_block": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    246,
+    208,
+    61
+   ]
+  },
+  "granite": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    149,
+    103,
+    85
+   ]
+  },
+  "granite_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    149,
+    103,
+    85
+   ]
+  },
+  "granite_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    149,
+    103,
+    85
+   ]
+  },
+  "grass_block": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    94,
+    111,
+    58
+   ]
+  },
+  "gravel": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    131,
+    127,
+    126
+   ]
+  },
+  "gray_concrete": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": false,
+   "rgb": [
+    54,
+    57,
+    61
+   ]
+  },
+  "gray_glazed_terracotta": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": false,
+   "rgb": [
+    83,
+    90,
+    93
+   ]
+  },
+  "gray_terracotta": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    57,
+    42,
+    35
+   ]
+  },
+  "gray_wool": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": false,
+   "rgb": [
+    62,
+    68,
+    71
+   ]
+  },
+  "green_concrete": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    73,
+    91,
+    36
+   ]
+  },
+  "green_glazed_terracotta": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    117,
+    142,
+    67
+   ]
+  },
+  "green_terracotta": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    76,
+    83,
+    42
+   ]
+  },
+  "green_wool": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    84,
+    109,
+    27
+   ]
+  },
+  "iron_bars": {
+   "connects": true,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    136,
+    139,
+    135
+   ]
+  },
+  "iron_block": {
+   "connects": false,
+   "group": "grey-white",
+   "partial": false,
+   "rgb": [
+    220,
+    220,
+    220
+   ]
+  },
+  "jungle_leaves": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    74,
+    116,
+    50
+   ]
+  },
+  "jungle_planks": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    160,
+    115,
+    80
+   ]
+  },
+  "jungle_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    160,
+    115,
+    80
+   ]
+  },
+  "jungle_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    160,
+    115,
+    80
+   ]
+  },
+  "light_blue_concrete": {
+   "connects": false,
+   "group": "blue",
+   "partial": false,
+   "rgb": [
+    35,
+    137,
+    198
+   ]
+  },
+  "light_blue_glazed_terracotta": {
+   "connects": false,
+   "group": "blue",
+   "partial": false,
+   "rgb": [
+    94,
+    164,
+    208
+   ]
+  },
+  "light_blue_terracotta": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    113,
+    108,
+    137
+   ]
+  },
+  "light_blue_wool": {
+   "connects": false,
+   "group": "cyan",
+   "partial": false,
+   "rgb": [
+    58,
+    175,
+    217
+   ]
+  },
+  "light_gray_concrete": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    125,
+    125,
+    115
+   ]
+  },
+  "light_gray_concrete_powder": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    154,
+    154,
+    148
+   ]
+  },
+  "light_gray_glazed_terracotta": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    144,
+    166,
+    167
+   ]
+  },
+  "light_gray_terracotta": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    135,
+    106,
+    97
+   ]
+  },
+  "light_gray_wool": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    142,
+    142,
+    134
+   ]
+  },
+  "lime_concrete": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    94,
+    168,
+    24
+   ]
+  },
+  "lime_glazed_terracotta": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    162,
+    197,
+    55
+   ]
+  },
+  "lime_terracotta": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    103,
+    117,
+    52
+   ]
+  },
+  "lime_wool": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    112,
+    185,
+    25
+   ]
+  },
+  "magenta_concrete": {
+   "connects": false,
+   "group": "purple-pink",
+   "partial": false,
+   "rgb": [
+    169,
+    48,
+    159
+   ]
+  },
+  "magenta_glazed_terracotta": {
+   "connects": false,
+   "group": "purple-pink",
+   "partial": false,
+   "rgb": [
+    208,
+    100,
+    191
+   ]
+  },
+  "magenta_terracotta": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    149,
+    88,
+    108
+   ]
+  },
+  "magenta_wool": {
+   "connects": false,
+   "group": "purple-pink",
+   "partial": false,
+   "rgb": [
+    189,
+    68,
+    179
+   ]
+  },
+  "mangrove_leaves": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    61,
+    96,
+    45
+   ]
+  },
+  "mangrove_planks": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    117,
+    54,
+    48
+   ]
+  },
+  "mangrove_slab": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    117,
+    54,
+    48
+   ]
+  },
+  "mangrove_stairs": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    117,
+    54,
+    48
+   ]
+  },
+  "mossy_cobblestone_slab": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    110,
+    118,
+    94
+   ]
+  },
+  "mossy_cobblestone_stairs": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    110,
+    118,
+    94
+   ]
+  },
+  "mossy_stone_brick_slab": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    115,
+    121,
+    105
+   ]
+  },
+  "mossy_stone_brick_stairs": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    115,
+    121,
+    105
+   ]
+  },
+  "mossy_stone_bricks": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": false,
+   "rgb": [
+    115,
+    121,
+    105
+   ]
+  },
+  "mud": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": false,
+   "rgb": [
+    60,
+    57,
+    60
+   ]
+  },
+  "mud_brick_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    137,
+    103,
+    79
+   ]
+  },
+  "mud_brick_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    137,
+    103,
+    79
+   ]
+  },
+  "mud_bricks": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    137,
+    103,
+    79
+   ]
+  },
+  "mushroom_stem": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    201,
+    170,
+    120
+   ]
+  },
+  "nether_brick_slab": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": true,
+   "rgb": [
+    44,
+    21,
+    26
+   ]
+  },
+  "nether_brick_stairs": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": true,
+   "rgb": [
+    44,
+    21,
+    26
+   ]
+  },
+  "nether_bricks": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": false,
+   "rgb": [
+    44,
+    21,
+    26
+   ]
+  },
+  "netherrack": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    97,
+    38,
+    38
+   ]
+  },
+  "oak_fence": {
+   "connects": true,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    162,
+    130,
+    78
+   ]
+  },
+  "oak_leaves": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    68,
+    108,
+    50
+   ]
+  },
+  "oak_planks": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    162,
+    130,
+    78
+   ]
+  },
+  "oak_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    162,
+    130,
+    78
+   ]
+  },
+  "oak_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    162,
+    130,
+    78
+   ]
+  },
+  "orange_concrete": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    224,
+    97,
+    0
+   ]
+  },
+  "orange_glazed_terracotta": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    154,
+    147,
+    91
+   ]
+  },
+  "orange_terracotta": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    161,
+    83,
+    37
+   ]
+  },
+  "orange_wool": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    240,
+    118,
+    19
+   ]
+  },
+  "oxidized_copper": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    82,
+    162,
+    132
+   ]
+  },
+  "oxidized_cut_copper_slab": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    79,
+    153,
+    126
+   ]
+  },
+  "oxidized_cut_copper_stairs": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    79,
+    153,
+    126
+   ]
+  },
+  "packed_ice": {
+   "connects": false,
+   "group": "blue",
+   "partial": false,
+   "rgb": [
+    141,
+    180,
+    250
+   ]
+  },
+  "pale_oak_slab": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    227,
+    217,
+    216
+   ]
+  },
+  "pale_oak_stairs": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    227,
+    217,
+    216
+   ]
+  },
+  "petrified_oak_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    162,
+    130,
+    78
+   ]
+  },
+  "pink_concrete": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    213,
+    101,
+    142
+   ]
+  },
+  "pink_glazed_terracotta": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    235,
+    154,
+    181
+   ]
+  },
+  "pink_terracotta": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    161,
+    78,
+    78
+   ]
+  },
+  "pink_wool": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    237,
+    141,
+    172
+   ]
+  },
+  "podzol": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    112,
+    79,
+    46
+   ]
+  },
+  "polished_andesite": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    132,
+    134,
+    133
+   ]
+  },
+  "polished_andesite_slab": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": true,
+   "rgb": [
+    132,
+    134,
+    133
+   ]
+  },
+  "polished_andesite_stairs": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": true,
+   "rgb": [
+    132,
+    134,
+    133
+   ]
+  },
+  "polished_blackstone": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": false,
+   "rgb": [
+    53,
+    48,
+    56
+   ]
+  },
+  "polished_blackstone_brick_slab": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": true,
+   "rgb": [
+    48,
+    42,
+    49
+   ]
+  },
+  "polished_blackstone_brick_stairs": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": true,
+   "rgb": [
+    48,
+    42,
+    49
+   ]
+  },
+  "polished_blackstone_slab": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": true,
+   "rgb": [
+    53,
+    48,
+    56
+   ]
+  },
+  "polished_blackstone_stairs": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": true,
+   "rgb": [
+    53,
+    48,
+    56
+   ]
+  },
+  "polished_deepslate": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": false,
+   "rgb": [
+    72,
+    72,
+    73
+   ]
+  },
+  "polished_deepslate_slab": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    72,
+    72,
+    73
+   ]
+  },
+  "polished_deepslate_stairs": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    72,
+    72,
+    73
+   ]
+  },
+  "polished_diorite": {
+   "connects": false,
+   "group": "grey-white",
+   "partial": false,
+   "rgb": [
+    192,
+    193,
+    194
+   ]
+  },
+  "polished_diorite_slab": {
+   "connects": false,
+   "group": "grey-white",
+   "partial": true,
+   "rgb": [
+    192,
+    193,
+    194
+   ]
+  },
+  "polished_diorite_stairs": {
+   "connects": false,
+   "group": "grey-white",
+   "partial": true,
+   "rgb": [
+    192,
+    193,
+    194
+   ]
+  },
+  "polished_granite": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    154,
+    106,
+    89
+   ]
+  },
+  "polished_granite_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    154,
+    106,
+    89
+   ]
+  },
+  "polished_granite_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    154,
+    106,
+    89
+   ]
+  },
+  "polished_tuff_slab": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    97,
+    104,
+    99
+   ]
+  },
+  "polished_tuff_stairs": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    97,
+    104,
+    99
+   ]
+  },
+  "prismarine": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    98,
+    162,
+    145
+   ]
+  },
+  "prismarine_brick_slab": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    99,
+    171,
+    158
+   ]
+  },
+  "prismarine_brick_stairs": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    99,
+    171,
+    158
+   ]
+  },
+  "prismarine_bricks": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    99,
+    171,
+    158
+   ]
+  },
+  "prismarine_slab": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    98,
+    162,
+    145
+   ]
+  },
+  "prismarine_stairs": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    98,
+    162,
+    145
+   ]
+  },
+  "purple_concrete": {
+   "connects": false,
+   "group": "purple-pink",
+   "partial": false,
+   "rgb": [
+    100,
+    31,
+    156
+   ]
+  },
+  "purple_glazed_terracotta": {
+   "connects": false,
+   "group": "purple-pink",
+   "partial": false,
+   "rgb": [
+    109,
+    47,
+    152
+   ]
+  },
+  "purple_terracotta": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    118,
+    70,
+    86
+   ]
+  },
+  "purple_wool": {
+   "connects": false,
+   "group": "purple-pink",
+   "partial": false,
+   "rgb": [
+    121,
+    42,
+    172
+   ]
+  },
+  "purpur_block": {
+   "connects": false,
+   "group": "purple-pink",
+   "partial": false,
+   "rgb": [
+    169,
+    125,
+    169
+   ]
+  },
+  "purpur_slab": {
+   "connects": false,
+   "group": "purple-pink",
+   "partial": true,
+   "rgb": [
+    169,
+    125,
+    169
+   ]
+  },
+  "purpur_stairs": {
+   "connects": false,
+   "group": "purple-pink",
+   "partial": true,
+   "rgb": [
+    169,
+    125,
+    169
+   ]
+  },
+  "quartz_block": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    235,
+    229,
+    222
+   ]
+  },
+  "quartz_bricks": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    234,
+    229,
+    221
+   ]
+  },
+  "quartz_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    235,
+    229,
+    222
+   ]
+  },
+  "quartz_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    235,
+    229,
+    222
+   ]
+  },
+  "red_concrete": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    142,
+    32,
+    32
+   ]
+  },
+  "red_glazed_terracotta": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    181,
+    59,
+    53
+   ]
+  },
+  "red_mushroom_block": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    201,
+    170,
+    120
+   ]
+  },
+  "red_nether_brick_slab": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": true,
+   "rgb": [
+    69,
+    7,
+    9
+   ]
+  },
+  "red_nether_brick_stairs": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": true,
+   "rgb": [
+    69,
+    7,
+    9
+   ]
+  },
+  "red_nether_bricks": {
+   "connects": false,
+   "group": "grey-black",
+   "partial": false,
+   "rgb": [
+    69,
+    7,
+    9
+   ]
+  },
+  "red_sand": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    190,
+    102,
+    33
+   ]
+  },
+  "red_sandstone": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    184,
+    98,
+    29
+   ]
+  },
+  "red_sandstone_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    184,
+    98,
+    29
+   ]
+  },
+  "red_sandstone_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    184,
+    98,
+    29
+   ]
+  },
+  "red_terracotta": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    143,
+    61,
+    46
+   ]
+  },
+  "red_wool": {
+   "connects": false,
+   "group": "red",
+   "partial": false,
+   "rgb": [
+    160,
+    39,
+    34
+   ]
+  },
+  "resin_brick_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    205,
+    88,
+    24
+   ]
+  },
+  "resin_brick_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    205,
+    88,
+    24
+   ]
+  },
+  "sand": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    219,
+    207,
+    163
+   ]
+  },
+  "sandstone": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    218,
+    206,
+    160
+   ]
+  },
+  "sandstone_slab": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    218,
+    206,
+    160
+   ]
+  },
+  "sandstone_stairs": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    218,
+    206,
+    160
+   ]
+  },
+  "smooth_basalt": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": false,
+   "rgb": [
+    72,
+    72,
+    78
+   ]
+  },
+  "smooth_quartz": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    236,
+    230,
+    223
+   ]
+  },
+  "smooth_quartz_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    236,
+    230,
+    223
+   ]
+  },
+  "smooth_quartz_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    236,
+    230,
+    223
+   ]
+  },
+  "smooth_red_sandstone": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    181,
+    97,
+    31
+   ]
+  },
+  "smooth_red_sandstone_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    181,
+    97,
+    31
+   ]
+  },
+  "smooth_red_sandstone_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    181,
+    97,
+    31
+   ]
+  },
+  "smooth_sandstone": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    223,
+    214,
+    170
+   ]
+  },
+  "smooth_sandstone_slab": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    223,
+    214,
+    170
+   ]
+  },
+  "smooth_sandstone_stairs": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": true,
+   "rgb": [
+    223,
+    214,
+    170
+   ]
+  },
+  "smooth_stone": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    158,
+    158,
+    158
+   ]
+  },
+  "smooth_stone_slab": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": true,
+   "rgb": [
+    164,
+    164,
+    164
+   ]
+  },
+  "snow_block": {
+   "connects": false,
+   "group": "cyan",
+   "partial": true,
+   "rgb": [
+    249,
+    254,
+    254
+   ]
+  },
+  "spruce_leaves": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    59,
+    94,
+    44
+   ]
+  },
+  "spruce_planks": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    114,
+    84,
+    48
+   ]
+  },
+  "spruce_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    114,
+    84,
+    48
+   ]
+  },
+  "spruce_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    114,
+    84,
+    48
+   ]
+  },
+  "stone": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    125,
+    125,
+    125
+   ]
+  },
+  "stone_brick_slab": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": true,
+   "rgb": [
+    122,
+    121,
+    122
+   ]
+  },
+  "stone_brick_stairs": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": true,
+   "rgb": [
+    122,
+    121,
+    122
+   ]
+  },
+  "stone_bricks": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": false,
+   "rgb": [
+    122,
+    121,
+    122
+   ]
+  },
+  "stone_slab": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": true,
+   "rgb": [
+    125,
+    125,
+    125
+   ]
+  },
+  "stone_stairs": {
+   "connects": false,
+   "group": "grey-mid",
+   "partial": true,
+   "rgb": [
+    125,
+    125,
+    125
+   ]
+  },
+  "terracotta": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    152,
+    94,
+    67
+   ]
+  },
+  "tinted_glass": {
+   "connects": false,
+   "group": "purple-pink",
+   "partial": false,
+   "rgb": [
+    46,
+    34,
+    52
+   ]
+  },
+  "tuff": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": false,
+   "rgb": [
+    108,
+    109,
+    102
+   ]
+  },
+  "tuff_brick_slab": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    98,
+    102,
+    95
+   ]
+  },
+  "tuff_brick_stairs": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    98,
+    102,
+    95
+   ]
+  },
+  "tuff_slab": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    108,
+    109,
+    102
+   ]
+  },
+  "tuff_stairs": {
+   "connects": false,
+   "group": "grey-dark",
+   "partial": true,
+   "rgb": [
+    108,
+    109,
+    102
+   ]
+  },
+  "warped_planks": {
+   "connects": false,
+   "group": "cyan",
+   "partial": false,
+   "rgb": [
+    43,
+    104,
+    99
+   ]
+  },
+  "warped_slab": {
+   "connects": false,
+   "group": "cyan",
+   "partial": true,
+   "rgb": [
+    43,
+    104,
+    99
+   ]
+  },
+  "warped_stairs": {
+   "connects": false,
+   "group": "cyan",
+   "partial": true,
+   "rgb": [
+    43,
+    104,
+    99
+   ]
+  },
+  "waxed_cut_copper_slab": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    191,
+    106,
+    80
+   ]
+  },
+  "waxed_cut_copper_stairs": {
+   "connects": false,
+   "group": "red",
+   "partial": true,
+   "rgb": [
+    191,
+    106,
+    80
+   ]
+  },
+  "waxed_exposed_cut_copper_slab": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    154,
+    121,
+    101
+   ]
+  },
+  "waxed_exposed_cut_copper_stairs": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": true,
+   "rgb": [
+    154,
+    121,
+    101
+   ]
+  },
+  "waxed_oxidized_cut_copper_slab": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    79,
+    153,
+    126
+   ]
+  },
+  "waxed_oxidized_cut_copper_stairs": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    79,
+    153,
+    126
+   ]
+  },
+  "waxed_weathered_cut_copper_slab": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    109,
+    145,
+    107
+   ]
+  },
+  "waxed_weathered_cut_copper_stairs": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    109,
+    145,
+    107
+   ]
+  },
+  "weathered_copper": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    108,
+    153,
+    110
+   ]
+  },
+  "weathered_cut_copper_slab": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    109,
+    145,
+    107
+   ]
+  },
+  "weathered_cut_copper_stairs": {
+   "connects": false,
+   "group": "green",
+   "partial": true,
+   "rgb": [
+    109,
+    145,
+    107
+   ]
+  },
+  "white_concrete": {
+   "connects": false,
+   "group": "grey-white",
+   "partial": false,
+   "rgb": [
+    207,
+    213,
+    214
+   ]
+  },
+  "white_glazed_terracotta": {
+   "connects": false,
+   "group": "green",
+   "partial": false,
+   "rgb": [
+    188,
+    212,
+    202
+   ]
+  },
+  "white_stained_glass": {
+   "connects": false,
+   "group": "grey-white",
+   "partial": false,
+   "rgb": [
+    255,
+    255,
+    255
+   ]
+  },
+  "white_terracotta": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    209,
+    178,
+    161
+   ]
+  },
+  "white_wool": {
+   "connects": false,
+   "group": "grey-white",
+   "partial": false,
+   "rgb": [
+    233,
+    236,
+    236
+   ]
+  },
+  "yellow_concrete": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    240,
+    175,
+    21
+   ]
+  },
+  "yellow_glazed_terracotta": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    234,
+    192,
+    88
+   ]
+  },
+  "yellow_terracotta": {
+   "connects": false,
+   "group": "orange-brown",
+   "partial": false,
+   "rgb": [
+    186,
+    133,
+    35
+   ]
+  },
+  "yellow_wool": {
+   "connects": false,
+   "group": "yellow-beige",
+   "partial": false,
+   "rgb": [
+    248,
+    197,
+    39
+   ]
+  }
+ },
+ "note": "average RGB of top+side faces, tinted blocks shown green; connects = shape depends on neighbours",
+ "source": "1.21.11.jar"
+}

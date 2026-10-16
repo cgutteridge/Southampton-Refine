@@ -225,7 +225,9 @@ GREEBLIES ARE THE DECOR STEP OF A FEATURE (user, 2026-10-16)
  Roof and site detail (plant, vents, hatches, fans, panels, seams, planting beside the building) is applied after the
  feature's shell, as part of that feature (campus.roof_greeblies, build script --greeblies), not as a separate pass.
  - Use unusual blocks freely for flavour (iron trapdoors, tinted glass, mushroom stem, terracotta, quartz, blackstone):
-   pick by colour and texture read off Google, not by habit.
+   pick by colour and texture read off Google, not by habit. Look before choosing: `block_reference.py nearest R,G,B`
+   lists the closest blocks to a colour, and the sheets in instance/block-reference/ show top, side and angled views
+   (panes, bars, walls and fences change shape with neighbours: `block_reference.py one <block>` draws them joined).
  - Plants: match species colour and size from Google and any other clear reference. Grass and flowers come in two heights
    (short_grass / tall_grass, small flower / double-height flower); bushes are multi-block clumps of leaves
    (see site/FOLIAGE.txt for the allowlist and where air is required).
