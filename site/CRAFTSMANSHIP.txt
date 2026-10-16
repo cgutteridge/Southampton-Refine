@@ -54,9 +54,10 @@ rule-file copy.
   - Count the blocks on the face and write the bay rhythm from the photo, e.g. an 8-cell front = WW_BB_WW
     (W window 2 wide x 1 high, B balcony 2 wide, _ brick pier 1 wide; the corner cells are the end piers).
     Windows are 2x1 pairs, never single-block panes.
-  - Stepped diagonal walls (1:1 stairs) have windows too, as pairs of full GLASS BLOCKS in the step-corner cells (cells
-    exposed two ways), chained along the diagonal with the same pair rhythm. Never glass panes on a diagonal: a pane in a
-    step corner is a thin slit. A lone corner cell, with no diagonal neighbour, gets no window.
+  - Stepped diagonal walls (1:1 stairs) have windows too: ONE full GLASS BLOCK in a step-corner cell (cells exposed two ways)
+    every third cell along the diagonal, two brick between. Never glass panes on a diagonal (a thin slit at the corner),
+    and never the straight-wall pairs there (a diagonal step is one block along the face, so pairs were over the top).
+    A lone corner cell, with no diagonal neighbour, gets no window.
   - A face you cannot see is inferred, not left blank: give every straight face the same rhythm as the one in the photo.
   - Balconies are open: white parapet at the face, plain back wall, no glass. Only the entrance face has them.
   - A blank flank at each run end is wasted: the corner cell already is the pier.

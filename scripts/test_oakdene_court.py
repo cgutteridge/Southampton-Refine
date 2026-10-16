@@ -1,6 +1,6 @@
 import unittest
 
-from oakdene_court import diagonal_chains, pair_slots, runs
+from oakdene_court import diagonal_chains, pair_slots, runs, single_slots
 
 
 class PairSlotsTest(unittest.TestCase):
@@ -39,6 +39,19 @@ class DiagonalChainsTest(unittest.TestCase):
         up = [(0, 3), (1, 2), (2, 1)]
         down = [(5, 0), (6, 1)]
         self.assertEqual(sorted(diagonal_chains(up + down)), sorted([up, down]))
+
+
+class SingleSlotsTest(unittest.TestCase):
+    def test_one_window_every_third_cell_centred(self):
+        self.assertEqual(single_slots(8), [0, 3, 6])
+        self.assertEqual(single_slots(2), [0])
+
+    def test_never_more_than_a_third_of_the_cells_plus_one(self):
+        for n in range(2, 30):
+            slots = single_slots(n)
+            self.assertLessEqual(len(slots), (n + 2) // 3)
+            self.assertGreaterEqual(min(slots), 0)
+            self.assertLessEqual(max(slots), n - 1)
 
 
 if __name__ == '__main__':
