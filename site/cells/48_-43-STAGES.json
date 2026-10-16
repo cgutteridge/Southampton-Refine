@@ -65,6 +65,34 @@
         "mismatches": 0,
         "checked": "2026-10-16 17:59:43"
       }
+    },
+    "feature-highfield_library_b34_b18-greeblies-coping": {
+      "status": "applied",
+      "plan": "highfield_library_b34_b18-greeblies-coping",
+      "owner": "claude-q180",
+      "started": "2026-10-16 18:04:12",
+      "blocks": 53,
+      "structure": {
+        "name": "southampton_refine:before_highfield_library_b34_b18-greeblies-coping",
+        "from": [
+          6228,
+          65,
+          -5495
+        ],
+        "to": [
+          6281,
+          65,
+          -5469
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_library_b34_b18-greeblies-coping-planned.json",
+      "finished": "2026-10-16 18:04:18",
+      "readback": {
+        "planned": 53,
+        "mismatches": 0,
+        "checked": "2026-10-16 18:04:18"
+      }
     }
   }
 }

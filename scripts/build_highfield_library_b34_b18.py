@@ -82,16 +82,20 @@ BOX = bbox(PARTS, pad=2)
 # (google_aerial.py --at 6243,-5495 --radius 44 --zoom 20 --outlines). Sports hall: white standing-seam roof with two
 # seams, a plant yard of AC units at the NW corner, round roof lights and hatches. Extension (2025, south): beige flat
 # roof, a blue-grey metal strip along its north edge, rows of tilted solar panels (navy), white duct runs.
-GREEBLIES = [
+EXT_GREEBLIES = [
     ('patch', [(6250, -5483), (6277, -5495), (6303, -5490), (6303, -5425), (6230, -5425), (6229, -5473), (6238, -5476)],
      'mushroom_stem', 0),
     ('patch', [(6250, -5483), (6277, -5495), (6279, -5489), (6253, -5476)], 'light_blue_terracotta', 0),
+]
+HALL_GREEBLIES = [
     ('line', [(6247, -5531), (6263, -5495)], 'light_gray_concrete', 0),
     ('line', [(6230, -5508), (6252, -5521)], 'light_gray_concrete', 0),
     ('plinth', [(6215, -5519), (6223, -5517), (6224, -5509), (6217, -5507)], 2, 'light_gray_concrete'),
     *[('fan', x, z) for x, z in [(6217, -5516), (6220, -5515), (6221, -5512), (6218, -5510)]],
     *[('vent', x, z, 'light_gray_concrete') for x, z in [(6224, -5525), (6226, -5522), (6228, -5517), (6229, -5514)]],
     *[('hatch', x, z) for x, z in [(6243, -5510), (6234, -5505), (6247, -5499), (6238, -5494), (6228, -5489), (6225, -5502)]],
+]
+EXT_GREEBLIES += [
     ('line', [(6264, -5478), (6269, -5469)], 'white_concrete', 1),
     ('line', [(6273, -5468), (6279, -5452)], 'white_concrete', 1),
     *[('patch', q, 'blue_terracotta', 1) for q in [
@@ -105,9 +109,12 @@ EXTRA = None
 
 def greeblies_plan():
     """Follow-up step of this feature: roof greeblies on the standing Jubilee roof (no re-plan of the shells)."""
-    v = RoofView(NAME, only=way_cells('93729745'))
-    print('greeblies', roof_greeblies(v, GREEBLIES))
-    return v.p
+    sports = way_cells('93729745')
+    ext = RoofView(NAME, only=sports & new)          # colours of the 2025 extension stay on its own cells (user: no spill)
+    hall = RoofView(NAME, only=sports - new)
+    print('greeblies ext', roof_greeblies(ext, EXT_GREEBLIES), 'hall', roof_greeblies(hall, HALL_GREEBLIES))
+    ext.p.cells.update(hall.p.cells)
+    return ext.p
 
 
 def make():

@@ -437,7 +437,8 @@ def roof_greeblies(c, items):
     Positions are measured off the Google sheet (google_aerial.py). Items, in this order of effect:
       ('plinth', poly, h, block)   raised pale roof block, h above the deck, over cells inside poly
       ('vent', x, z[, block])      round vent / roof light: one block (default white) on the roof (or plinth)
-      ('patch', poly, block, lvl)  area of one block: lvl 0 recolours the roof surface, lvl 1 stands on it (solar panels)
+      ('patch', poly, block, lvl)  area of one block: lvl 0 recolours the roof surface, lvl 1 stands on it (solar panels);
+                                   edge (coping) cells are never touched
       ('line', [(x, z), ...], block, lvl)  1-wide run (seam, duct) along the points, same levels as patch
       ('hatch', x, z)              access hatch: flat iron trapdoor
       ('louvre', poly)                louvred plant vent (user: these are vents, not skylights): flat iron trapdoors on the roof
@@ -488,7 +489,7 @@ def roof_greeblies(c, items):
             continue
         if kind in ('patch', 'line'):
             blk, lvl = it[2], it[3]
-            cells = [q for q in cells_of(it) if ok(*q) and (lvl == 0 or not edge(*q))]
+            cells = [q for q in cells_of(it) if ok(*q) and not edge(*q)]
             for x, z in cells:
                 c.set(x, c.deck(x, z) + lvl if lvl == 0 else y_of(x, z), z, blk)
                 if lvl:

@@ -66,6 +66,34 @@
         "mismatches": 0,
         "checked": "2026-10-16 17:55:26"
       }
+    },
+    "feature-highfield_library_b34_b18-greeblies-restore": {
+      "status": "applied",
+      "plan": "highfield_library_b34_b18-greeblies-restore",
+      "owner": "claude-q180",
+      "started": "2026-10-16 18:03:18",
+      "blocks": 409,
+      "structure": {
+        "name": "southampton_refine:before_highfield_library_b34_b18-greeblies-restore",
+        "from": [
+          6214,
+          64,
+          -5529
+        ],
+        "to": [
+          6280,
+          67,
+          -5470
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_library_b34_b18-greeblies-restore-planned.json",
+      "finished": "2026-10-16 18:03:25",
+      "readback": {
+        "planned": 409,
+        "mismatches": 0,
+        "checked": "2026-10-16 18:03:25"
+      }
     }
   },
   "google_review": {
