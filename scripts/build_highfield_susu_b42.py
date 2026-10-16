@@ -43,6 +43,17 @@ for pt in PARTS:
 BOX = bbox(PARTS, pad=3)
 
 
+class B42(Campus):
+    """Black steel and glass on the plaza (north) faces only: the 42-A/B/C photos are the plaza frontage and 42-D (west, by the
+    steps) is white board-marked concrete, so every other face is white concrete."""
+
+    def wall_block(self, x, y, z, pt, ex):
+        b = super().wall_block(x, y, z, pt, ex)
+        if b == 'minecraft:black_concrete' or b == 'black_concrete':
+            return b if any(d == (0, -1) for d in ex) else 'white_concrete'
+        return b
+
+
 class PlanOverWorld:
     """block() of a plan where it has the cell, else of the live world (entrance code reads the building it is cutting into)."""
 
@@ -54,7 +65,7 @@ class PlanOverWorld:
 
 
 def build():
-    c = Campus(NAME, PARTS, (WAY,), BOX, [], [], avoid_built=False, step_down_stairs=True, max_fill=2)
+    c = B42(NAME, PARTS, (WAY,), BOX, [], [], avoid_built=False, step_down_stairs=True, max_fill=2)
     plan = c.build(lambda cc: print('fans', roof_greeblies(cc, FANS)))
     w = World()
     ep, notes = ent.build(PlanOverWorld(plan, w))                  # entrances 42-A..D on the new walls
