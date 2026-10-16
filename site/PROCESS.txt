@@ -163,8 +163,8 @@ BUILT plan in place to “fix” the world.
      sheet, not dozens of full-size photos). One good source is enough: use it and
      build; do not hunt for a perfect one. Street View via the fixed pano-URL +
      thumbnail-URL method (look-only, never download) is logged in reference/SOURCES.txt.
-     SOURCE CHECKLIST in that file: aerial, KartaView, Commons/Geograph, Street View,
-     Rightmove (exteriors, residential cells). Log each attempt, hit or miss:
+     SOURCE CHECKLIST in that file: aerial, GOOGLE (every cell, google_aerial.py sheet, look-only),
+     KartaView, Commons/Geograph, Street View, Rightmove (exteriors, residential cells). Log each attempt, hit or miss:
        python3 scripts/cell_sources.py --cell tx,tz --record SOURCE --result found|partial|none|blocked --note "..."
      Never retry a TRIED source for the same cell without good cause (the script
      refuses unless --retry-reason is given). `cell_sources.py --cell tx,tz --todo`

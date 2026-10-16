@@ -225,6 +225,10 @@ def manifest_summary(tx: int, tz: int) -> list[str]:
 SOURCE_FAMILIES: dict[str, dict] = {
     'aerial': {'tags': ('hampshire-hub', 'cco-z19'), 'kind': 'aerial',
                'how': 'geo.py tiles --mosaic 3 (see fetch commands below)'},
+    # Look-only, never saved: no manifest trail, so only the ledger marks it done. Required for every cell.
+    'google': {'tags': None, 'kind': None, 'repeat_ok': True,
+               'how': 'ALWAYS, every cell: google_aerial.py sheet --cell TX,TZ (look-only, often clearer than the uni aerial); '
+                      'then --record google --result found --note "what it shows"'},
     'kartaview': {'tags': ('kartaview',), 'kind': 'street',
                   'how': 'kartaview_fetch.py list --at CX,CZ --radius-m 80'},
     'commons': {'tags': ('commons', 'geograph'), 'kind': 'street',
@@ -281,7 +285,7 @@ def record_attempt(
     if result not in RESULTS:
         raise SystemExit(f'result must be one of {", ".join(RESULTS)}')
     prior = [a for a in load_attempts(tx, tz) if a['source'] == source]
-    if prior and not retry_reason.strip():
+    if prior and not retry_reason.strip() and not SOURCE_FAMILIES[source].get('repeat_ok'):
         last = prior[-1]
         raise SystemExit(
             f'{source} already tried for {tx},{tz} on {last["date"]} ({last["result"]}: '
@@ -357,6 +361,7 @@ def fetch_commands(tx: int, tz: int) -> list[str]:
     cx, cz = rec['centre_mc']
     e, n = to_osgb(cx, cz)
     return [
+        f'python3 scripts/google_aerial.py sheet --cell {tx},{tz}   # ALWAYS: look-only, then --record google',
         f'python3 scripts/ref_manifest.py find --xz {cx},{cz}',
         f'python3 scripts/geo.py tiles --bbox {bbox} --zoom 18 --mosaic 3',
         f'# then: scripts/aerial_mosaic.py … → reference/aerial/<place>/{rec["mosaic_filename"]}',

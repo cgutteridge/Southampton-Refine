@@ -51,6 +51,29 @@ class TestAttempts(unittest.TestCase):
         self.assertEqual(cs.source_status(1, 2)['streetview']['state'], 'tried')
 
 
+class TestGoogleFamily(unittest.TestCase):
+    """Google aerial is looked at for every cell, as often as needed."""
+
+    def setUp(self):
+        self._d = tempfile.TemporaryDirectory()
+        self._old = cs.CELLS
+        cs.CELLS = Path(self._d.name)
+
+    def tearDown(self):
+        cs.CELLS = self._old
+        self._d.cleanup()
+
+    def test_todo_until_looked_at(self):
+        self.assertEqual(cs.source_status(1, 2)['google']['state'], 'todo')
+        cs.record_attempt(1, 2, 'google', 'found', 'flat roof, 4 rows of windows')
+        self.assertEqual(cs.source_status(1, 2)['google']['state'], 'have')
+
+    def test_can_look_again_without_a_retry_reason(self):
+        cs.record_attempt(1, 2, 'google', 'found', 'whole cell')
+        cs.record_attempt(1, 2, 'google', 'found', 'second building')
+        self.assertEqual(len(cs.load_attempts(1, 2)), 2)
+
+
 class TestCellCoverage(unittest.TestCase):
     """An aerial counts for a cell only if it shows most of it, not just a clipped edge."""
 

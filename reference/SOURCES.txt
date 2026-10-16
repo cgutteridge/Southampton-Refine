@@ -126,6 +126,22 @@ Google Street View
   cell SOURCES / script docstring. Do NOT download, commit or hash the images, and do not
   loop it over many panos (ToS). Log the pano id + capture date as the citation.
 
+Google satellite tiles (ALWAYS look, every cell; added 2026-10-16, user)
+  Often clearer than the university aerial (sharp, current, roof detail and wall colour visible).
+  Plain tile URL, no key, same unofficial/look-only status as the Street View thumbnails:
+    https://mt1.google.com/vt/lyrs=s&x=<x>&y=<y>&z=<z>      (lyrs=y adds road labels)
+  x/y/z are web-mercator tile numbers, the same scheme as the uni tiles (z18 x=130056 y=87838 is Oakdene).
+  z19 tile ~48 blocks, z20 ~24 blocks. Do not use the tile URL by hand; use the sheet:
+    python3 scripts/google_aerial.py sheet --cell TX,TZ            # whole cell at z19, MC grid every 10 blocks
+    python3 scripts/google_aerial.py sheet --at X,Z [--radius 30]  # a building at z20
+  It writes instance/google-aerial/<name>.html; open it as file://... in the built-in browser. Tiles load from Google
+  in the browser; nothing is downloaded. Look, write what it shows (roof, materials, footprint, trees) in the cell
+  SOURCES / script docstring, then record it:
+    python3 scripts/cell_sources.py --cell TX,TZ --record google --result found --note "..."
+  Repeat looks (another building in the same cell) need no retry reason. Never save, hash or commit the tiles and
+  never loop it over many cells (ToS). If a build needs a kept image, the user adds a screenshot to
+  reference/aerial/highfield-user/ as before. Aerial lean: a tall roof sits a few blocks off its ground footprint.
+
 Bing Streetside — similar commercial look-only constraints.
 
 ------------------------------------------------------------------------

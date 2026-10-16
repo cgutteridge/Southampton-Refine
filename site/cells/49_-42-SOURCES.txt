@@ -40,6 +40,7 @@ CROSS-ZONE (generated on --write)
 
 SOURCE CHECKLIST (find what is TODO once; never re-try TRIED ones)
   [HAVE ] aerial     1 manifest row(s), e.g. aerial-highfield-welbeck-mosaic-z18-3x3-centre-130055-87838-png
+  [HAVE ] google     2026-10-16 found: Oakdene Court w173805553 (sheet --at 6379,-5277 z20): flat pale roof with rooftop plant box, red-brick walls, white fascia, chevron footprint; roof edge ~x6371, ~2-3 blocks off the OSM outline (roof lean). Confirms flat roof, 4 storeys with the Street View frame.
   [TODO ] kartaview  kartaview_fetch.py list --at CX,CZ --radius-m 80
   [TODO ] commons    commons_fetch.py list --at CX,CZ --radius-m 250
   [HAVE ] streetview 2026-10-16 partial: Oakdene Court w173805553 only: 1 look-only ll-frame (50.931839,-1.395051 yaw 90) from Church Lane. 4 window rows = 4 storeys, flat roof with white fascia, central stair block slightly taller, building on grassed bank behind stone retaining wall. Nothing downloaded.
@@ -55,6 +56,7 @@ FOLIAGE INTENT (edit after aerial; site/FOLIAGE.txt + site/HIGHFIELD-ZONES.txt)
   - 
 
 IF MANIFEST GAPS — run (fetch once, judge once, log manifest):
+  python3 scripts/google_aerial.py sheet --cell 49,-42   # ALWAYS: look-only, then --record google
   python3 scripts/ref_manifest.py find --xz 6335,-5313
   python3 scripts/geo.py tiles --bbox 6272,-5376,6399,-5249 --zoom 18 --mosaic 3
   # then: scripts/aerial_mosaic.py … → reference/aerial/<place>/mosaic-z18-3x3-centre-130055-87838.png
