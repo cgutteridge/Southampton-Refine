@@ -330,7 +330,7 @@ class Build:
                 del self.p.cells[q]
         # earlier trees build (highfield_46_m42_trees) owns a few canopy leaves at the S edge: leave them
         from site_kit import built_cells
-        owned = built_cells(exclude={NAME})
+        owned = built_cells(exclude={NAME}, within=self.p.cells)
         for q in list(self.p.cells):
             if q in owned and owned[q][0] == 'highfield_46_m42_trees' and owned[q][1] != self.p.cells[q]:
                 del self.p.cells[q]

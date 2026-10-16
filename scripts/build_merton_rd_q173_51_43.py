@@ -372,7 +372,7 @@ class Build:
                 del self.p.cells[q]
         self.p.outside_footprint_ok = 'roof-overhang fringe slabs ; evidence: footprint-hits json'
         from site_kit import built_cells
-        owned = built_cells(exclude={NAME})
+        owned = built_cells(exclude={NAME}, within=self.p.cells)
         for q in [q for q, st in self.p.cells.items() if q in owned and owned[q][1] != st]:
             del self.p.cells[q]
         for h in self.houses:

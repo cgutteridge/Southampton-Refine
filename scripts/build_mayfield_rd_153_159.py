@@ -367,7 +367,7 @@ class Build:
         self.p.outside_footprint_ok = 'roof-overhang fringe slabs of OSM w177809797/777/800; evidence: footprint-hits json'
         # neighbour no. 264-280 (build_broadlands_rd_264_280) roof-overhang slabs spill onto our NW corner: leave them (not ours)
         from site_kit import built_cells
-        owned = built_cells(exclude={NAME})
+        owned = built_cells(exclude={NAME}, within=self.p.cells)
         for q in [q for q, st in self.p.cells.items() if q in owned and owned[q][1] != st]:
             del self.p.cells[q]
         for h in self.houses:

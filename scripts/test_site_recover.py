@@ -106,7 +106,7 @@ class Base(unittest.TestCase):
             mock.patch.object(site_lock, 'LOCK', t / 'LOCK.json'),
             mock.patch.object(site_kit, 'World', lambda region=None: View(FakePaced.world)),
             mock.patch.object(site_kit, '_bring_player', lambda *a, **k: None),
-            mock.patch.object(site_kit, 'built_cells', lambda exclude=(): {}),
+            mock.patch.object(site_kit, 'built_cells', lambda exclude=(), **kw: {}),
             mock.patch('mc_paced.Paced', FakePaced),
             mock.patch('osm_footprints.guard', lambda cells: {'outside': {}, 'blind': []}),
             mock.patch('roof_lint.ridge_jogs', lambda cells: []),

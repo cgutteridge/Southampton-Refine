@@ -679,7 +679,7 @@ class Terrace:
         if not self.restore_west or self.plots is None:
             return
         from site_kit import built_cells
-        owned = built_cells(exclude={self.p.name})
+        owned = built_cells(exclude={self.p.name}, within=self.p.cells)
         h = self.H[0]
         sl = self.slope_of(h)
         step = -1 if sl[1] <= 0 else 1

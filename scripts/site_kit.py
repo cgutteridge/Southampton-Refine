@@ -376,8 +376,14 @@ def _parse_cells_file(f: Path):
     return adds, air
 
 
-def built_cells(exclude=()):
-    """Non-air cells placed by earlier builds (verification/town/*-cells.json)."""
+def built_cells(exclude=(), within=None):
+    """Non-air cells placed by earlier builds (verification/site/*-cells.json), as {(x,y,z): (build, state)}.
+
+    ``within``: optional iterable of cells; only those are looked up, through the persistent ownership
+    index (owned_in), which is far faster than merging every build record. Without it the whole map is merged.
+    """
+    if within is not None:
+        return owned_in(within, exclude)
     owned = {}
     for f in sorted(OUT.glob('*-cells.json'), key=lambda f: f.stat().st_mtime):  # later builds win
         name = f.name[:-len('-cells.json')]
@@ -387,6 +393,78 @@ def built_cells(exclude=()):
         owned.update(adds)                                     # keys are unique within a file, so update-then-pop
         for q in air:                                          # is the same as the old entry-by-entry loop
             owned.pop(q, None)
+    return owned
+
+
+# --- persistent ownership index ----------------------------------------------
+# One SQLite file with every build's per-cell events, so a dry run looks up only its own few thousand cells
+# instead of merging all *-cells.json (the cost grew with every house built). Same rule as the full merge:
+# builds apply in file-mtime order, a later build wins, air cancels an earlier block. Air rows are kept only
+# where an earlier block exists (3M of 3.2M air cells cancel nothing). Rebuilt from scratch when a build record
+# is removed or re-saved out of order; otherwise only new/changed files are ingested.
+OWNERS_DB = ROOT / 'backups/cells-cache/owners.sqlite'      # git-ignored, always re-creatable from the records
+
+
+def _owners_conn():
+    import sqlite3
+    OWNERS_DB.parent.mkdir(parents=True, exist_ok=True)
+    db = sqlite3.connect(OWNERS_DB, timeout=60)
+    db.executescript(
+        'CREATE TABLE IF NOT EXISTS files (name TEXT PRIMARY KEY, mtime_ns INTEGER, size INTEGER);'
+        'CREATE TABLE IF NOT EXISTS ev (x INTEGER, y INTEGER, z INTEGER, ord INTEGER, build TEXT, state TEXT,'
+        ' PRIMARY KEY (x, y, z, ord)) WITHOUT ROWID;')
+    return db
+
+
+def _sync_owners(db):
+    """Bring the index in line with verification/site/*-cells.json."""
+    disk = {f.name[:-len('-cells.json')]: f for f in OUT.glob('*-cells.json')}
+    known = {n: (m, sz) for n, m, sz in db.execute('SELECT name, mtime_ns, size FROM files')}
+    keys = {n: (f.stat().st_mtime_ns, f.stat().st_size) for n, f in disk.items()}
+    stale = sorted((n for n in disk if known.get(n) != keys[n]), key=lambda n: keys[n][0])
+    gone = [n for n in known if n not in disk]
+    unchanged_newest = max((keys[n][0] for n in disk if n not in stale), default=0)
+    if gone or (stale and keys[stale[0]][0] < unchanged_newest):
+        db.execute('DELETE FROM ev')                          # out-of-order change: rebuild everything
+        db.execute('DELETE FROM files')
+        stale, gone = sorted(disk, key=lambda n: keys[n][0]), []
+    for n in stale:
+        if n in known:
+            db.execute('DELETE FROM ev WHERE build = ?', (n,))
+        adds, air = _parse_cells_file(disk[n])
+        o = keys[n][0]
+        db.executemany('INSERT OR REPLACE INTO ev VALUES (?,?,?,?,?,?)',
+                       ((x, y, z, o, n, st) for (x, y, z), (_b, st) in adds.items()))
+        keep = []
+        for q in air:
+            if db.execute('SELECT 1 FROM ev WHERE x=? AND y=? AND z=? AND ord<? LIMIT 1', (*q, o)).fetchone():
+                keep.append((*q, o, n, None))
+        db.executemany('INSERT OR REPLACE INTO ev VALUES (?,?,?,?,?,?)', keep)
+        db.execute('INSERT OR REPLACE INTO files VALUES (?,?,?)', (n, *keys[n]))
+    db.commit()
+
+
+def owned_in(cells, exclude=()):
+    """{(x,y,z): (build, state)} for those of ``cells`` held by earlier builds, skipping builds in ``exclude``."""
+    cells = list(cells)
+    db = _owners_conn()
+    try:
+        _sync_owners(db)
+        db.execute('CREATE TEMP TABLE want (x INTEGER, y INTEGER, z INTEGER)')
+        db.executemany('INSERT INTO want VALUES (?,?,?)', cells)
+        rows = db.execute('SELECT e.x, e.y, e.z, e.build, e.state FROM ev e JOIN want w '
+                          'ON e.x=w.x AND e.y=w.y AND e.z=w.z ORDER BY e.ord').fetchall()
+    finally:
+        db.close()
+    exclude = set(exclude)
+    owned = {}
+    for x, y, z, build, st in rows:                           # ascending ord: later builds win
+        if build in exclude:
+            continue
+        if st is None:
+            owned.pop((x, y, z), None)
+        else:
+            owned[(x, y, z)] = (build, st)
     return owned
 
 
@@ -445,7 +523,7 @@ def apply(plan, protect=None, dry=False, modifies=(), stage=None, cell=None, met
                 'with the OSM rotation). Real offset roofs (evidence in hand): set '
                 'plan.roof_jog_ok = "<reason + evidence id>".')
         print(f'roof jog guard overridden ({len(jogs)} seams): {why}')
-    owned = built_cells(exclude=set(modifies) | {plan.name})
+    owned = built_cells(exclude=set(modifies) | {plan.name}, within=plan.cells)
     clash = {str(q): [owned[q][0], owned[q][1], st] for q, st in plan.cells.items()
              if q in owned and owned[q][1] != st}
     if clash:
