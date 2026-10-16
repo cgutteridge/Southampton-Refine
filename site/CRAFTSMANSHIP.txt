@@ -184,6 +184,8 @@ rule-file copy.
  trapdoor gutters either. Readable massing + sealed shell + correct street
  character is the default.
 
+FLATS (3+ storeys, flat roof, balconies): house_build.py is two-storey only. Use scripts/oakdene_court.py as the pattern: subclass the cell's builder,
+replace roof() and windows(), clear only the build's own recorded blocks (cells.json), pair_slots() for the bay rhythm.
 HOUSE-ONLY RUNS (OSM footprints, slab roofs): scripts/house_build.py + site/builds/<name>.json (spec keys in its docstring).
 Never copy a per-run build script. Old copies: scripts/legacy/. Prove a refactor with scripts/prove_house_build.py.
 

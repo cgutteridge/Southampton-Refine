@@ -6,6 +6,9 @@ Read before finding, fetching or viewing any photo or aerial. Logging format:
 - Before downloading: `ref_manifest.py find --xz/--wm/--place` and check
   url/sha256. Spatial keys are sparse `mc_tiles` (128) + `wm_tiles`, never a
   folder-per-tile tree.
+- Before opening an aerial, check it covers the place: its `bbox_mc` must contain the building, not just touch the
+  cell's 128 tile (`ground_sources.cell_coverage`, at least half the cell; `cell_sources` applies it). Oakdene Court
+  was nowhere in the "primary aerial" for its cell until a covering mosaic was fetched (I-072).
 - After downloading: `ref_manifest.py add …` (sets useful + tile fields).
 - Do not re-Read images marked `useful=no`. Prefer mosaics and contact sheets.
 - Which source answers which question: `rules/evidence-order.md`.
