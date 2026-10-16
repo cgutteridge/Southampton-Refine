@@ -29,7 +29,7 @@ WAY = '33830236'
 BASE, DECK = 54, 61
 cells = way_cells(WAY)
 PART = Part('b57', BASE, DECK, floors=(BASE, BASE + 3), cells=cells, wall='white_concrete', glass='glass',
-            slab='white_concrete', rows=(1,), pier=3,      # 2x1 window pairs (facade rhythm rule), not tall slots
+            slab='calcite', rows=(1,), pier=3,      # 2x1 window pairs (facade rhythm rule), not tall slots
             ground=dict(wall='white_concrete', glass='glass', pier=3, rows=(1, 2)))     # glazed shopfront: 2x2 panes
 BOX = bbox([PART], pad=3)
 OLD_RETAIL = {'highfield_library_b34_b18', 'highfield_library_b34_b18-greeblies', 'highfield_library_b34_b18-retail-fill', 'highfield_q052_b57'}
@@ -37,8 +37,8 @@ KEEP = {'highfield_48_m44_trees'}
 DOORS = [(None, 6230, -5571, None)]
 # roof features, measured off the Google sheet (see docstring): the solar array and the plant box
 FEATURES = [
-    ('patch', [(6234, -5573), (6250, -5567), (6249, -5564), (6234, -5570)], 'blue_terracotta', 1),
-    ('plinth', [(6254, -5564), (6256, -5564), (6256, -5562), (6254, -5562)], 1, 'gray_concrete'),
+    ('patch', [(6234, -5573), (6250, -5567), (6249, -5564), (6234, -5570)], 'light_gray_concrete', 1),
+    ('plinth', [(6254, -5564), (6256, -5564), (6256, -5562), (6254, -5562)], 1, 'light_gray_concrete'),
 ]
 
 
