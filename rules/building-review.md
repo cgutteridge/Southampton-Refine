@@ -27,6 +27,8 @@ One building per review. Skip any building that already has an open feature item
    trees stay. Claim the lock, dry run, apply with `SITE_OWNER`. Done when readback is 0, the footprint check is OK and doors reach.
 5. **Check with the user.** Run the `human-confirm-fix` skill. Steering replies loop back to step 4 and become rules
    (`site/CRAFTSMANSHIP.txt` §2). Only the user's "yes" closes the issue.
+   A feature build changes the building's own cells only: no landings, steps, paving or plants outside the footprint (ground,
+   trees and decor are other passes); if a door needs steps, queue it for the ground pass (user, 2026-10-16).
 6. **Record.** Issue state with the user's words, a REVIEWS entry (3 matches, mismatches, token notes), the general lesson in
    the rule file that owns it, commit.
 

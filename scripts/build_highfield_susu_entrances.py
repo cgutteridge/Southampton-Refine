@@ -5,8 +5,8 @@ Positions are reference/portals (scripts/portals.py cell 48,-44); photos (look-o
 surround (42-A has a fascia sign above), a glazed shopfront (42-B, 42-C), steps with a handrail beside the Cafe door (42-D).
 42-A "Concourse entrance" sits under the OSM canopy (way 391790374), a roofed recess in the NE face.
 
-Simple rule for each portal: the nearest B42 wall cell with open air outside is the door; its floor is the storey floor at or
-below the ground outside; a framed door (jamb each side, lintel) with glass flanks; a small landing outside at floor level.
+Simple rule for each portal: the nearest straight stretch of B42 wall is the door, at the height of the ground outside, with a
+jamb and glass flank each side and a lintel. Only B42's own cells change: no landings, no ground, no plants (other passes).
 
   python3 scripts/build_highfield_susu_entrances.py            # dry run + printout
   SITE_OWNER=... python3 scripts/build_highfield_susu_entrances.py --apply
@@ -43,62 +43,61 @@ def top(x, z):
     return 48
 
 
-def wall_cell(px, pz):
-    """Nearest B42 cell that has open air outside (N4), and the outward direction."""
+def wall_cell(px, pz, n=2):
+    """Nearest straight stretch of B42 wall to the portal: a cell whose 2n+1 neighbours along the wall are all wall with open
+    air outside the same way, so the door faces out of the wall and its frame runs along it (a stepped diagonal wall has no
+    such stretch except on its flat steps). Returns (x, z, dx, dz)."""
     best = None
     for (x, z) in b42:
         for dx, dz in FACE:
-            if (x + dx, z + dz) not in b42:
+            ax, az = abs(dz), abs(dx)
+            run = [(x + k * ax, z + k * az) for k in range(-n, n + 1)]
+            if all(c in b42 and (c[0] + dx, c[1] + dz) not in b42 for c in run):
                 d = (x - px) ** 2 + (z - pz) ** 2
                 if best is None or d < best[0]:
                     best = (d, x, z, dx, dz)
+    if best is None:
+        return wall_cell(px, pz, n - 1) if n > 1 else None
     return best[1:]
 
 
-def door(p, x, z, dx, dz, f, notes):
-    """A framed double-glazed door at wall cell (x, z) facing (dx, dz), storey floor f, landing outside."""
+def door(p, x, z, dx, dz, notes, y0=None):
+    """A framed double-glazed door at wall cell (x, z) facing (dx, dz): door at the height of the ground outside (so the
+    entrance is level with what is there; ground and steps belong to the ground pass and are never touched), a glass flank
+    and a white jamb each side, a lintel, and a threshold block inside. Only B42's own cells change."""
     face = FACE[(dx, dz)]
-    y0 = f + 1
-    ax, az = (dz, dx) if True else (0, 0)            # along the wall
-    ax, az = (abs(dz), abs(dx))
+    y0 = y0 or top(x + dx, z + dz) + 1
+    ax, az = abs(dz), abs(dx)                        # along the wall
     p.set(x, y0, z, f'minecraft:dark_oak_door[facing={face},half=lower,hinge=left,open=false]')
     p.set(x, y0 + 1, z, f'minecraft:dark_oak_door[facing={face},half=upper,hinge=left,open=false]')
-    for s in (-1, 1):                                # glass flank, then a white jamb beyond it
+    for s in (-1, 1):
         for k, blk in ((1, GLASS), (2, WALL)):
             for yy in (y0, y0 + 1):
                 p.set(x + s * ax * k, yy, z + s * az * k, blk)
-    for k in (-2, -1, 0, 1, 2):                      # lintel
+    for k in (-2, -1, 0, 1, 2):
         p.set(x + k * ax, y0 + 2, z + k * az, WALL)
-    p.set(x - dx, f, z - dz, 'minecraft:smooth_stone')   # inside floor behind the door
+    p.set(x - dx, y0 - 1, z - dz, 'minecraft:smooth_stone')       # floor inside, level with the door
     for yy in (y0, y0 + 1):
         p.set(x - dx, yy, z - dz, 'minecraft:air')
-    for k in (-1, 0, 1):                             # landing outside, floor f, clear above
-        ox, oz = x + dx + k * ax, z + dz + k * az
-        for yy in range(min(f, top(ox, oz)), f):
-            p.set(ox, yy, oz, 'minecraft:stone')
-        p.set(ox, f, oz, 'minecraft:polished_andesite')
-        for yy in range(f + 1, f + 4):
-            p.set(ox, yy, oz, 'minecraft:air')
-    notes.append(f'door at {x},{y0},{z} facing {face}, floor {f}, ground outside {top(x + dx, z + dz)}')
+    notes.append(f'door at {x},{y0},{z} facing {face}, ground outside {y0 - 1}')
 
 
 def build():
     p, notes = Plan(NAME), []
     for pid, (px, pz) in {'42-B': (6204, -5564), '42-C': (6224, -5555), '42-D': (6180, -5575)}.items():
         x, z, dx, dz = wall_cell(px, pz)
-        f = max(fl for fl in FLOORS if fl <= top(x + dx, z + dz))
+        notes.append(f'{pid}: portal {px},{pz}, wall cell {x},{z} outward {FACE[(dx, dz)]}, {abs(x - px) + abs(z - pz)} blocks from the portal')
         notes.append(pid)
-        door(p, x, z, dx, dz, f, notes)
-    # 42-A: the concourse entrance under the canopy: carve the roofed recess (x6190-6194, z-5568..-5565), floor 54, door in
-    # the back wall at z-5564, canopy roof (the building roof, 60) overhead, one step down from the plaza at the mouth
+        door(p, x, z, dx, dz, notes)
+    # 42-A: the concourse entrance under the canopy: carve the roofed recess (x6190-6194, z-5568..-5565) inside the building,
+    # floor level with the plaza (55), door in the back wall at z-5564, the building roof (60) overhead as the canopy
     notes.append('42-A')
     for x in range(6190, 6195):
         for z in range(-5568, -5564):
-            for y in range(55, 60):
+            for y in range(56, 60):
                 p.set(x, y, z, 'minecraft:air')
-            p.set(x, 54, z, 'minecraft:polished_granite')
-        p.set(x, 54, -5569, 'minecraft:polished_granite_stairs[facing=south,half=bottom]')
-    door(p, 6192, -5564, 0, -1, 54, notes)
+            p.set(x, 55, z, 'minecraft:polished_granite')       # recess floor level with the plaza outside
+    door(p, 6192, -5564, 0, -1, notes, y0=56)
     p.cells.update({(x, 60, z): 'minecraft:light_gray_concrete' for x in range(6190, 6195) for z in range(-5568, -5564)})
     return p, notes
 
