@@ -747,6 +747,103 @@ def bbox(parts, pad=8):
     return min(xs) - pad, min(zs) - pad, max(xs) + pad, max(zs) + pad
 
 
+class BuildingFrame:
+    """A footprint's own frame (rules/building-review.md 'Rebuild beats patch' 3): centre = centroid of the cell centres, `along` = long
+    axis by PCA, `across` = along rotated 90 deg (positive toward +z when the axis runs east). Per-face rules then work on
+    (along, across), so a rotated rectangle needs no per-direction exposure rules.
+
+    centre / axis override the fit (pin them to published constants so a plan stays byte-identical).
+    """
+
+    def __init__(self, cells, centre=None, axis=None):
+        self.cells = set(cells)
+        pts = [(x + .5, z + .5) for x, z in self.cells]
+        n = len(pts)
+        self.c0 = sum(p[0] for p in pts) / n if centre is None else centre[0]
+        self.c1 = sum(p[1] for p in pts) / n if centre is None else centre[1]
+        if axis is None:
+            sxx = sum((p[0] - self.c0) ** 2 for p in pts)
+            szz = sum((p[1] - self.c1) ** 2 for p in pts)
+            sxz = sum((p[0] - self.c0) * (p[1] - self.c1) for p in pts)
+            th = .5 * math.atan2(2 * sxz, sxx - szz)               # angle of the major axis (x toward z)
+            axis = (math.cos(th), math.sin(th))
+        ux, uz = axis
+        if ux < -1e-9 or (abs(ux) <= 1e-9 and uz < 0):             # one canonical sense: pointing east (else south)
+            ux, uz = -ux, -uz
+        self.ux, self.uz = ux, uz
+        al = [self.frame(x, z) for x, z in self.cells]
+        self.a_min, self.a_max = min(a for a, _ in al), max(a for a, _ in al)
+        self.s_min, self.s_max = min(s for _, s in al), max(s for _, s in al)
+
+    @property
+    def angle(self):
+        """Long-axis angle in degrees, from +x toward +z."""
+        return math.degrees(math.atan2(self.uz, self.ux))
+
+    def frame(self, x, z):
+        """(along, across) of a cell centre, in blocks from the footprint centre."""
+        dx, dz = x + .5 - self.c0, z + .5 - self.c1
+        return dx * self.ux + dz * self.uz, -dx * self.uz + dz * self.ux
+
+    def world_xz(self, a, s):
+        """Inverse of frame(): world (x, z) as floats, a point on the block grid's own coordinates (cell x covers x..x+1)."""
+        return self.c0 + a * self.ux - s * self.uz, self.c1 + a * self.uz + s * self.ux
+
+    def rect(self, a0, a1, s0, s1):
+        """Integer world polygon (4 corners) of an (along, across) rectangle, for roof_greeblies 'patch' / 'plinth'."""
+        pts = [self.world_xz(a0, s0), self.world_xz(a1, s0), self.world_xz(a1, s1), self.world_xz(a0, s1)]
+        return [(round(x), round(z)) for x, z in pts]
+
+    def line(self, *pts):
+        """Integer world points of (along, across) vertices, for roof_greeblies 'line'."""
+        return [tuple(round(v) for v in self.world_xz(a, s)) for a, s in pts]
+
+    def point(self, a, s):
+        return tuple(round(v) for v in self.world_xz(a, s))
+
+    def face_of(self, x, z, a0=None, a1=None, s0=None, s1=None):
+        """Nearest rectangle side of a cell: 'a0' / 's0' / 's1' / 'a1' (along-start, across-start, across-end, along-end).
+        The rectangle defaults to the fitted extent (cell edges); pass a0.. to pin walls inside the outline (set-back front)."""
+        a, s = self.frame(x, z)
+        a0 = self.a_min - .5 if a0 is None else a0
+        a1 = self.a_max + .5 if a1 is None else a1
+        s0 = self.s_min - .5 if s0 is None else s0
+        s1 = self.s_max + .5 if s1 is None else s1
+        d = {'a0': a - a0, 's0': s - s0, 's1': s1 - s, 'a1': a1 - a}
+        return min(d, key=d.get)
+
+    @staticmethod
+    def exposure(cells, q):
+        """The N4 directions of cell q that leave `cells`."""
+        return [d for d in N4 if (q[0] + d[0], q[1] + d[1]) not in cells]
+
+    def entrance_cells(self, cells, portal, face, **bounds):
+        """Two adjacent flat (single-exposure, not a corner) tread cells of `face` nearest the portal (world x, z). They are
+        adjacent across the exposure direction; jambs() gives the cell at either end. `cells` is the walled set; bounds as face_of."""
+        def flat(q):
+            ex = self.exposure(cells, q)
+            return ex[0] if len(ex) == 1 and self.face_of(*q, **bounds) == face else None
+        pairs = []
+        for q in cells:
+            d = flat(q)
+            if d is None:
+                continue
+            r = (q[0] + abs(d[1]), q[1] + abs(d[0]))
+            if r in cells and flat(r) == d:
+                pairs.append([q, r])
+        if not pairs:
+            raise ValueError(f'no flat two-cell run on face {face}')
+        px, pz = portal
+        return min(pairs, key=lambda p: ((p[0][0] + p[1][0]) / 2 + .5 - px) ** 2 + ((p[0][1] + p[1][1]) / 2 + .5 - pz) ** 2)
+
+    @staticmethod
+    def jambs(passage):
+        """The cell either side of a passage pair, along the pair's own line."""
+        lo, hi = sorted(passage)
+        dx, dz = hi[0] - lo[0], hi[1] - lo[1]
+        return [(lo[0] - dx, lo[1] - dz), (hi[0] + dx, hi[1] + dz)]
+
+
 def aerial_rgb(cells, mosaic=None):
     """{(x, z): (r, g, b)} sampled from the z18 campus mosaic at each cell centre."""
     import re

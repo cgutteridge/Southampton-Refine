@@ -77,3 +77,29 @@ The approach:
 6. **Simple**: few big features that read at street scale (solar array, fans, fascia), not individual vents and seams.
 Open items: the Prayer Room corner of the West Building (Q-quoted in the queue), the facade of the other B40 faces, B38/B40 are still the
 older highfield_susu_west builds and should get the same one-script rebuild.
+
+
+## Rebuild beats patch: SU retail B57 (user, 2026-10-16: "much much better; starting over is often much cheaper")
+The retail had been fixed five times in a row (front turned, glazing redone, door moved, canopy shifted). Deleting it and rebuilding from the
+evidence table alone, in one pass, got it accepted at the first look. What made the difference:
+1. **Do not read the old build or its script as a reference** (user steered mid-task). They carry its wrong guesses forward. Keep only the
+   mechanism that restores its own recorded blocks (re-runnable rule), plus lidar-derived levels. A redo starts from the table in
+   "Reflection on the 48,-44 review" step 1. Third fix on one building = delete and restart, not patch.
+2. **The OSM outline of a canopied building is the ROOF outline.** The old build put the walls on the outline and the canopy outside it, so it
+   came out ~4 blocks too big. Walls stand where the glazing is: Google shows an upstand line where canopy meets wall (here 3.8 in from the edge),
+   and the portal sits behind the roof edge, not on it. Check portal-to-outline distance before choosing the wall line.
+3. **Work in the building's own frame.** Fit the footprint (PCA of its cells: centre, long axis, angle), compute (along, across) for every cell,
+   and write per-face rules on that: face = nearest rectangle side, front rhythm = a table by `t` across the face, roof features measured
+   as (along, across) rectangles and lines off the Google sheet. A 24-degree rectangle then needs no per-direction exposure rules.
+4. **One building = its own `shells()`** when it is not a plain Campus part (open canopy, set-back walls): only write the cells you mean,
+   keep the Part over the whole footprint so clearing, deck and greeblies still work.
+5. **Entrances on a stepped front**: no straight stretch is long enough for `entrances.py`. Take two flat (single-exposure) treads cells
+   nearest the portal, steel jambs at both ends, the sign band as the lintel, open passage.
+6. **Numbers then pictures**: live tops vs lidar, no air in exposed wall columns, then the user's own view. Iso render (`block_render_region`)
+   is useful; its `front`/`side` views are flattened projections and mislead.
+7. **Practical**: view a Google sheet whole with `document.body.style.zoom = 0.55` in the browser pane (one screenshot, no scrolling).
+   Before teleporting the user, check the target is standing room (air at y+1, y+2) with `World`: the first spot I picked was inside another
+   building.
+Refinement done (2026-10-16): the frame helpers now live in `campus.BuildingFrame(cells)` (fit by PCA; `frame`, `world_xz`, `rect`, `line`, `point`,
+`face_of`, `entrance_cells`, `jambs`; `centre=`/`axis=` pin the fit). `build_highfield_su_retail.py` uses it and its plan is cell-for-cell unchanged;
+tests in `scripts/test_campus_frame.py`. B42 (Q-185), Jubilee (Q-186) and B38/B40 rebuilds: `F = BuildingFrame(FOOT)` and write the face rules on it.
