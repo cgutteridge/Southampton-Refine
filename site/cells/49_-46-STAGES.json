@@ -1,0 +1,23 @@
+{
+  "cell": "49,-46",
+  "stages": {
+    "ground": {
+      "status": "applied",
+      "plan": "highfield_49_m46_ground",
+      "blocks": 13593,
+      "note": "2026-10-14 readback 0, patrol 0 floating; z19 aerial had a black gap over most of the cell, filled from z18 (reference/aerial/highfield-z19/*-filled.png); awaiting user visual check"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_49_m46_trees",
+      "blocks": 13731,
+      "note": "2026-10-14 readback 0, patrol 0 floating; NE woodland via z18-filled canopy rule in trees_layer.canopy_pixels; awaiting user visual check"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_49_m46_decor",
+      "blocks": 671,
+      "note": "2026-10-14 readback 0, patrol 0 floating; awaiting user visual check"
+    }
+  }
+}

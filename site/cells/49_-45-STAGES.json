@@ -1,0 +1,23 @@
+{
+  "cell": "49,-45",
+  "stages": {
+    "ground": {
+      "status": "applied",
+      "plan": "highfield_49_m45_ground",
+      "blocks": 11530,
+      "note": "2026-10-14 readback 0, patrol 0 floating; awaiting user visual check"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_49_m45_trees",
+      "blocks": 5423,
+      "note": "2026-10-14 readback 0, patrol 0 floating; awaiting user visual check"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_49_m45_decor",
+      "blocks": 1,
+      "note": "2026-10-14 readback 0, patrol 0 floating; awaiting user visual check"
+    }
+  }
+}

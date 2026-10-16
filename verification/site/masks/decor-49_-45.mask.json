@@ -1,0 +1,41 @@
+{
+  "pass": "decor",
+  "cell": [
+    49,
+    -45
+  ],
+  "plan": "highfield_49_m45_decor",
+  "created": "2026-10-14T13:25:53+00:00",
+  "bbox": [
+    6333,
+    56,
+    -5740,
+    6333,
+    56,
+    -5740
+  ],
+  "offset": [
+    6333,
+    56,
+    -5740
+  ],
+  "size": [
+    1,
+    1,
+    1
+  ],
+  "palette": [
+    "minecraft:air",
+    "brick_wall"
+  ],
+  "data": [
+    [
+      1,
+      1
+    ]
+  ],
+  "count": 1,
+  "dropped_outside_cell": 0,
+  "sha256": "adf66406e2aefd8afaa2f91367e35fb827872ed488398a4396ead1d800e51e45",
+  "air_only": true
+}

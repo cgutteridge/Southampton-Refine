@@ -5,7 +5,7 @@ refs 1501-1508), University Road 26 (H&S Office 1050, 159860991) + 28 (Counselli
 159860988). One build per group: HOUSES=chamberlain_rd_8_58 | hartley_ave_17_31 |
 university_rd_26_28 (one backup box per street; the whole set timed out the backup).
 
-Whole property (frontage-and-evidence.mdc): house on its OSM footprint (all sides, LIDAR
+Whole property (rules/frontage-and-evidence.md): house on its OSM footprint (all sides, LIDAR
 roof surface, floors + one stair, no rooms), door to its own street, front garden (lawn,
 path from the door, closeboard fence at the back of the pavement with a gate gap), back
 garden (lawn, fences on the plot lines from osm_footprints.py plots; clear Geocraft
@@ -22,6 +22,11 @@ Evidence
            gables, grey slate roofs, arched brick porches, tall closeboard timber fences
            at the pavement. University Rd / 1050 / 1051 / 1630: no photo — brick as hint
            (red tile roofs on the aerial).
+
+  Q-073 odd side (9-51): Street View pano IIlQp_3pAUwynN0r4jUFBw (May 2014, look-only, from the
+           even side facing NW): 1930s two-storey semis, cream render over brick, two-storey
+           bays with white windows, arched brick porches, red clay tile roofs, low brick front
+           walls with piers + front lawns. Same RENDER style as the even side.
 
   HOUSES=hartley_ave_17_31 python3 scripts/build_highfield_uni_houses.py      # preview + dry-run
   SITE_OWNER=... HOUSES=... python3 scripts/build_highfield_uni_houses.py --apply
@@ -46,15 +51,35 @@ CHAMBERLAIN = ['159893739', '159893740', '159893747', '159893748', '159893749', 
                '159893780', '159893783', '159893784', '159893785', '159893787']
 HARTLEY = ['159865609', '159865633', '159865623', '159865619', '159865622', '159865630', '159865612',
            '159865634']                                     # Hartley Avenue 17-31 (odds)
+CHAMBERLAIN_ODD = ['173132097', '173132111', '173132124']   # Chamberlain Road 3, 5, 7 (SE end of the same run; Q-070)
+CHAMBERLAIN_ODD_11_51 = ['173132126'] + [f'1731320{n}' if len(n) == 2 else f'173132{n}' for n in (
+    '84', '86', '87', '88', '89', '91', '92', '93', '94', '95', '98', '99', '100', '102', '103', '104',
+    '105', '107', '109', '110', '112')]                      # Chamberlain Road 9, 11-51 (odds; Q-073)
+HAWTHORN = ['173021058', '173021059', '173021060', '173021071']      # Hawthorn Road 1-4 (Q-074)
+HIGHCROWN = ['173021055', '173021056', '173021057']                  # Highcrown Street 27-31 (Q-075)
+ROSELANDS = ['173021061', '173021062', '173021063']                  # Roselands Gardens 31-33 (Q-076)
 UNIROAD = ['159860991', '159860988']                       # University Road 26, 28
 # 159868612 (uni ref 1630) is 185 Broadlands Road: Broadlands builds are paused (user
 # 2026-10-12) — noted in NOTES "Broadlands improvements", not built here.
 GROUPS = {'chamberlain_rd_8_58': (CHAMBERLAIN, 'RENDER'), 'hartley_ave_17_31': (HARTLEY, 'BRICK'),
-          'university_rd_26_28': (UNIROAD, 'BRICK')}
+          'university_rd_26_28': (UNIROAD, 'BRICK'),
+          'chamberlain_rd_3_7': (CHAMBERLAIN_ODD, 'RENDER'),
+          'chamberlain_rd_9_51': (CHAMBERLAIN_ODD_11_51, 'RENDER'),
+          'hawthorn_rd_1_4': (HAWTHORN, 'BRICKRENDER'), 'highcrown_st_27_31': (HIGHCROWN, 'BRICK'),
+          'roselands_gdns_31_33': (ROSELANDS, 'GREY')}
+# Houses only (no gardens): ground, trees and decor passes own everything outside the walls.
+HOUSE_ONLY = {'chamberlain_rd_3_7', 'chamberlain_rd_9_51', 'hawthorn_rd_1_4', 'highcrown_st_27_31',
+              'roselands_gdns_31_33'}
 GROUP = os.environ.get('HOUSES', 'chamberlain_rd_8_58')     # one build per street group (backup size)
 NAME = GROUP
 RENDER = dict(wall='white_terracotta', glass='glass', rows=(1, 2), pier=2, corner_glass=True, floor='spruce_planks')
 BRICK = dict(wall='bricks', glass='glass', rows=(1, 2), pier=2, corner_glass=True, floor='spruce_planks')
+# Street View look-only, 2026-10-14: Hawthorn Rd 3 (pano A77vPWWAdxvjovue5leQwg, Aug 2025) red brick ground
+# storey under white render, dark roof; Highcrown St 29 (Maps pano, 2026) red brick semis, red tile; Roselands
+# Gardens 32 (Maps pano) grey pebbledash with red brick bands, red tile, chimney.
+BRICKRENDER = dict(RENDER, ground=dict(wall='bricks', pier=2))
+GREY = dict(RENDER, wall='light_gray_concrete')
+STYLES = {'RENDER': RENDER, 'BRICK': BRICK, 'BRICKRENDER': BRICKRENDER, 'GREY': GREY}
 FENCE = 'spruce_fence'
 
 
@@ -71,8 +96,8 @@ def plots_for(ways):
 
 
 HOUSES, PLOTS = [], {}
-for group, style in ((GROUPS[GROUP][0], RENDER if GROUPS[GROUP][1] == 'RENDER' else BRICK),):
-    plots = plots_for(group)
+for group, style in ((GROUPS[GROUP][0], STYLES[GROUPS[GROUP][1]]),):
+    plots = {} if GROUP in HOUSE_ONLY else plots_for(group)
     for w in group:
         cs = way_cells(w)
         if not cs:
@@ -101,7 +126,7 @@ DOORS = [(pt.name, *street_anchor(pt), pt.base) for _, pt in HOUSES]
 STAIRS = [(pt.name, centre(pt)) for _, pt in HOUSES if len(pt.floors) > 1]
 BOX = bbox(PARTS, pad=2)
 allplot = set().union(*PLOTS.values())
-BOX = (min(BOX[0], min(x for x, _ in allplot)), min(BOX[1], min(z for _, z in allplot)),
+BOX = BOX if not allplot else (min(BOX[0], min(x for x, _ in allplot)), min(BOX[1], min(z for _, z in allplot)),
        max(BOX[2], max(x for x, _ in allplot)), max(BOX[3], max(z for _, z in allplot)))
 
 
@@ -211,7 +236,10 @@ class HouseCampus(Campus):
                     self.set(x, f + 2, z, 'light[level=15]')
         self.stair()
         self.doors()
-        gardens(self)                           # after doors (path) and before the envelope
+        if GROUP in HOUSE_ONLY:
+            self.garden_report = {}
+        else:
+            gardens(self)                       # after doors (path) and before the envelope
         self.envelope(ring=1)
         return self.p
 

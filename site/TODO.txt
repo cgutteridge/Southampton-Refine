@@ -4,15 +4,24 @@ SETUP
 - [x] Create project instance + unpack Southampton2023.zip (11 Oct 2026)
 - [x] MCP connect + OSGB + migrated region_path (I-001)
 - [x] Done-bar + height policy + region backup rule documented
-- [ ] Survey seed places; replace approximate OSGB with measured (I-002)
 - [x] Street photos for focus + SO17 3SF via KartaView (I-003 / Q-002)
 
 DEFER UNTIL NEEDED
-- Mapillary access token (KartaView covered Q-002 without it)
-- Bulk Hampshire portal downloads (Uni z18 tiles OK for now)
 - [x] OSM Hampshire PBF + osm_extract.py (buildings/highways/… clips)
-- CCO z19 redistribute licence check (only if publishing z19 crops)
-- Own phone photos for exact plot façades when refining a named house
+
+PARKED 2026-10-14: ring-1 character tasks moved to site/PARKED-2026-10-14.txt (ring centre is 48,-44)
+ACTIVE CELL (none — Q-063 closed 48,-45 r=1 2026-10-14; queue next ring cell via REVIEW+PLAN)
+Last closed: 48,-45 — 107/107 parcels status=done; zones mc+mw.
+Map: verification/site/coverage/highfield-map.png.
+
+- [x] Q-059 cell boundary marker — cell_marker.py --raise 48,-45 (PROCESS §2e step 1).
+- [x] Q-060 campus ground revive — build_highfield_grounds_cell.py --cell 48,-45
+      (zones mc,mw; apply 2026-10-13; UR signed; open/gap signoff → Q-062 foliage).
+- [x] Q-061 stragglers — road:University Road@48,-45; gap:6181,-5711; path:w1174317571;
+      campus props signed: Law, Staff Club, UR buildings, Blue Room, w34391673 (highfield_q061_stragglers).
+- [x] Q-062 foliage last — highfield_48_m45_foliage reapply 2026-10-14; 45 signed, 0 refused.
+- [x] Q-063 cell complete — cross_zone report clean; cell_marker --clear 48,-45; 100% parcels.
+
 
 SESSION LOG
 2026-10-11  Created project from Minecraft Magic kit wisdom; no builds.
@@ -65,3 +74,22 @@ SESSION LOG
             Broadlands notes (Q-023).
 2026-10-12  Radial replan: focus HIGHFIELD_CAMPUS_UNI cell 48,-44; Q-023 cancelled;
             Q-048..Q-050 queued; scripts/cell_marker.py + PROCESS §2e.
+2026-10-12  Q-048 done: cell 48,-44 review + ACTIVE CELL todos (Q-050..Q-054);
+            LEGACY done-bar reconciled to parcel partial (~26% done / ~97% touched).
+            Next: Q-050 gaps/opens batch.
+2026-10-12  Q-049 done: cell_marker_48_m44 raised (508 wool); footprint guard via outside_footprint_ok.
+2026-10-12  cell_marker: flat Y ring, solid black N/S + yellow E/W edges, air-only (user fix).
+2026-10-13  Q-055 done: highfield_48_m44_foliage; cell 48,-44 status=done (116/116 parcels).
+2026-10-13  Q-056 done: cell_marker_48_m44 cleared; ring r=0 complete; next Q-057 48,-45.
+2026-10-13  Campus cell revive 48,-44: build_highfield_grounds_cell.py (zones mc,mw,sc,sw)
+            — Q-047 holistic OSM+aerial + trees/barriers; replaces fragmented path/foliage patch stack.
+2026-10-13  structural_ocols fix + second revive pass (gaps e.g. 6208,-5607 → diorite).
+            User visual OK on campus ground; notes in NOTES/PROCESS/48_-44-SOURCES.
+2026-10-13  Q-057 done: cell 48,-45 review+plan; ACTIVE CELL todos Q-059..Q-063; sources + reconcile.
+2026-10-13  Q-059 done: cell_marker_48_m45 raised (508 wool y=101); readback 0; next Q-060.
+2026-10-14  Shackleton B44 repair (off-queue): north wing was a LIDAR-noise lattice; campus.lidar_parts fill_pockets=7 fills sub-courtyard holes (aerial confirms solid roofed wing); campus.Part ground= gives brick-pier/dark-glass ground storey (photo). Applied live, no clashes. Not done: entrance canopy/steps (face unknown), NW glazed roof, preview png stale (no matplotlib).
+2026-10-14  Q-072 done: school r2310853 (cell 47,-43) built single-storey from LIDAR band 54, courtyard kept, 6 parcel edge columns covered; readback 0; parcel prop:r2310853 signed off. Wall material is a placeholder (no street photo). Snapshot backups/regions/2026-10-14-180933-highfield_school_r2310853.
+2026-10-14  Q-072 follow-up: school walls split by section from Street View (west frontage only: white render N, red brick, dark brick + cream band S); east/rear placeholder. Method logged in reference/SOURCES.txt.
+2026-10-14  Q-073 done: chamberlain_rd_9_51 (22 houses, house-only) applied, readback 0, footprint check clean; snapshot backups/regions/2026-10-14-190901-chamberlain_rd_9_51. No parcel signoff (ground pass owns the gardens). Next: Q-074 Hawthorn Rd.
+2026-10-14  Q-074..Q-076 done: Hawthorn/Highcrown/Roselands houses applied (house-only), readback 0. Next: Q-077 layered passes (ground, trees, decor) for 47,-43.
+2026-10-14  Cleanup: Shackleton REVIEWS entry, test_campus_fill_pockets.py (3 tests; full suite 128 OK), I-038 lapsed signoffs, shackleton preview regenerated.

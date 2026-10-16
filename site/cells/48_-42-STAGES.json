@@ -1,0 +1,106 @@
+{
+  "cell": "48,-42",
+  "stages": {
+    "feature_hilldown_rd_w": {
+      "status": "applied",
+      "plan": "hilldown_rd_w (Q-117)",
+      "blocks": 7568,
+      "readback": {
+        "planned": 7568,
+        "mismatches": 0,
+        "checked": "2026-10-15 03:16"
+      },
+      "snapshot": "structure southampton_refine:before_hilldown_rd_w (box 6231,37,-5380..6258,55,-5311)",
+      "fingerprint": {
+        "6238,44,-5365": "air",
+        "6240,45,-5340": "air",
+        "6240,43,-5318": "bricks",
+        "6250,46,-5372": "air"
+      },
+      "note": "9 W-side houses w173807193,215,206,227,224,209,210,200,197, house only, fronts E (200/197 front S). Floors 41-45 from real ground. 193 red tile, others slate (aerial grey-brown). Garages 590171660/658 and no.13 (Q-118) untouched. 20 cells at z-5377..-5379 in 48,-43 replaced from highfield_48_m43_ground (house walls/rear step). Marker not moved: 50,-42 awaits visual check."
+    },
+    "feature_hilldown_rd_13": {
+      "status": "applied",
+      "plan": "hilldown_rd_13 (Q-118)",
+      "blocks": 625,
+      "readback": {
+        "planned": 625,
+        "mismatches": 0,
+        "checked": "2026-10-15 03:21"
+      },
+      "snapshot": "structure southampton_refine:before_hilldown_rd_13 (box 6260,37,-5352..6276,60,-5338)",
+      "fingerprint": {
+        "6265,45,-5343": "air",
+        "6272,45,-5345": "bricks",
+        "6268,44,-5345": "stone",
+        "6264,44,-5345": "stone"
+      },
+      "note": "House only, OSM w173807222, front W, red tile (aerial), floor y44 from real ground. Straddles 49,-42 edge. Neighbour 11/15 (Q-112) roof overhang columns not cleared or re-roofed. 49,-42 tree leaves at x6274 left alone. One rear-step cell (6273,44,-5345) replaced from highfield_49_m42_ground. Patrol: 0 hits for this build. Marker not moved: 50,-42 awaits visual check."
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_48_m42_ground",
+      "blocks": 13369,
+      "readback": {
+        "planned": 13369,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 03:26:07"
+      },
+      "note": "OSM + aerial. z19 mosaic extended: tiles 260107-8 x rows 175677-8 fetched and pasted (cell SW was black). Hilldown Rd OSM surface=gravel kept. Water/bank (stream strip) skipped. No pitted house fringes found to repair. Marker stays on 50,-42 awaiting user visual check. Verify visually."
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_48_m42_trees",
+      "blocks": 30012,
+      "crowns": 168,
+      "readback": {
+        "planned": 30012,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 03:27:10"
+      },
+      "mask": "verification/site/masks/trees-48_-42.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_48_m42_decor",
+      "blocks": 592,
+      "readback": {
+        "planned": 592,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 03:28:01"
+      },
+      "mask": "verification/site/masks/decor-48_-42.mask.json"
+    },
+    "feature-cell_marker_48_m42": {
+      "status": "applied",
+      "plan": "cell_marker_48_m42",
+      "owner": "orch-marker-48m42",
+      "started": "2026-10-15 20:12:19",
+      "blocks": 508,
+      "structure": {
+        "name": "southampton_refine:before_cell_marker_48_m42",
+        "from": [
+          6143,
+          86,
+          -5377
+        ],
+        "to": [
+          6272,
+          86,
+          -5248
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/cell_marker_48_m42-planned.json",
+      "finished": "2026-10-15 20:12:34",
+      "readback": {
+        "planned": 508,
+        "mismatches": 0,
+        "checked": "2026-10-15 20:12:34"
+      }
+    }
+  }
+}

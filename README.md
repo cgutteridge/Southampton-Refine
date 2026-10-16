@@ -46,6 +46,7 @@ python3 scripts/geo.py survey --at 7097,-5521 --preset terrace
 
 | Path | Role |
 | --- | --- |
+| `AGENTS.md`, `rules/` | Agent entry point and the rule files (one home per rule) |
 | `site/` | Process memory: QUEUE, PROCESS, GEOCRAFT, PLACES, ISSUES, lock, handoff |
 | `scripts/` | Kit, OSGB, walk, views, patrol, audit, MCP client |
 | `config/` | World path + map-maker offsets (no POINTS blob) |

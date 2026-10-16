@@ -1,0 +1,35 @@
+TREE DENSITY BACKLOG (I-059), 2026-10-15
+Dry run = new plan_cell with the cell's own trees mask simulated undone; nothing written.
+crowns before = trunk columns in the existing mask; after = crowns the new plan plants. per100 = after per 100 columns with cover >= 0.6.
+Apply rule: after >= ~2x before AND aerial genuinely wooded. Skipped always: 48,-44 / 48,-45 (hand-made), Library Square zone mc (I-060).
+
+cell     before  after  per100  cover  decision  reason
+(46,-44)     52    271    2.77   9793  APPLY     dense wood (aerial), 5x
+(46,-46)     20    249    2.43  10227  APPLY     dense wood (aerial), 12x
+(47,-45)     39     85    1.86   4568  APPLY     wooded west edge + olive campus trees south (aerial), 2.2x
+(46,-43)     92    155    2.55   6089  APPLY     dense wood west half (aerial), 1.7x but wood clearly under-planted (user: whole strip)
+(47,-46)      8     26    1.67   1554  APPLY     dense wood west half (aerial), 3x
+(46,-42)    120    138    4.65   2969  skip      1.1x: cover already represented by the existing crowns
+(47,-44)     52     79    2.71   2911  skip      1.5x; mostly built-up campus with scattered trees; I-058 (unrefined mass) open
+(47,-43)     81     90     6.2   1451  skip      1.1x: cover already represented by the existing crowns
+(47,-42)    101    104    5.64   1843  skip      1.0x: cover already represented by the existing crowns
+(48,-47)     99    103     5.7   1807  skip      1.0x: cover already represented by the existing crowns
+(48,-43)    146    161    1.95   8271  skip      1.1x, 1.95/100 already near target
+(48,-42)    167    180    2.61   6886  skip      1.1x: cover already represented by the existing crowns
+(49,-47)     65     77    6.24   1234  skip      1.2x: cover already represented by the existing crowns
+(49,-44)     10     25     2.7    927  skip      built-up campus, light cover only (cover 927)
+(49,-43)     74     93    2.68   3474  skip      1.3x: cover already represented by the existing crowns
+(49,-42)    127    131    4.35   3010  skip      1.0x: cover already represented by the existing crowns
+(50,-47)     70     71    6.56   1083  skip      1.0x: cover already represented by the existing crowns
+(50,-44)     62     36    4.49    802  skip      dry run plants fewer (36 vs 62): already fine
+(50,-43)    114     67    4.41   1520  skip      dry run would plant fewer than the mask holds (67 vs 114): already fine
+(50,-42)    127    136    3.62   3755  skip      1.1x: cover already represented by the existing crowns
+(51,-47)     91     93    4.71   1976  skip      1.0x: cover already represented by the existing crowns
+(51,-46)    139    149    5.41   2753  skip      1.1x: cover already represented by the existing crowns
+(51,-45)    109    116    3.18   3649  skip      1.1x: cover already represented by the existing crowns
+(51,-44)     83     91    4.02   2262  skip      1.1x: cover already represented by the existing crowns
+(51,-43)     97    105    3.17   3310  skip      1.1x: cover already represented by the existing crowns
+(51,-42)    145    156    3.66   4263  skip      1.1x: cover already represented by the existing crowns
+
+Apply order: 46,-44, 46,-46, 47,-45, 46,-43, 47,-46 (neighbours of 46,-45 first).
+Aerial checks: 47,-44 / 49,-44 / 46,-43 / 47,-45 / 47,-46 reviewed against cover contour.

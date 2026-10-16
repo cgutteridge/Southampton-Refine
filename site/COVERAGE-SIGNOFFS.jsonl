@@ -618,3 +618,550 @@
 {"parcel": "gap:6487,-5678", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 197, "digest": "76c78288bd02", "note": "Q-047 campus grounds 9 zones"}
 {"parcel": "gap:6491,-5688", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 16, "digest": "47e604a3665d", "note": "Q-047 campus grounds 9 zones"}
 {"parcel": "gap:6523,-5678", "area": "highfield", "build": "highfield_grounds_me", "date": "2026-10-12", "columns": 27, "digest": "e259b7221d0e", "note": "Q-047 campus grounds 9 zones"}
+{"parcel": "gap:6144,-5599", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-12", "columns": 55, "digest": "ba8adb1ebee1", "note": "Q-050 gaps/opens batch"}
+{"parcel": "open:w169489630@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 2, "digest": "acc0ed2bb9fc", "note": "Q-050 gaps/opens batch"}
+{"parcel": "gap:6211,-5623", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 60, "digest": "3a581b0cbde4", "note": "Q-050 gaps/opens batch"}
+{"parcel": "gap:6226,-5595", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 26, "digest": "6787d518d938", "note": "Q-050 gaps/opens batch"}
+{"parcel": "gap:6249,-5596", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 9, "digest": "9cf16060f336", "note": "Q-050 gaps/opens batch"}
+{"parcel": "gap:6261,-5546", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 14, "digest": "956d24b88d83", "note": "Q-050 gaps/opens batch"}
+{"parcel": "open:r16456779@48,-44", "area": "highfield", "build": "highfield_grounds_mw", "date": "2026-10-12", "columns": 222, "digest": "7385e6b2203e", "note": "Q-050 gaps/opens batch"}
+{"parcel": "open:w169043686@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 61, "digest": "5d21c22c4126", "note": "Q-050 gaps/opens batch"}
+{"parcel": "open:w169043687@48,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 41, "digest": "d4af4ce45654", "note": "Q-050 gaps/opens batch"}
+{"parcel": "open:w169356761@48,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 87, "digest": "3878cc2d6a5c", "note": "Q-050 gaps/opens batch"}
+{"parcel": "open:w171869341@48,-44", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 65, "digest": "f12ffd9f1ef1", "note": "Q-050 gaps/opens batch"}
+{"parcel": "open:w187106223@48,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 239, "digest": "450192c54158", "note": "Q-050 gaps/opens batch"}
+{"parcel": "open:w226268603@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-12", "columns": 533, "digest": "1b8d0930bd14", "note": "Q-050 gaps/opens batch"}
+{"parcel": "open:w583245615@48,-44", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 77, "digest": "cfe8f9c698f5", "note": "Q-050 gaps/opens batch"}
+{"parcel": "gap:6146,-5624", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 87, "digest": "c1d52f354cab", "note": "Q-050 gaps/opens batch"}
+{"parcel": "gap:6152,-5621", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 45, "digest": "2b95ee4cd684", "note": "Q-050 gaps/opens batch"}
+{"parcel": "gap:6160,-5598", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 13, "digest": "465f54aae7fb", "note": "Q-050 gaps/opens batch"}
+{"parcel": "gap:6164,-5604", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 16, "digest": "86fa969f9018", "note": "Q-050 gaps/opens batch"}
+{"parcel": "gap:6167,-5585", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-12", "columns": 138, "digest": "818bb3a64a30", "note": "Q-050 gaps/opens batch"}
+{"parcel": "gap:6218,-5532", "area": "highfield", "build": "highfield_grounds_sc", "date": "2026-10-12", "columns": 379, "digest": "41ba577c6595", "note": "Q-050 gaps/opens batch"}
+{"parcel": "open:r16456779@48,-44", "revoke": true, "date": "2026-10-12", "reason": "Q-050 revert; q050/tidy cells removed"}
+{"parcel": "open:w226268603@48,-44", "revoke": true, "date": "2026-10-12", "reason": "Q-050 revert; q050/tidy cells removed"}
+{"parcel": "gap:6144,-5599", "revoke": true, "date": "2026-10-12", "reason": "Q-050 revert; q050/tidy cells removed"}
+{"parcel": "gap:6144,-5599", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-12", "columns": 55, "digest": "ba8adb1ebee1", "note": "Q-050 gaps/opens batch"}
+{"parcel": "gap:6144,-5599", "revoke": true, "date": "2026-10-12", "reason": "Q-050 revert; bulk clears stripped topsoil again"}
+{"parcel": "gap:6144,-5599", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-12", "columns": 55, "digest": "ba8adb1ebee1", "note": "Q-050 gaps/opens batch surface finish"}
+{"parcel": "open:w226268603@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-12", "columns": 533, "digest": "1b8d0930bd14", "note": "Q-050 gaps/opens batch"}
+{"parcel": "open:r16456779@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-12", "columns": 222, "digest": "7385e6b2203e", "note": "Q-050 gaps/opens batch"}
+{"parcel": "open:w160022677@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-12", "columns": 1218, "digest": "f08c4de5839e", "note": "Q-050 gaps/opens batch"}
+{"parcel": "gap:6144,-5599", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-12", "columns": 55, "digest": "ba8adb1ebee1", "note": "Q-050 gaps/opens batch"}
+{"parcel": "road:University Road@48,-44", "area": "highfield", "build": "highfield_q051_ur", "date": "2026-10-13", "columns": 998, "digest": "6cbe1cf79322", "note": "Q-051 University Road corridor"}
+{"parcel": "prop:w33830305", "area": "highfield", "build": "highfield_q051_ur", "date": "2026-10-13", "columns": 3956, "digest": "b2e942d5cafe", "note": "Q-051"}
+{"parcel": "prop:w34391673", "area": "highfield", "build": "highfield_q051_ur", "date": "2026-10-13", "columns": 2116, "digest": "b9273ae71a36", "note": "Q-051"}
+{"parcel": "prop:w33830236", "area": "highfield", "build": "highfield_q052_b57", "date": "2026-10-13", "columns": 441, "digest": "716efdf86d6e", "note": "Q-052 B57 fringe LIDAR-open cells; flat retail massing per Q-028"}
+{"parcel": "path:w160016180@48,-44", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-13", "columns": 19, "digest": "b3ff6ffa7777", "note": "Q-053 path stragglers"}
+{"parcel": "path:w160016182@48,-44", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-13", "columns": 10, "digest": "79f06ef45159", "note": "Q-053 path stragglers"}
+{"parcel": "path:w169224998@48,-44", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-13", "columns": 19, "digest": "4f3c9afcb21a", "note": "Q-053 path stragglers"}
+{"parcel": "path:w169224999@48,-44", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-13", "columns": 22, "digest": "48702f875925", "note": "Q-053 path stragglers"}
+{"parcel": "path:w1136685794@48,-44", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-13", "columns": 56, "digest": "3ad6dd4110a8", "note": "Q-053 path stragglers"}
+{"parcel": "path:w1136685795@48,-44", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-13", "columns": 14, "digest": "3287849649f3", "note": "Q-053 path stragglers"}
+{"parcel": "path:w1136685797@48,-44", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-13", "columns": 4, "digest": "31392b03b958", "note": "Q-053 path stragglers"}
+{"parcel": "path:w294963449@48,-44", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-13", "columns": 11, "digest": "37ca3453006b", "note": "Q-053 path stragglers"}
+{"parcel": "path:w225775365@48,-44", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-13", "columns": 16, "digest": "e523078b25dd", "note": "Q-053 path stragglers"}
+{"parcel": "prop:w171869344", "area": "highfield", "build": "highfield_q054_micro", "date": "2026-10-13", "columns": 65, "digest": "32398496b0de", "note": "Q-054 micro bike shed + canopy"}
+{"parcel": "prop:w391790374", "area": "highfield", "build": "highfield_q054_micro", "date": "2026-10-13", "columns": 24, "digest": "5fef1ecc2641", "note": "Q-054 micro bike shed + canopy"}
+{"parcel": "gap:6142,-5599", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 13, "digest": "d907a2596605", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "gap:6188,-5648", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 193, "digest": "df216cc03f30", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "gap:6213,-5635", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 6, "digest": "85e4f3204d06", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "gap:6215,-5640", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 59, "digest": "18807a414bc3", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "gap:6272,-5524", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 14, "digest": "7379193afd82", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "gap:6272,-5579", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 51, "digest": "92364ff51a45", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "gap:6273,-5565", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 225, "digest": "c3637f3ee4ec", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "path:w1125703354@49,-44", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 181, "digest": "20b7b533f47b", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "path:w1125703360@49,-44", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 27, "digest": "235aea443bfd", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "path:w1136685797@47,-44", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 22, "digest": "1fe516487aec", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "path:w1174317552@48,-43", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 102, "digest": "caa67b9b9dde", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "path:w1174317554@47,-43", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 17, "digest": "a42ba3c98bcb", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "path:w1227583422@48,-43", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 19, "digest": "b5b82afdb262", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "path:w1250453616@48,-43", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 7, "digest": "45864b34285b", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "path:w147187051@49,-44", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 3, "digest": "78cc57d6249a", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "path:w160016189@48,-43", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 37, "digest": "58f2478fd92a", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "path:w32772549@48,-45", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 222, "digest": "8c40a6f2e3d4", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "prop:w33830305", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 3956, "digest": "b2e942d5cafe", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "prop:w34391673", "area": "highfield", "build": "highfield_48_m44_foliage", "date": "2026-10-13", "columns": 2116, "digest": "b9273ae71a36", "note": "Q-055 foliage last cell 48,-44"}
+{"parcel": "path:w1030214384@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 282, "digest": "a5bb5cd9d268", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1125703345@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 140, "digest": "fec6d26003b3", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1125703351@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 189, "digest": "1acf089e31b4", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1125703352@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 9, "digest": "b2daea3d3862", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1125703353@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 15, "digest": "b7f301b58d6b", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1125703354@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 32, "digest": "c65792f51c15", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1125703355@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 17, "digest": "54b57cfaf110", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1125703357@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 229, "digest": "ebfc0ce3eb80", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1125703358@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 1, "digest": "3a12985b9ae5", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1125703359@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 23, "digest": "dd3392cca969", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1125703360@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 8, "digest": "5bfb63dbbe7e", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1136685794@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 56, "digest": "3ad6dd4110a8", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1136685795@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 14, "digest": "3287849649f3", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1136685796@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 1, "digest": "f27b2f843c15", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1136685797@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 4, "digest": "31392b03b958", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1153875580@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 48, "digest": "b34838ef1cfe", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1153875581@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 2, "digest": "d24ea7103d80", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317552@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 3, "digest": "dca66964d799", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317554@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 49, "digest": "91d2718b2b43", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317555@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 4, "digest": "ced57b1afd26", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317556@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 211, "digest": "61ee8660ce6b", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317557@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 6, "digest": "252b0622a022", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317558@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 18, "digest": "251749182161", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317559@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 237, "digest": "66c3057afb0d", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317560@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 5, "digest": "5f60f180f5ab", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317561@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 2, "digest": "43633e919017", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317562@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 2, "digest": "69451d22f680", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317564@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 60, "digest": "76ce7eeff5fe", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317565@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 7, "digest": "c8ea63102332", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1174317566@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 235, "digest": "49236351dc6e", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1212509764@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 10, "digest": "0df91e810ba1", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1220996552@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 3, "digest": "aa00b3c572c4", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1220996553@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 26, "digest": "e191edbcc899", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1227583422@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 19, "digest": "f1f64850d16c", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1256896075@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 2, "digest": "1026173150c6", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1256896076@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 3, "digest": "323ba48c497a", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1256896079@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 48, "digest": "ab1156c10a9d", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1256896080@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 1, "digest": "efcd97da183b", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1256896081@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 2, "digest": "c18e2676b03d", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w1256896095@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 2, "digest": "4d1dd9b2def9", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w146988291@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 52, "digest": "ae99a2c6c28f", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w147187051@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 4, "digest": "cb0713438cfc", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w159803118@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 1, "digest": "4814bfdc4a16", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w160016177@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 23, "digest": "d1ea057e59db", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w160016179@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 30, "digest": "b66e7dfae64e", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w160016180@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 19, "digest": "b3ff6ffa7777", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w160016182@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 10, "digest": "79f06ef45159", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w160016188@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 19, "digest": "81a8b62ec923", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w160016189@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 10, "digest": "f3619b6e4255", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w160016190@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 15, "digest": "70fafd10c758", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w169224998@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 19, "digest": "4f3c9afcb21a", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w169224999@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 22, "digest": "48702f875925", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w171869337@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 14, "digest": "505e0fe73e90", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w219899642@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 1, "digest": "f725187718b0", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w225775365@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 16, "digest": "e523078b25dd", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w244808651@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 1, "digest": "360e14219883", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w265816435@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 8, "digest": "3c740644487a", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w265816436@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 24, "digest": "5c12a99289ae", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w265816437@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 6, "digest": "de1ae966142f", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w265924011@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 15, "digest": "418a9e7950f3", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w265924012@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 127, "digest": "b27fd6c670b9", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w265932532@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 7, "digest": "500091e4a9ea", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w265932533@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 16, "digest": "5300aa328514", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w265932534@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 125, "digest": "2d7977e13e2c", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w294963448@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 15, "digest": "659167afe2f4", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w294963449@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 11, "digest": "37ca3453006b", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w32772544@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 337, "digest": "50e5e7383ae7", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w32772549@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 8, "digest": "b8234e9881cb", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w758630676@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 300, "digest": "ac8665e8b593", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w9660160@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 24, "digest": "b09f35097489", "note": "Q-055 path surface before foliage"}
+{"parcel": "path:w998262238@48,-44", "area": "highfield", "build": "highfield_q050_opens", "date": "2026-10-13", "columns": 53, "digest": "2086aeba6635", "note": "Q-055 path surface before foliage"}
+{"parcel": "road:University Road@48,-45", "area": "highfield", "build": "highfield_grounds_mc", "date": "2026-10-13", "columns": 302, "digest": "4c0a9aeaa264", "note": "Q-060 cell 48,-45 grounds revive"}
+{"parcel": "road:University Road@48,-45", "area": "highfield", "build": "highfield_q061_stragglers", "date": "2026-10-13", "columns": 302, "digest": "4c0a9aeaa264", "note": "Q-061 cell 48,-45 stragglers"}
+{"parcel": "gap:6181,-5711", "area": "highfield", "build": "highfield_q061_stragglers", "date": "2026-10-13", "columns": 439, "digest": "77a33e3d7bb6", "note": "Q-061 cell 48,-45 stragglers"}
+{"parcel": "path:w1174317571@48,-45", "area": "highfield", "build": "highfield_q061_stragglers", "date": "2026-10-13", "columns": 76, "digest": "becbcf4b1e3c", "note": "Q-061 cell 48,-45 stragglers"}
+{"parcel": "prop:w93729747", "area": "highfield", "build": "highfield_q061_stragglers", "date": "2026-10-13", "columns": 931, "digest": "998316adeb88", "note": "Q-061 cell 48,-45 stragglers"}
+{"parcel": "prop:w30063860", "area": "highfield", "build": "highfield_q061_stragglers", "date": "2026-10-13", "columns": 1875, "digest": "70872602c158", "note": "Q-061 cell 48,-45 stragglers"}
+{"parcel": "prop:w226000420", "area": "highfield", "build": "highfield_q061_stragglers", "date": "2026-10-13", "columns": 1553, "digest": "22b1b57d0e6f", "note": "Q-061 cell 48,-45 stragglers"}
+{"parcel": "prop:w456577218", "area": "highfield", "build": "highfield_q061_stragglers", "date": "2026-10-13", "columns": 80, "digest": "3c1ad507dcb5", "note": "Q-061 cell 48,-45 stragglers"}
+{"parcel": "prop:r2139045", "area": "highfield", "build": "highfield_q061_stragglers", "date": "2026-10-13", "columns": 1692, "digest": "59210c0a9b18", "note": "Q-061 leftover stone clear"}
+{"parcel": "prop:w34391673", "area": "highfield", "build": "highfield_q061_stragglers", "date": "2026-10-13", "columns": 2116, "digest": "b9273ae71a36", "note": "Q-061 leftover stone clear"}
+{"parcel": "gap:6181,-5711", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 439, "digest": "77a33e3d7bb6", "note": null}
+{"parcel": "gap:6197,-5625", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 320, "digest": "09ed1c2c0cfd", "note": null}
+{"parcel": "gap:6215,-5640", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 59, "digest": "18807a414bc3", "note": null}
+{"parcel": "gap:6229,-5687", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 48, "digest": "235c854f7760", "note": null}
+{"parcel": "gap:6236,-5683", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 98, "digest": "656b39241726", "note": null}
+{"parcel": "gap:6246,-5739", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 207, "digest": "27493658175a", "note": null}
+{"parcel": "path:w1125703341@48,-46", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 390, "digest": "83708e7c3dd7", "note": null}
+{"parcel": "path:w1174317570@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 64, "digest": "9ecf4d50a180", "note": null}
+{"parcel": "path:w1174317581@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 74, "digest": "3ff73825c65a", "note": null}
+{"parcel": "gap:6181,-5711", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 439, "digest": "77a33e3d7bb6", "note": null}
+{"parcel": "gap:6215,-5640", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 59, "digest": "18807a414bc3", "note": null}
+{"parcel": "gap:6229,-5687", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 48, "digest": "235c854f7760", "note": null}
+{"parcel": "gap:6236,-5683", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 98, "digest": "656b39241726", "note": null}
+{"parcel": "gap:6246,-5739", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 207, "digest": "27493658175a", "note": null}
+{"parcel": "path:w1125703341@48,-46", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 390, "digest": "83708e7c3dd7", "note": null}
+{"parcel": "path:w1174317570@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 64, "digest": "9ecf4d50a180", "note": null}
+{"parcel": "path:w1174317581@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 74, "digest": "3ff73825c65a", "note": null}
+{"parcel": "gap:6144,-5740", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 22, "digest": "9d5975d03c6b", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6144,-5747", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 51, "digest": "04c28a5550e3", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6151,-5700", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 6, "digest": "d2e05e042ad3", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6156,-5750", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 6, "digest": "7264c22f517d", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6158,-5755", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 8, "digest": "644fed8f1dad", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6161,-5711", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 170, "digest": "c7f6fba930fe", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6166,-5699", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 25, "digest": "1b684337131c", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6167,-5638", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 54, "digest": "b905e7a27a78", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6170,-5708", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 12, "digest": "5d68c9a3ca25", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6172,-5672", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 152, "digest": "ac33f98a4e73", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6173,-5715", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 35, "digest": "590ace9d13bf", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6177,-5723", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 61, "digest": "e1041bd97b7a", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6181,-5711", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 439, "digest": "77a33e3d7bb6", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6182,-5758", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 278, "digest": "6390c2d4e8e0", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6188,-5648", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 193, "digest": "df216cc03f30", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6188,-5719", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 113, "digest": "07edfd2aace4", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6191,-5662", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 158, "digest": "9977ceb2027f", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6211,-5655", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 73, "digest": "17c19bed21a7", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6213,-5635", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 6, "digest": "85e4f3204d06", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6213,-5760", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 93, "digest": "88f5c8facf76", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6215,-5640", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 59, "digest": "18807a414bc3", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6217,-5706", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 9, "digest": "828f70f4291e", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6229,-5687", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 48, "digest": "235c854f7760", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6233,-5760", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 83, "digest": "eeb38626de31", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6234,-5720", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 75, "digest": "179845b0c636", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6236,-5683", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 98, "digest": "656b39241726", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6245,-5679", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 10, "digest": "90d1661192bb", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6246,-5739", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 207, "digest": "27493658175a", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6246,-5760", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 111, "digest": "4af2293c2393", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6257,-5743", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 59, "digest": "2ab3e2976008", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6259,-5730", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 42, "digest": "01116b721cf4", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w160022677@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 1707, "digest": "ab37d28f3143", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w165291081@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 568, "digest": "a9251db3c799", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w168211063@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 85, "digest": "308d18081c23", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w169224229@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 290, "digest": "c9afc5e78fff", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w169224230@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 93, "digest": "4bf18d1440bd", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w169224231@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 56, "digest": "9a48eac4a6fc", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w169323824@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 69, "digest": "de9c2c551ba9", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w225851899@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 65, "digest": "a24827f2c24a", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w225851905@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 16, "digest": "8139a6144c69", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w391774354@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 17, "digest": "015c46bd0862", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "path:w1125703341@48,-46", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 390, "digest": "83708e7c3dd7", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "path:w1174317570@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 64, "digest": "9ecf4d50a180", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "path:w1174317580@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 60, "digest": "1416edb0aa4b", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "path:w1174317581@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 74, "digest": "3ff73825c65a", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "prop:r2139045", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 1692, "digest": "59210c0a9b18", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w187106219@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 778, "digest": "783d2952d52d", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w169043904@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 337, "digest": "8050e22a65fb", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w391774349@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 180, "digest": "4a6fccd94615", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6227,-5702", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 175, "digest": "06f4a52555c1", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6181,-5711", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6197,-5625", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6215,-5640", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6229,-5687", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6236,-5683", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6246,-5739", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "path:w1125703341@48,-46", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "path:w1174317570@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "path:w1174317581@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6144,-5740", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6144,-5747", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6151,-5700", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6156,-5750", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6158,-5755", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6161,-5711", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6166,-5699", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6167,-5638", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6170,-5708", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6172,-5672", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6173,-5715", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6177,-5723", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6182,-5758", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6188,-5648", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6188,-5719", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6191,-5662", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6211,-5655", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6213,-5635", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6213,-5760", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6217,-5706", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6233,-5760", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6234,-5720", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6245,-5679", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6246,-5760", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6257,-5743", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6259,-5730", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w160022677@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w165291081@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w168211063@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w169224229@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w169224230@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w169224231@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w169323824@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w225851899@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w225851905@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w391774354@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "path:w1174317580@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "prop:r2139045", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w187106219@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w169043904@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "open:w391774349@48,-45", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "gap:6227,-5702", "revoke": true, "date": "2026-10-13", "reason": "revert foliage structure restore"}
+{"parcel": "road:University Road@48,-44", "area": "highfield", "build": "highfield_q051_ur", "date": "2026-10-13", "columns": 998, "digest": "6cbe1cf79322", "note": "UR tarmac seam 48,-44/48,-45 gray_concrete"}
+{"parcel": "road:University Road@48,-45", "area": "highfield", "build": "highfield_q051_ur", "date": "2026-10-13", "columns": 302, "digest": "4c0a9aeaa264", "note": "UR tarmac seam 48,-44/48,-45 gray_concrete"}
+{"parcel": "gap:6181,-5711", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 439, "digest": "77a33e3d7bb6", "note": null}
+{"parcel": "open:w160022677@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 1707, "digest": "ab37d28f3143", "note": null}
+{"parcel": "gap:6144,-5740", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 22, "digest": "9d5975d03c6b", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6144,-5747", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 51, "digest": "04c28a5550e3", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6151,-5700", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 6, "digest": "d2e05e042ad3", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6156,-5750", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 6, "digest": "7264c22f517d", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6158,-5755", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 8, "digest": "644fed8f1dad", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6161,-5711", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 170, "digest": "c7f6fba930fe", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6166,-5699", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 25, "digest": "1b684337131c", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6167,-5638", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 54, "digest": "b905e7a27a78", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6170,-5708", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 12, "digest": "5d68c9a3ca25", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6172,-5672", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 152, "digest": "ac33f98a4e73", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6173,-5715", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 35, "digest": "590ace9d13bf", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6177,-5723", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 61, "digest": "e1041bd97b7a", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6182,-5758", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 278, "digest": "6390c2d4e8e0", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6188,-5648", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 193, "digest": "df216cc03f30", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6188,-5719", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 113, "digest": "07edfd2aace4", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6191,-5662", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 158, "digest": "9977ceb2027f", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6211,-5655", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 73, "digest": "17c19bed21a7", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6213,-5635", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 6, "digest": "85e4f3204d06", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6213,-5760", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 93, "digest": "88f5c8facf76", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6215,-5640", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 59, "digest": "18807a414bc3", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6217,-5706", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 9, "digest": "828f70f4291e", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6227,-5702", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 175, "digest": "06f4a52555c1", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6229,-5687", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 48, "digest": "235c854f7760", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6233,-5760", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 83, "digest": "eeb38626de31", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6234,-5720", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 75, "digest": "179845b0c636", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6236,-5683", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 98, "digest": "656b39241726", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6245,-5679", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 10, "digest": "90d1661192bb", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6246,-5739", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 207, "digest": "27493658175a", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6246,-5760", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 111, "digest": "4af2293c2393", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6257,-5743", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 59, "digest": "2ab3e2976008", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6259,-5730", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 42, "digest": "01116b721cf4", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w165291081@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 568, "digest": "a9251db3c799", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w168211063@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 85, "digest": "308d18081c23", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w169224229@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 290, "digest": "c9afc5e78fff", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w169224230@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 93, "digest": "4bf18d1440bd", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w169224231@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 56, "digest": "9a48eac4a6fc", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w169323824@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 69, "digest": "de9c2c551ba9", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w187106219@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 778, "digest": "783d2952d52d", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w225851899@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 65, "digest": "a24827f2c24a", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w225851905@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 16, "digest": "8139a6144c69", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "open:w391774354@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-13", "columns": 17, "digest": "015c46bd0862", "note": "Q-062 foliage last cell 48,-45"}
+{"parcel": "gap:6144,-5740", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 22, "digest": "9d5975d03c6b", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6144,-5747", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 51, "digest": "04c28a5550e3", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6151,-5700", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 6, "digest": "d2e05e042ad3", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6156,-5750", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 6, "digest": "7264c22f517d", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6158,-5755", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 8, "digest": "644fed8f1dad", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6161,-5711", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 170, "digest": "c7f6fba930fe", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6166,-5699", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 25, "digest": "1b684337131c", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6167,-5638", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 54, "digest": "b905e7a27a78", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6170,-5708", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 12, "digest": "5d68c9a3ca25", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6172,-5672", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 152, "digest": "ac33f98a4e73", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6173,-5715", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 35, "digest": "590ace9d13bf", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6177,-5723", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 61, "digest": "e1041bd97b7a", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6181,-5711", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 439, "digest": "77a33e3d7bb6", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6182,-5758", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 278, "digest": "6390c2d4e8e0", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6188,-5648", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 193, "digest": "df216cc03f30", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6188,-5719", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 113, "digest": "07edfd2aace4", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6191,-5662", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 158, "digest": "9977ceb2027f", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6211,-5655", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 73, "digest": "17c19bed21a7", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6213,-5635", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 6, "digest": "85e4f3204d06", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6213,-5760", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 93, "digest": "88f5c8facf76", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6215,-5640", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 59, "digest": "18807a414bc3", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6217,-5706", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 9, "digest": "828f70f4291e", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6227,-5702", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 175, "digest": "06f4a52555c1", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6229,-5687", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 48, "digest": "235c854f7760", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6233,-5760", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 83, "digest": "eeb38626de31", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6234,-5720", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 75, "digest": "179845b0c636", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6236,-5683", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 98, "digest": "656b39241726", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6245,-5679", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 10, "digest": "90d1661192bb", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6246,-5739", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 207, "digest": "27493658175a", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6246,-5760", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 111, "digest": "4af2293c2393", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6257,-5743", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 59, "digest": "2ab3e2976008", "note": "foliage last cell 48,-45"}
+{"parcel": "gap:6259,-5730", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 42, "digest": "01116b721cf4", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w160022677@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 1707, "digest": "ab37d28f3143", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w165291081@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 568, "digest": "a9251db3c799", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w168211063@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 85, "digest": "308d18081c23", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w169043904@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 337, "digest": "8050e22a65fb", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w169224229@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 290, "digest": "c9afc5e78fff", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w169224230@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 93, "digest": "4bf18d1440bd", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w169224231@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 56, "digest": "9a48eac4a6fc", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w169323824@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 69, "digest": "de9c2c551ba9", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w187106219@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 778, "digest": "783d2952d52d", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w225851899@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 65, "digest": "a24827f2c24a", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w225851905@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 16, "digest": "8139a6144c69", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w391774349@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 180, "digest": "4a6fccd94615", "note": "foliage last cell 48,-45"}
+{"parcel": "open:w391774354@48,-45", "area": "highfield", "build": "highfield_48_m45_foliage", "date": "2026-10-14", "columns": 17, "digest": "015c46bd0862", "note": "foliage last cell 48,-45"}
+{"parcel": "path:w998262239@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 31, "digest": "124ede8c7a8b", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w996692321@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 68, "digest": "c7ef3d26e55c", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w93729749@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 78, "digest": "4b7026056b3f", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w34914111@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 192, "digest": "373a13941265", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w32772544@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 440, "digest": "6acac9412888", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w225851887@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 18, "digest": "4c44b7c1ad6f", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w141567968@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 62, "digest": "d5f33aec850d", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w1174317584@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 102, "digest": "a214cedfbe39", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w1174317581@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 74, "digest": "3ff73825c65a", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w1174317580@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 60, "digest": "1416edb0aa4b", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w1174317570@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 64, "digest": "9ecf4d50a180", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w1174317567@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 226, "digest": "d8794cfffebb", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w1125703349@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 8, "digest": "7376962cbc2d", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w1125703345@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 192, "digest": "b654e63ad69b", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w1118380599@48,-45", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 30, "digest": "54f0b0055e2b", "note": "Q-063 cell 48,-45 path closeout"}
+{"parcel": "path:w996692321@48,-46", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 84, "digest": "b1d7d582e0f2", "note": "Q-063 edge path cols"}
+{"parcel": "path:w892915854@48,-46", "area": "highfield", "build": "highfield_q053_paths", "date": "2026-10-14", "columns": 208, "digest": "e9bf9a9d6a57", "note": "Q-063 edge path cols"}
+{"parcel": "prop:r2139045", "area": "highfield", "build": "highfield_q061_stragglers", "date": "2026-10-14", "columns": 1692, "digest": "59210c0a9b18", "note": "Q-063 Staff Club signoff"}
+{"parcel": "prop:r2310853", "area": "highfield", "build": "highfield_school_r2310853", "date": "2026-10-14", "columns": 1008, "digest": "c169d95fa2cb", "note": "single-storey flat-roof block from LIDAR band 54; wall material placeholder (no street photo)"}
+{"parcel": "path:w1213586852@47,-43", "area": "highfield", "build": "highfield_47_m43_ground", "date": "2026-10-14", "columns": 184, "digest": "dcd63d39aa19", "note": "layered ground pass"}
+{"parcel": "path:w1212686283@47,-43", "area": "highfield", "build": "highfield_47_m43_ground", "date": "2026-10-14", "columns": 108, "digest": "1ea94c09706f", "note": "layered ground pass"}
+{"parcel": "path:w89323631@47,-43", "area": "highfield", "build": "highfield_47_m43_ground", "date": "2026-10-14", "columns": 81, "digest": "cd821ea06253", "note": "layered ground pass"}
+{"parcel": "path:w1212686285@47,-43", "area": "highfield", "build": "highfield_47_m43_ground", "date": "2026-10-14", "columns": 14, "digest": "f01a08016902", "note": "layered ground pass"}
+{"parcel": "prop:w220434721", "area": "highfield", "build": "highfield_bike_shed_w220434721", "date": "2026-10-14", "columns": 46, "digest": "ebad7de16279", "note": "open-sided bike shed, stone slab roof on iron-bar posts; no LIDAR/street evidence"}
+{"parcel": "path:w89323633@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 339, "digest": "6abe3843df74", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w1174317554@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 267, "digest": "c3d76e58463f", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w24298747@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 217, "digest": "5ee91debc722", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w248962856@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 179, "digest": "0f6d5e6d324a", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w4061531@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 130, "digest": "79afab1e3097", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w1214097964@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 79, "digest": "42413a0b405c", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w1150960151@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 73, "digest": "4bde43c8b3f3", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w160141570@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 71, "digest": "3c27f53f3c15", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w1250453612@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 62, "digest": "51e4bc90ae76", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w1212686285@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 51, "digest": "5a6a4ed3fcc4", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w1250453613@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 45, "digest": "02873e4804e8", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "open:w187106219@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 44, "digest": "2a9856f000ec", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w1030214384@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 27, "digest": "7e6f2f4bb8a8", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "open:w186765454@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 24, "digest": "6605d0c70e5b", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w93742845@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 10, "digest": "26bd409b4687", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w89323629@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 5, "digest": "16799de5fd73", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "path:w1250453615@47,-44", "area": "highfield", "build": "highfield_47_m44_ground", "date": "2026-10-14", "columns": 2, "digest": "038744760142", "note": "layered ground/trees/decor Q-079"}
+{"parcel": "gap:6016,-5760", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 649, "digest": "dc5ffdf49f6c", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w750430331@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 377, "digest": "ec64a9e93f60", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w93742821@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 325, "digest": "d0e9529ebec8", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w33830526@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 260, "digest": "5b45dc9ab223", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w770401389@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 201, "digest": "72c693fa5cf6", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w1174345825@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 158, "digest": "c6ca38ba49ba", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "gap:6107,-5662", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 102, "digest": "4d7588fa67c0", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w1174345832@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 93, "digest": "96a4dcdf1390", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w1174345831@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 78, "digest": "0bcc6d60cb29", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w148274757@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 67, "digest": "bd2a64ee5d59", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "gap:6021,-5667", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 64, "digest": "595fe14e1c31", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w1118380600@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 60, "digest": "c15147e4631b", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w1174317584@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 43, "digest": "1664c54f527a", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w185962707@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 43, "digest": "9cd3b6892eda", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w1174345834@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 36, "digest": "4da538b1ef98", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "open:w169224229@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 14, "digest": "db2e58fcd79d", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "path:w226117633@47,-45", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 11, "digest": "6f7f910d0dd4", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "gap:6094,-5744", "area": "highfield", "build": "highfield_47_m45_ground", "date": "2026-10-14", "columns": 10, "digest": "afeb07e2a2f7", "note": "layered ground/trees/decor 47,-45"}
+{"parcel": "prop:w1482280003", "area": "highfield", "build": "highfield_toilets_w1482280003", "date": "2026-10-14", "columns": 30, "digest": "a5d821920592", "note": "Q-081 public toilets, brick block flat slab roof; wall/door side unevidenced"}
+{"parcel": "prop:w1482280004", "area": "highfield", "build": "highfield_toilets_w1482280004", "date": "2026-10-14", "columns": 31, "digest": "a11914243b3f", "note": "Q-082 public toilets twin of w1482280003, brick block flat slab roof; wall/door side unevidenced"}
+{"parcel": "prop:w236241511", "area": "highfield", "build": "highfield_bike_shed_w236241511", "date": "2026-10-14", "columns": 53, "digest": "65fc7b18b963", "note": "Q-083 private bike shed 40 cap, flat slab canopy on iron-bar posts; no height/photo evidence"}
+{"parcel": "road:Salisbury Road@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 1350, "digest": "476acb24c7db", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "road:University Road@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 1072, "digest": "210ccdc8908d", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "path:w1256896077@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 433, "digest": "867ee02b65d5", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "path:w1125703341@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 390, "digest": "83708e7c3dd7", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "gap:6205,-5853", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 344, "digest": "4d84d8c43ecd", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "path:w141567965@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 334, "digest": "463b0ddcba1f", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "path:w996692320@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 126, "digest": "61fc8c7c09e7", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "gap:6144,-5817", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 91, "digest": "e15dab8cd8cd", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "path:w717602288@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 75, "digest": "e023744e494c", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "path:w1125703340@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 29, "digest": "10a1e5a4915a", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "path:w1125703342@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 21, "digest": "f25230a66799", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "path:w3806002@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 14, "digest": "98960f4ba596", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "path:w998262240@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 13, "digest": "7bea78cc7ed2", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "path:w141612505@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 12, "digest": "00e3be5b96c3", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "path:w1124824442@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 5, "digest": "cce7434edd40", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "path:w371595297@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 3, "digest": "ce0a8f0a045c", "note": "Q-084 layered ground/trees/decor 48,-46"}
+{"parcel": "gap:6175,-5803", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 442, "digest": "23adf1f6d102", "note": null}
+{"parcel": "open:w168211063@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 171, "digest": "1c9e24c9ad31", "note": null}
+{"parcel": "open:w169224230@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 159, "digest": "bb5c913319f4", "note": null}
+{"parcel": "open:w168211056@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 158, "digest": "397ec4c72d6a", "note": null}
+{"parcel": "open:w168207362@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 71, "digest": "f121dba2eb00", "note": null}
+{"parcel": "open:w168207364@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 53, "digest": "15e111489e68", "note": null}
+{"parcel": "gap:6175,-5803", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 442, "digest": "23adf1f6d102", "note": null}
+{"parcel": "open:w168211063@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 171, "digest": "1c9e24c9ad31", "note": null}
+{"parcel": "path:w1174317607@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 160, "digest": "8d42af738fb8", "note": null}
+{"parcel": "open:w169224230@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 159, "digest": "bb5c913319f4", "note": null}
+{"parcel": "open:w168211056@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 158, "digest": "397ec4c72d6a", "note": null}
+{"parcel": "open:w168207362@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 71, "digest": "f121dba2eb00", "note": null}
+{"parcel": "path:w1124824432@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 70, "digest": "dfb01c3f8005", "note": null}
+{"parcel": "open:w168207364@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 53, "digest": "15e111489e68", "note": null}
+{"parcel": "gap:6211,-5808", "area": "highfield", "build": "highfield_48_m46_edge_grass", "date": "2026-10-14", "columns": 1007, "digest": "8ae341731243", "note": null}
+{"parcel": "open:w1560542474@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 1024, "digest": "5d3c92d6c637", "note": null}
+{"parcel": "gap:6145,-5839", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 332, "digest": "e4ff89b5688d", "note": null}
+{"parcel": "path:w34914108@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 258, "digest": "950212113322", "note": null}
+{"parcel": "path:w1174317603@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 136, "digest": "cb685b0e4653", "note": null}
+{"parcel": "gap:6187,-5824", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 108, "digest": "c84cbb220071", "note": null}
+{"parcel": "path:w1174317605@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 103, "digest": "20f120295928", "note": null}
+{"parcel": "gap:6168,-5813", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 97, "digest": "2437c8580a1c", "note": null}
+{"parcel": "path:w1128337415@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 77, "digest": "503233f5d034", "note": null}
+{"parcel": "path:w1174317604@48,-46", "area": "highfield", "build": "highfield_48_m46_ground", "date": "2026-10-14", "columns": 23, "digest": "1911447f09cd", "note": null}
+{"parcel": "prop:w224489179", "area": "highfield", "build": "highfield_bike_shed_w224489179", "date": "2026-10-14", "columns": 50, "digest": "d08edda50b0f", "note": "private bike shed canopy"}
+{"parcel": "open:w1246885272@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 1107, "digest": "583165493146", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "gap:6306,-5850", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 655, "digest": "478c0fd562d9", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "gap:6273,-5888", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 407, "digest": "2dedc025bbcc", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "path:w1284433170@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 264, "digest": "bfcd9c5f2570", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "path:w470763440@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 123, "digest": "2071c361433c", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "path:w1146549237@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 114, "digest": "e63612911cba", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "path:w3806002@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 107, "digest": "922ee742cee0", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "path:w1146627886@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 81, "digest": "91fe74500d1b", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "path:w141677951@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 70, "digest": "c7e7f43658eb", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "path:w141677949@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 64, "digest": "c22dffd56f73", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "path:w141677937@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 44, "digest": "57e8e5ee744b", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "open:w391790375@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 37, "digest": "fb7dfe6312c9", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "open:w168207364@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 32, "digest": "bcb7651bccd3", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "open:w168211054@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 24, "digest": "592da3b096cc", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "path:w865401637@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 21, "digest": "e33ed85e2e9a", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "gap:6318,-5884", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 18, "digest": "b9a52bdc4480", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "path:w236057346@49,-46", "area": "highfield", "build": "highfield_49_m46_ground", "date": "2026-10-14", "columns": 10, "digest": "cf0d3d555d83", "note": "layered ground/trees/decor Q-086"}
+{"parcel": "open:w1246885272@50,-46", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 1720, "digest": "6f16cb5e32d6", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w177809056", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 764, "digest": "c414f7378ada", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w177807788", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 555, "digest": "7e0c89b12000", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "path:w1284433170@50,-46", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 543, "digest": "b6efa093ce2b", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w159868612", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 498, "digest": "6de72cb5d6ec", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w177807799", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 425, "digest": "8ca4838b28a9", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w177809759", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 414, "digest": "3077e300db34", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w177807804", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 380, "digest": "489019934899", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "path:w156591073@50,-46", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 334, "digest": "6849126ae83f", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w177809045", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 324, "digest": "453fb96e4b58", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "path:w1284433172@50,-46", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 300, "digest": "f6abe3963e15", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w159868617", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 285, "digest": "247bf381071e", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w177809811", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 270, "digest": "cb60785dd167", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w177809081", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 261, "digest": "fea6eacf5932", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w177809060", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 258, "digest": "8e7a6c1548cc", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "path:w159868629@50,-46", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 234, "digest": "72a4ab77666c", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w177809049", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 197, "digest": "10d17c53671a", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w177809088", "area": "highfield", "build": "highfield_50_m46_ground", "date": "2026-10-15", "columns": 186, "digest": "31fe7b2a4fe5", "note": "Q-091 layered ground/trees/decor"}
+{"parcel": "prop:w148269706", "area": "highfield", "build": "highfield_bike_shed_w148269706", "date": "2026-10-15", "columns": 46, "digest": "a3c250685b3c", "note": "private bike shed, flat canopy on posts"}
+{"parcel": "gap:6400,-5759", "area": "highfield", "build": "highfield_50_m45_ground", "date": "2026-10-15", "columns": 2132, "digest": "6595d3a69d65", "note": "Q-094 layered ground/trees/decor"}
+{"parcel": "open:w1215432787@50,-45", "area": "highfield", "build": "highfield_50_m45_ground", "date": "2026-10-15", "columns": 1719, "digest": "1c84025fef7c", "note": "Q-094 layered ground/trees/decor"}
+{"parcel": "path:w5653705@50,-45", "area": "highfield", "build": "highfield_50_m45_ground", "date": "2026-10-15", "columns": 555, "digest": "91721f089feb", "note": "Q-094 layered ground/trees/decor"}
+{"parcel": "road:Broadlands Road@50,-45", "area": "highfield", "build": "highfield_50_m45_ground", "date": "2026-10-15", "columns": 298, "digest": "3d0c7c55c0fe", "note": "Q-094 layered ground/trees/decor"}
+{"parcel": "path:w1258438385@50,-45", "area": "highfield", "build": "highfield_50_m45_ground", "date": "2026-10-15", "columns": 128, "digest": "1acca58a13c3", "note": "Q-094 layered ground/trees/decor"}
+{"parcel": "gap:6433,-5636", "area": "highfield", "build": "highfield_50_m45_ground", "date": "2026-10-15", "columns": 110, "digest": "515a04bc87da", "note": "Q-094 layered ground/trees/decor"}
+{"parcel": "path:w5653523@50,-45", "area": "highfield", "build": "highfield_50_m45_ground", "date": "2026-10-15", "columns": 75, "digest": "eaf9fd44e56f", "note": "Q-094 layered ground/trees/decor"}
+{"parcel": "path:w1255994951@50,-45", "area": "highfield", "build": "highfield_50_m45_ground", "date": "2026-10-15", "columns": 45, "digest": "22e7a582063a", "note": "Q-094 layered ground/trees/decor"}
+{"parcel": "path:w5653596@50,-45", "area": "highfield", "build": "highfield_50_m45_ground", "date": "2026-10-15", "columns": 20, "digest": "40e492a3b3fb", "note": "Q-094 layered ground/trees/decor"}
+{"parcel": "prop:w1255994955", "area": "highfield", "build": "highfield_bike_shed_w1255994955", "date": "2026-10-15", "columns": 80, "digest": "8750ecb86f6d", "note": null}
+{"parcel": "road:Hartley Avenue@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 1508, "digest": "7e09d9c418d0", "note": null}
+{"parcel": "road:Ripstone Gardens@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 479, "digest": "4e84754c9551", "note": null}
+{"parcel": "gap:6486,-5575", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 333, "digest": "fae1dafbd401", "note": null}
+{"parcel": "path:w140004631@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 305, "digest": "41075d06a281", "note": null}
+{"parcel": "prop:w177759017", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 285, "digest": "02e633045725", "note": null}
+{"parcel": "path:w1148011430@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 283, "digest": "fb18a0b5d553", "note": null}
+{"parcel": "prop:w176650759", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 276, "digest": "8cfb4faa2494", "note": null}
+{"parcel": "prop:w177759011", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 263, "digest": "03dd7dc03d8e", "note": null}
+{"parcel": "path:w1256896089@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 208, "digest": "0acc4282f92b", "note": null}
+{"parcel": "prop:w176650762", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 206, "digest": "dd219e84b30f", "note": null}
+{"parcel": "gap:6429,-5612", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 179, "digest": "2b1beeafc270", "note": null}
+{"parcel": "path:w1256896087@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 174, "digest": "d3f13bb56531", "note": null}
+{"parcel": "path:w5653596@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 170, "digest": "3e0691ecba06", "note": null}
+{"parcel": "prop:w176650774", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 136, "digest": "7522b45b5ec3", "note": null}
+{"parcel": "road:Granby Grove@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 116, "digest": "310e8c050f12", "note": null}
+{"parcel": "path:w1177230775@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 102, "digest": "89e63a12f420", "note": null}
+{"parcel": "prop:w176650782", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 99, "digest": "37f8f42e93f1", "note": null}
+{"parcel": "path:w245802748@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 98, "digest": "22de5bd9c8f6", "note": null}
+{"parcel": "prop:w176650772", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 84, "digest": "06422a888864", "note": null}
+{"parcel": "open:w169489628@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 80, "digest": "0923e5b965a2", "note": null}
+{"parcel": "path:w1256896088@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 79, "digest": "e2b02d0d08bd", "note": null}
+{"parcel": "road:Hartley Avenue@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 1508, "digest": "7e09d9c418d0", "note": null}
+{"parcel": "road:Ripstone Gardens@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 479, "digest": "4e84754c9551", "note": null}
+{"parcel": "gap:6486,-5575", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 333, "digest": "fae1dafbd401", "note": null}
+{"parcel": "path:w140004631@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 305, "digest": "41075d06a281", "note": null}
+{"parcel": "prop:w177759017", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 285, "digest": "02e633045725", "note": null}
+{"parcel": "path:w1148011430@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 283, "digest": "fb18a0b5d553", "note": null}
+{"parcel": "prop:w176650759", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 276, "digest": "8cfb4faa2494", "note": null}
+{"parcel": "prop:w177759011", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 263, "digest": "03dd7dc03d8e", "note": null}
+{"parcel": "path:w1256896089@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 208, "digest": "0acc4282f92b", "note": null}
+{"parcel": "prop:w176650762", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 206, "digest": "dd219e84b30f", "note": null}
+{"parcel": "gap:6429,-5612", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 179, "digest": "2b1beeafc270", "note": null}
+{"parcel": "path:w1256896087@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 174, "digest": "d3f13bb56531", "note": null}
+{"parcel": "path:w5653596@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 170, "digest": "3e0691ecba06", "note": null}
+{"parcel": "prop:w176650774", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 136, "digest": "7522b45b5ec3", "note": null}
+{"parcel": "road:Granby Grove@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 116, "digest": "310e8c050f12", "note": null}
+{"parcel": "path:w1177230775@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 102, "digest": "89e63a12f420", "note": null}
+{"parcel": "prop:w176650782", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 99, "digest": "37f8f42e93f1", "note": null}
+{"parcel": "path:w245802748@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 98, "digest": "22de5bd9c8f6", "note": null}
+{"parcel": "prop:w176650772", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 84, "digest": "06422a888864", "note": null}
+{"parcel": "open:w169489628@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 80, "digest": "0923e5b965a2", "note": null}
+{"parcel": "path:w1256896088@50,-44", "area": "highfield", "build": "highfield_50_m44_ground", "date": "2026-10-15", "columns": 79, "digest": "e2b02d0d08bd", "note": null}
+{"parcel": "open:w1255994948@50,-44", "area": "highfield", "build": "highfield_50_m44_leftover_plants", "date": "2026-10-15", "columns": 582, "digest": "d4f490645bba", "note": null}
+{"parcel": "path:w1255994946@50,-44", "area": "highfield", "build": "highfield_50_m44_leftover_plants", "date": "2026-10-15", "columns": 189, "digest": "0bc2bf687097", "note": null}
+{"parcel": "prop:w148212337", "area": "highfield", "build": "highfield_bike_shed_w148212337", "date": "2026-10-15", "columns": 41, "digest": "f98fbacea60f", "note": null}

@@ -53,6 +53,34 @@ def check(owner=None):
     LOCK.write_text(json.dumps(lk, indent=1))
 
 
+def claim(owner, task):
+    """Write the lock for ``owner``; refuses while another owner's lock is fresh.
+
+    @param owner: lock owner id
+    @param task: what the lock is for
+    """
+    lk = read()
+    if fresh(lk) and lk['owner'] != owner:
+        raise SystemExit(f'Held by {lk["owner"]} since {lk["claimed_at"]} for: {lk["task"]}')
+    now = time.time()
+    LOCK.write_text(json.dumps({
+        'owner': owner, 'task': task, 'claimed': now, 'heartbeat': now,
+        'claimed_at': time.strftime('%Y-%m-%d %H:%M:%S'),
+        'heartbeat_at': time.strftime('%Y-%m-%d %H:%M:%S'),
+    }, indent=1))
+
+
+def release(owner):
+    """Remove the lock; refuses while another owner's lock is fresh.
+
+    @param owner: lock owner id
+    """
+    lk = read()
+    if lk and lk['owner'] != owner and fresh(lk):
+        raise SystemExit(f'Not yours: {lk}')
+    LOCK.unlink(missing_ok=True)
+
+
 def main():
     """CLI: status | claim | release."""
     cmd = sys.argv[1] if len(sys.argv) > 1 else 'status'
@@ -60,20 +88,10 @@ def main():
     if cmd == 'status':
         print(json.dumps(lk, indent=1) if lk else 'unlocked', '(fresh)' if fresh(lk) else '(stale/none)')
     elif cmd == 'claim':
-        owner, task = sys.argv[2], ' '.join(sys.argv[3:])
-        if fresh(lk) and lk['owner'] != owner:
-            raise SystemExit(f'Held by {lk["owner"]} since {lk["claimed_at"]} for: {lk["task"]}')
-        now = time.time()
-        LOCK.write_text(json.dumps({
-            'owner': owner, 'task': task, 'claimed': now, 'heartbeat': now,
-            'claimed_at': time.strftime('%Y-%m-%d %H:%M:%S'),
-            'heartbeat_at': time.strftime('%Y-%m-%d %H:%M:%S'),
-        }, indent=1))
-        print('claimed by', owner)
+        claim(sys.argv[2], ' '.join(sys.argv[3:]))
+        print('claimed by', sys.argv[2])
     elif cmd == 'release':
-        if lk and lk['owner'] != sys.argv[2] and fresh(lk):
-            raise SystemExit(f'Not yours: {lk}')
-        LOCK.unlink(missing_ok=True)
+        release(sys.argv[2])
         print('released')
     else:
         print(__doc__, file=sys.stderr)

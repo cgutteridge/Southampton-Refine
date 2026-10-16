@@ -32,7 +32,7 @@ SITE = ROOT / 'site'
 ARCHIVE_DIRNAME = 'archive'
 
 DEFAULT_KEEP_REVIEWS = 10
-CLOSED_ISSUE_STATUSES = frozenset({'done', 'fixed', 'closed', 'wontfix', 'dup', 'duplicate'})
+CLOSED_ISSUE_STATUSES = frozenset({'done', 'fixed', 'closed', 'wontfix', 'stale', 'dup', 'duplicate'})
 
 QUEUE_ITEM_RE = re.compile(r'\[([ xX-])\]\s+(Q-\d+)\b')
 ISSUE_HEAD_RE = re.compile(r'(I-\d+)\s+[HML]\s+\S+\s+(\w+)')

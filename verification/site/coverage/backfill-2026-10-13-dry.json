@@ -1,0 +1,1205 @@
+{
+ "signed": [
+  [
+   "road:University Road@48,-45",
+   "highfield_grounds_mc"
+  ]
+ ],
+ "already": [
+  "prop:w30064170",
+  "prop:w34391673",
+  "road:University Road@48,-44",
+  "path:w1030214384@48,-44",
+  "path:w1125703341@48,-45",
+  "path:w1125703341@48,-46",
+  "path:w1125703343@49,-45",
+  "path:w1125703343@49,-46",
+  "path:w1125703345@48,-44",
+  "path:w1125703346@48,-45",
+  "path:w1125703348@48,-45",
+  "path:w1125703348@49,-45",
+  "path:w1125703351@48,-44",
+  "path:w1125703352@48,-44",
+  "path:w1125703354@48,-44",
+  "path:w1125703354@49,-44",
+  "path:w1125703354@49,-45",
+  "path:w1125703356@49,-45",
+  "path:w1136685794@48,-44",
+  "path:w1136685795@48,-44",
+  "path:w1136685796@48,-44",
+  "path:w1136685797@47,-44",
+  "path:w1136685797@48,-44",
+  "path:w1136685799@47,-44",
+  "path:w1148011427@49,-44",
+  "path:w1151047351@48,-46",
+  "path:w1151048184@47,-44",
+  "path:w1152542398@48,-45",
+  "path:w1152542398@49,-45",
+  "path:w1174317566@48,-44",
+  "path:w1174317568@48,-45",
+  "path:w1174317569@48,-45",
+  "path:w1174317570@48,-45",
+  "path:w1174317572@48,-45",
+  "path:w1174317573@48,-45",
+  "path:w1174317574@48,-45",
+  "path:w1174317575@48,-45",
+  "path:w1174317576@48,-45",
+  "path:w1174317577@48,-45",
+  "path:w1174317578@48,-45",
+  "path:w1174317579@48,-45",
+  "path:w1174317581@48,-45",
+  "path:w1174317582@48,-45",
+  "path:w1174317583@48,-45",
+  "path:w1174317585@48,-45",
+  "path:w1174317586@48,-45",
+  "path:w1174317587@47,-45",
+  "path:w1174317590@47,-45",
+  "path:w1174317592@48,-45",
+  "path:w1174317593@47,-45",
+  "path:w1174317593@48,-45",
+  "path:w1174317594@48,-45",
+  "path:w1174317594@48,-46",
+  "path:w1174317595@48,-45",
+  "path:w1174317595@48,-46",
+  "path:w1174317596@48,-46",
+  "path:w1174317600@48,-45",
+  "path:w1174317600@48,-46",
+  "path:w1174317601@48,-45",
+  "path:w1174317609@47,-46",
+  "path:w1174317611@49,-45",
+  "path:w1174317612@49,-45",
+  "path:w1174317613@49,-45",
+  "path:w1174317614@49,-45",
+  "path:w1174345812@47,-44",
+  "path:w1174345818@47,-45",
+  "path:w1174345819@47,-45",
+  "path:w1174345827@47,-45",
+  "path:w1174345828@47,-45",
+  "path:w1174345833@46,-44",
+  "path:w1174345833@46,-45",
+  "path:w1174345834@46,-45",
+  "path:w1174345835@46,-45",
+  "path:w1174345837@49,-45",
+  "path:w1174345837@49,-46",
+  "path:w1174345838@49,-46",
+  "path:w1177208797@47,-45",
+  "path:w1177208806@48,-45",
+  "path:w1177208807@48,-45",
+  "path:w1214097962@47,-45",
+  "path:w1214097963@47,-44",
+  "path:w1214535480@47,-44",
+  "path:w1214536860@48,-45",
+  "path:w1229914382@47,-45",
+  "path:w1229914383@48,-46",
+  "path:w1246796425@47,-46",
+  "path:w1246796426@47,-45",
+  "path:w1246796426@47,-46",
+  "path:w1246796430@47,-44",
+  "path:w1256896092@49,-44",
+  "path:w141612502@48,-45",
+  "path:w141677935@49,-45",
+  "path:w141677939@49,-45",
+  "path:w141684393@47,-45",
+  "path:w146988291@48,-44",
+  "path:w147603909@47,-44",
+  "path:w147603910@47,-44",
+  "path:w147603911@47,-44",
+  "path:w154066094@47,-45",
+  "path:w159803118@48,-44",
+  "path:w159803118@48,-45",
+  "path:w159803123@48,-45",
+  "path:w159803124@48,-45",
+  "path:w160280756@48,-46",
+  "path:w160280761@48,-45",
+  "path:w160280762@48,-45",
+  "path:w170572719@47,-44",
+  "path:w185962705@47,-45",
+  "path:w219899642@47,-44",
+  "path:w219899642@48,-44",
+  "path:w225851887@49,-45",
+  "path:w226141827@46,-45",
+  "path:w226141828@47,-45",
+  "path:w236071518@49,-45",
+  "path:w236071519@49,-45",
+  "path:w265816435@48,-44",
+  "path:w265816436@48,-44",
+  "path:w265816437@48,-44",
+  "path:w265924011@48,-44",
+  "path:w265924012@48,-44",
+  "path:w265932532@48,-44",
+  "path:w265932533@48,-44",
+  "path:w265932534@48,-44",
+  "path:w32772544@48,-44",
+  "path:w32772549@47,-44",
+  "path:w32772549@47,-45",
+  "path:w32772549@48,-44",
+  "path:w32772549@48,-45",
+  "path:w33830526@48,-45",
+  "path:w371586980@49,-45",
+  "path:w892915854@48,-45",
+  "path:w892915854@48,-46",
+  "path:w998262238@48,-44",
+  "open:r16456779@48,-44",
+  "open:w1256896097@49,-44",
+  "open:w160022677@48,-44",
+  "open:w169043687@48,-44",
+  "open:w169356761@48,-44",
+  "open:w187106223@48,-44",
+  "open:w226141839@47,-45",
+  "open:w583245615@48,-44",
+  "gap:5982,-5576",
+  "gap:5994,-5599",
+  "gap:5998,-5595",
+  "gap:6005,-5635",
+  "gap:6014,-5656",
+  "gap:6016,-5632",
+  "gap:6016,-5638",
+  "gap:6016,-5648",
+  "gap:6016,-5662",
+  "gap:6029,-5726",
+  "gap:6030,-5709",
+  "gap:6033,-5737",
+  "gap:6034,-5745",
+  "gap:6044,-5762",
+  "gap:6051,-5776",
+  "gap:6067,-5598",
+  "gap:6070,-5760",
+  "gap:6071,-5762",
+  "gap:6075,-5616",
+  "gap:6092,-5605",
+  "gap:6100,-5735",
+  "gap:6103,-5703",
+  "gap:6103,-5771",
+  "gap:6104,-5783",
+  "gap:6108,-5589",
+  "gap:6114,-5607",
+  "gap:6116,-5739",
+  "gap:6118,-5710",
+  "gap:6128,-5763",
+  "gap:6144,-5740",
+  "gap:6146,-5624",
+  "gap:6151,-5700",
+  "gap:6152,-5621",
+  "gap:6153,-5612",
+  "gap:6154,-5782",
+  "gap:6156,-5750",
+  "gap:6158,-5755",
+  "gap:6160,-5598",
+  "gap:6161,-5711",
+  "gap:6164,-5604",
+  "gap:6166,-5699",
+  "gap:6166,-5769",
+  "gap:6166,-5781",
+  "gap:6167,-5585",
+  "gap:6167,-5638",
+  "gap:6170,-5708",
+  "gap:6172,-5672",
+  "gap:6173,-5715",
+  "gap:6174,-5615",
+  "gap:6177,-5723",
+  "gap:6181,-5774",
+  "gap:6182,-5758",
+  "gap:6188,-5648",
+  "gap:6188,-5719",
+  "gap:6191,-5662",
+  "gap:6197,-5625",
+  "gap:6197,-5767",
+  "gap:6208,-5786",
+  "gap:6211,-5623",
+  "gap:6211,-5655",
+  "gap:6213,-5635",
+  "gap:6213,-5760",
+  "gap:6215,-5640",
+  "gap:6217,-5581",
+  "gap:6217,-5706",
+  "gap:6226,-5595",
+  "gap:6229,-5687",
+  "gap:6233,-5760",
+  "gap:6234,-5720",
+  "gap:6245,-5679",
+  "gap:6246,-5739",
+  "gap:6247,-5776",
+  "gap:6249,-5596",
+  "gap:6273,-5703",
+  "gap:6281,-5831",
+  "gap:6283,-5618",
+  "gap:6287,-5688",
+  "gap:6289,-5703",
+  "gap:6290,-5633",
+  "gap:6290,-5760",
+  "gap:6292,-5593",
+  "gap:6292,-5743",
+  "gap:6296,-5712",
+  "gap:6305,-5572",
+  "gap:6308,-5782",
+  "gap:6315,-5781",
+  "gap:6317,-5570",
+  "gap:6319,-5699",
+  "gap:6321,-5713",
+  "gap:6322,-5590",
+  "gap:6334,-5697",
+  "gap:6336,-5688"
+ ],
+ "short": [
+  [
+   "prop:r2139045",
+   "property",
+   1577,
+   1692,
+   "Staff Club"
+  ],
+  [
+   "prop:r3006921",
+   "property",
+   673,
+   886,
+   "University Service Road West"
+  ],
+  [
+   "prop:r3300438",
+   "property",
+   1939,
+   2299,
+   "Shackleton"
+  ],
+  [
+   "prop:w30063996",
+   "property",
+   1329,
+   1344,
+   "University Road"
+  ],
+  [
+   "prop:w32651040",
+   "property",
+   669,
+   685,
+   "University Service Road West 54"
+  ],
+  [
+   "prop:w32678442",
+   "property",
+   350,
+   367,
+   "University Health Service"
+  ],
+  [
+   "prop:w33830050",
+   "property",
+   6212,
+   6287,
+   "University Road"
+  ],
+  [
+   "prop:w33830152",
+   "property",
+   1911,
+   1917,
+   "Murray"
+  ],
+  [
+   "prop:w33830587",
+   "property",
+   573,
+   575,
+   "? 2A"
+  ],
+  [
+   "prop:w66696202",
+   "property",
+   860,
+   935,
+   "University Road 34"
+  ],
+  [
+   "prop:w93729747",
+   "property",
+   915,
+   931,
+   "Law"
+  ],
+  [
+   "prop:w93729752",
+   "property",
+   333,
+   347,
+   "Mathematical Sciences"
+  ],
+  [
+   "path:w1065981731@47,-44",
+   "path",
+   17,
+   29,
+   "highway=cycleway w1065981731"
+  ],
+  [
+   "path:w1118380599@48,-45",
+   "path",
+   26,
+   30,
+   "highway=footway w1118380599"
+  ],
+  [
+   "path:w1125703345@48,-45",
+   "path",
+   188,
+   192,
+   "highway=footway w1125703345"
+  ],
+  [
+   "path:w1174317571@48,-45",
+   "path",
+   60,
+   76,
+   "highway=footway w1174317571"
+  ],
+  [
+   "path:w1174317584@48,-45",
+   "path",
+   96,
+   102,
+   "highway=footway w1174317584"
+  ],
+  [
+   "path:w1174317588@47,-45",
+   "path",
+   124,
+   128,
+   "highway=footway w1174317588"
+  ],
+  [
+   "path:w1174317617@47,-45",
+   "path",
+   6,
+   18,
+   "highway=footway w1174317617"
+  ],
+  [
+   "path:w1174345812@47,-45",
+   "path",
+   166,
+   169,
+   "highway=footway w1174345812"
+  ],
+  [
+   "path:w1174345814@47,-45",
+   "path",
+   45,
+   52,
+   "highway=footway w1174345814"
+  ],
+  [
+   "path:w1174345815@47,-45",
+   "path",
+   107,
+   114,
+   "highway=footway w1174345815"
+  ],
+  [
+   "path:w1174345815@47,-46",
+   "path",
+   41,
+   99,
+   "highway=footway w1174345815"
+  ],
+  [
+   "path:w1174345816@47,-45",
+   "path",
+   6,
+   13,
+   "highway=footway w1174345816"
+  ],
+  [
+   "path:w1174345816@47,-46",
+   "path",
+   127,
+   131,
+   "highway=footway w1174345816"
+  ],
+  [
+   "path:w1174345817@47,-45",
+   "path",
+   177,
+   180,
+   "highway=footway w1174345817"
+  ],
+  [
+   "path:w1174345821@47,-45",
+   "path",
+   95,
+   96,
+   "highway=footway w1174345821"
+  ],
+  [
+   "path:w1174345822@47,-45",
+   "path",
+   35,
+   74,
+   "highway=footway w1174345822"
+  ],
+  [
+   "path:w1174345823@47,-45",
+   "path",
+   121,
+   127,
+   "highway=footway w1174345823"
+  ],
+  [
+   "path:w1174345824@47,-45",
+   "path",
+   132,
+   188,
+   "highway=footway w1174345824"
+  ],
+  [
+   "path:w1174345826@47,-45",
+   "path",
+   82,
+   94,
+   "highway=footway w1174345826"
+  ],
+  [
+   "path:w1174345836@46,-44",
+   "path",
+   43,
+   54,
+   "highway=footway w1174345836"
+  ],
+  [
+   "path:w1177208796@47,-45",
+   "path",
+   1,
+   17,
+   "highway=footway w1177208796"
+  ],
+  [
+   "path:w219899642@47,-45",
+   "path",
+   69,
+   70,
+   "highway=footway w219899642"
+  ],
+  [
+   "path:w219899646@47,-45",
+   "path",
+   154,
+   159,
+   "highway=footway w219899646"
+  ],
+  [
+   "path:w225851887@48,-45",
+   "path",
+   12,
+   18,
+   "highway=footway w225851887"
+  ],
+  [
+   "path:w226141829@47,-45",
+   "path",
+   8,
+   9,
+   "highway=steps w226141829"
+  ],
+  [
+   "path:w32772544@48,-45",
+   "path",
+   435,
+   440,
+   "highway=service w32772544"
+  ],
+  [
+   "path:w34914111@48,-45",
+   "path",
+   188,
+   192,
+   "highway=service w34914111"
+  ],
+  [
+   "path:w719932860@47,-46",
+   "path",
+   51,
+   54,
+   "highway=service w719932860"
+  ],
+  [
+   "path:w750430331@46,-44",
+   "path",
+   531,
+   544,
+   "University Service Road West"
+  ],
+  [
+   "path:w750430331@47,-46",
+   "path",
+   337,
+   354,
+   "University Service Road West"
+  ],
+  [
+   "path:w93729749@48,-45",
+   "path",
+   73,
+   78,
+   "highway=footway w93729749"
+  ],
+  [
+   "path:w93742818@47,-45",
+   "path",
+   145,
+   215,
+   "highway=footway w93742818"
+  ],
+  [
+   "path:w996692321@48,-45",
+   "path",
+   62,
+   68,
+   "highway=service w996692321"
+  ],
+  [
+   "path:w996692321@48,-46",
+   "path",
+   83,
+   84,
+   "highway=service w996692321"
+  ],
+  [
+   "path:w998262239@48,-45",
+   "path",
+   25,
+   31,
+   "highway=service w998262239"
+  ],
+  [
+   "open:r16456779@47,-44",
+   "open",
+   518,
+   664,
+   "landuse=grass r16456779"
+  ],
+  [
+   "open:w160022677@48,-45",
+   "open",
+   1665,
+   1707,
+   "Library Square (landuse=grass)"
+  ],
+  [
+   "open:w168211063@48,-45",
+   "open",
+   57,
+   85,
+   "landuse=grass w168211063"
+  ],
+  [
+   "open:w169224229@48,-45",
+   "open",
+   278,
+   290,
+   "landuse=grass w169224229"
+  ],
+  [
+   "open:w169224230@48,-45",
+   "open",
+   80,
+   93,
+   "landuse=grass w169224230"
+  ],
+  [
+   "open:w169357372@49,-45",
+   "open",
+   336,
+   342,
+   "landuse=grass w169357372"
+  ],
+  [
+   "open:w187106206@47,-44",
+   "open",
+   714,
+   721,
+   "landuse=grass w187106206"
+  ],
+  [
+   "open:w187106206@47,-45",
+   "open",
+   536,
+   578,
+   "landuse=grass w187106206"
+  ],
+  [
+   "open:w187106219@48,-45",
+   "open",
+   735,
+   778,
+   "landuse=grass w187106219"
+  ],
+  [
+   "open:w225851905@48,-45",
+   "open",
+   8,
+   16,
+   "landuse=grass w225851905"
+  ],
+  [
+   "open:w226247454@47,-45",
+   "open",
+   634,
+   675,
+   "landuse=grass w226247454"
+  ],
+  [
+   "open:w226268597@47,-44",
+   "open",
+   2068,
+   2088,
+   "landuse=grass w226268597"
+  ],
+  [
+   "gap:5944,-5546",
+   "gap",
+   616,
+   2395,
+   "gap:5944,-5546 2395 cols, between University Service Road West and Lovers Walk North, edge of Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:5968,-5636",
+   "gap",
+   539,
+   3265,
+   "gap:5968,-5636 3265 cols, between Lovers Walk North and University Service Road West, edge of Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:5975,-5549",
+   "gap",
+   602,
+   639,
+   "gap:5975,-5549 639 cols, between highway=service w160141570 and highway=cycleway w750430330, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6007,-5592",
+   "gap",
+   84,
+   85,
+   "gap:6007,-5592 85 cols, between highway=service w160141570 and landuse=grass w226141841, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6016,-5760",
+   "gap",
+   466,
+   649,
+   "gap:6016,-5760 649 cols, beside University Service Road West, edge of Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6016,-5799",
+   "gap",
+   930,
+   2567,
+   "gap:6016,-5799 2567 cols, between University Service Road West and Statistical Science Research Institute, edge of Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6036,-5581",
+   "gap",
+   162,
+   201,
+   "gap:6036,-5581 201 cols, between landuse=grass w165291080 and building=roof w147603916, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6047,-5544",
+   "gap",
+   1024,
+   1111,
+   "gap:6047,-5544 1111 cols, between Shackleton and highway=service w24298747, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6057,-5783",
+   "gap",
+   241,
+   345,
+   "gap:6057,-5783 345 cols, between highway=footway w1174345816 and highway=footway w1174345815, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6062,-5732",
+   "gap",
+   225,
+   659,
+   "gap:6062,-5732 659 cols, between landuse=grass w187106219 and highway=footway w1174345824, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6068,-5562",
+   "gap",
+   408,
+   604,
+   "gap:6068,-5562 604 cols, beside Shackleton, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6087,-5672",
+   "gap",
+   54,
+   204,
+   "gap:6087,-5672 204 cols, between highway=footway w93742818 and landuse=grass w187106206, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6104,-5657",
+   "gap",
+   6,
+   82,
+   "gap:6104,-5657 82 cols, between highway=footway w93742818 and landuse=grass w187106206, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6113,-5779",
+   "gap",
+   682,
+   683,
+   "gap:6113,-5779 683 cols, between Murray and highway=footway w1246796425, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6121,-5638",
+   "gap",
+   7,
+   52,
+   "gap:6121,-5638 52 cols, between landuse=grass w187106206 and landuse=grass w187106219, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6125,-5621",
+   "gap",
+   29,
+   95,
+   "gap:6125,-5621 95 cols, between landuse=grass w187106206 and landuse=grass w187106219, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6132,-5733",
+   "gap",
+   142,
+   165,
+   "gap:6132,-5733 165 cols, between building=university w226000420 and highway=footway w1174317593, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6139,-5748",
+   "gap",
+   15,
+   22,
+   "gap:6139,-5748 22 cols, between building=university w226000420 and building=roof w154067444, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6144,-5747",
+   "gap",
+   46,
+   51,
+   "gap:6144,-5747 51 cols, between landuse=grass w169224230 and highway=footway w1174317593, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6181,-5711",
+   "gap",
+   370,
+   439,
+   "gap:6181,-5711 439 cols, between landuse=grass w165291081 and highway=footway w1174317577, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6211,-5808",
+   "gap",
+   1005,
+   1007,
+   "gap:6211,-5808 1007 cols, between highway=footway w1256896077 and highway=service w141567965, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6246,-5760",
+   "gap",
+   94,
+   111,
+   "gap:6246,-5760 111 cols, between highway=footway w1174317601 and highway=service w996692321, in Highfield Campus (amenity=university)"
+  ],
+  [
+   "gap:6319,-5760",
+   "gap",
+   600,
+   608,
+   "gap:6319,-5760 608 cols, between landuse=grass w169357372 and Life Sciences, in Highfield Campus (amenity=university)"
+  ]
+ ],
+ "refused": [
+  [
+   "road:University Road@48,-46",
+   "leftover Geocraft structure e.g. [(6257, 55, -5881), (6257, 55, -5880)]"
+  ],
+  [
+   "road:University Road@49,-45",
+   "leftover Geocraft structure e.g. [(6272, 54, -5681), (6272, 54, -5675)]"
+  ],
+  [
+   "road:University Road@49,-46",
+   "leftover Geocraft structure e.g. [(6272, 55, -5836), (6272, 55, -5835)]"
+  ],
+  [
+   "path:w1030214384@47,-44",
+   "leftover Geocraft structure e.g. [(6137, 47, -5625), (6139, 48, -5626)]"
+  ],
+  [
+   "path:w1118380599@47,-45",
+   "leftover Geocraft structure e.g. [(6127, 51, -5645), (6127, 50, -5645)]"
+  ],
+  [
+   "path:w1118380600@47,-44",
+   "leftover Geocraft structure e.g. [(6082, 51, -5624), (6084, 51, -5625)]"
+  ],
+  [
+   "path:w1118380600@47,-45",
+   "leftover Geocraft structure e.g. [(6101, 48, -5633), (6103, 48, -5634)]"
+  ],
+  [
+   "path:w1125703346@49,-45",
+   "leftover Geocraft structure e.g. [(6272, 56, -5693), (6273, 55, -5693)]"
+  ],
+  [
+   "path:w1125703349@48,-45",
+   "leftover Geocraft structure e.g. [(6266, 55, -5677)]"
+  ],
+  [
+   "path:w1136685793@47,-44",
+   "leftover Geocraft structure e.g. [(6116, 48, -5603), (6120, 48, -5600)]"
+  ],
+  [
+   "path:w1138034308@49,-45",
+   "leftover Geocraft structure e.g. [(6293, 54, -5699), (6293, 54, -5698)]"
+  ],
+  [
+   "path:w1138034309@49,-45",
+   "leftover Geocraft structure e.g. [(6283, 54, -5701), (6283, 54, -5700)]"
+  ],
+  [
+   "path:w1150960151@47,-44",
+   "leftover Geocraft structure e.g. [(6116, 48, -5614), (6117, 48, -5614)]"
+  ],
+  [
+   "path:w1174317567@48,-45",
+   "leftover Geocraft structure e.g. [(6258, 56, -5702)]"
+  ],
+  [
+   "path:w1174317580@48,-45",
+   "leftover Geocraft structure e.g. [(6174, 56, -5705), (6174, 55, -5705)]"
+  ],
+  [
+   "path:w1174317584@47,-45",
+   "leftover Geocraft structure e.g. [(6143, 54, -5709)]"
+  ],
+  [
+   "path:w1174317615@49,-45",
+   "leftover Geocraft structure e.g. [(6298, 55, -5715), (6308, 54, -5712)]"
+  ],
+  [
+   "path:w1174317616@49,-45",
+   "leftover Geocraft structure e.g. [(6327, 53, -5706)]"
+  ],
+  [
+   "path:w1174345825@47,-45",
+   "leftover Geocraft structure e.g. [(6038, 50, -5688), (6039, 50, -5688)]"
+  ],
+  [
+   "path:w1174345831@47,-45",
+   "leftover Geocraft structure e.g. [(6034, 51, -5697), (6034, 51, -5696)]"
+  ],
+  [
+   "path:w1174345832@46,-45",
+   "leftover Geocraft structure e.g. [(6006, 53, -5641), (6007, 53, -5644)]"
+  ],
+  [
+   "path:w1174345832@47,-45",
+   "leftover Geocraft structure e.g. [(6016, 52, -5674), (6017, 52, -5677)]"
+  ],
+  [
+   "path:w1174345834@47,-45",
+   "leftover Geocraft structure e.g. [(6019, 50, -5659), (6022, 50, -5656)]"
+  ],
+  [
+   "path:w1214097964@47,-44",
+   "leftover Geocraft structure e.g. [(6117, 49, -5576), (6118, 49, -5578)]"
+  ],
+  [
+   "path:w1256896077@48,-46",
+   "leftover Geocraft structure e.g. [(6231, 56, -5843), (6231, 56, -5842)]"
+  ],
+  [
+   "path:w1256896091@49,-44",
+   "leftover Geocraft structure e.g. [(6282, 54, -5612)]"
+  ],
+  [
+   "path:w1256896093@49,-44",
+   "leftover Geocraft structure e.g. [(6288, 54, -5605)]"
+  ],
+  [
+   "path:w1256896094@49,-44",
+   "leftover Geocraft structure e.g. [(6279, 55, -5601), (6280, 55, -5602)]"
+  ],
+  [
+   "path:w1256896095@49,-44",
+   "leftover Geocraft structure e.g. [(6274, 55, -5583), (6275, 55, -5582)]"
+  ],
+  [
+   "path:w140005136@49,-44",
+   "leftover Geocraft structure e.g. [(6308, 54, -5569), (6308, 54, -5568)]"
+  ],
+  [
+   "path:w141567965@48,-46",
+   "leftover Geocraft structure e.g. [(6203, 56, -5831), (6203, 56, -5830)]"
+  ],
+  [
+   "path:w141567968@48,-45",
+   "leftover Geocraft structure e.g. [(6250, 54, -5750), (6251, 54, -5751)]"
+  ],
+  [
+   "path:w148274757@47,-45",
+   "leftover Geocraft structure e.g. [(6104, 52, -5743)]"
+  ],
+  [
+   "path:w160141570@46,-44",
+   "leftover Geocraft structure e.g. [(5983, 53, -5550), (5983, 53, -5549)]"
+  ],
+  [
+   "path:w160141570@47,-44",
+   "leftover Geocraft structure e.g. [(6016, 54, -5624), (6016, 54, -5623)]"
+  ],
+  [
+   "path:w185962707@47,-45",
+   "leftover Geocraft structure e.g. [(6108, 53, -5749)]"
+  ],
+  [
+   "path:w226117633@47,-45",
+   "leftover Geocraft structure e.g. [(6023, 51, -5696), (6024, 51, -5701)]"
+  ],
+  [
+   "path:w248962856@47,-44",
+   "leftover Geocraft structure e.g. [(6079, 50, -5620), (6086, 49, -5617)]"
+  ],
+  [
+   "path:w266864429@49,-44",
+   "leftover Geocraft structure e.g. [(6325, 53, -5599), (6326, 53, -5601)]"
+  ],
+  [
+   "path:w267399221@49,-44",
+   "leftover Geocraft structure e.g. [(6313, 54, -5570), (6314, 54, -5573)]"
+  ],
+  [
+   "path:w33830526@47,-45",
+   "leftover Geocraft structure e.g. [(6121, 53, -5694), (6126, 53, -5686)]"
+  ],
+  [
+   "path:w34914111@49,-45",
+   "leftover Geocraft structure e.g. [(6272, 54, -5707), (6272, 54, -5706)]"
+  ],
+  [
+   "path:w673793504@49,-45",
+   "leftover Geocraft structure e.g. [(6330, 53, -5694), (6331, 53, -5694)]"
+  ],
+  [
+   "path:w750430331@46,-45",
+   "leftover Geocraft structure e.g. [(6000, 53, -5636), (6000, 53, -5635)]"
+  ],
+  [
+   "path:w750430331@47,-45",
+   "leftover Geocraft structure e.g. [(6016, 51, -5688), (6016, 51, -5687)]"
+  ],
+  [
+   "path:w764169293@49,-45",
+   "leftover Geocraft structure e.g. [(6325, 53, -5691), (6326, 53, -5691)]"
+  ],
+  [
+   "path:w770401389@47,-45",
+   "leftover Geocraft structure e.g. [(6030, 52, -5741), (6030, 52, -5740)]"
+  ],
+  [
+   "path:w770401389@47,-46",
+   "leftover Geocraft structure e.g. [(6048, 52, -5772), (6048, 52, -5771)]"
+  ],
+  [
+   "path:w93729749@47,-45",
+   "leftover Geocraft structure e.g. [(6095, 51, -5685), (6096, 50, -5685)]"
+  ],
+  [
+   "path:w93742821@47,-45",
+   "leftover Geocraft structure e.g. [(6020, 50, -5661), (6020, 50, -5660)]"
+  ],
+  [
+   "path:w998262239@49,-45",
+   "leftover Geocraft structure e.g. [(6272, 54, -5678), (6272, 54, -5677)]"
+  ],
+  [
+   "open:w164427493@49,-44",
+   "leftover Geocraft structure e.g. [(6284, 54, -5632)]"
+  ],
+  [
+   "open:w164427493@49,-45",
+   "leftover Geocraft structure e.g. [(6280, 55, -5643), (6280, 55, -5642)]"
+  ],
+  [
+   "open:w165291080@47,-44",
+   "leftover Geocraft structure e.g. [(6039, 58, -5586), (6039, 57, -5586)]"
+  ],
+  [
+   "open:w165291080@47,-45",
+   "leftover Geocraft structure e.g. [(6035, 50, -5683), (6035, 50, -5682)]"
+  ],
+  [
+   "open:w165291081@48,-45",
+   "leftover Geocraft structure e.g. [(6182, 54, -5708), (6183, 54, -5709)]"
+  ],
+  [
+   "open:w168211052@49,-45",
+   "leftover Geocraft structure e.g. [(6282, 55, -5760), (6283, 55, -5760)]"
+  ],
+  [
+   "open:w168211052@49,-46",
+   "leftover Geocraft structure e.g. [(6277, 55, -5814), (6277, 56, -5813)]"
+  ],
+  [
+   "open:w168211063@48,-46",
+   "leftover Geocraft structure e.g. [(6261, 56, -5813), (6261, 55, -5812)]"
+  ],
+  [
+   "open:w168211063@49,-45",
+   "leftover Geocraft structure e.g. [(6272, 55, -5737), (6272, 55, -5736)]"
+  ],
+  [
+   "open:w169043904@48,-45",
+   "leftover Geocraft structure e.g. [(6231, 55, -5706), (6231, 55, -5705)]"
+  ],
+  [
+   "open:w169224229@47,-45",
+   "leftover Geocraft structure e.g. [(6142, 53, -5712), (6142, 53, -5711)]"
+  ],
+  [
+   "open:w169224230@47,-45",
+   "leftover Geocraft structure e.g. [(6141, 58, -5750), (6141, 57, -5750)]"
+  ],
+  [
+   "open:w169224230@48,-46",
+   "leftover Geocraft structure e.g. [(6146, 60, -5762), (6146, 59, -5762)]"
+  ],
+  [
+   "open:w169224231@48,-45",
+   "leftover Geocraft structure e.g. [(6170, 54, -5700), (6170, 54, -5699)]"
+  ],
+  [
+   "open:w169323824@48,-45",
+   "leftover Geocraft structure e.g. [(6251, 55, -5714), (6252, 54, -5714)]"
+  ],
+  [
+   "open:w169356761@49,-44",
+   "leftover Geocraft structure e.g. [(6272, 54, -5631), (6272, 54, -5630)]"
+  ],
+  [
+   "open:w169356761@49,-45",
+   "leftover Geocraft structure e.g. [(6273, 54, -5635), (6273, 54, -5634)]"
+  ],
+  [
+   "open:w169356763@49,-45",
+   "leftover Geocraft structure e.g. [(6288, 54, -5694), (6288, 54, -5693)]"
+  ],
+  [
+   "open:w169357371@49,-45",
+   "leftover Geocraft structure e.g. [(6293, 57, -5735), (6293, 56, -5735)]"
+  ],
+  [
+   "open:w169357373@49,-45",
+   "leftover Geocraft structure e.g. [(6326, 53, -5720), (6326, 53, -5719)]"
+  ],
+  [
+   "open:w187106202@49,-44",
+   "leftover Geocraft structure e.g. [(6278, 54, -5604), (6279, 54, -5606)]"
+  ],
+  [
+   "open:w187106204@49,-44",
+   "leftover Geocraft structure e.g. [(6275, 54, -5592), (6275, 54, -5591)]"
+  ],
+  [
+   "open:w187106219@47,-44",
+   "leftover Geocraft structure e.g. [(6133, 47, -5632), (6134, 48, -5632)]"
+  ],
+  [
+   "open:w187106219@47,-45",
+   "leftover Geocraft structure e.g. [(6072, 52, -5750), (6072, 54, -5749)]"
+  ],
+  [
+   "open:w187106226@49,-44",
+   "leftover Geocraft structure e.g. [(6273, 54, -5614), (6273, 54, -5613)]"
+  ],
+  [
+   "open:w187918195@47,-45",
+   "leftover Geocraft structure e.g. [(6072, 53, -5757), (6072, 53, -5756)]"
+  ],
+  [
+   "open:w225851899@48,-45",
+   "leftover Geocraft structure e.g. [(6257, 64, -5689), (6257, 63, -5689)]"
+  ],
+  [
+   "open:w225851902@49,-45",
+   "leftover Geocraft structure e.g. [(6272, 55, -5695), (6273, 55, -5700)]"
+  ],
+  [
+   "open:w225851905@49,-45",
+   "leftover Geocraft structure e.g. [(6272, 55, -5688), (6272, 55, -5687)]"
+  ],
+  [
+   "open:w226141841@46,-44",
+   "leftover Geocraft structure e.g. [(6013, 54, -5590), (6014, 54, -5593)]"
+  ],
+  [
+   "open:w226141841@47,-44",
+   "leftover Geocraft structure e.g. [(6016, 53, -5597), (6016, 54, -5596)]"
+  ],
+  [
+   "open:w391774349@48,-45",
+   "leftover Geocraft structure e.g. [(6259, 55, -5738), (6259, 55, -5737)]"
+  ],
+  [
+   "open:w391774354@48,-45",
+   "leftover Geocraft structure e.g. [(6174, 55, -5706), (6175, 56, -5706)]"
+  ],
+  [
+   "open:w583245615@49,-44",
+   "leftover Geocraft structure e.g. [(6272, 55, -5622), (6272, 55, -5621)]"
+  ],
+  [
+   "open:w583245615@49,-45",
+   "leftover Geocraft structure e.g. [(6275, 55, -5635), (6275, 55, -5634)]"
+  ],
+  [
+   "gap:6021,-5667",
+   "leftover Geocraft structure e.g. [(6024, 51, -5686), (6025, 51, -5689)]"
+  ],
+  [
+   "gap:6094,-5744",
+   "leftover Geocraft structure e.g. [(6095, 52, -5744), (6097, 53, -5743)]"
+  ],
+  [
+   "gap:6107,-5662",
+   "leftover Geocraft structure e.g. [(6107, 49, -5662), (6108, 50, -5661)]"
+  ],
+  [
+   "gap:6175,-5803",
+   "leftover Geocraft structure e.g. [(6177, 56, -5805), (6177, 56, -5804)]"
+  ],
+  [
+   "gap:6227,-5702",
+   "leftover Geocraft structure e.g. [(6230, 56, -5706), (6234, 56, -5702)]"
+  ],
+  [
+   "gap:6236,-5683",
+   "leftover Geocraft structure e.g. [(6257, 64, -5684), (6257, 63, -5684)]"
+  ],
+  [
+   "gap:6257,-5743",
+   "leftover Geocraft structure e.g. [(6258, 55, -5738), (6258, 55, -5737)]"
+  ],
+  [
+   "gap:6259,-5730",
+   "leftover Geocraft structure e.g. [(6259, 55, -5730), (6259, 55, -5729)]"
+  ],
+  [
+   "gap:6273,-5712",
+   "leftover Geocraft structure e.g. [(6274, 54, -5712), (6275, 54, -5713)]"
+  ],
+  [
+   "gap:6312,-5711",
+   "leftover Geocraft structure e.g. [(6316, 55, -5736), (6316, 55, -5735)]"
+  ]
+ ]
+}

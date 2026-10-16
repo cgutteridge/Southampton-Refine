@@ -1,0 +1,63 @@
+{
+  "cell": "46,-46",
+  "stages": {
+    "major-features": {
+      "status": "verified",
+      "plan": "burgess_rd_82b",
+      "blocks": 7922,
+      "readback": {
+        "planned": 7922,
+        "mismatches": 0,
+        "checked": "2026-10-15 04:46"
+      },
+      "snapshot": "backups/regions/2026-10-15-044547-Q-133-burgess_rd_82b",
+      "fingerprint": {
+        "5944,60,-5874": "grass_block",
+        "5951,60,-5874": "stone",
+        "5950,61,-5877": "short_grass",
+        "5955,62,-5876": "air",
+        "5946,60,-5871": "stone",
+        "5951,65,-5873": "air"
+      },
+      "note": "Burgess Road 82b OSM w208580585, house only, floor y60 from natural ground, front N, deepslate_tile roof (colour unknown: tree-covered in z18 aerial); patrol: no clashes for this build; osm_footprints check OK; walked in-world"
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_46_m46_ground",
+      "blocks": 62590,
+      "readback": {
+        "planned": 62590,
+        "mismatches": 0,
+        "checked": "2026-10-15 04:55"
+      },
+      "snapshot": "southampton_refine:before_highfield_46_m46_ground",
+      "note": "OSM+aerial; woodland grass floor, Burgess Rd/campus edge N-W; footprints and light_gray_carpet tops skipped (82b house kept; brick pillar at its west corner left, noted)"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_46_m46_trees",
+      "blocks": 39696,
+      "crowns": 247,
+      "readback": {
+        "planned": 39696,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 11:48:32"
+      },
+      "mask": "verification/site/masks/trees-46_-46.mask.json",
+      "note": "2026-10-15 I-059: trees re-run with dense-cover fill + overhang rule (undone from old mask, 20 crowns before; trees on lawn only, TREES_ON_PAVING off). Crowns 247, 39696 blocks, see mask outside the cell. Pre-state snapshot (cell + 12-block margin) backups/regions/2026-10-15-114712-highfield_46_m46_trees_undo; apply snapshot backups/regions/2026-10-15-114818-highfield_46_m46_trees. Decor untouched. Readback 0, 0 trunks on non-lawn, patrol floating 0, 2 doors in cell+margin reachable.",
+      "dense_redo": true
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_46_m46_decor",
+      "blocks": 222,
+      "readback": {
+        "planned": 222,
+        "mismatches": 0,
+        "checked": "2026-10-15 04:55"
+      },
+      "mask": "verification/site/masks/decor-46_-46.mask.json"
+    }
+  }
+}

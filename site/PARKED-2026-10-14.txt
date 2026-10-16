@@ -1,0 +1,13 @@
+PARKED 2026-10-14 (moved from site/TODO.txt; not deleted)
+Reason: region r.12.-12 restored to 2026-10-12 snapshot; ring work restarts at the centre cell 48,-44.
+
+- [ ] character: Library Square south lawn — open:w160022677 (formal, no scatter trees).
+- [ ] character: Law forecourt — prop:w93729747 paths + lawn edges (aerial z18).
+- [ ] character: Staff Club courtyard — prop:r2139045 plaza/pond character from prior builds.
+
+Non-Minecraft tasks (moved from site/TODO.txt SETUP and DEFER, 2026-10-14):
+- [ ] Survey seed places; replace approximate OSGB with measured (I-002)
+- Mapillary access token (KartaView covered Q-002 without it)
+- Bulk Hampshire portal downloads (Uni z18 tiles OK for now)
+- CCO z19 redistribute licence check (only if publishing z19 crops)
+- Own phone photos for exact plot façades when refining a named house

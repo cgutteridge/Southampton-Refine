@@ -1,0 +1,59 @@
+{
+  "cell": "50,-44",
+  "stages": {
+    "feature_ripstone_gardens_41_49": {
+      "status": "applied",
+      "plan": "ripstone_gardens_41_49",
+      "blocks": 3321,
+      "snapshot": "backups/regions/2026-10-15-011241-Q-098",
+      "fingerprint": "origin 6493,-5541; readback 0",
+      "note": "2026-10-15 house only (41-49 odd), fronts N; footprints check OK, roof_lint OK; gardens left to ground/trees/decor passes; awaiting user visual check"
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_50_m44_ground",
+      "blocks": 10999,
+      "readback": {
+        "planned": 10999,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 01:17:22"
+      },
+      "note": "first-principles ground (OSM + aerial); verify: patrol, visuals; trees and decor re-run after"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_50_m44_trees",
+      "blocks": 11227,
+      "mask": "verification/site/masks/trees-50_-44.mask.json",
+      "readback": {
+        "planned": 11227,
+        "mismatches": 0,
+        "checked": "2026-10-15 01:18:19"
+      },
+      "note": "2026-10-15 crowns checked vs aerial; awaiting user visual check"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_50_m44_decor",
+      "blocks": 361,
+      "mask": "verification/site/masks/decor-50_-44.mask.json",
+      "readback": {
+        "planned": 361,
+        "mismatches": 0
+      },
+      "note": "2026-10-15 oak hedges + iron_bars fences; 58 pristine leftover plants cleared (highfield_50_m44_leftover_plants); awaiting user visual check"
+    },
+    "ground": {
+      "status": "applied",
+      "plan": "highfield_50_m44_ground",
+      "blocks": 10999,
+      "readback": {
+        "planned": 10999,
+        "mismatches": 0,
+        "checked": "2026-10-15 01:17:22"
+      },
+      "note": "2026-10-15 first-principles ground (OSM + aerial); kinds checked vs aerial; patrol 0 floating; awaiting user visual check"
+    }
+  }
+}

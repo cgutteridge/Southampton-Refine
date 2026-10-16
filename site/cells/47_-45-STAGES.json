@@ -1,0 +1,220 @@
+{
+  "cell": "47,-45",
+  "stages": {
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_47_m45_ground",
+      "blocks": 10664,
+      "readback": {
+        "planned": 10664,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-16 10:09:30"
+      },
+      "note": "first-principles ground (OSM + aerial); verify: patrol, visuals; trees and decor re-run after"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_47_m45_trees",
+      "blocks": 12953,
+      "crowns": 72,
+      "readback": {
+        "planned": 12953,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-16 10:12:07"
+      },
+      "mask": "verification/site/masks/trees-47_-45.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_47_m45_decor",
+      "blocks": 734,
+      "readback": {
+        "planned": 734,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-16 10:13:26"
+      },
+      "mask": "verification/site/masks/decor-47_-45.mask.json"
+    },
+    "feature-highfield_47_m45_canopies": {
+      "status": "applied",
+      "plan": "highfield_47_m45_canopies",
+      "owner": "cell-47-45-canopies-77464",
+      "started": "2026-10-15 19:03:03",
+      "blocks": 1071,
+      "structure": {
+        "name": "southampton_refine:before_highfield_47_m45_canopies",
+        "from": [
+          6049,
+          50,
+          -5747
+        ],
+        "to": [
+          6142,
+          70,
+          -5690
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_47_m45_canopies-planned.json",
+      "finished": "2026-10-15 19:03:18",
+      "readback": {
+        "planned": 1071,
+        "mismatches": 0,
+        "checked": "2026-10-15 19:03:18"
+      },
+      "superseded_part": "2026-10-15 21:0x SUPERSEDED for w154067444 (the y58 canopy, x6136-6141 z-5746..-5739): it is a tree on a lawn strip (registered Google aerial reference/aerial/highfield-user/googlemaps-music-law-annex-2026-10-15.webp, crop verification/site/canopy444-aerial-crop.png), not a canopy. Deck/floor removed by feature-highfield_grounds_47_m45_canopy444_lawn, entries for x>=6130 dropped from highfield_47_m45_canopies-cells.json (copy: ...-cells.w154067444-removed.json). The w219899639 canopy (y54 diagonal, x6050-6059) is unchanged and still owned by this build."
+    },
+    "feature-highfield_47_m45_orphan_leaves": {
+      "status": "applied",
+      "plan": "highfield_47_m45_orphan_leaves",
+      "owner": "cell-47-45-canopies-77464",
+      "started": "2026-10-15 19:06:06",
+      "blocks": 156,
+      "structure": {
+        "name": "southampton_refine:before_highfield_47_m45_orphan_leaves",
+        "from": [
+          6026,
+          51,
+          -5753
+        ],
+        "to": [
+          6135,
+          61,
+          -5632
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_47_m45_orphan_leaves-planned.json",
+      "finished": "2026-10-15 19:06:12",
+      "readback": {
+        "planned": 156,
+        "mismatches": 0,
+        "checked": "2026-10-15 19:06:12"
+      }
+    },
+    "feature_highfield_47_m45_canopies": {
+      "status": "applied",
+      "plan": "highfield_47_m45_canopies (I-055/I-057)",
+      "blocks": 1071,
+      "readback": {
+        "planned": 1071,
+        "mismatches": 0,
+        "checked": "2026-10-15 19:03"
+      },
+      "snapshot": "backups/regions/2026-10-15-190247-47_-45-canopies + structure before_highfield_47_m45_canopies",
+      "fingerprint": {
+        "6055,54,-5702": "light_gray_carpet",
+        "6056,51,-5700": "bricks",
+        "6054,45,-5700": "stone",
+        "6139,58,-5741": "light_gray_carpet",
+        "6139,45,-5741": "stone"
+      },
+      "note": "Both lumps are OSM building=roof canopies (layer 1): w219899639 University Service Road West (deck y54, floor y50) and w154067444 unnamed street = the I-055 'junk mass' (deck y58, floor y53; stub of tower-adjacent mass cleared into the canopy). Open flat gray_concrete decks incl. lump spill at deck height, posts every 3rd open-edge cell, light_gray_concrete floor. lump_scan 0 left. Doors: 6 doors in cell+margin, flood component sizes unchanged before/after. Patrol floating 0; remaining door_to_wall rows are Broadlands, not this cell. Trees untouched: mask already overhang-v1, dry run adds 2 crowns only, not applied (apply_cell would overwrite the 8266-block mask).",
+      "superseded_part": "2026-10-15 21:0x SUPERSEDED for w154067444 (the y58 canopy, x6136-6141 z-5746..-5739): it is a tree on a lawn strip (registered Google aerial reference/aerial/highfield-user/googlemaps-music-law-annex-2026-10-15.webp, crop verification/site/canopy444-aerial-crop.png), not a canopy. Deck/floor removed by feature-highfield_grounds_47_m45_canopy444_lawn, entries for x>=6130 dropped from highfield_47_m45_canopies-cells.json (copy: ...-cells.w154067444-removed.json). The w219899639 canopy (y54 diagonal, x6050-6059) is unchanged and still owned by this build."
+    },
+    "floating_leaves": {
+      "status": "applied",
+      "plan": "highfield_47_m45_orphan_leaves (I-056)",
+      "blocks": 156,
+      "readback": {
+        "planned": 156,
+        "mismatches": 0,
+        "checked": "2026-10-15 19:06"
+      },
+      "snapshot": "backups/regions/2026-10-15-190555-47_-45-orphan-leaves + structure before_highfield_47_m45_orphan_leaves",
+      "note": "Removed 14 leaf blobs with no log and nothing solid beneath, in no trees mask (old Geocraft leaves, incl. 9 blocks at 6132-6134,58-60,-5710..-5709). Neighbour-owned leaves (48,-45 foliage, other masks) kept. Remaining 4 unsupported blobs sit on the 48,-45 hand-made foliage / scan edge, untouched."
+    },
+    "trees-undo": {
+      "status": "applied",
+      "plan": "highfield_47_m45_trees_undo",
+      "owner": "ground19-47m45",
+      "started": "2026-10-16 10:05:26",
+      "blocks": 12953,
+      "structure": {
+        "name": "southampton_refine:before_highfield_47_m45_trees_undo_20261016100525",
+        "from": [
+          6016,
+          49,
+          -5759
+        ],
+        "to": [
+          6147,
+          67,
+          -5627
+        ]
+      },
+      "snapshot": "backups/regions/2026-10-16-100505-highfield_47_m45_trees_undo",
+      "planned": "verification/site/highfield_47_m45_trees_undo-planned.json",
+      "kind": "undo",
+      "pass": "trees",
+      "finished": "2026-10-16 10:05:32",
+      "readback": {
+        "planned": 12953,
+        "mismatches": 0,
+        "checked": "2026-10-16 10:05:32"
+      }
+    },
+    "decor-undo": {
+      "status": "applied",
+      "plan": "highfield_47_m45_decor_undo",
+      "owner": "ground19-47m45",
+      "started": "2026-10-16 10:04:42",
+      "blocks": 734,
+      "structure": {
+        "name": "southampton_refine:before_highfield_47_m45_decor_undo_20261016100442",
+        "from": [
+          6016,
+          49,
+          -5760
+        ],
+        "to": [
+          6125,
+          54,
+          -5635
+        ]
+      },
+      "snapshot": "backups/regions/2026-10-16-100426-highfield_47_m45_decor_undo",
+      "planned": "verification/site/highfield_47_m45_decor_undo-planned.json",
+      "kind": "undo",
+      "pass": "decor",
+      "finished": "2026-10-16 10:04:57",
+      "readback": {
+        "planned": 734,
+        "mismatches": 0,
+        "checked": "2026-10-16 10:04:57"
+      }
+    },
+    "feature-highfield_grounds_47_m45_canopy444_lawn": {
+      "status": "applied",
+      "plan": "highfield_grounds_47_m45_canopy444_lawn",
+      "owner": "cell-47-45-tree444-1",
+      "started": "2026-10-15 20:57:47",
+      "blocks": 87,
+      "structure": {
+        "name": "southampton_refine:before_highfield_grounds_47_m45_canopy444_lawn",
+        "from": [
+          6135,
+          52,
+          -5747
+        ],
+        "to": [
+          6142,
+          58,
+          -5738
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_grounds_47_m45_canopy444_lawn-planned.json",
+      "finished": "2026-10-15 20:58:02",
+      "readback": {
+        "planned": 87,
+        "mismatches": 0,
+        "checked": "2026-10-15 20:58:02"
+      },
+      "note": "I-055: y58 deck (47 blocks) removed; 20 columns the registered aerial shows green became grass_block at y52 (floor y53 paving removed there); other canopy columns keep y53 paving. Snapshots backups/regions/2026-10-15-205710-47_-45-canopy444-lawn, ...210445-47_-45-tree444-pre-undo. Fingerprint 6139,58,-5741 gray_concrete / 6139,53,-5741 light_gray_concrete / 6139,45,-5741 stone (before)."
+    }
+  }
+}

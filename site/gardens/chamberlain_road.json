@@ -1,0 +1,9 @@
+{
+  "street": "Chamberlain Road",
+  "source": "Street View pano IIlQp_3pAUwynN0r4jUFBw (May 2014) at 28 Chamberlain Rd looking SW: nos 25-31 front boundaries. Rear/side fences not visible from the road: INFERRED from the aerial (grey boundary lines between back gardens), not seen.",
+  "front": {"type": "brick_wall", "height": 1},
+  "side_front": null,
+  "side_back": {"type": "fence", "height": 2, "inferred": true},
+  "rear": {"type": "fence", "height": 2, "inferred": true},
+  "overrides": {}
+}

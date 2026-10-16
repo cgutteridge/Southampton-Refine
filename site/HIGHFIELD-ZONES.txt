@@ -1,0 +1,22 @@
+HISTORY ONLY (2026-10-15): the zone-based grounds scripts this describes are retired; the layered passes replace them (PROCESS §2e).
+
+HIGHFIELD CAMPUS — 9 GROUNDS ZONES (Q-047)
+MC bboxes match scripts/build_highfield_grounds.py ZONES. Foliage track: legacy maintain.
+
+zone | MC bbox (x0,z0,x1,z1) | Q-047 build | Foliage track | Landscape character (1 line)
+-----|------------------------|-------------|---------------|---------------------------
+nw   | 5950,-5990,6149,-5787 | highfield_grounds_nw | maintain | NW campus lawns + paths; aerial canopy on dark green only
+nc   | 6150,-5990,6349,-5787 | highfield_grounds_nc | maintain | North central — library north lawns, formal edges near Hartley
+ne   | 6350,-5990,6550,-5787 | highfield_grounds_ne | maintain | NE engineering/life-science lawns; OSM tree points + aerial
+mw   | 5950,-5787,6149,-5583 | highfield_grounds_mw | maintain | West mid — SUSU west / Chamberlain verges
+mc   | 6150,-5787,6349,-5583 | highfield_grounds_mc | maintain | Central — Library Square formal lawn (no scatter trees); SUSU retail edges
+me   | 6350,-5787,6550,-5583 | highfield_grounds_me | maintain | East mid — chemistry / Zepler lawns
+sw   | 5950,-5583,6149,-5370 | highfield_grounds_sw | maintain | SW — sports south, Jubilee edge trees from aerial
+sc   | 6150,-5583,6349,-5370 | highfield_grounds_sc | maintain | South central — sports complex landmark; open lawns
+se   | 6350,-5583,6550,-5370 | highfield_grounds_se | maintain | SE — Avenue / south campus grass; sparse canopy
+
+Cell ↔ zone: python3 scripts/cross_zone.py report --cell tx,tz
+Campus cell holistic ground (preferred over Q-050/Q-053/foliage stack when zones look broken):
+  python3 scripts/build_highfield_grounds_cell.py --cell tx,tz [--apply]
+  Full Q-047 Grounds per intersecting zone (OSM+aerial pave/road/lawn, trees, hedges, water skipped).
+New radial cells: build_cell_foliage.py only when not running a grounds cell revive; see site/cells/*-SOURCES.

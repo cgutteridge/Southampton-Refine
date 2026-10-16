@@ -5,6 +5,9 @@ How to place blocks so houses read as careful Minecraft builds, not as
 jagged OSM extrusions or Geocraft LIDAR carpets. Accuracy still wins for
 *where* and *what*; this file is *how*.
 
+MATERIAL RULE (user, 2026-10-15): never PLACE plain minecraft:dirt in a build (it can turn into grass
+over time); use coarse_dirt. Reading dirt as ground when scanning is fine.
+
 Sources distilled for this project (do not re-fetch every session):
   - Minecraft Wiki: Tutorial:Roof construction guidelines
   - MineSpecs: How to Build a Roof That Actually Looks Right (2026)
@@ -12,7 +15,8 @@ Sources distilled for this project (do not re-fetch every session):
     Q-014/Q-016/Q-017 stair roofs on shallow pitches (fixed Q-017b: 1:2
     slabs + envelope carpet clear)
 
-Cursor always-on summary: .cursor/rules/minecraft-craftsmanship.mdc
+This file is the single home for how blocks are placed. There is no separate
+rule-file copy.
 
 ------------------------------------------------------------------------
 1. FOOTPRINT — GUIDE, NOT PRISON
@@ -66,21 +70,26 @@ Cursor always-on summary: .cursor/rules/minecraft-craftsmanship.mdc
   1:1     45°              Stairs ascending inward
   2:1     ~63°             Full block + stair per column (steep; rare here)
 
- Southampton ordinary semis/terraces: usually **shallower than a full
- stair**. Default to **1:2 slab courses**. Do **not** put stair blocks on
- the roof skin unless evidence is clearly ~45°. Fantasy/Victorian tutorial
- “steep roofs always” does **not** override local evidence.
+ Which pitch (one rule):
+  - Victorian/Edwardian terraces and semis (Broadlands Rd type): slate at
+    ~40°, built as 45° `deepslate_tile_stairs`, ridge parallel to the street.
+    Build them with `scripts/terrace.py` (rules/terrace-builds.md); do not
+    hand-roll roofs.
+  - Genuinely shallow roofs (modern, ~22°): 1:2 slab courses, no stairs on
+    the skin.
+  - Anything else: pick the ratio from the aerial and LIDAR rise÷run.
+  The old "default to 1:2 slabs" rule read as flat roofs on Broadlands and is
+  withdrawn for the terraces above.
 
  Hard rules:
-  - Stair blocks on the roof = 45° tell. On Broadlands-type semis that is
-    usually wrong — use bottom/top slabs (1:2). Q-017 was rejected for this.
+  - Stairs on the skin are right only at ~45°; slabs only at ~22°. A stair
+    skin on a shallow roof is the fault.
   - Full blocks are **wall-plate / gable / hip fill**, not the visible pitch.
     A stepped pyramid of full blocks (or Geocraft stone/carpet stripes) is
     the beginner / generator tell — replace it.
-  - Processed ground holds no Geocraft. Every column of every parcel a build
-    covers is rebuilt or cleared (carpet, stone band / undercroft, stock
-    pavement in gardens, stray walls, procedural trees, prior stair skins).
-    A fragment straddling the plot line is cleared whole by the owning build.
+  - Geocraft left on a processed column is a fault; who clears what is in
+    HANDOFF-LAYERED-PASSES §1 (a feature clears its whole volume, ground
+    clears the rest).
   - One pitch per house (wings/bays match the main).
   - Overhang ≥1 block past the wall on eaves (and gable ends). Flush roofs
     look like a hat glued on a box.
@@ -121,6 +130,9 @@ Cursor always-on summary: .cursor/rules/minecraft-craftsmanship.mdc
     over the whole parcel, no kerb; asphalt alley → gray_concrete within width/2 +
     verge; highway=path dirt → coarse_dirt / dirt_path within 1 + grass. Check the
     tags first — most "lanes" near flats and shops are driveways.
+  - Same gray_concrete tarmac for campus car parks (OSM amenity=parking, bay markings
+    white_concrete), parking aisles, and access roads — scripts/ground_layer.py
+    (the live ground pass; this section is its palette).
   - A column whose pristine top is not ground (carpet over brick) is the wall row of
     an unrebuilt Geocraft building rasterised into the street: write it unchanged,
     drop only the carpet, lay no street there (clearing holes the building).
@@ -137,26 +149,26 @@ Cursor always-on summary: .cursor/rules/minecraft-craftsmanship.mdc
   ✗ Jagged 1:1 OSM wall trace with missing corner teeth
   ✗ Geocraft lattice / carpet / striped full-block roof left in place
   ✗ Any Geocraft block left on (or straddling) a processed plot
-  ✗ Stair-only 45° roof when aerial shows a shallow pitch (Broadlands default)
+  ✗ Stair skin where the aerial shows a shallow pitch, or slabs where it shows ~45°
   ✗ Full-block underlay pyramid reading as the roof surface
   ✗ Roof flush with walls (no overhang)
   ✗ Single-layer stair skin with sky visible through gaps
   ✗ Floating or unflanked glass
   ✗ Chimney sitting on top of the roof without cutting through
+  ✗ Sapling blocks anywhere (site/FOLIAGE.txt)
 
 ------------------------------------------------------------------------
 5. CHECK BEFORE MARKING A PROPERTY DONE
 ------------------------------------------------------------------------
  Add to the usual PROCESS done list:
   [ ] Shell airtight from street and aerial angles (no lattice/carpet roof)
-  [ ] No Geocraft left anywhere on the processed parcels (coverage.py
-      signoff passes)
-  [ ] Roof is 1:2 slabs (not stairs) unless evidence is steep; overhang ≥1
+  [ ] No Geocraft left in the feature's volume (HANDOFF-LAYERED-PASSES §1)
+  [ ] Roof pitch matches §3 (terrace stairs / shallow slabs); overhang ≥1
   [ ] Every window has sill, head, and solid L/R flanks
   [ ] Footprint squared for Minecraft, still on the plot (check OK)
   [ ] Contact views still used for evidence — craftsmanship is extra,
       not a substitute for photo/aerial match
 
- Good enough: do not chase chimney pots, ridge cresting, or trapdoor
- gutters unless the place brief raises the bar. Readable massing + sealed
- shell + correct street character is the default.
+ Good enough: rules/radial-good-enough.md. Do not chase ridge cresting or
+ trapdoor gutters either. Readable massing + sealed shell + correct street
+ character is the default.

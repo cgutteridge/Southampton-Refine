@@ -1,0 +1,34 @@
+RESUME NOTE: issues clean-up, written 2026-10-15 when the user went offline.
+Nothing is running. Lock free. Marker still on 50,-42 (awaiting the user's visual check, I-045). Nothing committed.
+
+STATE
+- Process (I-057 umbrella): "done" now means site_handoff.cell_gaps(cell) is empty (ground/trees/decor applied, trees mask
+  stamped rule 'overhang-v1', no unrefined Geocraft left except recorded stages.lump_sweep exceptions). `site_handoff.py
+  next --plan` (about 43s, read-only) lists the cells still failing: 31 cells now (47,-44 is done).
+  `site_handoff.py end` fixed (I-046). I-049 done.
+- I-050 done: OSM clip extended (reference/osm/highfield-campus/...bbox-5760--6144-6783--5120.geojson). 164 of 167 lumps
+  have OSM ways, only 3 truly unmapped (46,-46, 48,-47, 49,-47). Table: site/LUMP-BACKLOG.txt.
+- Tree rule: a tree belongs to the cell its trunk is in; crowns overhang neighbours (air or neighbour tree leaves);
+  dense-cover detector in trees_layer.py; TREES_ON_PAVING = False. Done for 46,-45, 46,-44, 46,-46, 47,-45, 46,-43,
+  47,-46, 47,-44. Old (clipped) trees remain in every other finished cell (I-061, shown as TREES re-run in --plan).
+- Done this session: 47,-44 physics canopies (I-058).
+- New material rule: never place plain dirt, use coarse_dirt (site/CRAFTSMANSHIP.txt).
+
+NEXT (in order; one cell per agent, lumps first, then trees under the current rule)
+1. Per cell from `site_handoff.py next --plan`: build lumps per street (house only, OSM footprints), then re-run trees
+   (dry run first; stop if dense fill adds hundreds of crowns to a built-up cell). Patterns used: scripts/build_highfield_physics_canopies.py,
+   build_hilldown_rd_13.py, build_burgess_rd_*.py. Per build: lock, region snapshot + fingerprint, SITE_OWNER, readback 0,
+   site_walk before/after, coarse_dirt not dirt. 47,-45 next (I-055 junk mass at 6139,-5741; I-056 floating leaves near
+   6133,-5709), then 50,-42 / 49,-42 / 48,-42 / 47,-42 / 46,-42 and the east cells (51,-4x), then tree-only cells.
+2. Be careful with 48,-44 and 48,-45: hand-made good work. Their tree re-run is in --plan; check the dry run changes only
+   clipped edge crowns before applying.
+3. Remaining issues: I-044 (3 + 4 unreachable doors: 50,-43 and four Oakhurst Rd doors in 46,-43), I-038 coverage sign-offs, I-037,
+   I-029, I-043 review diffs of shared-script changes, I-042 one canonical aerial mosaic, I-041 visual-check list.
+
+NEEDS THE USER
+- (I-045 resolved 2026-10-15: the marker only shows the user the cell being worked on; it was moved 50,-42 -> 48,-42 after the user's walk. Move it on when a cell is done to decor.)
+- I-059 / I-061: look at the tree work (46,-45 and the other redone cells) and the 46,-46 / 47,-46 border.
+- I-060 Library Square trees: review against imagery (zone mc says no scatter trees).
+- Audit for plain dirt in the world and scripts (not done; many scripts mention it, probably only as a ground-class list).
+- Visual checks listed in I-041, 47,-44 canopies (two new roofs, solid wall columns where they overlap the main buildings,
+  east-side level drop at w154417140).

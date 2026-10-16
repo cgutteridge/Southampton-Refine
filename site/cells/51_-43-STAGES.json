@@ -1,0 +1,64 @@
+{
+  "cell": "51,-43",
+  "stages": {
+    "feature-merton_rd_q172_51_43": {
+      "status": "applied",
+      "plan": "merton_rd_q172_51_43",
+      "blocks": 19728,
+      "readback": {
+        "planned": 19728,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:45"
+      },
+      "snapshot": "backups/regions/2026-10-15-074508-Q-172_merton_51_43",
+      "fingerprint": "verification/site/merton_rd_q172_51_43-fingerprint.json",
+      "note": "Merton Road nos. 9-19 (odd, west side) OSM w176650761 (9), 769 (11), 760 (13), 787 (15), 778 (17), 767 (19), houses only, fronts E, floors y44 (plot stone surface) with stair step to pavement y43 at each front; 6 front + 6 rear doors site_walk-reachable (dry-run overlay and live). z19 eastext4 covers only nos. 9-13 partly (grey slate => cobbled_deepslate); 15-19 uncovered => mud_brick hint only. Old Geocraft roofs/walls cleared. Patrol: only 13 pre-existing Broadlands door_to_wall. Not walked in-world."
+    },
+    "feature-merton_rd_q173_51_43": {
+      "status": "applied",
+      "plan": "merton_rd_q173_51_43",
+      "blocks": 33940,
+      "readback": {
+        "planned": 33940,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:51"
+      },
+      "snapshot": "backups/regions/2026-10-15-075106-Q-173_merton_51_43",
+      "fingerprint": "verification/site/merton_rd_q173_51_43-fingerprint.json",
+      "note": "Merton Road even side (east of road), 11 houses OSM w176316407,402,389,383,410,407,392,386,414,394,384, houses only, fronts W, floors y43 (plot flush with pavement, no steps; step_out limited to 4 blocks). Old Geocraft roofs/walls cleared. z19 tiles 260116-17 x 175673-75 fetched, mosaic eastext5 (ground_sources.py MOSAIC still points to eastext4: repoint if ground pass needs these houses); roofs orange/red clay tile => brick/mud_brick slabs (aerial hint). 11 front + 11 rear doors site_walk-reachable dry-run and live. Patrol: only 13 pre-existing Broadlands door_to_wall. Not walked in-world."
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_51_m43_ground",
+      "blocks": 12467,
+      "readback": {
+        "planned": 12467,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:55:56"
+      },
+      "snapshot": "backups/regions/2026-10-15-075540-highfield_51_m43_ground",
+      "note": "Aerial: eastext6 mosaic = eastext5 + z19 tiles 260118-175673/74/75 fetched (cell fully covered; ground_sources/trees_layer/plant_cell_canopy repointed). OSM highways extracted (Merton Rd, Sherborne Rd, Ripstone, Blenheim; osm27700/highfield-51-43-highways-ln.geojson). Patrol: only 13 pre-existing Broadlands door_to_wall. 15 ground tests OK. All 34 Merton doors site_walk-reachable post-apply; 3 other doors (6528,46,-5421/-5431/-5436, cell 50,-43 houses, east-facing at y46, no step) unreachable, pre-existing, not ours."
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_51_m43_trees",
+      "blocks": 17655,
+      "readback": {
+        "planned": 17655,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:57:01"
+      },
+      "mask": "verification/site/masks/trees-51_-43.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_51_m43_decor",
+      "blocks": 1488,
+      "readback": {
+        "planned": 1488,
+        "mismatches": 0
+      },
+      "mask": "verification/site/masks/decor-51_-43.mask.json"
+    }
+  }
+}

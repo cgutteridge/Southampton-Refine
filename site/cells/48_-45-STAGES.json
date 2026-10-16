@@ -1,0 +1,47 @@
+{
+  "cell": "48,-45",
+  "stages": {
+    "above-ground-strip": {
+      "status": "unknown",
+      "plan": null,
+      "blocks": 0,
+      "note": "2026-10-14: region r.12.-12 restored to the 12 Oct snapshot, so the strip and foliage state must be re-checked before trusting this"
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_48_m45_ground",
+      "blocks": 12490,
+      "readback": {
+        "planned": 12490,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-14 12:18:45"
+      },
+      "note": "first-principles ground (OSM + aerial); verify: patrol, visuals; trees and decor re-run after"
+    },
+    "trees": {
+      "status": "verified",
+      "plan": "highfield_48_m45_trees",
+      "blocks": 7067,
+      "note": "2026-10-14 applied, readback 0, patrol 0 floating, user visual OK"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_48_m45_decor",
+      "blocks": 132,
+      "readback": {
+        "planned": 132,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-14 16:33:33"
+      },
+      "mask": "verification/site/masks/decor-48_-45.mask.json"
+    },
+    "ground": {
+      "status": "verified",
+      "plan": "highfield_48_m45_ground",
+      "blocks": 10325,
+      "note": "2026-10-14 applied, readback 0, patrol 0 floating, user visual OK"
+    }
+  }
+}

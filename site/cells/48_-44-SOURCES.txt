@@ -1,0 +1,70 @@
+CELL SOURCES — tx=48 tz=-44
+Updated: 2026-10-13  (regenerate: python3 scripts/cell_sources.py --cell 48,-44 --write)
+
+Purpose: one-time prep when this cell opens. Build chats read THIS file + manifest ids;
+do not re-research the whole cell each queue item. Per build step: still at most one
+primary aerial + one street Read (rules/reference-token-budget.md).
+
+MC bbox (inclusive): 6144,-5632,6271,-5505
+OSM clip covers cell centre: yes
+
+MANIFEST (reference/manifest.jsonl)
+  mc_tile 128:48:-44  manifest rows overlapping: 12
+  primary aerial (useful=yes): aerial-highfield-b35-mosaic-z18-3x3-centre-130056-87836-png
+    path=aerial/highfield-b35/mosaic-z18-3x3-centre-130056-87836.png  models=['footprint', 'roof']
+  street/facade useful/maybe: 6 (e.g. photos-highfield-campus-commons-123638127-jpg)
+
+OSM (reference/osm clips via osm_footprints.OSMIndex)
+  named streets in cell: (cycleway), (elevator), (footway), (service), (steps), Chamberlain Road, University Road
+  building footprints overlapping: 7
+  natural=tree / landuse=forest polygons (rare): 0
+  Geocraft procedural trees are not surveyed — back-garden canopy from aerial only.
+  area tags (top):
+    grass ×11
+    grass / Library Square ×1
+    residential ×1
+    university / Highfield Campus ×1
+
+COVERAGE PARCELS
+  highfield: 116 parcels — 5 untouched, 32 touched, 79 done
+    open:w160022677@48,-44  open  touched  Library Square (landuse=grass)
+    open:w226268603@48,-44  open  touched  landuse=grass w226268603
+    open:r16456779@48,-44  open  touched  landuse=grass r16456779
+    gap:6144,-5599  gap  untouched  gap:6144,-5599 55 cols, between landuse=grass r16456779 and 
+
+CROSS-ZONE (generated on --write; refresh: cell_sources.py --cell 48,-44 --write)
+  grounds zones: mc, mw, sc, sw
+  neighbor cells: 47,-45, 47,-44, 47,-43, 48,-44, 48,-43, 49,-45, 49,-44, 49,-43
+  See: python3 scripts/cross_zone.py report --cell 48,-44
+
+CHARACTER / LANDMARKS (edit by hand after light review)
+  - Library Square (open:w160022677) — formal lawn; landmark for cell character.
+
+GROUND FINISH (2026-10-13 — authoritative for this cell)
+  Applied: build_highfield_grounds_cell.py --cell 48,-44 (zones mc,mw,sc,sw;
+  structural_ocols so gap/open columns are not blocked by Q-050 archive touches).
+  Paths/roads/plazas from OSM+aerial inside campus polygon — not Q-050 grass.
+  Palette: footways/paving → polished_diorite; tarmac → gray_concrete for roads, amenity=parking
+  car parks (bay lines white_concrete), service=parking_aisle / driveway / surface=asphalt
+  (same as Broadlands / §3a); kerb → smooth_stone; lawns → grass_block.
+  Optional audit: Q-058. Next ring cells: same script, not the Q-050..Q-055 stack.
+
+FOLIAGE INTENT (edit after aerial; site/FOLIAGE.txt + site/HIGHFIELD-ZONES.txt)
+  - open:w160022677@48,-44 — no scatter trees; paths + lawn only (build_cell_foliage).
+  - open:w226268603@48,-44 — canopy on dark-green aerial pixels only; clear Geocraft logs first.
+  - open:r16456779@48,-44 — sparse trees per aerial; margin may straddle cell 47,-44.
+  - open:w187106223@48,-44 — small grass patch; minimal canopy if aerial shows blob.
+  - gap parcels — strip procedural foliage only unless aerial shows canopy on lawn.
+
+IF MANIFEST GAPS — run (fetch once, judge once, log manifest):
+  python3 scripts/ref_manifest.py find --xz 6207,-5569
+  python3 scripts/geo.py tiles --bbox 6144,-5632,6271,-5505 --zoom 18 --mosaic 3
+  # then: scripts/aerial_mosaic.py … → reference/aerial/<place>/mosaic-z18-3x3-centre-130054-87835.png
+  # ref_manifest.py add … --useful yes --models footprint,roof,landscape --at 6207,-5569
+  python3 scripts/osm_footprints.py frontage --bbox 6144,-5632,6271,-5505
+  python3 scripts/coverage.py status --cell 48,-44 --list
+  python3 scripts/coverage.py gaps --area highfield
+
+TOKEN NOTES (2–5 lines after sources pass)
+  - One aerial Read for Q-050 batch; --no-features surface apply; use --skip-preview without .venv matplotlib.
+  - parcels_for_finish_pass keeps *-cells.json when re-applying signed parcels in the same build.

@@ -1,0 +1,4 @@
+# Open holds that stop a cell reporting status=done (read by scripts/coverage.py).
+# Add: {"cell": [tx, tz], "id": "Q-nnn", "reason": "..."}   Release: {"cell": [tx, tz], "id": "Q-nnn", "release": true}
+{"cell": [48, -44], "id": "Q-065", "reason": "ground redo: layered passes do-over (2026-10-14)"}
+{"cell": [48, -44], "id": "Q-065", "release": true}

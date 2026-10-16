@@ -1,0 +1,57 @@
+{
+  "cell": "47,-43",
+  "stages": {
+    "ground": {
+      "status": "applied",
+      "plan": "highfield_47_m43_ground",
+      "blocks": 9981,
+      "note": "2026-10-14 readback 0, patrol 0 floating; z19 mosaic extended west (9x10 from tile 260105) so aerial covers x>=~6050; school area west of that is structure-skipped; north edge row z=-5504 untouched, 5 path/open/gap parcels unsigned for leftover Geocraft there; awaiting user visual check"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_47_m43_trees",
+      "blocks": 14231,
+      "crowns": 85,
+      "readback": {
+        "planned": 14231,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-14 20:50:25"
+      },
+      "mask": "verification/site/masks/trees-47_-43.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_47_m43_decor",
+      "blocks": 1582,
+      "readback": {
+        "planned": 1582,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-14 21:24:49"
+      },
+      "mask": "verification/site/masks/decor-47_-43.mask.json"
+    },
+    "ground-layer": {
+      "status": "applied-with-mismatches",
+      "plan": "highfield_47_m43_ground",
+      "blocks": 10328,
+      "readback": {
+        "planned": 10328,
+        "mismatches": 2,
+        "mismatch_sample": {
+          "(6062, 50, -5420)": [
+            "minecraft:grass_block",
+            "minecraft:dirt"
+          ],
+          "(6123, 50, -5498)": [
+            "minecraft:grass_block",
+            "minecraft:dirt"
+          ]
+        },
+        "checked": "2026-10-14 20:01:24"
+      },
+      "note": "first-principles ground (OSM + aerial); verify: patrol, visuals; trees and decor re-run after"
+    }
+  }
+}

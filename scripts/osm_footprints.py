@@ -31,6 +31,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+import numpy as np
+
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'scripts'))
 from osgb import load_offsets  # noqa: E402
@@ -110,10 +112,12 @@ class OSMIndex:
             self._cells = {}
             for i, (rings, _p) in enumerate(self.buildings):
                 xs = [x for x, _ in rings[0]]; zs = [z for _, z in rings[0]]
-                for x in range(math.floor(min(xs)), math.ceil(max(xs)) + 1):
-                    for z in range(math.floor(min(zs)), math.ceil(max(zs)) + 1):
-                        if _inside(x + 0.5, z + 0.5, rings):
-                            self._cells[(x, z)] = i
+                gx, gz = np.meshgrid(np.arange(math.floor(min(xs)), math.ceil(max(xs)) + 1),
+                                     np.arange(math.floor(min(zs)), math.ceil(max(zs)) + 1), indexing='ij')
+                hit = _inside_grid(gx + 0.5, gz + 0.5, rings)
+                ix, iz = np.nonzero(hit)                   # x-major, same order the nested loops visited
+                for x, z in zip(gx[ix, iz].tolist(), gz[ix, iz].tolist()):
+                    self._cells[(x, z)] = i
         return self._cells
 
     def near_footprint(self, x: int, z: int, margin: int = MARGIN) -> bool:
@@ -164,6 +168,18 @@ def _inside(x: float, z: float, rings) -> bool:
         for (x1, z1), (x2, z2) in zip(r, r[1:] + r[:1]):
             if (z1 > z) != (z2 > z) and x < (x2 - x1) * (z - z1) / (z2 - z1) + x1:
                 n = not n
+    return n
+
+
+def _inside_grid(x, z, rings):
+    """``_inside`` over numpy arrays of centres: the same even-odd test and float expression, so the same answer."""
+    n = np.zeros(x.shape, dtype=bool)
+    with np.errstate(divide='ignore', invalid='ignore'):
+        for r in rings:
+            for (x1, z1), (x2, z2) in zip(r, r[1:] + r[:1]):
+                if z1 == z2:
+                    continue                               # horizontal edge: (z1 > z) == (z2 > z), never crosses
+                n ^= ((z1 > z) != (z2 > z)) & (x < (x2 - x1) * (z - z1) / (z2 - z1) + x1)
     return n
 
 

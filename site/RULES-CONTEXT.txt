@@ -1,0 +1,91 @@
+SOUTHAMPTON REFINE — WHAT TO READ WHEN (token index)
+Source of truth for context-specific rules. SESSION BRIEF (site_handoff.py next)
+prints the matching block for the top QUEUE item. Rule files in rules/ are not
+auto-loaded: read only what the brief lists for this item.
+
+------------------------------------------------------------------------
+0. ANTI-REREAD (every session)
+------------------------------------------------------------------------
+ - Run `python3 scripts/site_handoff.py next` once at start. That output
+   (starter + SESSION BRIEF) is enough — do NOT also read the Q-nnn STARTER
+   block in site/HANDOFF.txt (duplicate).
+ - Read each listed file once per chat unless the work clearly crosses into
+   another context (e.g. you start planning a whole house after a ground-only
+   item — then read PROPERTY rules before plan).
+ - Do not read whole site/PROCESS.txt. Use PROCESS slices in the brief only.
+ - Do not run coverage.py --help. Cheatsheet is in the SESSION BRIEF.
+ - Imagery: read site/cells/*-SOURCES.txt (or manifest grep) before fetch/Read;
+   do not re-Read assets marked useful=no; one contact sheet before full-size.
+ - After a rule file is read, grep/sed targeted sections later — do not re-Read
+   the whole rule file for a reminder.
+
+------------------------------------------------------------------------
+1. CONTEXTS (pick one primary per queue item)
+------------------------------------------------------------------------
+ SESSION       Boot only: lock, cadence, handoff end. No live edits.
+ TOOLING       Scripts/tests/docs; no Minecraft apply.
+ SOURCES       cell_sources.py --write; manifest + one imagery judge pass.
+ GROUND        Layered passes: ground_layer, trees_layer, decor_layer; no new house shells.
+ FOLIAGE       Trees pass (trees_layer.py); site/FOLIAGE.txt + cross_zone.
+ PROPERTY      House on its OSM footprint (all sides, roof, floors); gardens = ground/trees/decor.
+ TERRACE       Broadlands-type row; scripts/terrace.py generator.
+ CAMPUS        campus.py / named campus buildings (not terrace rows).
+
+ QUEUE text may include RULES: ground|foliage|property|terrace|campus|sources|tooling
+ to override auto-detect.
+
+------------------------------------------------------------------------
+2. PROCESS.txt SLICES (grep / sed -n; not the full file)
+------------------------------------------------------------------------
+ All live edits     §2 (cadence), §2a (region snap when needed), §6–§7
+ GROUND / FOLIAGE   + §2c §2e (step 5 = layered passes)
+ PROPERTY           + §2b (refs), §2c §2d-i §3 (checklist as needed)
+ SOURCES            §2b, §2e step 1b, reference/LOGGING.txt §8
+ TOOLING            §2c only if touching coverage data
+
+------------------------------------------------------------------------
+3. RULES + SITE DOCS BY CONTEXT
+------------------------------------------------------------------------
+ Always (any live world edit):
+   rules/radial-good-enough.md
+   rules/geocraft-accuracy.md
+
+ AERIAL COVERAGE: never assume the z19 tiles cover the whole cell (47,-43 is black west of ~x6058).
+   Check, and for any gap use the zoomed-out z18 mosaic that covers that cell (ref_manifest.py find --xz, else geo.py tiles).
+   Not tied to any one place or folder.
+
+ Before fetch / Read of reference imagery (any context that opens photos/aerial):
+   rules/reference-token-budget.md
+   + committed site/cells/<tx>_<tz>-SOURCES.txt when CELL is set
+
+ GROUND:
+   site/HANDOFF-LAYERED-PASSES.txt §1 (who clears Geocraft) and §10 (ground step)
+   site/CRAFTSMANSHIP.txt §3a (palette) + good-enough only
+   site/FOLIAGE.txt — skim; full read only for FOLIAGE context
+   site/cells/*-SOURCES.txt — GROUND FINISH block when present for active cell
+
+ FOLIAGE (includes GROUND list):
+   site/FOLIAGE.txt — full
+
+ PROPERTY (includes Always + imagery when surveying):
+   rules/frontage-and-evidence.md
+   site/CRAFTSMANSHIP.txt — full
+
+ TERRACE (includes PROPERTY list):
+   rules/terrace-builds.md
+
+ CAMPUS (includes Always + imagery when surveying):
+   site/CRAFTSMANSHIP.txt — full
+   rules/frontage-and-evidence.md — plot/footprint sections if OSM homes
+
+ TOOLING / SESSION:
+   (no rules file unless you touch imagery or apply)
+
+------------------------------------------------------------------------
+4. WHEN IN DOUBT
+------------------------------------------------------------------------
+ - ground_layer / decor_layer / mask_undo and any old cell batch script
+   name: default GROUND, not PROPERTY.
+ - trees_layer / foliage → FOLIAGE.
+ - Terrace / Broadlands / terrace.py → TERRACE.
+ - New façade or osm_footprints frontage for homes → PROPERTY.

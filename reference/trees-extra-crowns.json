@@ -1,0 +1,6 @@
+{
+ "47,-45": [
+  {"x": 6139, "z": -5742, "r": 3.4, "issue": "I-055",
+   "evidence": "reference/aerial/highfield-user/googlemaps-music-law-annex-2026-10-15.webp (registered): one broadleaf crown on the lawn strip east of Building 2; LIDAR dome 57-59 at x6137-6141, z-5745..-5739; OSM w154067444 (building=roof) is this tree, not a canopy. z19 mosaic shows no canopy here."}
+ ]
+}

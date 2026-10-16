@@ -1,0 +1,65 @@
+{
+  "cell": "51,-45",
+  "stages": {
+    "feature-broadlands_rd_q164_51_45": {
+      "status": "applied",
+      "plan": "broadlands_rd_q164_51_45",
+      "blocks": 11060,
+      "readback": {
+        "planned": 11060,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:06"
+      },
+      "snapshot": "backups/regions/2026-10-15-070522-Q-164_broadlands_51_45",
+      "fingerprint": "verification/site/broadlands_rd_q164_51_45-fingerprint.json",
+      "note": "Broadlands Rd S side, OSM w177807807/780/825 (B/A/C), houses only, one diagonal group, floor y48 (flush with front ground/pavement; ref ring median 47), fronts N; 3 doors site_walk-reachable to road (dry-run overlay + post-apply). z19 mosaic black/blurry here, roof deepslate hint only. Patrol: no findings for this build (13 pre-existing door_to_wall elsewhere). Not walked in-world."
+    },
+    "feature-granby_grove_q165_51_45": {
+      "status": "applied",
+      "plan": "granby_grove_q165_51_45",
+      "blocks": 3317,
+      "readback": {
+        "planned": 3317,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:09"
+      },
+      "snapshot": "backups/regions/2026-10-15-070827-Q-165_granby_51_45",
+      "fingerprint": "verification/site/granby_grove_q165_51_45-fingerprint.json",
+      "note": "Granby Grove OSM w177806522 (53 cells), house only, floor y46 (flush with front pavement; ref ring 44-46), front S, front door + rear door site_walk-reachable to road (post-apply). Old Geocraft carpet roofs/walls cleared. z19 aerial black/blurry: deepslate roof is a hint only. Patrol: no findings for this build. Not walked in-world."
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_51_m45_ground",
+      "blocks": 20897,
+      "readback": {
+        "planned": 20897,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:12:48"
+      },
+      "snapshot": "backups/regions/2026-10-15-071224-highfield_51_m45_ground",
+      "note": "z19 tiles 260116-18 x 175668-71 fetched, mosaic eastext3.png (ground_sources/trees_layer/plant_cell_canopy repointed; cell was ~73% black). OSM roads present (Broadlands Rd, no extraction needed). 903 water/bank columns skipped (existing stream under wood). Door walks site_walk-reachable for 9 doors checked. Patrol: only 13 pre-existing Broadlands door_to_wall."
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_51_m45_trees",
+      "blocks": 21110,
+      "readback": {
+        "planned": 21110,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:13"
+      },
+      "mask": "verification/site/masks/trees-51_-45.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_51_m45_decor",
+      "blocks": 674,
+      "readback": {
+        "planned": 674,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:14"
+      },
+      "mask": "verification/site/masks/decor-51_-45.mask.json"
+    }
+  }
+}

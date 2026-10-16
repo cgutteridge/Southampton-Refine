@@ -1,0 +1,76 @@
+{
+  "cell": "47,-42",
+  "stages": {
+    "feature_roselands_gdns_30": {
+      "status": "applied",
+      "plan": "roselands_gdns_30 (Q-120)",
+      "blocks": 931,
+      "readback": {
+        "planned": 931,
+        "mismatches": 0,
+        "checked": "2026-10-15 03:32"
+      },
+      "snapshot": "structure southampton_refine:before_roselands_gdns_30 (box 6057,45,-5369..6073,60,-5354); regions backups/regions/2026-10-15-033006-q120-roselands-30",
+      "fingerprint": {
+        "6065,50,-5362": "minecraft:air",
+        "6070,50,-5359": "minecraft:air",
+        "6062,51,-5365": "minecraft:air",
+        "6068,49,-5361": "minecraft:air"
+      },
+      "note": "House only, no. 30 OSM w208402628, front E (door 6070,49..,-5359), red clay roof (aerial z18), floor y49 from real ground. Patrol: 0 hits for this build. Marker not moved: 50,-42 awaits visual check."
+    },
+    "feature_roselands_gdns_35_36": {
+      "status": "applied",
+      "plan": "roselands_gdns_35_36 (Q-121)",
+      "blocks": 885,
+      "readback": {
+        "planned": 1726,
+        "mismatches": 0,
+        "checked": "2026-10-15 03:36"
+      },
+      "snapshot": "structure southampton_refine:before_roselands_gdns_35_36 (box 6094,43,-5371..6111,57,-5354); regions backups/regions/2026-10-15-033545-q121-roselands-35-36",
+      "fingerprint": {
+        "6100,50,-5362": "minecraft:air",
+        "6104,49,-5360": "minecraft:air",
+        "6098,51,-5366": "minecraft:bricks",
+        "6106,48,-5364": "minecraft:air"
+      },
+      "note": "House only, nos. 35+36 (OSM w173021065/066) one semi pair, one red clay roof, floor y47 from real ground, front W (door 6098,48,-5366 on no.36; no.35 has none, rear door 6107,-5359). Patrol: 0 hits for this build. Marker not moved: 50,-42 awaits visual check."
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_47_m42_ground",
+      "blocks": 12957,
+      "readback": {
+        "planned": 12957,
+        "mismatches": 0,
+        "checked": "2026-10-15 03:40"
+      },
+      "note": "OSM + aerial. z19 mosaic extended: tiles 260105-6 x 175677-8 + 260105x175676 fetched (mostly blank server-side), black col-0 filled from z18 130052 (blurry west campus half). OSM Roselands Gdns road matches aerial road; no supplement road needed. Structure tops (light_gray_carpet, 2890 cols) skipped. Marker stays on 50,-42. Verify visually."
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_47_m42_trees",
+      "blocks": 17750,
+      "crowns": 102,
+      "readback": {
+        "planned": 17750,
+        "mismatches": 0,
+        "checked": "2026-10-15 03:42"
+      },
+      "mask": "verification/site/masks/trees-47_-42.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_47_m42_decor",
+      "blocks": 200,
+      "readback": {
+        "planned": 200,
+        "mismatches": 0,
+        "checked": "2026-10-15 03:43"
+      },
+      "mask": "verification/site/masks/decor-47_-42.mask.json",
+      "note": "decor_layer now skips posts on carpet structure tops (28 cols)."
+    }
+  }
+}

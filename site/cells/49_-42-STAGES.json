@@ -1,0 +1,209 @@
+{
+  "cell": "49,-42",
+  "stages": {
+    "feature_hilldown_rd_7_15": {
+      "status": "applied",
+      "plan": "hilldown_rd_7_15 (Q-112)",
+      "blocks": 7065,
+      "readback": {
+        "planned": 7065,
+        "mismatches": 0,
+        "checked": "2026-10-15 02:53"
+      },
+      "snapshot": "structure southampton_refine:before_hilldown_rd_7_15 (box 6261,38,-5360..6297,53,-5300)",
+      "fingerprint": {
+        "6266,44,-5338": "air",
+        "6270,46,-5330": "air",
+        "6275,43,-5320": "stone",
+        "6285,44,-5308": "air"
+      },
+      "note": "nos. 7,9,11,15 + two construction buildings (w173807203, w590171653), house only, fronts W. No.13 (w173807222) left out (not in queue, cell 48,-42). Floors 42-44 from real ground. Roofs: 9,11,15,SE red tile; 7 and construction block slate. Marker not moved: 50,-42 still awaits user visual check."
+    },
+    "feature_university_rd_houses": {
+      "status": "applied",
+      "plan": "university_rd_houses (Q-113)",
+      "blocks": 6879,
+      "readback": {
+        "planned": 6879,
+        "mismatches": 0,
+        "checked": "2026-10-15 02:57"
+      },
+      "snapshot": "structure southampton_refine:before_university_rd_houses (box 6303,46,-5380..6332,62,-5327)",
+      "fingerprint": {
+        "6310,48,-5372": "stone",
+        "6320,50,-5345": "stone",
+        "6325,53,-5330": "bricks",
+        "6330,46,-5360": "stone"
+      },
+      "note": "7 OSM houses nos 5,7,9,11,13,19,21 (w173807195,221,213,198,201,234,233), house only, fronts E onto University Rd; 19/21 mostly in cell 49,-43. Floors 50-52 from real ground (scan fixed: base stone starts y42/43). Roofs red tile (aerial brown/red). Marker not moved: 50,-42 awaits visual check."
+    },
+    "feature_university_rd_2_6": {
+      "status": "applied",
+      "plan": "university_rd_2_6 (Q-114)",
+      "blocks": 5211,
+      "readback": {
+        "planned": 5211,
+        "mismatches": 0,
+        "checked": "2026-10-15 02:59"
+      },
+      "snapshot": "structure southampton_refine:before_university_rd_2_6 (box 6345,46,-5380..6372,62,-5334)",
+      "fingerprint": {
+        "6360,51,-5339": "spruce_door[facing=west,half=lower,hinge=left,open=false,powered=false]",
+        "6349,52,-5368": "spruce_door[facing=west,half=lower,hinge=left,open=false,powered=false]",
+        "6372,48,-5340": "stone",
+        "6345,46,-5380": "stone"
+      },
+      "note": "nos 2,2a,4,6 (w175425063,077,061,015), house only, fronts W onto University Rd. Floors 50-51 from real ground. Roofs red nether-brick slab as Q-113. Fingerprint taken after apply (pre-apply not captured); snapshot is the undo. Marker not moved: 50,-42 awaits user visual check."
+    },
+    "feature_welbeck_ave": {
+      "status": "applied",
+      "plan": "welbeck_ave_49 (Q-115)",
+      "blocks": 4674,
+      "readback": {
+        "planned": 4674,
+        "mismatches": 0,
+        "checked": "2026-10-15 03:03"
+      },
+      "snapshot": "structure southampton_refine:before_welbeck_ave_49 (box 6361,38,-5346..6399,62,-5314)",
+      "fingerprint": {
+        "6370,50,-5330": "air",
+        "6385,48,-5325": "stone",
+        "6392,50,-5322": "air",
+        "6380,45,-5335": "stone"
+      },
+      "note": "3 OSM houses w175424999 (A), w175425010 (B), w175425020 (C), house only. Floors 48-49 from real ground (contiguous stone scan from y41). Roofs slate (deepslate tile) as Welbeck 7-13; no aerial over strip (mosaic stops at z-5346). Diagonal strips: doors S/E/S, A via carved hall. Earlier roofs (7-13, Univ Rd) left uncleared. Marker not moved: 50,-42 awaits visual check."
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_49_m42_ground",
+      "blocks": 12300,
+      "readback": {
+        "planned": 12300,
+        "mismatches": 0,
+        "checked": "2026-10-15 03:08"
+      },
+      "snapshot": "backups/regions/2026-10-15-030818-Q-116-ground; structure before_highfield_49_m42_ground",
+      "note": "OSM + aerial. z19 mosaic extended again: tiles 260109-260112 x rows 175677-8 fetched and pasted (cell was black south/east). Unmapped carriageways added via SUPPLEMENT_ROADS: University Rd south of junction, road E of junction toward Welbeck Ave. Verify visually."
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_49_m42_trees",
+      "blocks": 20972,
+      "crowns": 108,
+      "readback": {
+        "planned": 20972,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 19:34:09"
+      },
+      "mask": "verification/site/masks/trees-49_-42.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_49_m42_decor",
+      "blocks": 1687,
+      "readback": {
+        "planned": 1687,
+        "mismatches": 0,
+        "checked": "2026-10-15 03:11"
+      },
+      "snapshot": "backups/regions/2026-10-15-031033-Q-116-decor",
+      "mask": "verification/site/masks/decor-49_-42.mask.json"
+    },
+    "trees-undo": {
+      "status": "applied",
+      "plan": "highfield_49_m42_trees_undo",
+      "owner": "cell49m42-lumps-a1",
+      "started": "2026-10-15 19:28:58",
+      "blocks": 23119,
+      "structure": {
+        "name": "southampton_refine:before_highfield_49_m42_trees_undo",
+        "from": [
+          6271,
+          39,
+          -5377
+        ],
+        "to": [
+          6400,
+          69,
+          -5248
+        ]
+      },
+      "snapshot": "backups/regions/2026-10-15-192850-highfield_49_m42_trees_undo",
+      "planned": "verification/site/highfield_49_m42_trees_undo-planned.json",
+      "kind": "undo",
+      "pass": "trees",
+      "finished": "2026-10-15 19:29:13",
+      "readback": {
+        "planned": 23119,
+        "mismatches": 0,
+        "checked": "2026-10-15 19:29:13"
+      }
+    },
+    "feature-cell_49_m42_lumps": {
+      "status": "applied",
+      "plan": "cell_49_m42_lumps",
+      "owner": "cell49m42-lumps-a1",
+      "started": "2026-10-15 19:30:34",
+      "blocks": 25265,
+      "structure": {
+        "name": "southampton_refine:before_cell_49_m42_lumps",
+        "from": [
+          6262,
+          35,
+          -5320
+        ],
+        "to": [
+          6394,
+          58,
+          -5243
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/cell_49_m42_lumps-planned.json",
+      "finished": "2026-10-15 19:30:41",
+      "readback": {
+        "planned": 25265,
+        "mismatches": 0,
+        "checked": "2026-10-15 19:30:41"
+      },
+      "note": "I-057: 19 OSM buildings house-only (Church Lane 8 + garages w280523743, Hilldown Rd 3 + 5 + no.12 lump, Oakdene Court w173805553 4-level flat) via scripts/build_cell_49_m42_lumps.py. Order: mask_undo trees, houses, trees re-run (127->108 crowns, dense fill +6). Floors from lawn ring with grass_block counted as ground, scan down to y30 (Hilldown lawn is y39-40). Stoop stairs for drops AND 1-block rises. Rear door only onto open ground. Welbeck Ave: only Oakdene Court is unrefined here; St Anns Court w175425047 was built in 50,-42."
+    },
+    "feature-cell_49_m42_lumps_fix": {
+      "status": "applied",
+      "plan": "cell_49_m42_lumps_fix",
+      "owner": "cell49m42-lumps-a1",
+      "started": "2026-10-15 19:33:00",
+      "blocks": 2,
+      "structure": {
+        "name": "southampton_refine:before_cell_49_m42_lumps_fix",
+        "from": [
+          6290,
+          44,
+          -5306
+        ],
+        "to": [
+          6292,
+          45,
+          -5304
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/cell_49_m42_lumps_fix-planned.json",
+      "finished": "2026-10-15 19:33:06",
+      "readback": {
+        "planned": 2,
+        "mismatches": 0,
+        "checked": "2026-10-15 19:33:06"
+      },
+      "note": "Farm House rear door opened onto neighbour w590171653 wall: walled up (rule now in build script)."
+    },
+    "lump_sweep": {
+      "status": "verified",
+      "remaining": 0,
+      "checked": "2026-10-15 19:35:36",
+      "exceptions": [],
+      "note": "lump_scan.py: no Geocraft lumps left"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "cell": "50,-46",
+  "stages": {
+    "ground": {
+      "status": "applied",
+      "plan": "highfield_50_m46_ground",
+      "blocks": 14883,
+      "note": "2026-10-15 readback 0. z19 mosaic extended east (tiles 260113-15 x 175664-67 pasted into the filled mosaic). Mapped car park polygon 'Broadlands Road South' is soft: aerial lawn/brick/shade (and aisles) become grass (2023 aerial shows meadow). Canopy-hidden ground away from mapped paths defaults to grass. awaiting user visual check"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_50_m46_trees",
+      "blocks": 12028,
+      "note": "2026-10-15 readback 0; 67 trees 3 bushes vs aerial crowns; awaiting user visual check"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_50_m46_decor",
+      "blocks": 2417,
+      "note": "2026-10-15 readback 0; aerial hedges only. No site/gardens convention yet for Broadlands Road / Mayfield Road (no fences/walls invented); patrol 0 in cell"
+    }
+  }
+}

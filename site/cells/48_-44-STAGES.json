@@ -1,0 +1,43 @@
+{
+  "cell": "48,-44",
+  "stages": {
+    "ground-layer": {
+      "status": "verified",
+      "plan": "highfield_48_m44_ground",
+      "blocks": 8355,
+      "readback": {
+        "planned": 8355,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-14 11:48:58"
+      },
+      "note": "first-principles ground (OSM + aerial); verify: patrol, visuals; trees and decor re-run after | signed off by user 2026-10-14 (first-principles redo)"
+    },
+    "trees": {
+      "status": "verified",
+      "plan": "highfield_48_m44_trees",
+      "blocks": 8082,
+      "crowns": 48,
+      "readback": {
+        "planned": 8082,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-14 11:49:17"
+      },
+      "mask": "verification/site/masks/trees-48_-44.mask.json",
+      "note": " | signed off by user 2026-10-14 (first-principles redo)"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_48_m44_decor",
+      "blocks": 28,
+      "readback": {
+        "planned": 28,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-14 16:33:05"
+      },
+      "mask": "verification/site/masks/decor-48_-44.mask.json"
+    }
+  }
+}

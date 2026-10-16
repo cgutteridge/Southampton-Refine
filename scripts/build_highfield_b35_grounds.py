@@ -11,7 +11,7 @@ Evidence
            (green = verge / planting, dark green = tree canopy, grey = paving)
   LIDAR    pristine Geocraft terrain Y (kept; single-cell spikes smoothed)
 
-Surfaces: asphalt gray_terracotta (project ROAD), paving polished_diorite (project PAVE),
+Surfaces: tarmac gray_concrete (``campus.TARMAC``), paving polished_diorite (project PAVE),
 smooth_stone kerbs on road edges, white_concrete bay lines, grass + a few trees where
 the aerial is green. Geocraft junk (brick fringe, carpet) above the ground is cleared.
 Other buildings' footprints (+2) are left alone; their grounds wait for their own builds.
@@ -25,6 +25,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'scripts'))
+from campus import TARMAC  # noqa: E402
 from site_kit import Plan, World, apply, preview  # noqa: E402
 from osm_footprints import OSMIndex, PRISTINE  # noqa: E402
 from coverage import LEFTOVER_TOP  # noqa: E402
@@ -34,7 +35,7 @@ import build_highfield_b35 as B35  # noqa: E402
 NAME = 'highfield_b35_grounds'
 BOX = (6338, -5547, 6440, -5428)
 REACH = 14                      # grounds = within this of B35, plus the car parks
-ASPHALT, PAVE, KERB, LINE, GRASS = 'gray_terracotta', 'polished_diorite', 'smooth_stone', 'white_concrete', 'grass_block'
+ASPHALT, PAVE, KERB, LINE, GRASS = TARMAC, 'polished_diorite', 'smooth_stone', 'white_concrete', 'grass_block'
 MOSAIC = ROOT / 'reference/aerial/highfield-b35/mosaic-z18-3x3-centre-130056-87836.png'
 SRC = ROOT / 'verification/site/osm27700/highfield-b35-park-hw.geojson'
 

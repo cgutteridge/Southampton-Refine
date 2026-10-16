@@ -1,21 +1,13 @@
 SOUTHAMPTON REFINE — QUEUE
 Mark [x] when done. One open item per chat. Newest work at the top of
-the open list; keep setup items until the world is editable.
+the open list. Empty queue: site_handoff.py next auto-queues the next cell.
 Done items: site/archive/QUEUE-done.txt (moved by scripts/site_archive.py).
 
-[ ] Q-048  CELL 48,-44 (r=0) REVIEW + PLAN. No world apply unless user asks.
-           Review: coverage.py status --cell 48,-44 --list; gaps --area highfield;
-           map --area highfield. Reconcile LEGACY campus done-bar vs parcel rollup.
-           Write ACTIVE CELL 48,-44 todos in site/TODO.txt (roads, gaps, Geocraft
-           stragglers, character hooks; straddle OK). Queue follow-ups below.
-           See site/PROCESS.txt §2e and site/COVERAGE.txt IN FLIGHT.
-
-[ ] Q-049  CELL 48,-44 marker RAISE. scripts/cell_marker.py --raise 48,-44
-           (black/yellow wool perimeter ~30 m up; skips built_cells conflicts).
-           After Q-048 todos exist; before build todos on this cell.
-
-[ ] Q-050  CELL 48,-44 gaps + open parcels (batch). First build todo from Q-048
-           ACTIVE CELL list — sign off gap/no_osm and open parcels blocking
-           cell 100%; minimal Geocraft clears only. Good-enough bar.
-
-BACKLOG (do not block setup)
+[ ] Q-178  CELL 51,-41 (r=3) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 51,-41 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/51_-41-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 51,-41.

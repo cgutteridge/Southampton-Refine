@@ -103,6 +103,28 @@ Google Street View
   generally forbid caching/storing imagery (look / ephemeral use only).
   No Google Maps key in this environment today.
   Verdict: fine for interactive inspection; poor as a project archive.
+  Fixed-URL look (no key, found 2026-10-14, Q-072): open in the built-in browser
+    1. https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=<lat>,<lon>&heading=<deg>
+       (lat/lon from the MC xz: osgb.to_osgb + gdaltransform EPSG:27700->4326; reject
+       cookies on the consent page). Wait ~4s; the final URL carries the nearest pano id
+       (!1s<panoid>) and its capture date (shown bottom right).
+    2. https://streetviewpixels-pa.clients6.google.com/v1/thumbnail?cb_client=maps_sv.tactile
+       &w=900&h=600&pitch=0&panoid=<panoid>&yaw=<deg>   -> a plain image per heading, so
+       several yaws from one pano are cheap. Unofficial endpoint: may change or be limited.
+  SINGLE STEP (found 2026-10-14): the same thumbnail URL accepts `&ll=<lat>,<lon>` in place
+    of `&panoid=` and returns the nearest pano's image directly (no Maps page, no pano id).
+    Just open  .../v1/thumbnail?cb_client=maps_sv.tactile&w=900&h=600&pitch=0&yaw=<deg>&ll=<lat>,<lon>
+    in the built-in browser and look. (`lat=`/`lng=`/`location=` are rejected, 400.) curl needs
+    a google.com Referer; the browser pane does not. Image varies with ll, so it is honoured.
+    Caveat: it does not tell you the pano id/capture date, so use the two-step method when
+    you need to cite them. Vary yaw for each wall; move ll along the street for other angles.
+  SAVING (user decision 2026-10-14): kept frames MAY be saved locally via
+    scripts/streetview_sample.py keep -> reference/photos/streetview/<cell>/ (gitignored,
+    logged in manifest.jsonl). Never commit the images; keep it to frames chosen from a
+    small per-cell sample, not bulk harvesting.
+  Otherwise look only: view it, write down what it shows (materials, storeys, entrances) in the
+  cell SOURCES / script docstring. Do NOT download, commit or hash the images, and do not
+  loop it over many panos (ToS). Log the pano id + capture date as the citation.
 
 Bing Streetside — similar commercial look-only constraints.
 

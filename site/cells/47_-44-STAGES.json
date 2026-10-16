@@ -1,0 +1,74 @@
+{
+  "cell": "47,-44",
+  "stages": {
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_47_m44_ground",
+      "blocks": 10340,
+      "readback": {
+        "planned": 10340,
+        "mismatches": 1,
+        "mismatch_sample": {
+          "(6130, 47, -5605)": [
+            "minecraft:grass_block",
+            "minecraft:dirt"
+          ]
+        },
+        "checked": "2026-10-14 20:00:24"
+      },
+      "note": "first-principles ground (OSM + aerial); marker ring no longer counts as owner (outer ring was left stock, fixed); seams stitched to finished neighbours 48,-44 / 47,-43 (STITCH_DEPTH 2); readback mismatches = grass->dirt under trunks; patrol 0 floating; 3 parcels unsigned (open:w226141841, path:w1136685793, path:w1118380600: grass stems / tree leaves flagged as leftover Geocraft); 47,-43 ground+trees+decor redone for same rim bug; awaiting user visual check"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_47_m44_trees",
+      "blocks": 9326,
+      "crowns": 49,
+      "readback": {
+        "planned": 9326,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 12:59:05"
+      },
+      "mask": "verification/site/masks/trees-47_-44.mask.json",
+      "note": "rerun 2026-10-15 under overhang-v1 after I-058 (53->49 crowns); old mask copy not kept in repo; undo snapshot in backups/regions"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_47_m44_decor",
+      "blocks": 18,
+      "readback": {
+        "planned": 18,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-14 19:50:59"
+      },
+      "mask": "verification/site/masks/decor-47_-44.mask.json"
+    },
+    "lump_sweep": {
+      "status": "verified",
+      "remaining": 0,
+      "checked": "2026-10-15 13:00:48",
+      "exceptions": [],
+      "note": "lump_scan.py: no Geocraft lumps left"
+    },
+    "feature_highfield_physics_canopies": {
+      "status": "applied",
+      "plan": "highfield_physics_canopies (I-058)",
+      "blocks": 2363,
+      "readback": {
+        "planned": 2363,
+        "mismatches": 0,
+        "checked": "2026-10-15 12:17"
+      },
+      "snapshot": "backups/regions/2026-10-15-121632-I-058-physics-canopies + structure before_highfield_physics_canopies",
+      "fingerprint": {
+        "6036,57,-5575": "bricks",
+        "6034,58,-5574": "light_gray_carpet",
+        "6084,58,-5537": "light_gray_carpet",
+        "6036,45,-5575": "stone",
+        "6084,45,-5537": "stone"
+      },
+      "note": "OSM building=roof w147603916 (floor y53) and w154417140 (floor y54): open flat canopies, deck y58 gray_concrete, posts light_gray_concrete every 3rd edge cell, tall overlap cells with the main buildings as wall; spill lump columns turned to paving. Dry-run overlay and live site_walk: door flood components unchanged and both canopies connected to the forecourt component (21k cells). Patrol floating 0. No plain dirt used."
+    }
+  }
+}

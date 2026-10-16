@@ -1,0 +1,39 @@
+SOUTHAMPTON REFINE — FOLIAGE (static vegetation only)
+Updated: 2026-10-15
+
+Trees are pass 3 of a cell (site/HANDOFF-LAYERED-PASSES.txt §1), after features and
+ground, before decor. This file is the single home for the vegetation rules.
+
+------------------------------------------------------------------------
+Rules
+------------------------------------------------------------------------
+ - NEVER place sapling blocks. They grow on random tick, so the world drifts after
+   apply: builds stop being idempotent, readback and signoff lie, and ground work
+   gets undone. Strip Geocraft saplings in the ground pass; do not replant them.
+ - Canopy is static: log + leaves[persistent=true] massing (or hedge/wall), sized from
+   the aerial. Allowlist: scripts/foliage.py (REFINE_FOLIAGE).
+ - Trees and decor go only where the live block is air (or a grass stem/flower), so
+   undo is exact (mask_undo.py).
+ - A tree is never ROOTED (crown centre) in a feature zone: a column the ground layer
+   did not surface (building footprint, structure build, bridge; read from
+   verification/site/<cell>_ground-cells.json plus OSM footprints). Trees inside a
+   feature are the feature build's own job, provided they do not overspill its zone.
+   Crowns rooted outside may overhang a feature.
+ - Crowns on a cell edge: HANDOFF-LAYERED-PASSES §6 (overhang into neighbour air or
+   neighbour leaves is kept, recorded in the planting cell's mask; nothing else is
+   overwritten).
+
+------------------------------------------------------------------------
+One cell
+------------------------------------------------------------------------
+  python3 scripts/trees_layer.py --cell tx,tz                          # dry run + crown review image
+  SITE_OWNER=<lock-owner> python3 scripts/trees_layer.py --cell tx,tz --apply
+
+Check the crown review image and the kinds against the aerial before apply. Undo for
+a re-run: scripts/mask_undo.py --cell tx,tz --pass trees (decor first, then trees).
+scripts/cross_zone.py report --cell tx,tz lists structure leftovers on open/gap/path
+columns near the cell edge.
+
+Retired (do not use): build_cell_foliage.py, the "foliage last" cadence and the aerial
+canopy pass plant_cell_canopy.py with HAND_CROWNS (Q-064; its 48,-45 result was
+reverted 2026-10-14).

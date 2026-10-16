@@ -8,6 +8,8 @@ districts / vibe / whimsy. Goal: real-world accuracy.
  site/NOTES.txt         overview, accuracy rules, MCP (read first)
  site/GEOCRAFT.txt      prior Geocraft phase: trust matrix (shapes vs widths)
  site/PROCESS.txt       this file: cadence, reviews, checklists
+ site/RULES-CONTEXT.txt which rules/docs to read per queue context (anti-reread)
+ rules/*.md            always-read and per-context rules (AGENTS.md is the entry point)
  site/COVERAGE.txt      radial focus + generated per-cell coverage (coverage.py)
  site/COVERAGE-SIGNOFFS.jsonl  parcel sign-offs (append-only, coverage.py signoff)
  config/coverage-areas.json    areas tracked by scripts/coverage.py
@@ -97,10 +99,10 @@ BUILT plan in place to “fix” the world.
  - append one JSONL line per new file; set useful once;
  - open mosaics/contact sheets first; full-size Read only for a named fact;
  - never re-Read useful=no assets.
- Scope: whole properties (house all sides + floors/stair + front and back
- garden layout) and streetscape. Street photos for fronts; aerial for roofs,
- rears and back gardens; same-terrace hints labelled `hint`. Never research
- private interiors. Public interiors only with explicit references on hand.
+ Scope: houses (all sides, roof, floors + stair) and streetscape; gardens come
+ from the ground/trees/decor passes. Street photos for fronts; aerial for
+ roofs, rears and back gardens; same-terrace hints labelled `hint`. Interior
+ rules: rules/frontage-and-evidence.md.
 
 ------------------------------------------------------------------------
 2c. SPATIAL STRATEGY — RADIAL, NO GAPS
@@ -147,53 +149,88 @@ BUILT plan in place to “fix” the world.
  front, not polishing finished rings.
 
 ------------------------------------------------------------------------
-2e. CELL CADENCE (128² active patch)
+2e. CELL CADENCE (128² active patch, layered passes)
 ------------------------------------------------------------------------
- One ACTIVE CELL at a time (IN FLIGHT in COVERAGE.txt), on the lowest
- incomplete ring. Good-enough bar (§2d): cell done = parcel truth, not
- perfection on every shed; clear leftover Geocraft only where signoff blocks;
- skip parcels already signed off; prefer gap/road batches over re-applying
- finished campus or terrace builds.
+ One ACTIVE CELL at a time (IN FLIGHT in COVERAGE.txt), on the lowest incomplete
+ ring. Cell done = parcel truth, not perfection on every shed (rules/radial-good-enough.md).
+ Pass order and undo: site/HANDOFF-LAYERED-PASSES.txt (features, ground, trees, decor).
+ Do not stack extra passes over the same ground (I-035).
 
- 1. Activate — record tx,tz in COVERAGE IN FLIGHT; optional Q-049 marker
-    raise: `python3 scripts/cell_marker.py --raise tx,tz` (see below).
- 2. Review (planning; apply optional) —
-      coverage.py status --cell tx,tz --list
-      coverage.py gaps --area <a>
-      coverage.py map --area <a>
-    Light character pass: note distinctive/quirky local features worth a
-    named todo (landmarks beat hyper-detail on random outbuildings).
- 3. Plan — under site/TODO.txt:
+ 1. Activate — record tx,tz in COVERAGE IN FLIGHT; raise the hazard-stripe marker
+    (REQUIRED, first action on every new cell; it marks the project's current FOCUS
+    cell, not a task run, and stays up across chats): `python3 scripts/cell_marker.py
+    --raise tx,tz`.
+ 1b. Sources pass (once per new cell, before the build batch). Goal: a durable guide,
+     not a token bonfire in every later chat.
+       python3 scripts/cell_sources.py --cell tx,tz --write
+     → site/cells/<tx>_<tz>-SOURCES.txt (committed). Then: fetch any missing aerial
+     mosaic / street refs listed there; `ref_manifest.py add` with useful=yes/maybe;
+     fill CHARACTER + TOKEN NOTES in the file; judge imagery once (mosaic/contact
+     sheet, not dozens of full-size photos). One good source is enough: use it and
+     build; do not hunt for a perfect one. Street View via the fixed pano-URL +
+     thumbnail-URL method (look-only, never download) is logged in reference/SOURCES.txt.
+     SOURCE CHECKLIST in that file: aerial, KartaView, Commons/Geograph, Street View,
+     Rightmove (exteriors, residential cells). Log each attempt, hit or miss:
+       python3 scripts/cell_sources.py --cell tx,tz --record SOURCE --result found|partial|none|blocked --note "..."
+     Never retry a TRIED source for the same cell without good cause (the script
+     refuses unless --retry-reason is given). `cell_sources.py --cell tx,tz --todo`
+     lists what is still open (exit 1 if any).
+ 2. Review neighbours — ground, trees and decor read evidence across the cell edge
+    (paths, roads, hedges, canopy), so first check the neighbours' STAGES files, masks
+    and the aerial across the edge for continuity. Cells done by the layered approach
+    so far: 48,-44 and 48,-45; every other cell restarts from scratch.
+      coverage.py status --cell tx,tz --list ; coverage.py gaps --area <a>
+    Light character pass: note distinctive local features worth a named todo.
+ 3. Plan — one open QUEUE item per todo (site_archive.py next-id Q). `site_handoff.py
+    next` auto-queues, per cell: one item per missing feature (cell_features.py), then
+    one "layered passes" item for ground, trees, decor.
+ 4. Features — each its own build, normal cadence (§2); sign off the parcels it finishes.
+ 5. Layered passes — live flow per cell: claim lock; mask_undo.py (decor then trees) if
+    masks exist; ground_layer.py --apply; trees_layer.py --apply; decor_layer.py --apply;
+    patrol sweep; update site/cells/<tx>_<tz>-STAGES.json; release lock. Dry-run first
+    and check verification/site/<plan>-kinds.png against the aerial. Python:
+    .venv/bin/python (system python is PEP 668 locked). Never the retired ground scripts
+    (backups/retired-ground-scripts-2026-10-14.tar.gz). Vegetation rules: site/FOLIAGE.txt.
+ 6. Cell complete — all features, ground, trees and decor done, checks OK, every open
+    issue for the cell closed, and the coverage row status=done (a CELL-HOLDS hold, if
+    any, released). Only then cell_marker.py --clear tx,tz, clear IN FLIGHT, and move on:
+    next cell on the ring, or ring r+1 when the ring is done. Cell order: north centre of
+    the ring (north is smaller tz), then clockwise. Builds may straddle the cell; sign
+    off whole parcels touched.
 
-      ACTIVE CELL tx,tz (r=N)
-      - [ ] <parcel or build> — scope (straddle OK)
-      - [ ] character: <name> — why + evidence id
+ Focus cell file: site/CURRENT-CELL.json is the single source of truth for the active
+ cell. ONLY cell_marker.py writes it (raise sets, clear releases); never hand-edit.
+ Raise refuses while another cell holds focus or any other cell_marker_*-cells.json
+ exists, so there is at most one ring. Moving focus = --clear old, then --raise new.
+ `cell_marker.py --status` shows focus + strays; --stray-clear tx,tz removes a leftover
+ ring; --adopt tx,tz is a one-off bootstrap for an already-raised ring.
 
- 4. Queue — one open QUEUE item per todo (site_archive.py next-id Q).
- 5. Build — normal cadence (§2); sign off every parcel the build finishes.
- 6. Cell complete — generated row status=done for tx,tz; then
-      cell_marker.py --clear tx,tz
-    clear IN FLIGHT; next cell on the ring (or ring r+1 when all cells on r
-    are done). Builds may straddle the cell; sign off whole parcels touched.
-
- Cell boundary marker (scripts/cell_marker.py): black/yellow wool on the
- cell perimeter ~30 m above local ground for visibility. Teardown clears
- only coordinates recorded in that marker's *-cells.json (never a wool
- color fill — campus uses black_wool in grounds). Markers are excluded
- from coverage touched stats (cell_marker_* builds).
+ Cell boundary marker (scripts/cell_marker.py): one flat black/yellow wool square on
+ the cell bbox outer edge, ~30 blocks above the highest ground sampled in the cell
+ (alternating like hazard tape). Raise replaces air only. Teardown clears *-cells.json
+ plus any black/yellow wool still on the cell perimeter. Never a wool colour fill.
+ Markers are excluded from coverage touched stats (cell_marker_* builds).
 
  Before builds in cells outside config/coverage-areas.json:
    coverage.py build --area highfield --cells tx,tz,tx,tz
 
 ------------------------------------------------------------------------
-2d. GOOD ENOUGH — DO NOT OBSESS (token rule)
+2d. GOOD ENOUGH — see rules/radial-good-enough.md (the one home for this rule)
 ------------------------------------------------------------------------
- This is a big city. Default bar is NOTES §8 (done-bar). When a detail
- is burning tokens without changing street-readable accuracy: stop,
- mark the cell/place good enough, log a short note if useful, move on.
- Do not chase chimney pots, garden furniture, planting, or disputed single blocks
- unless the place brief raised the bar. Prefer finishing the next
- contiguous cell over polishing one property forever.
+ Default bar is NOTES §8 (done-bar). Prefer finishing the next contiguous cell over
+ polishing one property forever.
+
+------------------------------------------------------------------------
+2d-i. NEWER THAN OSM / LIDAR (user rule, 2026-10-15, I-047)
+------------------------------------------------------------------------
+ OSM, lidar, aerial and Street View come from different years and can disagree. If ANY
+ photo source (aerial, Street View look-only, Commons) shows a building that is absent
+ from the lidar (Geocraft) or from OSM, build it anyway: house only, usual conventions,
+ trace the footprint from the aerial and record source + year in the build docstring and
+ the cell STAGES note. A missing OSM way is never a reason to leave a Geocraft lump
+ standing; ground would flatten it otherwise (HANDOFF-LAYERED-PASSES §1). Check
+ osm_extract.py first for ways outside the OSM clip. Such lumps are found by site_handoff
+ (cell_gaps -> lump_scan) and queued as feature items automatically: part of "cell done", not a step.
 
 ------------------------------------------------------------------------
 3. FULL PLACE REVIEW CHECKLIST
@@ -204,21 +241,19 @@ BUILT plan in place to “fix” the world.
              Minecraft squaring (Geocraft OSM shape is a prior — GEOCRAFT.txt;
              craftsmanship: site/CRAFTSMANSHIP.txt).
  Frontage    house fronts on the OSM footprint line (osm_footprints.py
-             check = OK); front gardens + boundary between pavement and
-             house; doors face their own street; names = real addr:street.
+             check = OK); doors face their own street; names = real addr:street.
  Height      LIDAR/Geocraft Y for massing; photos for storeys / relative eaves.
  Roads       centreline/route OK; width/kerbs vs aerial — not stock edges.
  Openings    doors and windows in the right places and sizes (street side);
              glass flanked L/R with sill + head (CRAFTSMANSHIP.txt).
- Roof        form from aerial; pitch matches rise÷run (usually <45° here);
-             overhang; sealed skin — not Geocraft lattice/full-block steps.
+ Roof        form from aerial; pitch per CRAFTSMANSHIP §3 (terrace stairs /
+             shallow slabs); overhang; sealed skin — not Geocraft lattice.
  Materials   palette reads as the real elevations from the public street
              (Geocraft brick/carpet is placeholder only).
  Access      public routes stay walkable; no sealed dark voids on routes.
- Whole       every property: all elevations, roof form, floors + stair,
-             front garden + boundary, back garden layout from aerial.
- Privacy     no rooms/furniture in private houses; no interior research;
-             public interiors only if refs.
+ Whole       every house: all elevations, roof form, floors + stair. Gardens
+             and boundaries are ground/trees/decor (HANDOFF-LAYERED-PASSES §1).
+ Privacy     rules/frontage-and-evidence.md (floors + stair only, no interiors).
  Done-bar    meets NOTES §8 per property (not chimney pots / garden furniture).
  Evidence    client view from reference photo camera beside the photo;
              top-down view beside the aerial;
@@ -246,6 +281,13 @@ Outcome: each finding → ISSUES.txt (severity, place, location, action).
  - ONE builder at a time. Claim site/LOCK.json with scripts/site_lock.py
    before any world change or player-moving capture. site_kit.apply()
    refuses without it (env SITE_OWNER must match). Stale after 90 min.
+ - Stage state machine: site_kit.apply() sets the cell's stage in site/cells/<tx>_<tz>-STAGES.json to
+   'applying' (plan, owner, structure backup, snapshot, planned file) before any live write and to 'applied'
+   after readback. 'applying' = in flight: cell_gaps shows 'in-flight: <plan>', the cell is never done.
+ - Recovery: lock stale (> 90 min) or an in-flight stage -> `python3 scripts/site_recover.py status`, then
+   `recover <tx,tz> --apply`: world matches plan -> 'applied'; else restore the recorded structure ->
+   'rolled-back' (work reappears). Never with a fresh lock; when unsure it reports and does nothing.
+   Any failed undo/verify raises and leaves 'applying'; do not carry on past it.
  - Work comes from site/QUEUE.txt: take the top open item, finish it,
    mark done, queue follow-ups, release the lock.
  - Number new queue items / issues with
@@ -259,41 +301,60 @@ Outcome: each finding → ISSUES.txt (severity, place, location, action).
 ------------------------------------------------------------------------
 6. SESSION START / END
 ------------------------------------------------------------------------
- Start  python3 scripts/site_handoff.py next
-        site_lock.py status/claim; read PROCESS; grep / sed -n only what
-        you need (token budget). Check server status and sole MCP client.
-        Reference imagery: use files already on disk (manifest). Do NOT ask
-        the user to start a fetch daemon at handoff. If a needed Hub tile
-        is missing, either continue on street/local refs or give ONE
-        Terminal one-liner (`aerial_mosaic.py … --add`) — never a chore
-        every session.
+ Start  User message: "Follow the instructions given by running:
+        python3 scripts/site_handoff.py next". The agent runs that command, then
+        begins the top item immediately; that message is the go-ahead, so do not ask
+        "start?". Then site_lock.py status/claim; read only the PROCESS slices and
+        rules listed under RULES READING in the SESSION BRIEF (site/RULES-CONTEXT.txt
+        §0 has the anti-reread rules). Check server status and sole MCP client.
+        Reference imagery: use files already on disk (manifest). Do NOT ask the user
+        to start a fetch daemon at handoff. If a needed Hub tile is missing, either
+        continue on street/local refs or give ONE Terminal one-liner
+        (`aerial_mosaic.py … --add`), never a chore every session.
+ New chat first?  Before a new queue item or live build: if this thread already
+        finished an item (lock released / QUEUE ticked) or is dominated by prior
+        build/debug, do not silently continue. Tell the user briefly that a new chat
+        is wiser and show the NEXT CHAT line between `>>> COPY` and `<<< COPY` from
+        `site_handoff.py end` as a fenced code block. Stay in-thread only for a short
+        same-item follow-up (one patrol fix right after a build they just asked for).
+        Chain rule (§7) is the exception.
+ Need help  When you don't trust your own judgement (an unclear geometry call, a
+        result that does not match the photo or aerial, a risky live edit you can't
+        verify), call the user in rather than looping on retries: run `say "I need
+        help"` outside any command sandbox, say in one or two lines what needs
+        deciding, then stop. Do not chain further attempts.
  End    release the lock; save the world; update brief / TODO / ISSUES /
         REVIEWS / COVERAGE; regenerate BUILDS-INDEX;
         python3 scripts/run_tests.py (stdlib unit tests incl. roof_lint on all
         *-cells.json; same check as CI); then TOKEN NOTES
         (2–5 lines in REVIEWS or place CHANGE LOG: what wasted tokens
-        this stage, what to change next — see reference/LOGGING.txt §8);
+        this stage, what to change next — reference/LOGGING.txt §8);
         then hand off with summary + creative viewpoint of the main change:
           python3 scripts/site_handoff.py end Q-nnn \
             --summary "one sentence: area + task; then what this session did" \
             --view x,y,z[,lookx,looky,lookz]
-        Cursor agents MUST run that Shell call with
-        required_permissions: ["all"]. Seatbelt sandbox makes macOS `say`
-        exit 0 with no sound; `end` fails fast (exit 3) if sandboxed.
-        That command (1) speaks "ready for handoff" aloud, (2) prints
-        area/task from the QUEUE item plus the session summary (keep the
-        summary to a sentence or two — not an essay), (3) sets creative
-        mode and teleports the player to view the main area of change.
-        Use --skip-view only if MCP is down; --skip-say only if audio is
-        unavailable. Then open a new chat.
+        Run that outside any command sandbox: a sandbox mutes macOS `say` and `end`
+        fails fast (exit 3). `end` (1) speaks "ready for handoff", (2) prints area/task
+        from the QUEUE item plus the summary (a sentence or two, not an essay), (3) sets
+        creative mode and teleports the player to the main change. Use --skip-view
+        only if MCP is down; --skip-say only if audio is unavailable. Then open a new
+        chat and paste the NEXT CHAT copy box from `end` output (code block, not
+        inline prose).
 
 ------------------------------------------------------------------------
 7. TOKEN BUDGET
 ------------------------------------------------------------------------
- - One queue item per chat. If context passes ~250K tokens, write progress
-   into the files and hand off (site_handoff.py end).
+ - Chain rule (the one home): if an item is done, needs no user check (readback/patrol
+   clean, nothing for human eyes, no "awaiting user visual check") and context is under
+   ~100K tokens, release the lock and run `site_handoff.py next` in the same chat
+   instead of `end`. Otherwise one item per chat: if context passes ~250K tokens or a
+   user check is needed, write progress into the files and hand off (site_handoff.py end).
+ - Delegate research-heavy or bounded subtasks (cell source-finding and neighbour
+   review, audits across many files) to a helper that returns a short brief, so the
+   main context stays small. Subtasks write results to repo files and return a
+   one-line summary.
  - Review views through the contact sheet; open full-size only for detail.
  - Batch anything only the user can do into ONE request; do not poll.
- - Good-enough (§2d): leave detail fights early; advance the radial front.
+ - Good enough: rules/radial-good-enough.md.
  - End of build work: coverage.py signoff + status --write (never hand-edit
    PROCESSED CELLS).

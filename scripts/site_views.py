@@ -4,7 +4,10 @@
 Views are registered in VIEWS as name -> (eye_pos, look_at). Start empty;
 add entries in place briefs as you survey.
 
-  python3 scripts/site_views.py [prefix] name ...
+  python3 scripts/site_views.py [--hires | --midres] [prefix] name ...
+
+Default capture is low-res (downscale 4) to save tokens; use --hires (full
+size) for sign-off evidence or fine detail, --midres (downscale 2) between.
 """
 import base64
 import re
@@ -14,6 +17,22 @@ from pathlib import Path
 
 from contact_sheet import make_sheet
 from mc_paced import D, UUID, Paced, xyz
+
+RES = {'--hires': 1, '--midres': 2}
+LOWRES = 4
+
+
+def pop_downscale(args):
+    """Remove resolution flags from args and return the view_capture downscale.
+
+    @param args: argv list, edited in place
+    @returns: downscale factor (1 = full size)
+    """
+    found = [a for a in args if a in RES]
+    for a in found:
+        args.remove(a)
+    return min((RES[a] for a in found), default=LOWRES)
+
 
 OUT = Path(__file__).resolve().parent.parent / 'verification/site/views'
 
@@ -48,6 +67,14 @@ VIEWS = {
     'q028-photo-sports': ([6301, 55, -5483], [6265, 56, -5500]),
     'q028-top-lib': ([6330, 160, -5620], [6330, 50, -5619]),
     'q028-top-sports': ([6255, 150, -5480], [6255, 50, -5479]),
+    # Q-052 B57 Students' Union Retail Centre (fringe footprint finish)
+    'q052-top-b57': ([6237, 130, -5564], [6237, 50, -5563]),
+    'q052-se-b57': ([6265, 65, -5545], [6235, 58, -5565]),
+    # Q-054 micro parcels: bike shed w171869344 + roof canopy w391790374 (aerial z18 b35)
+    'q054-top-bikeshed': ([6234, 95, -5545], [6234, 50, -5544]),
+    'q054-top-canopy': ([6192, 90, -5566], [6192, 50, -5565]),
+    'q054-ne-bikeshed': ([6248, 62, -5538], [6234, 58, -5545]),
+    'q054-sw-canopy': ([6180, 62, -5575], [6192, 58, -5566]),
     # Q-029 campus C3: West Building B40 (old Union), Staff Club B38, SUSU B42
     'q029-photo-west': ([6236, 57, -5600], [6195, 60, -5610]),
     'q029-photo-susu': ([6203, 56, -5569], [6175, 52, -5545]),
@@ -180,6 +207,7 @@ def main():
     @returns: None
     """
     args = sys.argv[1:]
+    downscale = pop_downscale(args)
     prefix = args.pop(0) if args and args[0] not in VIEWS else ''
     names = args or list(VIEWS)
     if not names:
@@ -199,7 +227,7 @@ def main():
                 'position': xyz(pos), 'facing': xyz(look),
             })
             time.sleep(4)
-            r = v.call('view_capture', {'downscale': 2, 'close_screen': True})
+            r = v.call('view_capture', {'downscale': downscale, 'close_screen': True})
             for b in r['content']:
                 if b['type'] == 'image':
                     path = OUT / f'{prefix}{name}.png'

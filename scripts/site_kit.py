@@ -45,15 +45,38 @@ class Plan:
 
     # --- primitives -------------------------------------------------------
     def set(self, x, y, z, s):
-        self.cells[(x, y, z)] = full(s)
+        """Record one block in the plan.
+
+        @param x: block X
+        @param y: block Y
+        @param z: block Z
+        @param s: block id or short name
+        @raises SystemExit: if ``s`` is a sapling (project rule: never build saplings)
+        """
+        st = full(s)
+        if 'sapling' in st and not getattr(self, 'allow_saplings', False):
+            raise SystemExit(
+                f'{self.name}: sapling blocks are forbidden ({st} at {x},{y},{z}); '
+                'they grow on random tick (not idempotent) — use static log+leaves or clear only',
+            )
+        self.cells[(x, y, z)] = st
 
     def fill(self, a, b, s):
+        """Fill an axis-aligned box with one block state.
+
+        @param a: corner [x,y,z]
+        @param b: opposite corner
+        @param s: block id or short name
+        @raises SystemExit: if ``s`` is a sapling
+        """
         (x0, x1), (y0, y1), (z0, z1) = (sorted((a[i], b[i])) for i in range(3))
-        s = full(s)
+        st = full(s)
+        if 'sapling' in st and not getattr(self, 'allow_saplings', False):
+            raise SystemExit(f'{self.name}: sapling blocks are forbidden in fill ({st})')
         for x in range(x0, x1 + 1):
             for y in range(y0, y1 + 1):
                 for z in range(z0, z1 + 1):
-                    self.cells[(x, y, z)] = s
+                    self.cells[(x, y, z)] = st
 
     def get(self, x, y, z):
         return self.cells.get((x, y, z))
@@ -238,7 +261,9 @@ class World:
                             if props:
                                 st += '[' + ','.join(f'{k}={v.value}' for k, v in sorted(props.value.items())) + ']'
                             pal.append(st)
-                        secs[s['Y'].value] = (pal, bs.value['data'].value if 'data' in bs.value else None)
+                        bits = max(4, math.ceil(math.log2(len(pal))))      # once per section, not once per block read
+                        secs[s['Y'].value] = (pal, bs.value['data'].value if 'data' in bs.value else None,
+                                              bits, 64 // bits)
         self.chunks[k] = secs
         return secs
 
@@ -249,14 +274,23 @@ class World:
         s = secs.get(y >> 4)
         if s is None:
             return 'minecraft:air'
-        pal, longs = s
+        pal, longs, bits, per = s
         if longs is None:
             return pal[0]
-        bits = max(4, math.ceil(math.log2(len(pal))))
-        per = 64 // bits
         i = ((y & 15) * 256) + ((z & 15) * 16) + (x & 15)
         L = longs[i // per] & ((1 << 64) - 1)
         return pal[(L >> ((i % per) * bits)) & ((1 << bits) - 1)]
+
+    def uniform_air(self, x, y, z, airs) -> bool:
+        """True when the 16-block section holding (x, y, z) is absent or one block whose id (no properties) is in ``airs``.
+
+        Lets a top-down column scan jump a whole empty section; block() would return the same answer 16 times.
+        """
+        secs = self._chunk(x >> 4, z >> 4)
+        if secs is None:
+            return True                                   # block() gives None here, which callers read as air
+        s = secs.get(y >> 4)
+        return s is None or (s[1] is None and s[0][0].split('[')[0] in airs)
 
     def light(self, x, y, z, kind='BlockLight'):
         """Stored light level (BlockLight or SkyLight) from the region file; None if absent."""
@@ -307,6 +341,41 @@ def same(planned, actual):
 
 
 # --- live application ------------------------------------------------------
+CELLS_CACHE = ROOT / 'backups/cells-cache'      # git-ignored; one pickle per *-cells.json, rebuilt when its mtime/size change
+
+
+def _parse_cells_file(f: Path):
+    """(adds {(x,y,z): (build, state)}, air [(x,y,z)]) for one cells file, via the on-disk cache when it is current."""
+    import pickle
+    st = f.stat()
+    key = (st.st_mtime_ns, st.st_size)
+    cache = CELLS_CACHE / (f.name + '.pkl')
+    try:
+        with cache.open('rb') as fh:
+            got = pickle.load(fh)
+        if got[0] == key:
+            return got[1], got[2]
+    except Exception:
+        pass                                                   # missing, truncated or old: reparse
+    name = f.name[:-len('-cells.json')]
+    adds, air = {}, []
+    for k, s in json.loads(f.read_text()).items():
+        q = tuple(int(v) for v in k.split(','))
+        if bid(s) in ('minecraft:air', 'minecraft:light'):
+            air.append(q)
+        else:
+            adds[q] = (name, s)
+    try:
+        CELLS_CACHE.mkdir(parents=True, exist_ok=True)
+        tmp = cache.with_name(f'{cache.name}.{id(adds)}.tmp')
+        with tmp.open('wb') as fh:
+            pickle.dump((key, adds, air), fh, protocol=pickle.HIGHEST_PROTOCOL)
+        tmp.replace(cache)                                     # atomic: a concurrent reader never sees half a file
+    except OSError:
+        pass
+    return adds, air
+
+
 def built_cells(exclude=()):
     """Non-air cells placed by earlier builds (verification/town/*-cells.json)."""
     owned = {}
@@ -314,18 +383,23 @@ def built_cells(exclude=()):
         name = f.name[:-len('-cells.json')]
         if name in exclude:
             continue
-        for k, st in json.loads(f.read_text()).items():
-            q = tuple(int(v) for v in k.split(','))
-            if bid(st) in ('minecraft:air', 'minecraft:light'):
-                owned.pop(q, None)
-            else:
-                owned[q] = (name, st)
+        adds, air = _parse_cells_file(f)
+        owned.update(adds)                                     # keys are unique within a file, so update-then-pop
+        for q in air:                                          # is the same as the old entry-by-entry loop
+            owned.pop(q, None)
     return owned
 
 
-def apply(plan, protect=None, dry=False, modifies=()):
+def apply(plan, protect=None, dry=False, modifies=(), stage=None, cell=None, meta=None, strict=False):
     """protect: optional callable(pos, existing_state) -> bool; True = refuse to overwrite.
-    Cells owned by earlier builds are always protected unless that build is in `modifies`."""
+    Cells owned by earlier builds are always protected unless that build is in `modifies`.
+
+    Stage state machine (site_stages): before the first live block write the cell's STAGES file
+    gets ``stage`` (default 'feature-<plan>') as 'applying' with the plan, owner, structure backup,
+    region snapshot and planned-cells file; after the readback it becomes 'applied' (or
+    'applied-with-mismatches'). An abort leaves 'applying' for site_recover.py. ``cell`` defaults
+    to the cell holding most of the plan; ``meta`` is merged into the entry (e.g. kind 'undo').
+    ``strict``: a readback with mismatches raises and leaves the stage 'applying'."""
     from mc_paced import Paced, box, xyz
     OUT.mkdir(parents=True, exist_ok=True)
     lo, hi = plan.bounds()
@@ -400,6 +474,24 @@ def apply(plan, protect=None, dry=False, modifies=()):
         rec.write_text(json.dumps({'structure': name, 'from': a, 'to': b, 'result': res,
                                    'time': time.strftime('%Y-%m-%d %H:%M:%S')}, indent=2))
         print('backup:', res)
+        structure = {'name': name, 'from': a, 'to': b}
+    else:
+        # the first-time backup above is the original Geocraft; recovery needs the state before THIS apply
+        name = f'{STRUCTURE_NS}:before_{plan.name}_{time.strftime("%Y%m%d%H%M%S")}'
+        a = [lo[0] - 1, lo[1], lo[2] - 1]
+        b = [hi[0] + 1, hi[1], hi[2] + 1]
+        res = m.text('structure_save_from_world', {'name': name, 'dimension': D, 'box': box(a, b)})
+        if 'saved' not in res:
+            raise SystemExit('Backup failed: ' + res)
+        structure = {'name': name, 'from': a, 'to': b}
+    import site_stages
+    key = stage or f'feature-{plan.name}'
+    cell = tuple(cell) if cell else site_stages.primary_cell(plan.cells)
+    planned = OUT / f'{plan.name}-planned.json'
+    planned.write_text(json.dumps({f'{x},{y},{z}': st for (x, y, z), st in plan.cells.items()}))
+    site_stages.begin(cell, key, plan.name, blocks=len(plan.cells), structure=structure,
+                      snapshot=site_stages.latest_snapshot(plan.name), planned=str(planned.relative_to(ROOT) if planned.is_relative_to(ROOT) else planned),
+                      **(meta or {}))
     # fills into unloaded chunks silently do nothing: if the player is far from the build,
     # hop them (spectator) over it while filling, then put them back exactly
     restore = _bring_player(m, lo, hi)
@@ -431,6 +523,11 @@ def apply(plan, protect=None, dry=False, modifies=()):
     rep.update({'fill_results': results, 'entities': ents})
     (OUT / f'{plan.name}-result.json').write_text(json.dumps(rep, indent=1))
     print(json.dumps({k: v for k, v in rep.items() if k != 'mismatch_sample'}, indent=1)[:1500])
+    if rep['mismatches'] and strict:
+        raise SystemExit(f'{plan.name}: readback has {rep["mismatches"]} mismatches; stage {key} left '
+                         "'applying' (python scripts/site_recover.py status)")
+    site_stages.finish(cell, key, 'applied' if not rep['mismatches'] else 'applied-with-mismatches',
+                       readback={k: v for k, v in rep.items() if k in ('planned', 'mismatches', 'checked')})
     return rep
 
 
@@ -459,8 +556,8 @@ def _bring_player(m, lo, hi, reach=80):
     return restore
 
 
-def readback(plan):
-    w = World()
+def readback(plan, world=None):
+    w = world or World()
     bad = {}
     for p, s in plan.cells.items():
         a = w.block(*p)

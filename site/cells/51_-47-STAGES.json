@@ -1,0 +1,110 @@
+{
+ "cell": "51,-47",
+ "stages": {
+  "feature-burgess_rd_188_w268599723": {
+   "status": "applied",
+   "plan": "burgess_rd_188_w268599723",
+   "blocks": 1445,
+   "readback": {
+    "planned": 1445,
+    "mismatches": 1,
+    "note": "benign glass_pane connection-state mismatch at 6529,56,-5994",
+    "checked": "2026-10-15 06:21"
+   },
+   "snapshot": "backups/regions/2026-10-15-062042-Q-154_burgess188",
+   "fingerprint": "verification/site/burgess_rd_188_w268599723-fingerprint.json",
+   "note": "Yummy Thai (amenity=restaurant, cuisine=noodle). floor y54, door 6530,-5994 with step; door walk verified from Burgess Rd. aerial z18 only (blurry)."
+  },
+  "feature-burgess_rd_190_w148590556": {
+   "status": "applied",
+   "plan": "burgess_rd_190_w148590556",
+   "blocks": 1486,
+   "readback": {
+    "planned": 1486,
+    "mismatches": 1,
+    "note": "benign glass_pane connection-state mismatch at 6534,56,-5995",
+    "checked": "2026-10-15 06:22"
+   },
+   "snapshot": "backups/regions/2026-10-15-062239-Q-155_burgess190",
+   "fingerprint": "verification/site/burgess_rd_190_w148590556-fingerprint.json",
+   "note": "Sultan (amenity=fast_food, building=retail, Sultan's Kitchen takeaway). floor y54, door 6535,-5995 with step at z-5996; walk from Burgess Rd pavement verified. aerial z18 only (blurry)."
+  },
+  "feature-burgess_rd_192_w148590560": {
+   "status": "applied",
+   "plan": "burgess_rd_192_w148590560",
+   "blocks": 931,
+   "readback": {
+    "planned": 931,
+    "mismatches": 1,
+    "note": "benign glass_pane connection-state mismatch at 6541,56,-5995",
+    "checked": "2026-10-15 06:25"
+   },
+   "snapshot": "backups/regions/2026-10-15-062529-Q-156_burgess192",
+   "fingerprint": "verification/site/burgess_rd_192_w148590560-fingerprint.json",
+   "note": "Sukee Market (shop=convenience, building=yes). floor y54, door 6542,-5995 with step at z-5996; site_walk from Burgess Rd pavement reachable. aerial z18 only (blurry). Patrol: no findings for this build (13 door_to_wall elsewhere, Broadlands)."
+  },
+  "feature-burgess_rd_194_w148590569": {
+   "status": "applied",
+   "plan": "burgess_rd_194_w148590569",
+   "blocks": 634,
+   "readback": {
+    "planned": 634,
+    "mismatches": 0,
+    "checked": "2026-10-15 06:28"
+   },
+   "snapshot": "backups/regions/2026-10-15-062755-Q-157_burgess194",
+   "fingerprint": "verification/site/burgess_rd_194_w148590569-fingerprint.json",
+   "note": "Uni Station Hong Kong Style Tea Restaurant (amenity=restaurant, cuisine=chinese, building=yes). floor y54, door 6547,-5996 with step at z-5997; site_walk from Burgess Rd pavement reachable. aerial z18 only (blurry). Patrol: no findings for this build."
+  },
+  "feature-burgess_rd_196_w148590558": {
+   "status": "applied",
+   "plan": "burgess_rd_196_w148590558",
+   "blocks": 529,
+   "readback": {
+    "planned": 477,
+    "mismatches": 0,
+    "checked": "2026-10-15 06:32"
+   },
+   "snapshot": "backups/regions/2026-10-15-063017-Q-158_burgess196",
+   "fingerprint": "verification/site/burgess_rd_196_w148590558-fingerprint.json",
+   "note": "The Chinese Noodle Bar (amenity=fast_food, building=retail, cuisine=chinese). floor y54, door 6551,-5996 with two steps (z-5998 y53, z-5997 y54; pavement block top y52); site_walk from Burgess Rd reachable. aerial z18 only (blurry). Patrol: no findings for this build."
+  },
+  "ground-layer": {
+   "status": "applied",
+   "plan": "highfield_51_m47_ground",
+   "blocks": 14066,
+   "readback": {
+    "planned": 14066,
+    "mismatches": 0,
+    "checked": "2026-10-15 06:36"
+   },
+   "note": "z19 aerial east extension (mosaic-z19-18x17-260101-175662-eastext.png; tiles 260116-260118 x 175662-175664 added; ground_sources/trees_layer/plant_cell_canopy now point at it). Previously only z18-blurry/black over most of cell. Door walks verified for Burgess 188-196. Patrol: only 13 pre-existing Broadlands door_to_wall.",
+   "snapshot": "backups/regions/2026-10-15-063609-highfield_51_m47_ground"
+  },
+  "trees": {
+   "status": "applied",
+   "plan": "highfield_51_m47_trees",
+   "blocks": 16986,
+   "crowns": 91,
+   "readback": {
+    "planned": 16986,
+    "mismatches": 0,
+    "mismatch_sample": {},
+    "checked": "2026-10-15 06:38:21"
+   },
+   "mask": "verification/site/masks/trees-51_-47.mask.json"
+  },
+  "decor": {
+   "status": "applied",
+   "plan": "highfield_51_m47_decor",
+   "blocks": 44,
+   "readback": {
+    "planned": 44,
+    "mismatches": 0,
+    "mismatch_sample": {},
+    "checked": "2026-10-15 06:39:17"
+   },
+   "mask": "verification/site/masks/decor-51_-47.mask.json"
+  }
+ }
+}

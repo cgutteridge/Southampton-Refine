@@ -1,0 +1,69 @@
+{
+ "cell": "50,-43",
+ "stages": {
+  "feature_bike_shed_w242322573": {
+   "status": "applied",
+   "plan": "highfield_b35_grounds (Q-043)",
+   "note": "2026-10-15 verified in world, no new build: 96 cols, stone floor y48, iron_bars cage y49-50, smooth_stone bottom slab deck y51, nothing above; parcel prop:w242322573 signed off 100% (2026-10-12). Same type as sibling shed w236241511."
+  },
+  "ground-layer": {
+   "status": "applied",
+   "plan": "highfield_50_m43_ground",
+   "blocks": 10549,
+   "readback": {
+    "planned": 10549,
+    "mismatches": 0,
+    "mismatch_sample": {},
+    "checked": "2026-10-15 02:07:45"
+   },
+   "note": "first-principles ground (OSM + aerial); verify: patrol, visuals; trees and decor re-run after"
+  },
+  "trees": {
+   "status": "applied",
+   "plan": "highfield_50_m43_trees",
+   "blocks": 21562,
+   "crowns": 116,
+   "readback": {
+    "planned": 21562,
+    "mismatches": 0,
+    "mismatch_sample": {},
+    "checked": "2026-10-15 02:09:21"
+   },
+   "mask": "verification/site/masks/trees-50_-43.mask.json"
+  },
+  "decor": {
+   "status": "applied",
+   "plan": "highfield_50_m43_decor",
+   "blocks": 1657,
+   "readback": {
+    "planned": 1657,
+    "mismatches": 0,
+    "mismatch_sample": {},
+    "checked": "2026-10-15 02:10:15"
+   },
+   "mask": "verification/site/masks/decor-50_-43.mask.json"
+  },
+  "feature_hartley_ave": {
+   "status": "applied",
+   "plan": "hartley_ave_2_18, 9_13, 17_31, 20_22 (Q-105, house only)",
+   "note": "2026-10-15 recorded by Q-107; results in verification/site/hartley_ave_*-result.json; gardens handled by ground/trees/decor passes"
+  },
+  "lump_sweep": {
+   "status": "verified",
+   "remaining": 0,
+   "checked": "2026-10-15 09:22:20",
+   "exceptions": [
+    {
+     "bbox": [
+      6422,
+      -5498,
+      6435,
+      -5492
+     ],
+     "reason": "17-col roofed outbuilding, no OSM way, 4 high; not yet identified from imagery (I-048)"
+    }
+   ],
+   "note": "lump_scan.py: 1 recorded exception(s)"
+  }
+ }
+}

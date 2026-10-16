@@ -1,0 +1,94 @@
+{
+  "cell": "51,-44",
+  "stages": {
+    "feature-granby_grove_q167_51_44": {
+      "status": "applied",
+      "plan": "granby_grove_q167_51_44",
+      "blocks": 19084,
+      "readback": {
+        "planned": 19084,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:19"
+      },
+      "snapshot": "backups/regions/2026-10-15-071828-Q-167_granby_51_44",
+      "fingerprint": "verification/site/granby_grove_q167_51_44-fingerprint.json",
+      "note": "Granby Grove 6 detached houses OSM w177758976/979/990, w177759020/029/031, houses only, fronts N, floors y44-46 flush with front pavement (per house), 6 front + 6 rear doors site_walk-reachable (dry-run overlay checked before apply). z19 eastext3 mosaic covers cell; roof colours pale pink-tan (A,C,E brick, B,D,F mud_brick) are hints only. Old Geocraft carpet roofs/walls cleared. Patrol: only 13 pre-existing Broadlands door_to_wall. Not walked in-world."
+    },
+    "feature-granby_grove_q168_51_44": {
+      "status": "applied",
+      "plan": "granby_grove_q168_51_44",
+      "blocks": 9767,
+      "readback": {
+        "planned": 9767,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:22"
+      },
+      "snapshot": "backups/regions/2026-10-15-072229-Q-168_granby_51_44",
+      "fingerprint": "verification/site/granby_grove_q168_51_44-fingerprint.json",
+      "note": "Granby Grove 3 detached houses OSM w177806450/474/482 (north side of road), houses only, fronts S, floors y44 (A), y45 (B,C) flush with front ground; 3 front + 3 rear doors site_walk-reachable (dry-run overlay and live). Roof brick/mud_brick/brick as hints copied from Q-167 neighbours (aerial not re-checked, z19 eastext3 covers cell per Q-167). Patrol: only 13 pre-existing Broadlands door_to_wall. Not walked in-world."
+    },
+    "feature-ripstone_gardens_q169_51_44": {
+      "status": "applied",
+      "plan": "ripstone_gardens_q169_51_44",
+      "blocks": 13656,
+      "readback": {
+        "planned": 13656,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:27"
+      },
+      "snapshot": "backups/regions/2026-10-15-072610-Q-169_ripstone_51_44",
+      "fingerprint": "verification/site/ripstone_gardens_q169_51_44-fingerprint.json",
+      "note": "Ripstone Gardens nos. 33-39 (odd, south side) OSM w176650773 (37), 776 (39), 784 (35), 788 (33), houses only, fronts N, floors y45 (39,37) / y44 (35,33) flush with front pavement; 4 front + 4 rear doors site_walk-reachable (dry-run overlay and live). z19 eastext3 mosaic does NOT cover these plots (black), so roofs are mud_brick as a hint only (no z18 check). Old Geocraft roofs/walls cleared. Patrol: only 13 pre-existing Broadlands door_to_wall; osm_footprints check OK. Not walked in-world."
+    },
+    "feature-ripstone_gardens_q170_51_44": {
+      "status": "applied",
+      "plan": "ripstone_gardens_q170_51_44",
+      "blocks": 17159,
+      "readback": {
+        "planned": 17159,
+        "mismatches": 0,
+        "checked": "2026-10-15 07:31"
+      },
+      "snapshot": "structure backup southampton_refine:before_ripstone_gardens_q170_51_44 (no region snapshot dir taken before apply)",
+      "note": "Ripstone Gardens nos. 44-52 (even, north side) OSM w177759019 (44), 054 (46), 978 (48), 015 (50), 030 (52), houses only, fronts S, floors y45 (52,50,48) / y44 (46,44) flush with front pavement; 5 front + 5 rear doors site_walk-reachable (dry-run overlay and live; no 52 rear ledge stair at 6533,-5563). Roofs mud_brick as a hint (z19 not checked, as Q-169). Old Geocraft roofs/walls cleared. Patrol: only 13 pre-existing Broadlands door_to_wall; osm_footprints OK. Not walked in-world."
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_51_m44_ground",
+      "blocks": 13309,
+      "readback": {
+        "planned": 13309,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 07:35:58"
+      },
+      "note": "z19 row 175672 x 260115-18 fetched, mosaic eastext4.png (ground_sources/trees_layer/plant_cell_canopy repointed; S ~40% of cell was black in eastext3). OSM highways extracted (Merton Rd, Granby Grove, Ripstone Gardens; osm27700/highfield-51-44-highways-ln.geojson). Region snapshot auto. 37 doors site_walk-reachable post-apply. Patrol: only 13 pre-existing Broadlands door_to_wall. 15 ground unit tests OK. Post trees/decor: 2 rear doors lost site_walk path (1-block terrain step at 6562,-5617); fixed with smooth_stone_slab there (plan q171_door_step_51_m44, snapshot before_q171_door_step_51_m44); 37/37 doors reachable.",
+      "snapshot": "backups/regions/2026-10-15-073542-highfield_51_m44_ground"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_51_m44_trees",
+      "blocks": 15040,
+      "crowns": 87,
+      "readback": {
+        "planned": 15040,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 07:37:57"
+      },
+      "mask": "verification/site/masks/trees-51_-44.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_51_m44_decor",
+      "blocks": 632,
+      "readback": {
+        "planned": 632,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 07:38:56"
+      },
+      "mask": "verification/site/masks/decor-51_-44.mask.json"
+    }
+  }
+}

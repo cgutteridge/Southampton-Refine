@@ -1,0 +1,3437 @@
+{
+ "bbox": [
+  6144,
+  45,
+  -5632,
+  6271,
+  100,
+  -5505
+ ],
+ "depth": 10,
+ "counts": {
+  "air": 766060,
+  "non_air": 151444
+ },
+ "findings": {
+  "floating_leaves": [
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6147,
+     53,
+     -5548
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6147,
+     54,
+     -5548
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     51,
+     -5617
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     52,
+     -5617
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     53,
+     -5617
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     51,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     52,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     53,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     51,
+     -5615
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     52,
+     -5615
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     53,
+     -5615
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     54,
+     -5615
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     51,
+     -5614
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     52,
+     -5614
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     53,
+     -5614
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     51,
+     -5613
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     52,
+     -5613
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6149,
+     53,
+     -5613
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6150,
+     51,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6150,
+     52,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6150,
+     53,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6150,
+     51,
+     -5615
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6150,
+     52,
+     -5615
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6150,
+     53,
+     -5615
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6150,
+     51,
+     -5614
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6150,
+     52,
+     -5614
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6150,
+     53,
+     -5614
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6152,
+     47,
+     -5560
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6155,
+     52,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6156,
+     52,
+     -5615
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6157,
+     51,
+     -5593
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6157,
+     52,
+     -5593
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6157,
+     53,
+     -5593
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6157,
+     51,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6157,
+     52,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6157,
+     53,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6157,
+     54,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6158,
+     51,
+     -5593
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6158,
+     52,
+     -5593
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6158,
+     53,
+     -5593
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6158,
+     51,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6158,
+     52,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6158,
+     53,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6158,
+     51,
+     -5591
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6158,
+     52,
+     -5591
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6158,
+     53,
+     -5591
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6158,
+     54,
+     -5591
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6159,
+     51,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6159,
+     52,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6159,
+     53,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6159,
+     51,
+     -5591
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6159,
+     52,
+     -5591
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6159,
+     53,
+     -5591
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6159,
+     51,
+     -5590
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6159,
+     52,
+     -5590
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6159,
+     53,
+     -5590
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6161,
+     54,
+     -5611
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6161,
+     55,
+     -5611
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6161,
+     52,
+     -5593
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6162,
+     54,
+     -5609
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6166,
+     57,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6166,
+     58,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6166,
+     59,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6167,
+     57,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6167,
+     58,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6167,
+     59,
+     -5616
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6168,
+     57,
+     -5615
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6168,
+     58,
+     -5615
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6168,
+     59,
+     -5615
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6168,
+     51,
+     -5583
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6168,
+     52,
+     -5583
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6169,
+     51,
+     -5583
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6169,
+     52,
+     -5583
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6175,
+     57,
+     -5611
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6175,
+     58,
+     -5611
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6175,
+     59,
+     -5611
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6175,
+     57,
+     -5610
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6175,
+     58,
+     -5610
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6175,
+     59,
+     -5610
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6176,
+     57,
+     -5609
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6176,
+     58,
+     -5609
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6176,
+     59,
+     -5609
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6180,
+     58,
+     -5599
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6180,
+     59,
+     -5599
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6180,
+     60,
+     -5599
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6180,
+     58,
+     -5598
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6180,
+     59,
+     -5598
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6180,
+     60,
+     -5598
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6181,
+     58,
+     -5597
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6181,
+     59,
+     -5597
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6181,
+     60,
+     -5597
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6209,
+     59,
+     -5625
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6209,
+     60,
+     -5625
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6209,
+     61,
+     -5625
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6209,
+     59,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6209,
+     60,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6209,
+     61,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6209,
+     59,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6209,
+     60,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6209,
+     61,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     59,
+     -5626
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     60,
+     -5626
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     61,
+     -5626
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     59,
+     -5625
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     60,
+     -5625
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     61,
+     -5625
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     59,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     60,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     61,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     62,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     59,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     60,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     61,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     59,
+     -5622
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     60,
+     -5622
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6210,
+     61,
+     -5622
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6231,
+     56,
+     -5542
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6232,
+     56,
+     -5544
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6233,
+     56,
+     -5546
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6234,
+     56,
+     -5548
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6237,
+     59,
+     -5619
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6237,
+     60,
+     -5619
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6237,
+     61,
+     -5619
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6237,
+     59,
+     -5618
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6237,
+     60,
+     -5618
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6237,
+     61,
+     -5618
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6238,
+     59,
+     -5620
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6238,
+     60,
+     -5620
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6238,
+     61,
+     -5620
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6238,
+     59,
+     -5619
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6238,
+     60,
+     -5619
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6238,
+     61,
+     -5619
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6246,
+     58,
+     -5549
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6246,
+     59,
+     -5549
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6246,
+     60,
+     -5549
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6246,
+     58,
+     -5548
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6246,
+     59,
+     -5548
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6246,
+     60,
+     -5548
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6247,
+     58,
+     -5551
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6247,
+     59,
+     -5551
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6247,
+     60,
+     -5551
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6247,
+     58,
+     -5548
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6247,
+     59,
+     -5548
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6247,
+     60,
+     -5548
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6247,
+     58,
+     -5547
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6247,
+     59,
+     -5547
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6247,
+     60,
+     -5547
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6248,
+     57,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6248,
+     58,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6248,
+     59,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6248,
+     58,
+     -5551
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6248,
+     59,
+     -5551
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6248,
+     60,
+     -5551
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6248,
+     58,
+     -5550
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6248,
+     59,
+     -5550
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6248,
+     60,
+     -5550
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6248,
+     61,
+     -5550
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6249,
+     57,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6249,
+     58,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6249,
+     59,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6249,
+     58,
+     -5551
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6249,
+     59,
+     -5551
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6249,
+     60,
+     -5551
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6249,
+     58,
+     -5550
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6249,
+     59,
+     -5550
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6249,
+     60,
+     -5550
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6250,
+     57,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6250,
+     58,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6250,
+     59,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6250,
+     58,
+     -5550
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6250,
+     59,
+     -5550
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6250,
+     60,
+     -5550
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6250,
+     58,
+     -5549
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6250,
+     59,
+     -5549
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6250,
+     60,
+     -5549
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6251,
+     57,
+     -5576
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6251,
+     58,
+     -5576
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6251,
+     59,
+     -5576
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6251,
+     57,
+     -5575
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6251,
+     58,
+     -5575
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6251,
+     59,
+     -5575
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6254,
+     57,
+     -5539
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6254,
+     58,
+     -5539
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6254,
+     59,
+     -5539
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     59,
+     -5603
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     60,
+     -5603
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     61,
+     -5603
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     59,
+     -5602
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     60,
+     -5602
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     61,
+     -5602
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     59,
+     -5601
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     60,
+     -5601
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     61,
+     -5601
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     60,
+     -5575
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     58,
+     -5574
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     59,
+     -5574
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     60,
+     -5574
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     57,
+     -5540
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     58,
+     -5540
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     59,
+     -5540
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     60,
+     -5540
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     57,
+     -5539
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     58,
+     -5539
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6255,
+     59,
+     -5539
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6256,
+     57,
+     -5540
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6256,
+     58,
+     -5540
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6256,
+     59,
+     -5540
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6256,
+     57,
+     -5539
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6256,
+     58,
+     -5539
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6256,
+     59,
+     -5539
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6257,
+     57,
+     -5540
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6257,
+     58,
+     -5540
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6257,
+     59,
+     -5540
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6259,
+     59,
+     -5558
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6259,
+     60,
+     -5558
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6259,
+     61,
+     -5558
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6259,
+     59,
+     -5557
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6259,
+     60,
+     -5557
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6259,
+     61,
+     -5557
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6259,
+     59,
+     -5556
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6259,
+     60,
+     -5556
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6259,
+     61,
+     -5556
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6262,
+     59,
+     -5559
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6262,
+     60,
+     -5559
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6262,
+     61,
+     -5559
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6262,
+     59,
+     -5558
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6262,
+     60,
+     -5558
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6262,
+     61,
+     -5558
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6262,
+     59,
+     -5557
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6262,
+     60,
+     -5557
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6262,
+     61,
+     -5557
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6262,
+     62,
+     -5557
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6263,
+     59,
+     -5558
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6263,
+     60,
+     -5558
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6263,
+     61,
+     -5558
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6263,
+     59,
+     -5557
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6263,
+     60,
+     -5557
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6263,
+     61,
+     -5557
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6263,
+     59,
+     -5556
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6263,
+     60,
+     -5556
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6263,
+     61,
+     -5556
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     58,
+     -5606
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     59,
+     -5606
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     60,
+     -5606
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     58,
+     -5605
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     59,
+     -5605
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     60,
+     -5605
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     58,
+     -5604
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     59,
+     -5604
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     60,
+     -5604
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     58,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     59,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     60,
+     -5592
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     58,
+     -5591
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     59,
+     -5591
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     60,
+     -5591
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     58,
+     -5590
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     59,
+     -5590
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     60,
+     -5590
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     57,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     58,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     59,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     57,
+     -5529
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     58,
+     -5529
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6266,
+     59,
+     -5529
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6267,
+     57,
+     -5531
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6267,
+     58,
+     -5531
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6267,
+     59,
+     -5531
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6267,
+     57,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6267,
+     58,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6267,
+     59,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6267,
+     57,
+     -5529
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6267,
+     58,
+     -5529
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6267,
+     59,
+     -5529
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6267,
+     60,
+     -5529
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     57,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     58,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     59,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     57,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     58,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     59,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     57,
+     -5622
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     58,
+     -5622
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     59,
+     -5622
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     57,
+     -5531
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     58,
+     -5531
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     59,
+     -5531
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     57,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     58,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     59,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6268,
+     60,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     57,
+     -5625
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     58,
+     -5625
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     59,
+     -5625
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     57,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     58,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     59,
+     -5624
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     57,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     58,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     59,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     60,
+     -5623
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     57,
+     -5622
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     58,
+     -5622
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     59,
+     -5622
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     57,
+     -5621
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     58,
+     -5621
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     59,
+     -5621
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     58,
+     -5578
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     59,
+     -5578
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     60,
+     -5578
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     58,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     59,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     60,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     58,
+     -5576
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     59,
+     -5576
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     60,
+     -5576
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     57,
+     -5531
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     58,
+     -5531
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     59,
+     -5531
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     57,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     58,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6269,
+     59,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     58,
+     -5579
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     59,
+     -5579
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     60,
+     -5579
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     58,
+     -5578
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     59,
+     -5578
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     60,
+     -5578
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     58,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     59,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     60,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     61,
+     -5577
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     58,
+     -5576
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     59,
+     -5576
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     60,
+     -5576
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     58,
+     -5575
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     59,
+     -5575
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     60,
+     -5575
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     57,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     58,
+     -5530
+    ],
+    "block": "oak_leaves"
+   },
+   {
+    "kind": "floating_leaves",
+    "why": "leaves with no log within 6 blocks (no trunk)",
+    "pos": [
+     6270,
+     59,
+     -5530
+    ],
+    "block": "oak_leaves"
+   }
+  ]
+ },
+ "totals": {
+  "floating_leaves": 341
+ },
+ "time": "2026-10-13 00:43",
+ "cell": [
+  48,
+  -44
+ ]
+}

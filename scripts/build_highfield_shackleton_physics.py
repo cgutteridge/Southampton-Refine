@@ -36,7 +36,9 @@ SHED = dict(wall='gray_concrete', rows=())
 
 b5, i5 = lidar_parts('3006924', 'b5p', **CONC)
 b46, i46 = lidar_parts('3006921', 'b46', **CONC)
-b44, i44 = lidar_parts('3300438', 'b44', **CONC)
+# photo (ground floor): red-brown brick piers + dark glazing under pale upper cladding
+GROUND = dict(wall='bricks', glass='gray_stained_glass', pier=3)
+b44, i44 = lidar_parts('3300438', 'b44', fill_pockets=7, ground=GROUND, **CONC)
 b44a, _ = lidar_parts('30446953', 'b44a', **BRICK)
 sheds = [lidar_parts(w, f's{w[-3:]}', min_cells=4, **SHED)[0] for w in ('226247416', '226247418', '226247420')]
 BUILDINGS = [b5, b46, b44, b44a] + sheds

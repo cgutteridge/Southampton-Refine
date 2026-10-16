@@ -1,0 +1,63 @@
+{
+  "cell": "47,-46",
+  "stages": {
+    "feature-bike-shed-w226141861": {
+      "status": "verified",
+      "plan": "highfield_bike_shed_w226141861",
+      "blocks": 78,
+      "readback": {
+        "planned": 78,
+        "mismatches": 0,
+        "checked": "2026-10-15 04:57:17"
+      },
+      "snapshot": "backups/regions/2026-10-15-045650-q135_bike_shed_w226141861",
+      "fingerprint": {
+        "6054,53,-5797": "stone",
+        "6054,54,-5799": "stone",
+        "6055,53,-5801": "stone",
+        "6056,53,-5801": "water[level=0]",
+        "6053,53,-5795": "stone"
+      },
+      "note": "private bicycle shed (capacity 27), slab roof on iron-bar posts, floor y54, 2 water-edge cells excluded; patrol clean near shed; aerial blurry z18"
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_47_m46_ground",
+      "blocks": 23469,
+      "readback": {
+        "planned": 23469,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 05:02:21"
+      },
+      "note": "OSM+aerial z18 mosaic; woodland grass W, campus paving/tarmac; footprints, bike shed and water/bank skipped (stream stays water); patrol sweep 0 floating, door_to_wall only in Broadlands (not this cell)"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_47_m46_trees",
+      "blocks": 3494,
+      "crowns": 20,
+      "readback": {
+        "planned": 3494,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 11:59:10"
+      },
+      "mask": "verification/site/masks/trees-47_-46.mask.json",
+      "note": "2026-10-15 I-059: trees re-run with dense-cover fill + overhang rule (undone from old mask, 8 crowns before; trees on lawn only, TREES_ON_PAVING off). Crowns 20, 3494 blocks, see mask outside the cell. Pre-state snapshot (cell + 12-block margin) backups/regions/2026-10-15-115748-highfield_47_m46_trees_undo; apply snapshot backups/regions/2026-10-15-115857-highfield_47_m46_trees. Decor untouched. Readback 0, 0 trunks on non-lawn, patrol floating 0, 9 doors reachable. No overhang out of this cell; 46,-46 overhangs into it from the west.",
+      "dense_redo": true
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_47_m46_decor",
+      "blocks": 663,
+      "readback": {
+        "planned": 663,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 05:05:28"
+      },
+      "mask": "verification/site/masks/decor-47_-46.mask.json"
+    }
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "cell": "50,-42",
+  "stages": {
+    "feature_blenheim_gardens_37_53": {
+      "status": "applied",
+      "plan": "blenheim_gardens_37_53 (Q-108)",
+      "blocks": 9913,
+      "readback": {
+        "planned": 9913,
+        "mismatches": 0,
+        "checked": "2026-10-15 02:3x"
+      },
+      "snapshot": "backups/regions/2026-10-15-021950-Q-108 + structure before_blenheim_gardens_37_53 (box 6451,41,-5380..6535,57,-5335)",
+      "fingerprint": {
+        "6460,46,-5376": "stone",
+        "6500,53,-5356": "light_gray_carpet",
+        "6531,43,-5349": "stone",
+        "6470,45,-5380": "light_gray_concrete"
+      },
+      "note": "nos. 37-53 odd, house only, fronts N; first apply used ground floor clamp y>=45, reverted from structure backup (fingerprint matched) and rebuilt with floor from real ground (43-46). 55 (Q-102) and 35 untouched; trees/ground edge cells of 50,-43 cleared under the roof volume."
+    },
+    "feature_hartley_ave_1_7": {
+      "status": "applied",
+      "plan": "hartley_ave_1_7 (Q-109)",
+      "blocks": 4659,
+      "readback": {
+        "planned": 4659,
+        "mismatches": 0,
+        "checked": "2026-10-15 02:37"
+      },
+      "snapshot": "backups/regions/2026-10-15-023617-Q-109 + structure before_hartley_ave_1_7 (box 6402,42,-5381..6430,57,-5338)",
+      "fingerprint": {
+        "6410,48,-5345": "air",
+        "6420,54,-5360": "light_gray_carpet",
+        "6425,53,-5370": "air",
+        "6416,47,-5350": "stone"
+      },
+      "note": "nos. 1,3,5,7 house only, fronts E (road east); 3,5,1 deepslate tile (1 hint, no imagery), 7 red tile. Floor 46-47 from real ground. No.7 crosses z-5377 into 50,-43; replaced no.9 roof overhang and a few 50,-43 ground/decor cells inside its footprint. Parcel signoff refused (parcels include gardens: later passes)."
+    },
+    "feature_welbeck_ave_7_13": {
+      "status": "applied",
+      "plan": "welbeck_ave_7_13 (Q-110)",
+      "blocks": 6311,
+      "readback": {
+        "planned": 6311,
+        "mismatches": 0,
+        "checked": "2026-10-15 02:41"
+      },
+      "snapshot": "structure southampton_refine:before_welbeck_ave_7_13 (box 6389,42,-5333..6434,58,-5299); taken by apply() immediately before the writes (no separate backups/regions copy)",
+      "fingerprint": {
+        "6394,48,-5314": "spruce_door",
+        "6418,46,-5303": "spruce_door"
+      },
+      "note": "nos. 7,9,11,13 house only, front S (no OSM Welbeck road; only road is the Geocraft one south), deepslate tile roofs = hint (no aerial strip). Floors 46-48 from real ground. Nos 3,5 untouched. Fingerprint is post-apply (pre-apply blocks are in the structure)."
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_50_m42_ground",
+      "blocks": 12418,
+      "readback": {
+        "planned": 12418,
+        "mismatches": 0,
+        "checked": "2026-10-15 02:47:22"
+      },
+      "snapshot": "backups/regions/2026-10-15-024653-Q-111-ground, 2026-10-15-024707-highfield_50_m42_ground; structure before_highfield_50_m42_ground",
+      "note": "OSM + aerial. z19 mosaic extended (reference/aerial/highfield-z19/mosaic-z19-11x15-...-ext678.png, tiles fetched for rows 175676-8) because the old mosaic did not cover the cell; ground_sources/trees_layer/plant_cell_canopy now point at it. Unmapped road S of Welbeck houses added via SUPPLEMENT_ROADS in ground_sources.py. Verify visually."
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_50_m42_trees",
+      "blocks": 23177,
+      "crowns": 121,
+      "readback": {
+        "planned": 23177,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 19:15:04"
+      },
+      "mask": "verification/site/masks/trees-50_-42.mask.json",
+      "note": "re-run 2026-10-15 under overhang-v1 after the Welbeck houses: 127 -> 121 crowns (dry run with old mask simulated undone: dense fill only +12), no dense jump; old mask undone first (trees-undo stage)"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_50_m42_decor",
+      "blocks": 1135,
+      "readback": {
+        "planned": 1135,
+        "mismatches": 0,
+        "checked": "2026-10-15 02:50"
+      },
+      "mask": "verification/site/masks/decor-50_-42.mask.json"
+    },
+    "trees-undo": {
+      "status": "applied",
+      "plan": "highfield_50_m42_trees_undo",
+      "owner": "agent-50m42-welbeck-191220",
+      "started": "2026-10-15 19:12:40",
+      "blocks": 22810,
+      "structure": {
+        "name": "southampton_refine:before_highfield_50_m42_trees_undo",
+        "from": [
+          6399,
+          42,
+          -5377
+        ],
+        "to": [
+          6528,
+          63,
+          -5248
+        ]
+      },
+      "snapshot": "backups/regions/2026-10-15-191233-highfield_50_m42_trees_undo",
+      "planned": "verification/site/highfield_50_m42_trees_undo-planned.json",
+      "kind": "undo",
+      "pass": "trees",
+      "finished": "2026-10-15 19:12:55",
+      "readback": {
+        "planned": 22810,
+        "mismatches": 0,
+        "checked": "2026-10-15 19:12:55"
+      }
+    },
+    "feature-welbeck_ave_50_lumps": {
+      "status": "applied",
+      "plan": "welbeck_ave_50_lumps",
+      "owner": "agent-50m42-welbeck-191220",
+      "started": "2026-10-15 19:13:30",
+      "blocks": 27336,
+      "structure": {
+        "name": "southampton_refine:before_welbeck_ave_50_lumps",
+        "from": [
+          6395,
+          37,
+          -5317
+        ],
+        "to": [
+          6535,
+          56,
+          -5239
+        ]
+      },
+      "snapshot": "backups/regions/2026-10-15-191316-welbeck_ave_50_lumps + structure before_welbeck_ave_50_lumps; trees undo snapshot taken by mask_undo before it",
+      "planned": "verification/site/welbeck_ave_50_lumps-planned.json",
+      "finished": "2026-10-15 19:13:37",
+      "readback": {
+        "planned": 27336,
+        "mismatches": 0,
+        "checked": "2026-10-15 19:13:37"
+      },
+      "fingerprint": {
+        "6470,47,-5282": "light_gray_carpet",
+        "6485,50,-5274": "light_gray_carpet",
+        "6437,54,-5303": "light_gray_carpet",
+        "6515,49,-5258": "light_gray_carpet",
+        "6408,55,-5266": "light_gray_carpet",
+        "6427,55,-5255": "light_gray_carpet",
+        "6420,45,-5270": "light_gray_concrete"
+      },
+      "note": "I-057: 16 Welbeck Ave lumps, house only from OSM footprints (12 houses N of the unmapped road front S, 4 houses S of it front N; scripts/build_welbeck_ave_50_lumps.py). Floors from lawn ring (surface scan from above, not y41). Cell marker wool untouched. Order used: mask_undo trees (619 tree blocks overlapped the footprints), houses, trees re-run. Follow-ups (fix script): 40 brick remnants in fringes -> grass, door steps/stair stoops where ground drops 2+ (one door at 6464,-5276 unreachable). Doors: 33 before, 61 after, all one site_walk component."
+    },
+    "lump_sweep": {
+      "status": "verified",
+      "remaining": 0,
+      "checked": "2026-10-15 19:15:04",
+      "exceptions": [],
+      "note": "lump_scan.py: no Geocraft lumps left"
+    },
+    "feature-welbeck_ave_50_lumps_fix": {
+      "status": "applied",
+      "plan": "welbeck_ave_50_lumps_fix",
+      "owner": "agent-50m42-welbeck-191220",
+      "started": "2026-10-15 19:20:25",
+      "blocks": 12,
+      "structure": {
+        "name": "southampton_refine:before_welbeck_ave_50_lumps_fix_20261015192025",
+        "from": [
+          6409,
+          42,
+          -5304
+        ],
+        "to": [
+          6500,
+          45,
+          -5249
+        ]
+      },
+      "snapshot": "backups/regions/2026-10-15-191656-welbeck_ave_50_lumps_fix",
+      "planned": "verification/site/welbeck_ave_50_lumps_fix-planned.json",
+      "finished": "2026-10-15 19:20:31",
+      "readback": {
+        "planned": 12,
+        "mismatches": 0,
+        "checked": "2026-10-15 19:20:31"
+      },
+      "note": "follow-up: brick remnants -> grass, stair stoops / steps (scripts/fix_welbeck_ave_50_lumps.py, applied 4x as the step rule was refined; last apply readback 0). Snapshots backups/regions/*welbeck_ave_50_lumps_fix{,2,3,4}"
+    },
+    "feature-cell_marker_50_m42": {
+      "status": "applied",
+      "plan": "cell_marker_50_m42",
+      "owner": "orch-marker-48m42",
+      "started": "2026-10-15 20:11:44",
+      "blocks": 508,
+      "structure": {
+        "name": "southampton_refine:before_cell_marker_50_m42_20261015201143",
+        "from": [
+          6399,
+          86,
+          -5377
+        ],
+        "to": [
+          6528,
+          86,
+          -5248
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/cell_marker_50_m42-planned.json",
+      "finished": "2026-10-15 20:11:58",
+      "readback": {
+        "planned": 508,
+        "mismatches": 0,
+        "checked": "2026-10-15 20:11:58"
+      }
+    }
+  }
+}

@@ -87,7 +87,8 @@ def roof_and_flues(c):
                 c.set(x, pt.deck + y, z, 'light_gray_concrete')
         base = pt.deck + 2
         c.flues = []
-        for k in (-8, -4, 0, 4, 8):
+        # Flues removed 2026-10-15 (user: wrong building; see site/NOTES.txt CHEMISTRY correction).
+        for k in ():
             fx, fz = round(cx + vx * k), round(cz + vz * k)
             c.flues.append((fx, fz))
             for a in (0, 1):
@@ -95,8 +96,7 @@ def roof_and_flues(c):
                     for y in range(pt.deck + 1, base + 7):
                         c.set(fx + a, y, fz + b, 'iron_block')
                     c.set(fx + a, base + 7, fz + b, 'polished_andesite')
-        lo, hi, L = c.flues[0], c.flues[-1], 16
-        c.flue_span = (lo, hi, round(L))
+        c.flue_span = None
 
 
 EXTRA = roof_and_flues

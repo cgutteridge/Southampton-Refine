@@ -27,6 +27,10 @@ FACING = {(1, 0): 'east', (-1, 0): 'west', (0, 1): 'south', (0, -1): 'north'}
 TERRAIN = ('stone', 'gray_terracotta', 'grass_block', 'dirt', 'polished_diorite', 'granite',
            'black_wool', 'smooth_stone', 'coarse_dirt', 'gravel', 'andesite', 'spruce_planks',
            'polished_andesite', 'dirt_path', 'podzol')
+# Refine tarmac / asphalt surfaces (CRAFTSMANSHIP.txt §3a): public roads, service=driveway,
+# service=parking_aisle, amenity=parking (incl. bay lines on white_concrete), cycleways
+# surface=asphalt, and Broadlands streetscape carriageways.
+TARMAC = 'gray_concrete'
 KEEP = ('leaves', '_log', 'air')
 
 
@@ -61,7 +65,8 @@ class Part:
     def __init__(self, name, base, deck, top=None, floors=(), rects=(), polys=(), frame=UV,
                  wall='bricks', glass='glass', slab='light_gray_concrete', floor='smooth_stone',
                  rows=(1,), pier=0, band=(), corner_glass=False, band_block='smooth_quartz', light='light[level=15]',
-                 cells=None):
+                 cells=None, ground=None):
+        self.ground = ground      # dict(wall=, glass=, pier=) overriding the style of the bottom storey
         self.name, self.base, self.deck, self.top = name, base, deck, top
         self.cells = set(cells) if cells is not None else None
         self.floors = floors or (base,)
@@ -186,6 +191,12 @@ class Campus:
         return f'{pt.roof_stair}[facing={FACING[(dx, dz)]},half=bottom]'
 
     def wall_block(self, x, y, z, pt, ex):
+        if pt.ground and y < (pt.floors[1] if len(pt.floors) > 1 else pt.deck):
+            import copy
+            pt = copy.copy(pt)
+            for k, v in pt.ground.items():
+                setattr(pt, k, v)
+            pt.ground = None
         if y in pt.band:
             return pt.band_block
         ribbon = pt.corner_glass and len(ex) == 2 and ex[0][0] != -ex[1][0] and ex[0][1] != -ex[1][1]
@@ -425,14 +436,41 @@ def lidar_top(x, z, ymax=120, ymin=30):
     return y
 
 
+def _fill_pockets(cells, solid, band, side):
+    """{cell: band} for footprint cells outside `solid` that sit in no side x side clear square
+    of open footprint cells, each taking the band of the nearest solid cell (BFS over 8-neighbours)."""
+    openc = cells - solid
+    keep = set()
+    for x0, z0 in openc:
+        sq = [(x0 + i, z0 + j) for i in range(side) for j in range(side)]
+        if all(q in openc for q in sq):
+            keep.update(sq)
+    fill = openc - keep
+    out, frontier = {}, dict(band)
+    while fill and frontier:
+        nxt = {}
+        for (x, z), b in frontier.items():
+            for dx in (-1, 0, 1):
+                for dz in (-1, 0, 1):
+                    q = (x + dx, z + dz)
+                    if q in fill and q not in out and q not in nxt:
+                        nxt[q] = b
+        out.update(nxt)
+        fill -= set(nxt)
+        frontier = nxt
+    return out
+
+
 def lidar_parts(way, prefix=None, base=None, merge=1, min_cells=10, open_below=2, storey=3,
-                parapet=1, only=None, **style):
+                parapet=1, only=None, fill_pockets=0, **style):
     """Parts for one OSM way from its pristine LIDAR roof bands.
 
     Cells of the OSM footprint whose LIDAR top is within `open_below` of ground are open
     (courtyards / light wells) and left out. Remaining tops are grouped into bands (values
     within `merge` of each other), smoothed with a 3x3 majority filter, and components under
-    `min_cells` fold into their commonest neighbour. Each band becomes one Part with
+    `min_cells` fold into their commonest neighbour. `fill_pockets` = side of the smallest square
+    (e.g. 7) a footprint hole must contain to count as a real courtyard; speckled/thin open
+    cells (LIDAR noise on low wings) that cannot hold one are filled with the nearest band. Each band becomes one Part with
     deck = band top, floors every `storey` from `base` (ground: median terrain 3 out from the
     footprint), coping `parapet` above the deck. `only` = optional cell set to restrict to.
     Returns (parts, info) — info carries ground, bands and open cells for the docstring/notes."""
@@ -460,6 +498,8 @@ def lidar_parts(way, prefix=None, base=None, merge=1, min_cells=10, open_below=2
     if not peaks:
         peaks = [max(hist, key=hist.get)]
     band = {q: min(peaks, key=lambda pk: (abs(pk - top[q]), -pk)) for q in solid}
+    if fill_pockets:
+        band.update(_fill_pockets(cells, solid, band, fill_pockets))
     for _ in range(2):
         nb = {}
         for (x, z), b in band.items():

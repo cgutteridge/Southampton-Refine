@@ -1,0 +1,82 @@
+{
+  "cell": "51,-46",
+  "stages": {
+    "feature-broadlands_rd_254_262": {
+      "status": "applied",
+      "plan": "broadlands_rd_254_262",
+      "blocks": 16125,
+      "readback": {
+        "planned": 16125,
+        "mismatches": 0,
+        "checked": "2026-10-15 06:45"
+      },
+      "snapshot": "backups/regions/2026-10-15-064222-Q-160_broadlands254",
+      "fingerprint": "verification/site/broadlands_rd_254_262-fingerprint.json",
+      "note": "Broadlands Rd 254-262 (OSM w228527052/177809057/055/050/067), houses only, two groups (262/260/258, 256/254). Floors y50 (A-C) and y49 (D-E), fronts S; all 5 doors site_walk-reachable to the road (ledge at D/E lowered 1 block). Roof colour deepslate hint from z18 aerial. 15 neighbour (264-280) overhang slabs at NW corner left in place. Patrol: no findings for this build. Walk via site_walk only, not in-world."
+    },
+    "feature-mayfield_rd_153_159": {
+      "status": "applied",
+      "plan": "mayfield_rd_153_159",
+      "blocks": 12033,
+      "readback": {
+        "planned": 12033,
+        "mismatches": 0,
+        "checked": "2026-10-15 06:49"
+      },
+      "snapshot": "backups/regions/2026-10-15-064830-Q-161_mayfield153",
+      "fingerprint": "verification/site/mayfield_rd_153_159-fingerprint.json",
+      "note": "Mayfield Rd 159/157/155 (OSM w177809797/777/800), houses only, one group, floor y52, fronts N onto road; 3 doors site_walk-reachable to the road. Roof deepslate hint from z18 aerial (z19 not checked for this cell). Fingerprint taken before apply. Patrol: no findings for this build (13 door_to_wall elsewhere, Broadlands 2-46, pre-existing). Walk via site_walk only, not in-world."
+    },
+    "feature-mayfield_rd_q162": {
+      "status": "applied",
+      "plan": "mayfield_rd_q162",
+      "blocks": 12746,
+      "readback": {
+        "planned": 12746,
+        "mismatches": 0,
+        "checked": "2026-10-15 06:52"
+      },
+      "snapshot": "backups/regions/2026-10-15-065217-Q-162_mayfield_q162",
+      "fingerprint": "verification/site/mayfield_rd_q162-fingerprint.json",
+      "note": "Mayfield Rd three houses (OSM w177910454/460/479), houses only: C alone (floor y53), A+B group (floor y52), fronts S; 3 doors site_walk-reachable to the road (one stair step at C). z19 tile 260116/175665 fetched (was missing) for roof hint: mud_brick slab, hint only. Fingerprint+snapshot before apply. Patrol: no new findings (13 door_to_wall elsewhere, Broadlands, pre-existing). Walk via site_walk only, not in-world."
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_51_m46_ground",
+      "blocks": 13648,
+      "readback": {
+        "planned": 13648,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 06:58:30"
+      },
+      "note": "z19 tiles 260116-18 x 175665-67 fetched, mosaic eastext2.png (ground_sources/trees_layer/plant_cell_canopy repointed; cell was ~89% black). OSM Mayfield/Broadlands Rd + alley extracted (verification/site/osm27700/highfield-51-46-highways-ln.geojson, densified; loader needs a vertex in the cell box); SURFACE_KIND pebblestone->gravel. Door walks verified for all 22 doors. Patrol: only 13 pre-existing Broadlands door_to_wall. Alley gravel band behind Mayfield S gardens looks wide (visual check).",
+      "snapshot": "backups/regions/2026-10-15-065815-highfield_51_m46_ground"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_51_m46_trees",
+      "blocks": 23580,
+      "crowns": 144,
+      "readback": {
+        "planned": 23580,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 06:59:43"
+      },
+      "mask": "verification/site/masks/trees-51_-46.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_51_m46_decor",
+      "blocks": 198,
+      "readback": {
+        "planned": 198,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 07:00:40"
+      },
+      "mask": "verification/site/masks/decor-51_-46.mask.json"
+    }
+  }
+}

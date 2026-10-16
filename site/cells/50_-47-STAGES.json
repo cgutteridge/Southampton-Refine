@@ -1,0 +1,43 @@
+{
+  "cell": "50,-47",
+  "stages": {
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_50_m47_ground",
+      "blocks": 14649,
+      "readback": {
+        "planned": 14649,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 06:18:32"
+      },
+      "snapshot": "backups/regions/2026-10-15-061611-highfield_50_m47_ground",
+      "note": "first-principles ground, z19 aerial crisp over whole cell. ground_layer.py: guessed lawn between a public road and a building front (<=8/<=4 cols) becomes paving (shop forecourts); first apply was redone after this change (trees/decor undone via mask_undo, re-run). Unmapped multi-storey/large white-roof building near 6420-6440,-5960..-5930 is NOT built: ground is paving at y56. door walks verified for Burgess Rd 170-184, 282/284 Broadlands, 284A, 204/206 Mayfield. verify: patrol, visuals"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_50_m47_trees",
+      "blocks": 13085,
+      "crowns": 71,
+      "readback": {
+        "planned": 13085,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 06:18:32"
+      },
+      "mask": "verification/site/masks/trees-50_-47.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_50_m47_decor",
+      "blocks": 306,
+      "readback": {
+        "planned": 306,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 06:18:32"
+      },
+      "mask": "verification/site/masks/decor-50_-47.mask.json"
+    }
+  }
+}

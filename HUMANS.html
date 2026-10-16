@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Southampton Refine: for humans</title>
+<style>
+  :root {
+    --bg: #fafaf7; --fg: #1d1f21; --muted: #5c6166; --card: #ffffff; --line: #dcdcd4;
+    --accent: #1f6f43; --accent-bg: #e6f2ea; --warn: #8a4b00; --warn-bg: #fdf1dc; --code-bg: #f0efe8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17181a; --fg: #e8e8e3; --muted: #a2a7ad; --card: #1f2124; --line: #34373b;
+      --accent: #6fcf97; --accent-bg: #1c2a22; --warn: #f0b45c; --warn-bg: #2d2415; --code-bg: #26282b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 56rem; margin: 0 auto; padding: 2rem 1rem 4rem; }
+  h1 { font-size: 1.9rem; margin: 0 0 .25rem; }
+  h2 { font-size: 1.25rem; margin: 2.4rem 0 .6rem; padding-top: .8rem; border-top: 1px solid var(--line); }
+  h3 { font-size: 1rem; margin: 1.2rem 0 .3rem; }
+  p, li { max-width: 70ch; }
+  .lede { color: var(--muted); margin: 0 0 1.4rem; }
+  a { color: var(--accent); }
+  code, kbd, pre { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .88em; }
+  code { background: var(--code-bg); padding: .08em .35em; border-radius: 4px; }
+  pre { background: var(--code-bg); padding: .8rem 1rem; border-radius: 8px; overflow-x: auto; margin: .5rem 0 1rem; }
+  pre code { background: none; padding: 0; }
+  table { border-collapse: collapse; width: 100%; margin: .5rem 0 1rem; font-size: .95rem; }
+  th, td { text-align: left; vertical-align: top; padding: .45rem .6rem; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; font-size: .85rem; }
+  .grid { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .8rem 1rem; }
+  .card h3 { margin-top: 0; }
+  .card ul { margin: .3rem 0 0; padding-left: 1.1rem; }
+  .note { background: var(--accent-bg); border-left: 4px solid var(--accent); padding: .6rem 1rem; border-radius: 6px; margin: 1rem 0; }
+  .warn { background: var(--warn-bg); border-left: 4px solid var(--warn); padding: .6rem 1rem; border-radius: 6px; margin: 1rem 0; }
+  .stamp { color: var(--muted); font-size: .85rem; }
+  figure { margin: .5rem 0 0; } figure img { max-width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--code-bg); }
+  figcaption { color: var(--muted); font-size: .8rem; margin-top: .2rem; }
+  td figure { max-width: 34rem; }
+  nav { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin: 0 0 1rem; font-size: .92rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Southampton Refine: for humans</h1>
+<p class="lede">A Minecraft rebuild of a real place (the University of Southampton Highfield campus and the streets around it), done cell by cell by AI agents and reviewed by people. This page is for the people: where to look, what to check, and how to steer. The machine-facing entry point is <a href="AGENTS.md">AGENTS.md</a>. Links are relative, so open this file from the project folder.</p>
+
+<nav>
+  <a href="#now">Where are we?</a>
+  <a href="site/pages/index.html">Cells</a>
+  <a href="#review">Reviewing</a>
+  <a href="#commands">Commands</a>
+  <a href="#concepts">Concepts</a>
+  <a href="#rules">Rules to know</a>
+  <a href="#links">All links</a>
+  <a href="#open">Open items</a>
+</nav>
+
+<h2 id="now">Where are we, and what happened overnight?</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Run log (start here)</h3>
+    <p>One block per finished cell: what was built, the coordinates to look at, and anything open or failed.</p>
+    <ul><li><a href="site/RUN-LOG.md">site/RUN-LOG.md</a></li></ul>
+  </div>
+  <div class="card">
+    <h3>Cells: completed and in progress</h3>
+    <p>An overview of every cell by status, and a page per cell with its layers, stage history, related issues and the images already made for it.</p>
+    <ul><li><a href="site/pages/index.html">site/pages/index.html</a></li></ul>
+    <p class="stamp">Refresh: <code>.venv/bin/python scripts/site_pages.py</code> (about 30 s). It only writes HTML and links images that already exist.</p>
+  </div>
+  <div class="card">
+    <h3>Issues and next steps</h3>
+    <ul>
+      <li><a href="site/RESUME-ISSUES.txt">RESUME-ISSUES.txt</a>: state, next steps, what needs you</li>
+      <li><a href="site/ISSUES.txt">ISSUES.txt</a>: every open issue, with dated notes</li>
+      <li><a href="site/QUEUE.txt">QUEUE.txt</a>: what an agent will do next</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>Start or resume a run</h3>
+    <p>Copy-paste prompts for one cell, a few cells, overnight, morning-after and crash recovery.</p>
+    <ul><li><a href="site/START-PROMPTS.md">site/START-PROMPTS.md</a></li></ul>
+  </div>
+</div>
+<p>The log and the numbers below come from files that agents update; this page does not refresh itself. To see live state, run the commands in <a href="#commands">Commands</a>.</p>
+
+<h2 id="review">Reviewing a cell</h2>
+<ol>
+  <li><strong>Find what to look at.</strong> Each cell has its own page under <a href="site/pages/index.html">site/pages/</a> with the images already made for it. Each run-log block has <em>Look at</em> lines with Minecraft <code>x,z</code> coordinates. In the game, teleport with <code>/tp @s x ~ z</code> (or ask the agent to take you there) and fly up to look down.</li>
+  <li><strong>Compare with the reference.</strong> Agents work from OSM footprints, LIDAR (heights), aerial imagery and photos. To see the aerial for any patch with OSM outlines and a 10-block grid:
+<pre><code>.venv/bin/python scripts/aerial_annot.py x0,z0,x1,z1 out.png 8 reference/aerial/highfield-campus/mosaic-z18-8x8-centre-130055-87834.png</code></pre>
+    For the sharp Google screenshot you supplied (registered to the grid, about 1 block accurate near its tie points):
+<pre><code>.venv/bin/python scripts/aerial_registered.py crop reference/aerial/highfield-user/googlemaps-music-law-annex-2026-10-15.registration.json x0,z0,x1,z1 out.png</code></pre>
+    More registered screenshots in <code>reference/aerial/highfield-user/</code> are picked up automatically by the ground layer.</li>
+  <li><strong>Judge by the bar:</strong> accurate to the real place and street-readable, then move on. “Good enough” is deliberate (<a href="rules/radial-good-enough.md">rules/radial-good-enough.md</a>). Chimney pots and garden furniture are not the point.</li>
+  <li><strong>Tell the agent what you found</strong> in plain words and coordinates, or add a dated line under the relevant issue in <a href="site/ISSUES.txt">ISSUES.txt</a>. Prefer reporting a <em>symptom</em>; fixes go into the process (I-057), not into one-off patches.</li>
+</ol>
+<div class="note"><strong>Aerial caveats.</strong> The campus mosaics are blurry or blank in places (I-042). Roof colours on many houses are hints, not read from imagery. A sharp, registered screenshot beats both.</div>
+
+<h2 id="commands">Commands you can run</h2>
+<p>All from the project folder. Python is <code>.venv/bin/python</code> (the system one is locked down).</p>
+<table>
+  <tr><th>What</th><th>Command</th></tr>
+  <tr><td>Grid of cells by ring, marker, lock</td><td><code>.venv/bin/python scripts/site_status.py status</code> (add <code>--gaps</code> for the real done-bar, about 20 s)</td></tr>
+  <tr><td>Refresh the cell pages</td><td><code>.venv/bin/python scripts/site_pages.py</code> (about 30 s; <code>--no-gaps</code> skips the slow check). Writes HTML only.</td></tr>
+  <tr><td>Everything that changed since a time</td><td><code>.venv/bin/python scripts/site_status.py since "2026-10-15 17:00"</code></td></tr>
+  <tr><td>Morning report</td><td><code>.venv/bin/python scripts/site_status.py morning --since "2026-10-15 22:00"</code></td></tr>
+  <tr><td>Which cells are not done</td><td><code>.venv/bin/python scripts/site_handoff.py next --plan</code> (read-only, about 20 s)</td></tr>
+  <tr><td>Is a build running, or stuck?</td><td><code>.venv/bin/python scripts/site_lock.py status</code> and <code>scripts/site_recover.py status</code></td></tr>
+  <tr><td>Where is the marker (focus cell)?</td><td><code>.venv/bin/python scripts/cell_marker.py --status</code></td></tr>
+  <tr><td>Run all script tests</td><td><code>cd scripts &amp;&amp; ../.venv/bin/python -m unittest discover -p "test_*.py"</code></td></tr>
+</table>
+
+<h2 id="concepts">Concepts in one place</h2>
+<table>
+  <tr><th>Term</th><th>Meaning</th></tr>
+  <tr><td>Cell <code>tx,tz</code></td><td>A 128 by 128 block square. Cell <code>47,-45</code> covers x 6016..6143, z -5760..-5633 (x = tx*128, z = tz*128). North is smaller z.</td></tr>
+  <tr><td>Ring</td><td>Distance from the origin cell <code>48,-44</code> (ring 0). Cells are finished ring by ring, north-centre of the ring first, then clockwise.</td></tr>
+  <tr><td>Marker</td><td>A black-and-yellow wool ring about 30 blocks up around the <em>cell being worked on</em>. It only shows where agents are working. It moves on when a cell is finished down to decor.</td></tr>
+  <tr><td>Layers</td><td>Per cell, in order: <strong>ground</strong> (surface blocks), <strong>trees</strong>, <strong>decor</strong> (hedges, fences). Buildings and canopies are separate “feature” builds. Trees and decor record a <em>mask</em> so they can be undone exactly.</td></tr>
+  <tr><td>Done</td><td><code>site_handoff.py cell_gaps</code> is empty: layers applied, trees current, no unrefined Geocraft buildings left (except recorded exceptions).</td></tr>
+  <tr><td>Lock</td><td><code>site/LOCK.json</code>. One builder at a time. If it is held, do not edit the world. A stale lock (no heartbeat for 90 minutes) can be taken over, never edited by hand.</td></tr>
+  <tr><td>STAGES</td><td><code>site/cells/&lt;tx&gt;_&lt;tz&gt;-STAGES.json</code>: what was applied to a cell, when, with readback counts and notes. The run log and status commands read these.</td></tr>
+  <tr><td>Geocraft</td><td>The older, LIDAR-derived world the work replaces. Good for height and mass, not for detail (<a href="rules/geocraft-accuracy.md">rules</a>).</td></tr>
+  <tr><td>Lump</td><td>A leftover unrefined Geocraft building. <code>lump_scan.py</code> finds them. Some OSM <code>building=roof</code> shapes are actually trees (see way 444, I-055).</td></tr>
+</table>
+
+<h2 id="rules">Rules worth knowing before you touch anything</h2>
+<ul>
+  <li><strong>Accuracy to the real place only.</strong> No invented districts or whimsy.</li>
+  <li><strong>One builder at a time.</strong> Check <code>site_lock.py status</code> first. Never delete <code>LOCK.json</code>.</li>
+  <li><strong>Never place plain dirt;</strong> use <code>coarse_dirt</code> (plain dirt turns to grass).</li>
+  <li><strong>Process, not patches.</strong> A recurring fault is fixed in the layer that causes it, with a test.</li>
+  <li><strong>Hand-made cells</strong> <code>48,-44</code> and <code>48,-45</code> are good as they are. Agents may only re-run trees there after checking.</li>
+  <li><strong>World data is not committed;</strong> <code>backups/</code>, big PNGs and caches are git-ignored. Nothing is committed unless you ask.</li>
+</ul>
+<div class="warn">If the app or a run died mid-way: check <code>site_recover.py status</code> before anything else. A <em>stale</em> lock plus an in-flight stage means recover first; a <em>fresh</em> lock means wait.</div>
+
+<h2 id="links">All the links</h2>
+<div class="grid">
+  <div class="card"><h3>Progress and plans</h3><ul>
+    <li><a href="site/RUN-LOG.md">RUN-LOG.md</a></li>
+    <li><a href="site/QUEUE.txt">QUEUE.txt</a></li>
+    <li><a href="site/COVERAGE.txt">COVERAGE.txt</a></li>
+    <li><a href="site/HANDOFF.txt">HANDOFF.txt</a></li>
+    <li><a href="site/REVIEWS.txt">REVIEWS.txt</a></li>
+    <li><a href="site/LUMP-BACKLOG.txt">LUMP-BACKLOG.txt</a></li>
+    <li><a href="site/TREE-DENSITY-BACKLOG.txt">TREE-DENSITY-BACKLOG.txt</a></li>
+    <li><a href="site/cells/">site/cells/ (per-cell STAGES)</a></li>
+  </ul></div>
+  <div class="card"><h3>How it is built</h3><ul>
+    <li><a href="site/PROCESS.txt">PROCESS.txt</a></li>
+    <li><a href="site/HANDOFF-LAYERED-PASSES.txt">HANDOFF-LAYERED-PASSES.txt</a></li>
+    <li><a href="site/CRAFTSMANSHIP.txt">CRAFTSMANSHIP.txt</a> (blocks, walls, roofs, streets)</li>
+    <li><a href="site/FOLIAGE.txt">FOLIAGE.txt</a></li>
+    <li><a href="site/NOTES.txt">NOTES.txt</a> (overview, done-bar)</li>
+    <li><a href="site/START-PROMPTS.md">START-PROMPTS.md</a></li>
+    <li><a href=".claude/skills/cell-orchestrator/SKILL.md">cell-orchestrator skill</a></li>
+  </ul></div>
+  <div class="card"><h3>Rules</h3><ul>
+    <li><a href="rules/radial-good-enough.md">radial-good-enough</a></li>
+    <li><a href="rules/geocraft-accuracy.md">geocraft-accuracy</a></li>
+    <li><a href="rules/frontage-and-evidence.md">frontage-and-evidence</a></li>
+    <li><a href="rules/terrace-builds.md">terrace-builds</a></li>
+    <li><a href="rules/reference-token-budget.md">reference-token-budget</a></li>
+  </ul></div>
+  <div class="card"><h3>Evidence</h3><ul>
+    <li><a href="reference/README.txt">reference/README.txt</a></li>
+    <li><a href="reference/SOURCES.txt">SOURCES.txt</a> (licences, quirks)</li>
+    <li><a href="reference/aerial/">reference/aerial/</a></li>
+    <li><a href="reference/aerial/highfield-user/">your registered screenshots</a></li>
+    <li><a href="reference/photos/">reference/photos/</a></li>
+    <li><a href="site/PLACES.txt">PLACES.txt</a></li>
+  </ul></div>
+  <div class="card"><h3>Checking work</h3><ul>
+    <li><a href="verification/site/">verification/site/ (previews, kinds, comparison images)</a></li>
+    <li><a href="verification/site/cmp-tower-strip.png">cmp-tower-strip.png</a>: mosaic vs Google vs plan</li>
+    <li><a href="scripts/site_status.py">scripts/site_status.py</a></li>
+    <li><a href="scripts/site_handoff.py">scripts/site_handoff.py</a></li>
+  </ul></div>
+  <div class="card"><h3>Project</h3><ul>
+    <li><a href="README.md">README.md</a></li>
+    <li><a href="AGENTS.md">AGENTS.md</a> (agent entry point)</li>
+  </ul></div>
+</div>
+
+<h2 id="open">Open items worth a human decision (as of 16 Oct 2026)</h2>
+<p class="stamp">A snapshot, not live. The truth is in <a href="site/ISSUES.txt">ISSUES.txt</a> and <a href="site/RUN-LOG.md">RUN-LOG.md</a>.</p>
+<table>
+  <tr><th>Item</th><th>What it needs</th></tr>
+  <tr><td>Ground fault on old plans (I-042 / I-057)</td><td>Ground plans made before the aerial fix can show grey paving over lawn. Dry runs against the old plans would flip roughly 1,100 columns in <code>47,-44</code>, 1,400 in <code>47,-43</code> and 700 in <code>49,-45</code>, and about 60 in hand-made <code>48,-44</code> (mixed flips, look first). Plan: re-plan one cell at a time, dry run first.<figure><a href="verification/site/cmp-47_m45-ground-aerial-way442-uncovered.png"><img loading="lazy" src="verification/site/cmp-47_m45-ground-aerial-way442-uncovered.png" alt="47,-45 east of way 442: mosaic | (Google, not covering this patch) | old plan | new plan. Green is grass, grey paving."></a><figcaption>47,-45 east of way 442: mosaic | (Google, not covering this patch) | old plan | new plan. Green is grass, grey paving.</figcaption></figure><figure><a href="verification/site/cmp-47_m45-ground-aerial-forecourt.png"><img loading="lazy" src="verification/site/cmp-47_m45-ground-aerial-forecourt.png" alt="47,-45 forecourt: same four panels."></a><figcaption>47,-45 forecourt: same four panels.</figcaption></figure></td></tr>
+  <tr><td>Building 2 east edge (<code>47,-45</code>)</td><td>The Building 2 / Law School build has floors cantilevering over a lawn strip (x 6132..6141, z -5748..-5731), about 3 blocks further east than your Google screenshot suggests. Needs a look at the building, not the ground.<figure><a href="verification/site/cmp-tower-strip.png"><img loading="lazy" src="verification/site/cmp-tower-strip.png" alt="Tower strip: aerial mosaic the ground layer reads | your Google screenshot | ground plan."></a><figcaption>Tower strip: aerial mosaic the ground layer reads | your Google screenshot | ground plan.</figcaption></figure><figure><a href="verification/site/cmp-47_m45-ground-aerial-tower-strip.png"><img loading="lazy" src="verification/site/cmp-47_m45-ground-aerial-tower-strip.png" alt="The same strip as mosaic | Google | old plan | new plan."></a><figcaption>The same strip as mosaic | Google | old plan | new plan.</figcaption></figure></td></tr>
+  <tr><td>Roof colours on about 60 houses</td><td>Hints only. A better aerial or Street View look-only would settle them (I-042).</td></tr>
+  <tr><td>OSM <code>building=roof</code> shapes</td><td>Some are trees or something else. A check against a sharp aerial before building a canopy would catch the next one (I-055).<figure><a href="verification/site/canopy444-aerial-crop.png"><img loading="lazy" src="verification/site/canopy444-aerial-crop.png" alt="Way 444 (the small red outline) sits on one broadleaf tree crown in the registered Google aerial. It had been built as a canopy."></a><figcaption>Way 444 (the small red outline) sits on one broadleaf tree crown in the registered Google aerial. It had been built as a canopy.</figcaption></figure></td></tr>
+  <tr><td>Doors and visual checks</td><td>I-041 lists houses never looked at in-world; I-044 lists a few unreachable doors.</td></tr>
+</table>
+
+<p class="stamp">Kept by agents and people together. If something here is out of date, fix it or tell an agent to.</p>
+</main>
+</body>
+</html>

@@ -786,3 +786,361 @@ TOKEN NOTES (Q-029)
 TOKEN NOTES (Q-047)
 - Use .venv/bin/python (matplotlib) + MPLCONFIGDIR in repo; system python3 fails at preview.
 - One region snap for whole campus bbox before the loop; ~13 min for 9 applies via MCP.
+
+2026-10-12  Q-048 plan: cell 48,-44 (r=0). LEGACY HAND LOG status=done-bar (Q-024..037,
+            “campus polygon 100% buildings+grounds”) is history only — PROCESSED CELLS
+            shows status=partial (~26% columns in signed-off parcels, ~97% touched,
+            62/49/5 parcels done/touched/untouched, 11/27 gaps still open). Campus
+            builds touched most ground; cell done needs signoff on roads (University
+            Road touched 100% unsigned), paths, opens (Library Square touched unsigned),
+            touched gaps, and UR street properties w33830305/w34391673 (~94–99% touched).
+            Map: verification/site/coverage/highfield-map.png. Todos: site/TODO.txt
+            ACTIVE CELL → Q-050..Q-054. No world edit this session.
+
+2026-10-12  Ad-hoc: Staff Club B38 courtyard pond (~6226,-5685). build_staff_club_pond_fix:
+            levelled east shelf (y55 water), polished diorite rim beside white paving; 74 cells,
+            readback 0. Views: verification/site/views/staff-club-pond-{player,after}.png.
+
+2026-10-12  Q-049 done: cell 48,-44 perimeter marker raised (cell_marker_48_m44, 508 black/yellow
+            wool ~30 m up; readback 0 mismatches). Next: Q-050 gaps/opens batch.
+
+2026-10-12  Q-050 done: cell 48,-44 open/gap batch — highfield_q050_opens surface pass
+            (top block + junk/plants above only; no column strips). Signed gap:6144,-5599,
+            open:w226268603, open:r16456779, open:w160022677@48,-44.
+            EVIDENCE: aerial-highfield-b35-mosaic-z18-3x3-centre-130056-87836-png.
+            Match: west campus lawn reads continuous green vs aerial; NW grass band no
+            stone fringe; Library Square lawn uniform without Geocraft flower scatter.
+            Good-enough: --no-features (no new trees/hedges); pond water columns left as water.
+
+2026-10-12  Q-050 REVERT (2): agent re-applied highfield_q050_clears (bulk air + tree strip,
+            3570 cells) and opens column air stacks; same topsoil damage as first incident.
+            Restored structure_load_to_world: before_highfield_q050_clears then
+            before_highfield_q050_opens; removed q050 *-cells.json; revoked gap:6144,-5599
+            signoff. Q-050 still open — top surface block ONLY, no vertical clears.
+
+2026-10-12  Q-050 REVERT: highfield_grounds_*_tidy + q050 opens/clears stripped lawn tops
+            via Grounds.surface() lower/air loop and bulk structure clears. World restored
+            with structure_load_to_world: before_highfield_q050_clears then before_q050_opens;
+            tidy/q050 *-cells.json removed. Do not re-apply build_highfield_grounds_tidy.py
+            until top-block-only rewrite. Q-050 still open (2026-10-12).
+
+2026-10-13  Q-051 done: cell 48,-44 University Road corridor — road:University Road@48,-44
+            signoff + B40/B42 (prop:w34391673, prop:w33830305) susu_west stragglers to 100%.
+            Build highfield_q051_ur (UR junk clear + campus re-pass without avoid_built on
+            missed columns; Geocraft stone fringe → bricks).
+            EVIDENCE: q029-photo-west/top vs commons-114892434 (B40 red tile + gabled ends);
+            aerial-highfield-b35-mosaic (UR tree belt + lawn). Matches: B40 street pitch/tile
+            massing reads from UR; UR carriageway grey strip continuous. Mismatch: distant
+            Commons angle only (hint); Library Square lawn not this item.
+            readback 0; osm_footprints OK; views verification/site/views/q051-contact.png.
+
+2026-10-13  Q-052 done: Students' Union Retail Centre B57 (prop:w33830236) — 28 southeast
+            fringe columns were Geocraft stone (LIDAR open_below); highfield_q052_b57 extended
+            Q-028 flat brick shell (54→61). Evidence: views/q052-evidence.png — matches:
+            footprint now closed vs z18 aerial; grey flat roof slab; good-enough (no shopfronts).
+
+2026-10-13  Q-053 done: Highfield cell 48,-44 path stragglers — nine OSM footway/step parcels
+            (bridge decks w1136685795/5797, SUSU link w160016180/182, w169224998/999,
+            w1136685794, steps w294963449/w225775365). Build highfield_q053_paths: polished_diorite
+            decks over water + step walk Y aligned to neighbours; readback clean; all signed.
+            EVIDENCE: site/cells/48_-44-SOURCES primary aerial (footprint/landscape); matches
+            paved OSM bridge= yes footways on aerial z18.
+
+2026-10-12  Q-035 done: Highfield campus C9 — Maths B54 tower (+ core 187918193), Murray B58,
+            Turner Sims B52, Health Service B48, Maths Sciences B56, Stats B39, small blocks
+            (Claude). Build highfield_maths_murray.
+            EVIDENCE: Commons 114890282 (grey concrete tower, blank end = B54), 134990247
+            (Murray: grey concrete, dark ribbon windows), 7578708 (Turner Sims: faceted grey
+            metal pitched roof), 144943022 (2019: John Hansard Gallery site demolished —
+            LIDAR already ground, nothing to clear). Turner Sims roof = pitched_part on the
+            LIDAR surface in deepslate tiles (campus.SLATE).
+            readback 181795: 2 benign (settled water at the brook); footprint OK; all doors
+            REACHABLE (Murray + B39 doors re-anchored: B39 W side is the brook; rooftop
+            plant 305968656 at base 62 gets no door).
+            Matches: (1) Turner Sims camera: low brick hall under a dark faceted roof,
+            grey Maths tower + Murray beyond; (2) top: tower, Murray courtyards, brook kept
+            in its channel; (3) Maths tower plain grey with the core (was a Geocraft brick
+            sliver).
+            Mismatches: (1) Turner Sims spire-like flue not modelled; (2) Maths tower blank
+            end wall has windows (kit glazes every single-faced wall); (3) Health Service
+            roof flat (no tile detected).
+
+2026-10-12  Q-036 done: Highfield campus C10 — university-owned houses as whole properties
+            (Claude): chamberlain_rd_8_58 (26 houses), hartley_ave_17_31 (8),
+            university_rd_26_28 (H&S Office 26, Counselling 28). Script
+            build_highfield_uni_houses.py (HOUSES=<group>; one build per street — one backup
+            box for all 37 timed out structure_save_from_world, nothing was changed).
+            EVIDENCE: kartaview-1381543297 (Chamberlain Rd looking SE: cream-rendered 2-storey
+            houses, white bays, mock-Tudor gables, slate roofs, closeboard fences at the
+            pavement). Hartley Ave / University Rd: no photo, brick as hint. Roof colour per
+            house from the aerial (16 red tile → granite, rest slate); roof = LIDAR surface
+            above eaves forced to ground+6 (two storeys, floors ground/+3, one stair each).
+            Gardens on osm_footprints.py plots (--reach 20): lawn, path from the door,
+            2-high spruce fences on plot edges with the path as the gate gap; trees kept.
+            readback: grass→dirt only (31 / 2 / 4); footprint OK x3; 36 doors REACHABLE
+            (1 with a natural jump); views/q036-contact.png.
+            Matches: (1) photo camera: rendered houses behind timber fences along the left
+            pavement; (2) backs: fenced strip gardens per plot; (3) top: slate/tile roofs
+            per the aerial colours.
+            Mismatches: (1) no two-storey bays / mock-Tudor gables / arched porches;
+            (2) white_terracotta reads pinker than the cream render; (3) some roofs flat-
+            topped where LIDAR ridge is under eaves+2.
+            NOT built: 159868612 (uni ref 1630) = 185 Broadlands Road — Broadlands builds
+            are paused by the user; recorded in NOTES "Broadlands improvements".
+
+2026-10-13  Q-058 done: Highfield cell 48,-44 gap/open straggler audit (Composer).
+            Coverage: all 27 gap + 10 open parcels in cell 100% touched/done;
+            status --check geocraft leftovers on done parcels = 0. Offline scan:
+            grass_block on gap/path columns is mostly lawn-adjacent gaps, mixed
+            verge strips (diorite + grass), or footway edge overlap — no parcel-kind
+            vs OSM label mismatches on spot-check (Library Square, UR/cycleway gaps).
+            build_highfield_grounds_cell.py --cell 48,-44 dry revive: no apply clashes.
+            No new QUEUE fixes (user 2026-10-13 campus ground sign-off; good-enough §2d).
+            Note: gap:6142,-5599 sign-off lapsed (13 cols, cell 47,-44 seam) — defer ring r+1.
+
+2026-10-12  Q-037 done: Highfield campus grounds + FULL PLACE REVIEW (Claude).
+            Inventory (campus polygon, OSM way 1170405958): every OSM building is built
+            except 18 small ways left on purpose (building=roof canopies, no LIDAR height,
+            cars on the aerial, 185 Broadlands Rd paused). Tall non-OSM Geocraft masses:
+            the rest of the demolished Faraday complex cleared (highfield_faraday_site,
+            843 columns, coarse_dirt site on the pristine slope 44-49; photo 171521042);
+            B/C/D masses kept → I-026.
+            Grounds: Geocraft paths/roads/lawns/trees kept (good-enough §2d); building
+            envelopes level only ±2 and never cut natural ground or water (kit rules from
+            Q-029); house gardens built per plot (Q-036).
+            CHECKLIST: Integrity — patrol sweep: 0 campus hits after fixing one Chamberlain
+            door lip (path over the door step; gardens now leave the approach alone);
+            audit drift only known/benign (B37 detectors, water settle, grass→dirt).
+            Footprint — osm_footprints check OK on every campus build. Height — LIDAR bands
+            / surfaces throughout. Openings — door per building, all REACHABLE (a few with
+            a natural 1-block jump). Roof — flat by LIDAR band, pitched/saw-tooth/barrel
+            where the aerial or photos show them. Materials — per photo (Commons/KartaView)
+            or brick hint, listed per cluster. Access — truly dark walkable cells (no block
+            or sky light): ≤0.1% in every build (houses got one invisible light per storey).
+            Privacy — houses floors + one stair only. Records — PLACES/QUEUE/COVERAGE/
+            NOTES/manifest updated. Backups — kit backups for every build + region snaps.
+            Evidence views: views/q027..q037-contact.png (+ q027/q028 evidence sheets).
+TOKEN NOTES (campus run Q-027..Q-037)
+- Per cluster: campus_survey.py (one Read) + commons_fetch list/get + one photo sheet,
+  then lidar_parts/auto_parts; ~40-60K tokens per cluster when nothing goes wrong.
+- Most tokens went on kit bugs found live: waterlogged≠water, envelope cutting banks,
+  verify walk starts. Test new kit rules on one cluster's dry-run plan first.
+- Door anchors at building centroids land in courtyards / by brooks ~1 in 8: check the
+  walk list before records, re-anchor by hand.
+
+2026-10-13  Q-057 done: Highfield cell 48,-45 (r=1) review + plan (Composer).
+            Sources site/cells/48_-45-SOURCES.txt; coverage 107 parcels 65/42/0
+            (25.4% cols done vs LEGACY done-bar campus-only). Zones mc+mw; six
+            campus buildings touched unsigned; seven gap parcels open (mostly
+            touched). Build path mirrors 48,-44: grounds_cell revive then stragglers,
+            foliage last (Q-059..Q-063). Aerial: shared b35 mosaic — Library Square
+            south, Law west, UR corridor east residential fringe.
+
+2026-10-13  Q-059 done: cell 48,-45 perimeter marker raised (cell_marker_48_m45, 508
+            black/yellow wool @ y=101; readback 0 mismatches). Footprint guard via
+            plan.outside_footprint_ok (403 perimeter cells outside OSM clips — expected).
+            Patrol: verification/site/patrol/2026-10-13-1414/contact.png. Next: Q-060
+            grounds_cell revive (mc,mw).
+
+2026-10-13  Q-060 done: Highfield cell 48,-45 campus ground revive (Composer).
+            build_highfield_grounds_cell.py --cell 48,-45 zones mc,mw: dry-run no clashes;
+            live apply 47954 planned (941 blocks changed); readback 11+5 mismatches
+            grass_block→dirt subsurface only. Preview: lawns/paths/UR corridor match
+            b35 aerial (purple grass, grey paving, building footprints black). Matches:
+            (1) Library Square south formal lawn; (2) Law/Staff Club grass vs diorite
+            paths; (3) University Road gray_terracotta width. Signoff: road:University
+            Road@48,-45; open/gap at 100% touched refused (Geocraft procedural tree
+            structure above lawn — Grounds leaves logs; Q-062 foliage). Next Q-061 stragglers.
+TOKEN NOTES (Q-060)
+- Reused 48,-44 b35 mosaic + dry previews; no new imagery Reads. Patrol sweep global only.
+
+2026-10-13  Q-061 done: Highfield cell 48,-45 stragglers (Composer). highfield_q061_stragglers:
+            gap:6181,-5711 + path:w1174317571 to 100%; campus signoffs Law, Staff Club,
+            B2, Nuffield, Blue Room, B40 (w34391673 lapsed fixed); readback 0 mismatches;
+            patrol sweep 0 floaters in kit cells. Open/gap lawn parcels → Q-062 foliage.
+
+2026-10-13  Q-062 foliage cell 48,-45 (Composer): lawn-only strip missed Geocraft canopy on
+            path columns; zone tidy replanted leaves on footways if corridor strip ran early.
+            Fix: strip_corridor_canopy_overhang after features (all leaves on path/road cols).
+            Cadence written to site/FOLIAGE.txt checklist; live apply readback 0; 0 path canopy
+            in region scan. Walk footways under Library Square / UR verges to confirm.
+
+2026-10-14  Q-063 done: Highfield cell 48,-45 closeout (Composer). highfield_q053_paths
+            --cell 48,-45 (52 path parcels, readback 0); highfield_q063_m45_edge for
+            straddle paths @48,-46; prop:r2139045 signed; cross_zone margin 8 — edge
+            straddle + neighbor deferrals only; cell_marker_48_m45 cleared (508 wool);
+            COVERAGE 107/107 parcels status=done.
+
+2026-10-14  Q-062 walk (user): 3 leaf blocks remained over footway/lawn edge after
+            highfield_48_m45_foliage; removed manually in creative. Likely just outside
+            corridor strip margin or on a non-path column — if coords noted, bump margin or
+            extend strip kinds. Region scan after save: expect 0 in cell 48,-45.
+
+2026-10-14  Q-074/075/076 done: Hawthorn Rd 1-4, Highcrown St 27-31, Roselands Gardens 31-33 (cell 47,-43), builds
+            hawthorn_rd_1_4 / highcrown_st_27_31 / roselands_gdns_31_33, house-only, readback 0, footprint check clean.
+            Evidence (Street View look-only, one view each): Hawthorn Rd 3 pano A77vPWWAdxvjovue5leQwg Aug 2025 -
+            red brick ground storey under white render, dark roof (matches: brick-over-render via Part ground=);
+            Highcrown St 29 - red brick semis, red tile (matches: BRICK); Roselands Gdns 32 - grey pebbledash with red
+            brick bands, red tile, chimney (matches: grey render; mismatch: brick bands + chimneys not modelled).
+            Mismatch: Roselands 31/32 too small for a stair (no upstairs access); roofs follow the aerial tile/slate
+            test (few tile). Parcels not signed off: ground/trees/decor passes own the rest. Snapshot
+            backups/regions/2026-10-14-191326-hawthorn_highcrown_roselands.
+
+2026-10-14  Q-073 done: Chamberlain Road 9-51 odds (22 houses, cell 47,-43), build chamberlain_rd_9_51,
+            house-only. Evidence: Street View pano IIlQp_3pAUwynN0r4jUFBw (May 2014, look-only) + z18 aerial.
+            Matches: (1) 2-storey cream render with white-framed windows, doors to Chamberlain Rd; (2) house
+            fronts follow OSM footprints (osm_footprints check: no building cells outside); (3) run follows
+            the road diagonally with the 41/43 gap as OSM. Mismatches: (1) roofs mostly slate (aerial) where the
+            2014 photo shows red tile on several semis; (2) no two-storey bays or arched porches; (3) rendered
+            walls over plain brick base not split. Parcels not signed off: ground/trees/decor passes own the rest.
+
+2026-10-14  Shackleton B44 repair (off-queue, highfield_shackleton_physics, user-requested): north wing was built as a
+            LIDAR-noise lattice. campus.lidar_parts fill_pockets=7 fills sub-courtyard holes; Part ground= gives a brick-pier /
+            dark-glass ground storey. Evidence: aerial (solid roofed wing, glazed NW roof; courtyard open) + two user photos
+            (4-storey pale cladding + ribbon windows; ground floor brick piers, dark glazing, white entrance canopy).
+            Matches: wing solid on OSM footprint; courtyard kept; brick ground floor. Mismatches/not done: entrance canopy +
+            steps (face unknown), NW glazed roof still flat grey, upper cladding cool grey not warm cream. Readback 17
+            mismatches (water only). Side effect: re-apply shrank the -cells.json archive (older campus.py wrote more); 2 columns
+            (6035/6036,-5659) lost touch, so gap:6016,-5648 sign-off lapsed (blocks unchanged in the world).
+
+2026-10-14  Q-078 done: Highfield cell 47,-44 bike shed OSM w220434721 (build highfield_bike_shed_w220434721, signed off).
+SOUTHAMPTON REFINE — REVIEWS
+One dated line per review; details in ISSUES or place briefs.
+Older reviews: site/archive/REVIEWS-archive.txt (scripts/site_archive.py).
+
+------------------------------------------------------------------------
+
+2026-10-12  Q-039 done: Highfield campus relight finished (Claude). Re-applied with
+            relight_diff.py: highfield_library_b34_b18, _nuffield_law, _mountbatten,
+            _shackleton_physics, _maths_murray, chamberlain_rd_8_58, hartley_ave_17_31,
+            university_rd_26_28 (with the 8 from earlier: all 16 relit builds).
+            Checks: sea_lantern 0 in all 16 -cells.json; readback mismatches only the known
+            benign ones (Shackleton courtyard pond 25, Maths brook 2, grass->dirt 1 each at
+            Chamberlain/Hartley). Top view views/q028-top-lib.png: library/Nuffield flat
+            decks plain grey with parapets, no lamp dots.
+TOKEN NOTES (Q-039)
+- Cheap run (~1 build loop). Only waste: two 3-min screenshot retries against an
+  unraised view-MCP limit (I-028). On a 429 from 8766, check client.json first.
+
+2026-10-12  Q-038 done: parcel coverage tracker scripts/coverage.py (Claude). Tooling
+            only, no world edits. Areas (config/coverage-areas.json): broadlands = cells
+            54..56 x -45..-43 (390 parcels), highfield = 46..51 x -47..-43 (1515).
+            Parcels from OSM + the PRISTINE save (stable while the live world changes):
+            footprints > highway corridors at Geocraft half-widths > open polygons >
+            gardens (osm_footprints.grow_plots, refactored out of plots(); output
+            identical) > street-surface fringe <=3 > residual gaps. First pass had 692
+            Broadlands gaps, 99.6% of their columns stock road surface past the fixed
+            corridors -> fringe rule; 1-5 column slivers join their longest-edge
+            neighbour (still count against its 100%). Left: 9 Broadlands / 330 campus
+            named gaps + 16 no_osm parcels on area edges. Backfill over 35 non-reverted builds
+            (I-009 façades excluded): 73 signed (24 Broadlands houses, 49 campus
+            parcels), 388 short of 100% (most campus buildings 97-99%: OSM footprint
+            edge columns the squared walls missed), 4 refused for carpet (I-030).
+            No cell is done; 55,-44 is 26.6% done / 37.5% touched. Campus grounds read
+            untouched — correct, Q-037 kept Geocraft paths/lawns (dry runs only).
+            Found I-029 (World.ground treats stairs as air). 15 unit tests
+            (scripts/test_coverage.py). PROCESS §2c, NOTES 10, radial rule updated.
+TOKEN NOTES (Q-038)
+- Waste: one pass building parcels before checking what the residual was made of;
+  a 1-query surface census of small gaps would have found the fringe rule first.
+- Pristine/live region reads are fast (2k columns in 0.1 s) — no need to cache surfaces.
+- Next: run `coverage.py status --cell tx,tz --list` before planning a build; it
+  replaces reading COVERAGE history by hand.
+
+2026-10-15  Q-093 done: Broadlands Road 155-165 (odd, south side), cell 50,-45 pass 1, house only
+            (Claude). Build broadlands_rd_155_165: 3 brick semi pairs, 5560 cells, readback 0
+            mismatches, no clashes. Region snap backups/regions/2026-10-15-002753-Q-093; kit backup
+            southampton_refine:before_broadlands_rd_155_165. Evidence: campus z18 8x8 aerial (three dark-roofed
+            pairs, row turned ~22 deg, ~2 m passages between pairs, ridge along each pair), OSM ways
+            177807745..800, LIDAR ground y50/49; no street photo here: 1930s red-brick semi type from
+            kartaview-1471276937 = hint. Matches: pairs/passages/fronts to the road match the aerial; hipped
+            dark roofs, party stacks. Mismatches: rotated row squared to axes (22 cells 1-2 blocks past OSM
+            corners, guard overridden with reason; osm_footprints check reports them); no bays/porch detail.
+            Gardens/trees/decor NOT done; parcels not signed off (ground pass next). No in-game visual check yet.
+
+2026-10-15  Q-095 done: Highfield cell 50,-44 private bike shed OSM w1255994955 (Claude).
+            Build highfield_bike_shed_w1255994955: 80 cells, floor y52, stone-slab canopy y55 on
+            iron-bar posts (same type as w236241511; no LIDAR/photo, hint=sibling sheds).
+            Readback 0 mismatches, osm check OK, prop:w1255994955 signed. Aerial/street
+            comparison not done (open-sided canopy, no evidence beyond OSM tags).
+
+2026-10-15  Q-096 done: Granby Grove 63 house-only build (OSM w177758964). Matches: footprint on OSM raster (check OK); front N to road per frontage; Geocraft carpet roof replaced by slab roof. Mismatches: no street photo, brick/slate are hint from 1930s typology; only 2 windows (diagonal walls); no contact-sheet views taken.
+
+2026-10-15  Chemistry B27 flues removed (user: they were on the wrong building). Live: 5 x 2x2
+            iron_block/polished_andesite flues (y57-65, x6455-6464 z-5572..-5556) cleared, barrel
+            roof (light_gray_concrete y57-58) restored; scan finds no iron_block left. NOTES
+            corrected; build_highfield_b25_b28.py no longer emits flues. Correct building TBD.
+
+2026-10-15  Q-097 done: Hartley Avenue 20 + 22 house-only build hartley_ave_20_22 (Claude).
+            1829 cells, readback 0 mismatches, osm_footprints check OK; snapshot
+            backups/regions/2026-10-15-005635-hartley_ave_20_22, fingerprint in
+            verification/site/hartley_ave_20_22-fingerprint.json. Parcel signoff deferred
+            (gardens are later layered passes). Matches: (1) no. 20 pitched red-tile hip on the
+            OSM raster, as aerial w779; (2) no. 22 flat pale roof, as aerial w759; (3) fronts/doors
+            face W to Hartley Ave, front walls on the frontage-survey x. Mismatch/hint: no
+            street photo exists, walls brick by typology (hint); client view only from above.
+
+2026-10-15  Q-098 done: Ripstone Gardens 41-49 houses only (cell 50,-44 pass 1).
+  Evidence: OSM footprints (aerial crop black here; no street photo held - hints only). Fronts N to the road (odd nos on south side), 2 storey brick, dark slab roofs.
+  Checks: readback 0/3321, osm_footprints check OK, roof_lint OK. Contact view vs photo/aerial NOT done (no refs); snapshot backups/regions/2026-10-15-011241-Q-098.
+Older reviews: site/archive/REVIEWS-archive.txt (scripts/site_archive.py).
+
+2026-10-15  Q-099 done: Ripstone Gardens 54/56/58 house-only pass 1 (ripstone_gardens_54_58). Readback 0 mismatches, osm_footprints check OK, region snap Q-099. Evidence: OSM footprints; fronts S; brick/dark tile = hint from 41-49. Not done: photo/aerial contact views; signoff (parcels need ground/decor passes).
+
+2026-10-15  Q-104 done: Hartley Avenue nos. 9, 11, 13 (OSM w175425045/w175424995/w175425004), HOUSES ONLY,
+            layered pass 1 of cell 50,-43 (Claude). Build hartley_ave_9_13 (2,370 cells, template as
+            Q-103), front=E for all. Snapshot backups/regions/2026-10-15-013949-Q-104; fingerprint
+            pre-apply 6428,-5382 stone y46 + carpet y53; 6430,-5388 bricks y53; 6434,-5399 bricks y50.
+            Readback 0 mismatches; osm_footprints check OK. Parcels not signed (gardens = later ground
+            pass). Evidence (OSM + frontage only; aerial crop blank here, brick semis `hint`): 1) row
+            steps SE down the avenue as in the OSM raster; 2) doors+stoops on the road-facing (E) walls;
+            3) sealed slab roofs, one chimney each, no Geocraft carpet left on the footprints.
+
+2026-10-15  Q-103 done: Blenheim Gardens nos. 34-46 even (OSM w176649313/318/319/325/328/330/332), HOUSES
+            ONLY, layered pass 1 of cell 50,-43 (Claude). Build blenheim_gardens_34_46 (6,237 cells,
+            template as Q-102), front=S for all. Snapshot backups/regions/2026-10-15-013431-Q-103;
+            fingerprint pre-apply 6511,47..50,-5379 bricks + carpet y51; 6477,-5393 carpet y53.
+            Readback 0 mismatches; osm_footprints check OK. Parcels not signed (gardens = later
+            ground pass). Evidence (aerial + OSM, no street photo; brick semis `hint`): 1) row steps
+            SW along the road as in the OSM raster; 2) doors+stoops on the road-facing (S) walls;
+            3) sealed slab roofs, one chimney each, no Geocraft carpet left on the footprints.
+
+2026-10-15  Q-102 done: 55 Blenheim Gardens (OSM w176387121), HOUSE ONLY, layered pass 1 of cell 50,-43
+            (Claude). Build blenheim_gardens_55 (892 cells), adapted from build_granby_grove_63.py,
+            front=E (frontage tool: front wall 6456,-5378, 11.8 from road centreline). Snapshot
+            backups/regions/2026-10-15-013240-Q-102; fingerprint 6448,47,-5378 bricks / 6451,55,-5375
+            light_gray_carpet / stone to y46 pre-apply. Readback 0 mismatches; osm_footprints check OK.
+            Parcel prop:w176387121 touched 51% (house only; garden = later ground pass), not signed.
+            Evidence (aerial b35 mosaic + OSM; no street photo, `hint` only): 1) house is a pitched
+            dark-roofed brick block on its OSM raster - top view matches; 2) front door + stoop on
+            E face toward Blenheim Gardens - matches frontage; 3) no. 53 neighbour left as Geocraft,
+            roof overhang kept off it - seam still raw until 53 is rebuilt.
+
+2026-10-15  Q-101 done: cell 50,-43 bike shed OSM w242322573 already built by Q-043 (slab deck y51, iron-bar cage y49-50);
+            verified in world, no rebuild. Marker moved 50,-44 -> 50,-43.
+
+2026-10-15  Q-106 done: Merton Road 1, 3, 5, 7 houses only (merton_rd_1_7), cell 50,-43 pass 1 (Claude).
+  Evidence: aerial highfield-b35 z18 mosaic crop 6505,-5450..6545,-5400. Matches: (1) nos. 1,3 orange tile pitched roofs -> red_nether_brick; (2) nos. 5,7 dark slate roofs -> cobbled_deepslate; (3) footprints turned ~22 deg, road east -> fronts/doors E. Gap: imagery ends ~x6537 and no street photo, so openings generic (hint). osm_footprints check OK; full readback 0/2939 mismatches; backup backups/regions/2026-10-15-015740-Q-106. Parcels not signed off (gardens remain).
+
+2026-10-15  Q-105 done: Hartley Avenue 2, 2a, 4-18 houses only (hartley_ave_2_18), cell 50,-43 pass 1 (Claude).
+  Evidence: aerial highfield-b35 z18 mosaic crop 6450,-5510..6500,-5410. Matches: (1) row of pitched orange-red tile roofs -> red_nether_brick slabs; (2) footprints turned ~22 deg to grid, road west -> fronts W, doors W; (3) terraced/semi run with shared party walls built per OSM raster. Mismatch/hint: no street photo, so openings/porches are generic; no. 18's roof overlaps tree leaf at 6481,53,-5505 (replaced). osm_footprints check OK; 3000-block readback sample 0 mismatches; region backup backups/regions/2026-10-15-014856-Q-105. Parcels not signed off (gardens remain for ground/trees/decor passes).
+
+2026-10-15  Q-108 done: Blenheim Gardens nos. 37-53 odd, house only (Claude). Build
+            blenheim_gardens_37_53 (9,913 cells, 9 houses, fronts N, doors + stoops + stair).
+            Readback 0; footprint check OK; patrol sweep no Blenheim findings. Evidence (hint):
+            aerial highfield-b35 mosaic (ends z-5350, nos. 37-41 unseen): pitched dark roofs
+            on the stepped row, match; client views show brick shell, slate roofs, doors on the
+            street side. First apply floored ground at y45 (inherited clamp) so nos. 37-45 sat
+            1-2 high: reverted via structure backup (fingerprint matched), rebuilt with floor
+            from real ground 43-46 (my own build, not a patch). No. 55 and no. 35 untouched;
+            50,-43 leaves/ground edge cells under the roof volume replaced. Snap
+            backups/regions/2026-10-15-021950-Q-108. No signoff: lawns/fences/trees pending.
+            Walk: street->door->rear OK; upstairs fails only the walker's strict head-clearance
+            at the stair foot (same pattern as Q-103).
+
+2026-10-15  Q-137 done: Burgess Road nos. 213-223 houses, cell 48,-47 pass 1 (Claude). Build
+            burgess_rd_213_223 (6 houses, 3 semi pairs, OSM w206989512/518/553/557/559/566);
+            readback 0; osm_footprints check OK; patrol clean for this build. Evidence: z18 campus
+            mosaic (blurry; roof colour hint only: all deepslate_tile). Matches: footprints on OSM,
+            fronts S onto Burgess Rd, doors+stoops walkable (A, E reachable by site_walk; C/D need a
+            1-block hop up from the kerb). Floors y58/57 from natural ground. Houses only, no gardens.

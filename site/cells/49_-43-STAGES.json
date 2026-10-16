@@ -1,0 +1,52 @@
+{
+ "cell": "49,-43",
+ "stages": {
+  "ground": {
+   "status": "applied",
+   "plan": "highfield_49_m43_ground",
+   "blocks": 12138,
+   "note": "2026-10-14 readback 0, patrol 0 floating; z19 mosaic extended to 7x10 tiles (mosaic-z19-7x10-*); awaiting user visual check"
+  },
+  "trees": {
+   "status": "applied",
+   "plan": "highfield_49_m43_trees",
+   "blocks": 13945,
+   "mask": "verification/site/masks/trees-49_-43.mask.json",
+   "note": "2026-10-14 readback 0; crowns checked against aerial; awaiting user visual check"
+  },
+  "decor": {
+   "status": "applied",
+   "plan": "highfield_49_m43_decor",
+   "blocks": 233,
+   "readback": {
+    "planned": 233,
+    "mismatches": 0,
+    "mismatch_sample": {},
+    "checked": "2026-10-14 17:01:01"
+   },
+   "mask": "verification/site/masks/decor-49_-43.mask.json"
+  },
+  "feature_university_rd_lumps": {
+   "status": "applied",
+   "plan": "university_rd_lumps_49_m43 (I-047, house only)",
+   "note": "2026-10-15 8 houses, OSM w173807229-232 (W side, front E) + w175425050, w175424990, w175424998, w175425002 (E side, front W); roofs brick slab from z19 aerial (2026); floors y52 flush with pavement; readback 0/44263; osm check OK; doors reachable dry-run and live; region snap backups/regions/*-I-047-university-rd; fingerprint verification/site/university_rd_lumps_49_m43-fingerprint.json"
+  },
+  "lump_sweep": {
+   "status": "verified",
+   "remaining": 0,
+   "checked": "2026-10-15 09:22:19",
+   "exceptions": [
+    {
+     "bbox": [
+      6348,
+      -5465,
+      6375,
+      -5454
+     ],
+     "reason": "OSM w146988290 building=roof canopy: 1-2 wide diagonal carpet edge strip (36 cols), not a house; needs user visual check (I-048)"
+    }
+   ],
+   "note": "lump_scan.py: 1 recorded exception(s)"
+  }
+ }
+}

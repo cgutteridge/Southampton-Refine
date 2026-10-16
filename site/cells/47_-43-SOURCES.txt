@@ -1,0 +1,62 @@
+CELL SOURCES — tx=47 tz=-43
+Updated: 2026-10-14  (regenerate: python3 scripts/cell_sources.py --cell 47,-43 --write)
+
+Purpose: one-time prep when this cell opens. Build chats read THIS file + manifest ids;
+do not re-research the whole cell each queue item. Per build step: still at most one
+primary aerial + one street Read (rules/reference-token-budget.md).
+
+MC bbox (inclusive): 6016,-5504,6143,-5377
+OSM clip covers cell centre: yes
+
+MANIFEST (reference/manifest.jsonl)
+  mc_tile 128:47:-43  manifest rows overlapping: 3
+  primary aerial (useful=yes): aerial-highfield-campus-mosaic-z18-5x5-centre-130053-87835-png
+    path=aerial/highfield-campus/mosaic-z18-5x5-centre-130053-87835.png  models=['footprint', 'roof']
+  street/facade useful/maybe: 1 (e.g. photos-highfield-campus-kartaview-1381543297-jpg)
+
+OSM (reference/osm clips via osm_footprints.OSMIndex)
+  named streets in cell: (footway), (service), Chamberlain Road, Hawthorn Road, Highcrown Street, Lovers Walk North
+  building footprints overlapping: 56
+  natural=tree / landuse=forest polygons (rare): 0
+  Geocraft procedural trees are not surveyed — back-garden canopy from aerial only.
+  area tags (top):
+    grass ×3
+    residential ×1
+    university / Highfield Campus ×1
+
+COVERAGE PARCELS
+  highfield: 83 parcels — 7 untouched, 62 touched, 14 done
+    gap:6115,-5486  gap  touched  gap:6115,-5486 615 cols, between highway=footway w186764565 
+    gap:6097,-5492  gap  touched  gap:6097,-5492 80 cols, between highway=service w89323631 an
+    gap:6016,-5401  gap  untouched  gap:6016,-5401 77 cols, between highway=footway w32729144 an
+    open:w226268597@47,-43  open  touched  landuse=grass w226268597
+
+CROSS-ZONE (generated on --write)
+  grounds zones: (none)
+  neighbor cells: 46,-44, 46,-43, 46,-42, 47,-44, 47,-43, 47,-42, 48,-44, 48,-43, 48,-42
+  warn: gap:5991,-5377 straddles cell edge (297 cols outside)
+  warn: gap:6016,-5347 straddles cell edge (7 cols outside)
+  warn: gap:6016,-5555 straddles cell edge (14 cols outside)
+  warn: gap:6016,-5632 straddles cell edge (255 cols outside)
+  warn: gap:6016,-5638 straddles cell edge (48 cols outside)
+  warn: gap:6016,-5648 straddles cell edge (326 cols outside)
+  warn: gap:6016,-5662 straddles cell edge (26 cols outside)
+  warn: neighbor 46,-44: 16 open/gap/path parcels not done (margin 8 may touch them)
+
+CHARACTER / LANDMARKS (edit by hand after light review)
+  - 
+
+FOLIAGE INTENT (edit after aerial; site/FOLIAGE.txt + site/HIGHFIELD-ZONES.txt)
+  - 
+
+IF MANIFEST GAPS — run (fetch once, judge once, log manifest):
+  python3 scripts/ref_manifest.py find --xz 6079,-5441
+  python3 scripts/geo.py tiles --bbox 6016,-5504,6143,-5377 --zoom 18 --mosaic 3
+  # then: scripts/aerial_mosaic.py … → reference/aerial/<place>/mosaic-z18-3x3-centre-130053-87837.png
+  # ref_manifest.py add … --useful yes --models footprint,roof,landscape --at 6079,-5441
+  python3 scripts/osm_footprints.py frontage --bbox 6016,-5504,6143,-5377
+  python3 scripts/coverage.py status --cell 47,-43 --list
+  python3 scripts/coverage.py gaps --area highfield
+
+TOKEN NOTES (2–5 lines after sources pass)
+  - 

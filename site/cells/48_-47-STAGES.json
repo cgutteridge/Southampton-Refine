@@ -1,0 +1,73 @@
+{
+  "cell": "48,-47",
+  "stages": {
+    "houses-burgess-rd": {
+      "status": "verified",
+      "plan": "burgess_rd_213_223",
+      "blocks": 33138,
+      "readback": {
+        "planned": 33138,
+        "mismatches": 0,
+        "checked": "2026-10-15 05:09:30"
+      },
+      "snapshot": "backups/regions/2026-10-15-050848-Q-137_burgess_rd_213_223",
+      "fingerprint": "verification/site/burgess_rd_213_223-fingerprint.json",
+      "fingerprint_note": "origin blocks pre-apply recorded; OSM w206989512/518/553/557/559/566; houses only, roofs deepslate_tile (z18 aerial blurry, colour hint)"
+    },
+    "houses-burgess-rd-225-231": {
+      "status": "verified",
+      "plan": "burgess_rd_225_231",
+      "blocks": 23823,
+      "readback": {
+        "planned": 23823,
+        "mismatches": 0,
+        "checked": "2026-10-15 05:14:34"
+      },
+      "snapshot": "backups/regions/2026-10-15-051155-Q-138_burgess_rd_225_231",
+      "fingerprint": "verification/site/burgess_rd_225_231-fingerprint.json",
+      "fingerprint_note": "origin blocks pre-apply recorded; OSM w175863458/478, 207002167/164; houses only; roofs deepslate_tile (z18 aerial blurry, colour hint); floor y57 from natural ground; front steps added so doors reachable by site_walk; patrol clean for this build"
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_48_m47_ground",
+      "blocks": 12956,
+      "readback": {
+        "planned": 12956,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 05:18:26"
+      },
+      "snapshot": "backups/regions/2026-10-15-051811-highfield_48_m47_ground",
+      "note": "OSM+aerial z19 (mosaic extended north by 2 tile rows 175662-3, new file mosaic-z19-15x17-...-northext.png; ground_sources/trees_layer/plant_cell_canopy repointed); house footprints/structure builds skipped; patrol sweep 0 floating, door_to_wall only Broadlands; all 20 Burgess Rd doors walk-reachable to road"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_48_m47_trees",
+      "blocks": 18015,
+      "crowns": 102,
+      "readback": {
+        "planned": 18015,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 05:19:53"
+      },
+      "snapshot": "backups/regions/2026-10-15-051940-highfield_48_m47_trees",
+      "mask": "verification/site/masks/trees-48_-47.mask.json",
+      "note": "99 trees 3 bushes, 35 skipped (trunk blocked / feature zone); crowns checked vs z19 aerial"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_48_m47_decor",
+      "blocks": 990,
+      "readback": {
+        "planned": 990,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 05:20:48"
+      },
+      "snapshot": "backups/regions/2026-10-15-052036-highfield_48_m47_decor",
+      "mask": "verification/site/masks/decor-48_-47.mask.json",
+      "note": "garden hedges (oak leaves) 475 garden columns; carpet tops skipped"
+    }
+  }
+}

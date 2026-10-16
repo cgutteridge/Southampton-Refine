@@ -1,0 +1,81 @@
+{
+  "cell": "49,-47",
+  "stages": {
+    "library-burgess-rd": {
+      "status": "verified",
+      "plan": "burgess_rd_library_w81163505",
+      "blocks": 8996,
+      "readback": {
+        "planned": 8996,
+        "mismatches": 0,
+        "checked": "2026-10-15 05:25:00"
+      },
+      "snapshot": "backups/regions/2026-10-15-052429-Q-140_burgess_rd_library",
+      "fingerprint": "verification/site/burgess_rd_library_w81163505-fingerprint.json",
+      "fingerprint_note": "OSM w81163505 Burgess Road Library (amenity=library); single-storey brick, flat smooth_stone roof, floor y56 from natural stone; colours/height are hints (no height tag, z18 aerial blurry); door south, site_walk reachable from road at feet y57; patrol clean for this build"
+    },
+    "house-burgess-court": {
+      "status": "verified",
+      "plan": "burgess_rd_207002139",
+      "blocks": 6031,
+      "readback": {
+        "planned": 6031,
+        "mismatches": 0,
+        "checked": "2026-10-15 05:28:01"
+      },
+      "snapshot": "backups/regions/2026-10-15-052744-Q-141_burgess_rd_207002139",
+      "fingerprint": "verification/site/burgess_rd_207002139-fingerprint.json",
+      "fingerprint_note": "fingerprint taken pre-apply; OSM w207002139 Burgess Court (apartments, 8 flats) 3-storey brick, flat smooth_stone roof, floor y56 from natural stone; no height tag, z18 aerial blurry: colours/height hints; door south at 6293,-5987, site_walk reachable; library margin excluded; patrol clean for this build"
+    },
+    "houses-burgess-rd-245-253": {
+      "status": "verified",
+      "plan": "burgess_rd_245_253",
+      "blocks": 21529,
+      "readback": {
+        "planned": 21529,
+        "mismatches": 0,
+        "checked": "2026-10-15 05:30:08"
+      },
+      "snapshot": "backups/regions/2026-10-15-052948-Q-142_burgess_rd_245_253",
+      "fingerprint": "verification/site/burgess_rd_245_253-fingerprint.json",
+      "fingerprint_note": "OSM w207002137/120/129/149/142 (nos 245-253) terrace of five, one build; brick, deepslate_tile slab roofs (z18 aerial blurry: colours hints), floor y56 from natural stone ring; doors south with stoops + step stairs, site_walk reachable to road; fingerprint taken pre-apply; patrol clean for this build (13 door_to_wall flags are Broadlands builds); no gardens"
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_49_m47_ground",
+      "blocks": 13917,
+      "readback": {
+        "planned": 13917,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 05:34:26"
+      },
+      "note": "first-principles ground (OSM + aerial); verify: patrol, visuals; trees and decor re-run after"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_49_m47_trees",
+      "blocks": 11448,
+      "crowns": 70,
+      "readback": {
+        "planned": 11448,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 05:35:36"
+      },
+      "mask": "verification/site/masks/trees-49_-47.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_49_m47_decor",
+      "blocks": 230,
+      "readback": {
+        "planned": 230,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 05:36:37"
+      },
+      "mask": "verification/site/masks/decor-49_-47.mask.json"
+    }
+  }
+}

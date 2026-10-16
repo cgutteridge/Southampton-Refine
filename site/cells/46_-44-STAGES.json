@@ -1,0 +1,59 @@
+{
+  "cell": "46,-44",
+  "stages": {
+    "features": {
+      "status": "applied",
+      "plan": "highfield_bike_shed_w148212337",
+      "blocks": 164,
+      "readback": {
+        "planned": 164,
+        "mismatches": 0,
+        "checked": "2026-10-15 04:26:22"
+      },
+      "snapshot": "backups/regions/2026-10-15-042556-Q-130_bikeshed",
+      "fingerprint": {
+        "5990,53,-5534": "minecraft:stone (pre-apply ground; floor y53)"
+      },
+      "note": "Q-130 private bike shed OSM w148212337 (amenity=bicycle_parking, capacity 40), open canopy: stone slab roof y56 on iron-bar posts, light_gray_concrete floor y53 (flat natural ground). Roof colour not distinguishable in blurry z18 aerial. Cell marker NOT raised (still held by 50,-42). Chamberlain Rd houses (Q-124) at cell edge z-5504 still ringed by brown dirt (Q-131 ground)."
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_46_m44_ground",
+      "blocks": 38247,
+      "readback": {
+        "planned": 38247,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 04:30:39"
+      },
+      "note": "first-principles ground (OSM + aerial); verify: patrol, visuals; trees and decor re-run after"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_46_m44_trees",
+      "blocks": 39739,
+      "crowns": 267,
+      "readback": {
+        "planned": 39739,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 11:46:09"
+      },
+      "mask": "verification/site/masks/trees-46_-44.mask.json",
+      "note": "2026-10-15 I-059: trees re-run with dense-cover fill + overhang rule (undone from old mask, 52 crowns before; trees on lawn only, TREES_ON_PAVING off). Crowns 267, 39739 blocks, see mask outside the cell. Pre-state snapshot (cell + 12-block margin) backups/regions/2026-10-15-113953-highfield_46_m44_trees_undo; apply snapshot backups/regions/2026-10-15-114556-highfield_46_m44_trees. Decor untouched. Interim apply (before TREES_ON_PAVING off) was undone and redone in the same session; 0 trunks on non-lawn, readback 0, patrol floating 0, 16 doors in cell+margin still reachable.",
+      "dense_redo": true
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_46_m44_decor",
+      "blocks": 484,
+      "readback": {
+        "planned": 484,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 04:33:50"
+      },
+      "mask": "verification/site/masks/decor-46_-44.mask.json"
+    }
+  }
+}

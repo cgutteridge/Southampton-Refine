@@ -1,0 +1,76 @@
+{
+  "cell": "51,-42",
+  "stages": {
+    "feature_blenheim_gardens_25_35": {
+      "status": "applied",
+      "plan": "blenheim_gardens_q175_51_42 (Q-175)",
+      "blocks": 18384,
+      "readback": {
+        "planned": 18384,
+        "mismatches": 0,
+        "checked": "2026-10-15 08:03"
+      },
+      "snapshot": "backups/regions/2026-10-15-080244-Q-175 blenheim_51_-42 (region r.? bbox 6520,-5360,6585,-5315) + structure southampton_refine:before_blenheim_gardens_q175_51_42",
+      "fingerprint": {
+        "6545,50,-5336": "light_gray_carpet",
+        "6536,43,-5346": "bricks",
+        "6570,48,-5330": "bricks",
+        "6560,49,-5328": "air"
+      },
+      "note": "nos. 25,27,29,31(r7222149),35 house only, fronts N onto Blenheim Gardens, floors y41-42 from natural plot surface (flush with front pavement). Roofs orange/red clay tile (z19 aerial hint): brick slab 25/27/31, mud_brick 29/35. z19 tiles 260116-18 x 175676-77 fetched and pasted into mosaic eastext6 (backup in scratchpad). No.37 (Q-108) untouched. 5 front + 5 rear doors site_walk-reachable on dry-run overlay and live. Patrol: only 13 pre-existing Broadlands door_to_wall. Not walked in-world. cell_marker not raised (stays on 50,-42 awaiting user check)."
+    },
+    "feature_blenheim_gardens_24_32": {
+      "status": "applied",
+      "plan": "blenheim_gardens_q176_51_42 (Q-176)",
+      "blocks": 15683,
+      "readback": {
+        "planned": 15683,
+        "mismatches": 0,
+        "checked": "2026-10-15 08:09"
+      },
+      "snapshot": "backups/regions/2026-10-15-080812-Q-176 blenheim_24-32_51_-42 (bbox 6525,-5385,6585,-5345)",
+      "fingerprint": {
+        "6545,42,-5365": "stone",
+        "6560,50,-5362": "light_gray_carpet",
+        "6570,49,-5358": "light_gray_carpet",
+        "6538,51,-5372": "light_gray_carpet",
+        "6552,42,-5352": "gray_terracotta"
+      },
+      "note": "nos. 24,26,28,30,32 (w176649310,321,326,316,317) north side, fronts S, house only, floors y41-43 from natural plot surface. Roofs orange clay (z19 eastext6 covers; no.30/32 part blurrier z18-ish) = brick slab all. 3 rear garden cells of highfield_51_m43_ground (6543,43,-5377..79) lowered to a rear step path (MODIFIES). 5 front + 5 rear doors site_walk-reachable dry-run and live (E rear goal artefact = tree canopy, path checked to -5378). Patrol: only 13 pre-existing Broadlands door_to_wall. Not walked in-world. Marker untouched (50,-42)."
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_51_m42_ground",
+      "blocks": 13545,
+      "readback": {
+        "planned": 13545,
+        "mismatches": 0,
+        "checked": "2026-10-15 09:07:00"
+      },
+      "snapshot": "backups/regions/2026-10-15-090638-highfield_51_m42_ground",
+      "note": "Aerial eastext6 extended with z19 tiles 260116-18 x 175678 (south edge; cell now fully covered). OSM highways extracted (Blenheim Gardens, Merton Rd, Sherborne Rd, Welbeck Ave, service): osm27700/highfield-51-42-highways-ln.geojson. 9 full-block grade steps on routes to doors replaced by bottom slabs (stone_slab/smooth_stone_slab at 6532,43,-5350; 6533,43,-5349; 6535,43,-5363; 6535,43,-5358; 6542,43,-5375; 6546,43,-5368; 6555,42,-5346; 6557,42,-5347; 6559,42,-5340) so strict site_walk reaches all 21 Blenheim doors front and rear; a ground rerun would revert them. Patrol: only 13 pre-existing Broadlands door_to_wall."
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_51_m42_trees",
+      "blocks": 26124,
+      "readback": {
+        "planned": 26124,
+        "mismatches": 0,
+        "checked": "2026-10-15 09:10:56"
+      },
+      "mask": "verification/site/masks/trees-51_-42.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_51_m42_decor",
+      "blocks": 274,
+      "readback": {
+        "planned": 274,
+        "mismatches": 0,
+        "checked": "2026-10-15 09:11:42"
+      },
+      "mask": "verification/site/masks/decor-51_-42.mask.json"
+    }
+  }
+}

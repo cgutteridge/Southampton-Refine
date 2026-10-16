@@ -398,3 +398,930 @@ SOUTHAMPTON REFINE — QUEUE (archived [x] items, oldest first)
            columns (6999,-5576 .. 7003,-5586) are the raster fringe of #66's
            Geocraft carpet roof; this build clears them whole, then sign off 62.
            Re-queue only inside an ACTIVE CELL todo if the ring reaches that plot.
+
+[x] Q-048  CELL 48,-44 (r=0) REVIEW + PLAN. No world apply unless user asks.
+           Review: coverage.py status --cell 48,-44 --list; gaps --area highfield;
+           map --area highfield. Reconcile LEGACY campus done-bar vs parcel rollup.
+           Write ACTIVE CELL 48,-44 todos in site/TODO.txt (roads, gaps, Geocraft
+           stragglers, character hooks; straddle OK). Queue follow-ups below.
+           See site/PROCESS.txt §2e and site/COVERAGE.txt IN FLIGHT.
+
+[x] Q-049  CELL 48,-44 marker RAISE. scripts/cell_marker.py --raise 48,-44
+           (black/yellow wool perimeter ~30 m up; skips built_cells conflicts).
+           After Q-048 todos exist; before build todos on this cell.
+
+[x] Q-050  CELL 48,-44 gaps + open parcels (batch). First ACTIVE CELL todo —
+           sign off 100%-touched gaps/opens; finish open:w226268603, open:r16456779,
+           gap:6144,-5599; minimal Geocraft clears. Good-enough bar.
+
+[x] Q-051  CELL 48,-44 University Road corridor. road:University Road@48,-44 +
+           finish/sign prop:w33830305, prop:w34391673 (West Building B40 frontage;
+           highfield_susu_west stragglers). Straddle OK. DONE 2026-10-13 highfield_q051_ur.
+
+[x] Q-052  CELL 48,-44 Students' Union Retail Centre. prop:w33830236 to 100% +
+           signoff; good-enough retail massing. DONE 2026-10-13 highfield_q052_b57.
+
+[x] Q-053  CELL 48,-44 path/footway stragglers. Partial + untouched footways/steps
+           listed in site/TODO.txt ACTIVE CELL (Q-053).
+
+[x] Q-054  CELL 48,-44 micro parcels. prop:w171869344, prop:w391790374; good-enough
+           if OSM is generic building=yes / building=roof.
+
+[x] Q-055  CELL 48,-44 foliage last. build_cell_foliage.py --cell 48,-44; sign all
+           affected parcels (margin 8); cross_zone report clean or defer neighbour.
+           After Q-053/Q-054 surface-ready open/gap/path. site/cells/48_-44-SOURCES FOLIAGE INTENT.
+
+[x] Q-056  CELL 48,-44 closeout (r=0 parcel-done). cell_marker.py --clear 48,-44 (506 wool);
+           TODO Q-055 [x]; COVERAGE IN FLIGHT cleared; Q-057 queued for ring r=1 (48,-45).
+           Character hooks deferred (good-enough). DONE 2026-10-13.
+
+[x] Q-058  CELL 48,-44 gap/open stragglers audit. After grounds_cell revive: coverage gaps
+           with grass_block on non-lawn kinds; spot-check parcel kinds vs OSM (gap/open);
+           queue fixes only if revive + structural_ocols still leaves stragglers. Good-enough.
+
+[x] Q-057  CELL 48,-45 (r=1) REVIEW + PLAN. cell_sources.py --write; coverage status/map;
+           legacy done-bar reconciled to parcel partial (25.4% done / 98.5% touched).
+           ACTIVE CELL todos + Q-059..Q-063 queued. site/cells/48_-45-SOURCES.txt. DONE 2026-10-13.
+
+[x] Q-059  CELL 48,-45 cell marker. cell_marker.py --raise 48,-45; footprint guard.
+           See ACTIVE CELL in site/TODO.txt (Q-057 plan). DONE 2026-10-13.
+
+[x] Q-060  CELL 48,-45 campus ground revive. build_highfield_grounds_cell.py --cell 48,-45
+           (zones mc,mw); preview → apply SITE_OWNER=… → signoff touched parcels;
+           coverage.py status --write. Straddle OK. Not Q-050/Q-053 stack (I-035).
+
+[x] Q-061  CELL 48,-45 stragglers. University Road corridor + gap:6181,-5711 +
+           path:w1174317571 + campus property signoffs (Law, Staff Club, UR buildings,
+           Blue Room; w34391673 lapsed signoff). Straddle OK.
+
+[x] Q-062  CELL 48,-45 foliage last. build_cell_foliage.py --cell 48,-45 --kinds open,gap;
+           cross_zone before apply; signoff straddling parcels. site/FOLIAGE.txt.
+
+[x] Q-063  CELL 48,-45 complete. cross_zone report; cell_marker --clear 48,-45;
+           parcel rollup 100%; COVERAGE IN FLIGHT cleared.
+
+[x] Q-065 GROUND REDO CELL 48,-44 (BLOCKS CELL CLOSE). Re-run the ground layer per
+           site/HANDOFF-LAYERED-PASSES.txt §1-2 and §10 (top non-air becomes surface,
+           air-only clear above, feature columns skipped). Ground must not touch a
+           masked tree/decor position; if a plan would, undo that mask first (§3) and
+           re-run that pass after. Hold site/CELL-HOLDS.jsonl stays open until the
+           ground redo, trees and decor are all verified; then release it.
+           Needs user approval before any live apply.
+
+[x] Q-066  CELL 48,-45 layered passes (ground, trees, decor) from first principles. RULES: ground.
+           Readback 0 mismatches; patrol 0 floating; user visual OK. DONE 2026-10-14.
+
+[x] Q-067  CELL 49,-45 layered passes (ground, trees, decor). RULES: ground. Needed z19 mosaic
+           widened to 7x6 tiles (reference/aerial/highfield-z19/mosaic-z19-7x6-*); trees/decor
+           now ignore retired builds like ground does. Readback 0; patrol 0 floating. DONE 2026-10-14.
+
+[x] Q-068  CELL 49,-44 (r=1, E) layered passes: ground, trees, decor. RULES: ground.
+           Treat like any cell: it simply had most features built already, not a campus special.
+           Order is north centre then clockwise (49,-45 done, so 49,-44 is next). Check neighbours
+           48,-44 and 49,-45 edges first; mask_undo trees/decor if masks exist; dry run and check
+           kinds image + crown image against the aerial (extend mosaic if it is black over the cell);
+           apply with SITE_OWNER; patrol sweep; update site/cells/49_-44-STAGES.json.
+
+[x] Q-069  CELL 49,-43 (r=1, SE) layered passes: ground, trees, decor. RULES: ground.
+           Same recipe as Q-066..068. Order is north centre then clockwise (48,-45, 49,-45,
+           49,-44 done, so 49,-43 is next). Check neighbours 49,-44 and 48,-43 edges first;
+           cell_sources --write; mask_undo trees/decor if masks exist; dry run and check kinds
+           + crown images against the aerial (extend mosaic if black over the cell); apply with
+           SITE_OWNER; patrol sweep; update site/cells/49_-43-STAGES.json.
+           Readback 0 on ground/trees/decor; patrol 0 floating. Mosaic extended to 7x10. DONE 2026-10-14.
+
+[x] Q-070  CELL 48,-43 (r=1) FEATURE Chamberlain Road 3,5,7 (houses only). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6138,-5389,6166,-5365; OSM w173132097,w173132111,w173132124.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           Not covered by any feature build. Auto-queued; before the 48,-43 layered passes.
+           DONE 2026-10-14: group chamberlain_rd_3_7 in build_highfield_uni_houses.py (HOUSE_ONLY).
+           Readback 0 mismatches; osm_footprints check OK; patrol clean. Awaiting user visual check.
+
+[x] Q-071  CELL 48,-43 (r=1) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. Check neighbour
+           edges first; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/48_-43-STAGES.json.
+
+[x] Q-072  CELL 47,-43 (r=1) FEATURE building=school r2310853. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 5990,-5394,6035,-5344; OSM r2310853.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 47,-43 layered passes.
+
+[x] Q-073  CELL 47,-43 (r=1) FEATURE Chamberlain Road (21 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6012,-5481,6142,-5381; OSM w173132084,w173132086,w173132087,w173132088,w173132089,w173132091,w173132092,w173132093 ….
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 47,-43 layered passes.
+
+[x] Q-074  CELL 47,-43 (r=1) FEATURE Hawthorn Road (4 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6026,-5431,6053,-5399; OSM w173021058,w173021059,w173021060,w173021071.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 47,-43 layered passes.
+
+[x] Q-075  CELL 47,-43 (r=1) FEATURE Highcrown Street (3 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6051,-5406,6079,-5381; OSM w173021055,w173021056,w173021057.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 47,-43 layered passes.
+
+[x] Q-076  CELL 47,-43 (r=1) FEATURE Roselands Gardens (3 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6077,-5388,6108,-5372; OSM w173021061,w173021062,w173021063.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 47,-43 layered passes.
+
+[x] Q-077  CELL 47,-43 (r=1) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus) is up: cell_marker.py --raise 47,-43 done 2026-10-14.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if
+           masks exist; dry run, check kinds + crowns against the aerial; apply
+           with SITE_OWNER; patrol sweep; update site/cells/47_-43-STAGES.json.
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 47,-43.
+
+[x] Q-078  CELL 47,-44 (r=1) FEATURE building=yes w220434721. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6049,-5521,6059,-5512; OSM w220434721.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 47,-44 layered passes.
+           First item of a new cell: raise the focus marker, cell_marker.py --raise 47,-44.
+
+[x] Q-079  CELL 47,-44 (r=1) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus) must be up: cell_marker.py --raise 47,-44 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/47_-44-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 47,-44.
+
+[x] Q-080  CELL 47,-45 (r=1) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus) must be up: cell_marker.py --raise 47,-45 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/47_-45-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 47,-45.
+
+[x] Q-081  CELL 48,-46 (r=2) FEATURE building=yes w1482280003. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6217,-5812,6223,-5806; OSM w1482280003.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 48,-46 layered passes.
+           First item of a new cell: raise the focus marker, cell_marker.py --raise 48,-46.
+
+[x] Q-082  CELL 48,-46 (r=2) FEATURE building=yes w1482280004. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6225,-5812,6231,-5807; OSM w1482280004.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 48,-46 layered passes.
+
+[x] Q-083  CELL 48,-46 (r=2) FEATURE building=yes w236241511. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6229,-5806,6236,-5797; OSM w236241511.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 48,-46 layered passes.
+
+[x] Q-084  CELL 48,-46 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus) must be up: cell_marker.py --raise 48,-46 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/48_-46-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 48,-46.
+
+[x] Q-085  CELL 49,-46 (r=2) FEATURE building=yes w224489179. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6302,-5882,6307,-5866; OSM w224489179.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 49,-46 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 49,-46.
+
+[x] Q-086  CELL 49,-46 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 49,-46 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/49_-46-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 49,-46.
+
+[x] Q-087  CELL 50,-46 (r=2) FEATURE Broadlands Road (10 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6441,-5851,6476,-5756; OSM w159868612,w159868617,w177807713,w177807720,w177807788,w177807799,w177807804,w177807821 ….
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-46 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 50,-46.
+
+[x] Q-088  CELL 50,-46 (r=2) FEATURE Broadlands Road (9 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6475,-5822,6531,-5765; OSM w177809045,w177809049,w177809053,w177809056,w177809058,w177809060,w177809064,w177809081 ….
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-46 layered passes.
+
+[x] Q-089  CELL 50,-46 (r=2) FEATURE Mayfield Road (6 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6477,-5870,6529,-5842; OSM w177809759,w177809762,w177809774,w177809786,w177809789,w177809811.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-46 layered passes.
+
+[x] Q-090  CELL 50,-46 (r=2) FEATURE Mayfield Road (3 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6507,-5891,6530,-5876; OSM w177910475,w177910480,w177910485.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-46 layered passes.
+
+[x] Q-091  CELL 50,-46 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 50,-46 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/50_-46-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 50,-46.
+
+[x] Q-092  CELL 50,-45 (r=2) FEATURE building=yes w148269706. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6442,-5637,6450,-5628; OSM w148269706.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-45 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 50,-45.
+
+[x] Q-093  CELL 50,-45 (r=2) FEATURE Broadlands Road (6 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6479,-5757,6532,-5731; OSM w177807732,w177807745,w177807757,w177807764,w177807774,w177807800.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-45 layered passes.
+
+[x] Q-094  CELL 50,-45 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 50,-45 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/50_-45-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 50,-45.
+
+[x] Q-095  CELL 50,-44 (r=2) FEATURE building=yes w1255994955. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6433,-5626,6444,-5609; OSM w1255994955.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-44 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 50,-44.
+
+[x] Q-096  CELL 50,-44 (r=2) FEATURE Granby Grove (1 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6519,-5608,6529,-5596; OSM w177758964.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-44 layered passes.
+
+[x] Q-097  CELL 50,-44 (r=2) FEATURE Hartley Avenue (2 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6485,-5522,6498,-5502; OSM w176650759,w176650779.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-44 layered passes.
+
+[x] Q-098  CELL 50,-44 (r=2) FEATURE Ripstone Gardens (5 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6493,-5539,6524,-5520; OSM w176650762,w176650765,w176650772,w176650774,w176650782.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-44 layered passes.
+
+[x] Q-099  CELL 50,-44 (r=2) FEATURE Ripstone Gardens (3 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6504,-5567,6530,-5550; OSM w177758962,w177759011,w177759017.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-44 layered passes.
+
+[x] Q-100  CELL 50,-44 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 50,-44 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/50_-44-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 50,-44.
+
+[x] Q-101  CELL 50,-43 (r=2) FEATURE building=yes w242322573. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6422,-5504,6438,-5492; OSM w242322573.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-43 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 50,-43.
+
+[x] Q-102  CELL 50,-43 (r=2) FEATURE Blenheim Gardens (1 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6446,-5380,6455,-5369; OSM w176387121.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-43 layered passes.
+
+[x] Q-103  CELL 50,-43 (r=2) FEATURE Blenheim Gardens (7 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6456,-5407,6517,-5376; OSM w176649313,w176649318,w176649319,w176649325,w176649328,w176649330,w176649332.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-43 layered passes.
+
+[x] Q-104  CELL 50,-43 (r=2) FEATURE Hartley Avenue (3 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6421,-5405,6436,-5376; OSM w175424995,w175425004,w175425045.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-43 layered passes.
+
+[x] Q-105  CELL 50,-43 (r=2) FEATURE Hartley Avenue (10 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6460,-5504,6494,-5416; OSM w176650764,w176650766,w176650768,w176650771,w176650777,w176650780,w176650781,w176650783 ….
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-43 layered passes.
+
+[x] Q-106  CELL 50,-43 (r=2) FEATURE Merton Road (4 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6517,-5442,6535,-5411; OSM w176650763,w176650770,w176650775,w176650786.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-43 layered passes.
+
+[x] Q-107  CELL 50,-43 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 50,-43 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/50_-43-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 50,-43.
+
+[x] Q-108  CELL 50,-42 (r=2) FEATURE Blenheim Gardens (9 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6453,-5377,6534,-5336; OSM w176387115,w176387119,w176387123,w176387129,w176387146,w176387154,w176387159,w176387163 ….
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-42 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 50,-42.
+
+[x] Q-109  CELL 50,-42 (r=2) FEATURE Hartley Avenue (4 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6405,-5377,6428,-5339; OSM w175425017,w175425036,w175425043,w175425087.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-42 layered passes.
+
+[x] Q-110  CELL 50,-42 (r=2) FEATURE Welbeck Avenue (4 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6390,-5331,6434,-5298; OSM w175425066,w175425072,w176387142,w176387165.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-42 layered passes.
+
+[x] Q-111  CELL 50,-42 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 50,-42 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/50_-42-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 50,-42.
+
+[x] Q-112  CELL 49,-42 (r=2) FEATURE Hilldown Road (6 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6263,-5356,6295,-5300; OSM w173807203,w173807205,w173807214,w173807217,w173807228,w590171653.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 49,-42 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 49,-42.
+
+[x] Q-113  CELL 49,-42 (r=2) FEATURE University Road (7 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6305,-5377,6331,-5328; OSM w173807195,w173807198,w173807201,w173807213,w173807221,w173807233,w173807234.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 49,-42 layered passes.
+
+[x] Q-114  CELL 49,-42 (r=2) FEATURE University Road (4 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6345,-5379,6372,-5333; OSM w175425015,w175425061,w175425063,w175425077.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 49,-42 layered passes.
+
+[x] Q-115  CELL 49,-42 (r=2) FEATURE Welbeck Avenue (3 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6366,-5340,6396,-5317; OSM w175424999,w175425010,w175425020.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 49,-42 layered passes.
+
+[x] Q-116  CELL 49,-42 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 49,-42 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/49_-42-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 49,-42.
+
+[x] Q-117  CELL 48,-42 (r=2) FEATURE Hilldown Road (9 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6232,-5377,6256,-5312; OSM w173807193,w173807197,w173807200,w173807206,w173807209,w173807210,w173807215,w173807224 ….
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 48,-42 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 48,-42.
+
+[x] Q-118  CELL 48,-42 (r=2) FEATURE Hilldown Road (1 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6264,-5347,6273,-5340; OSM w173807222.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 48,-42 layered passes.
+
+[x] Q-119  CELL 48,-42 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 48,-42 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/48_-42-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 48,-42.
+
+[x] Q-120  CELL 47,-42 (r=2) FEATURE Roselands Gardens (1 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6058,-5367,6072,-5355; OSM w208402628.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 47,-42 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 47,-42.
+
+[x] Q-121  CELL 47,-42 (r=2) FEATURE Roselands Gardens (2 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6095,-5370,6111,-5354; OSM w173021065,w173021066.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 47,-42 layered passes.
+
+[x] Q-122  CELL 47,-42 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 47,-42 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/47_-42-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 47,-42.
+
+[x] Q-123  CELL 46,-42 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 46,-42 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/46_-42-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 46,-42.
+
+[x] Q-124  CELL 46,-43 (r=2) FEATURE Chamberlain Road (7 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 5965,-5510,6012,-5478; OSM w173132114,w173132115,w173132116,w173132118,w173132120,w173132122,w173132123.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 46,-43 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 46,-43.
+
+[x] Q-125  CELL 46,-43 (r=2) FEATURE Furzedown Road (1 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 5937,-5446,5956,-5427; OSM w173433232.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 46,-43 layered passes.
+
+[x] Q-126  CELL 46,-43 (r=2) FEATURE Hawthorn Road (1 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 5960,-5387,5972,-5374; OSM w211454485.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 46,-43 layered passes.
+
+[x] Q-127  CELL 46,-43 (r=2) FEATURE Oakhurst Road (10 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 5946,-5478,6016,-5425; OSM w173150108,w173150109,w173150110,w173150111,w173150112,w173150113,w173150115,w173150117 ….
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 46,-43 layered passes.
+
+[x] Q-128  CELL 46,-43 (r=2) FEATURE Oakhurst Road (4 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 5963,-5427,5995,-5403; OSM w173433219,w173433221,w173433224,w173433226.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 46,-43 layered passes.
+
+[x] Q-129  CELL 46,-43 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 46,-43 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/46_-43-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 46,-43.
+
+[x] Q-130  CELL 46,-44 (r=2) FEATURE building=yes w148212337. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 5986,-5538,5994,-5530; OSM w148212337.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 46,-44 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 46,-44.
+
+[x] Q-131  CELL 46,-44 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 46,-44 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/46_-44-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 46,-44.
+
+[x] Q-132  CELL 46,-45 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 46,-45 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/46_-45-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 46,-45.
+
+[x] Q-133  CELL 46,-46 (r=2) FEATURE Burgess Road (1 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 5943,-5878,5957,-5868; OSM w208580585.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 46,-46 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 46,-46.
+
+[x] Q-134  CELL 46,-46 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 46,-46 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/46_-46-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 46,-46.
+
+[x] Q-135  CELL 47,-46 (r=2) FEATURE building=yes w226141861. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6052,-5802,6057,-5792; OSM w226141861.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 47,-46 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 47,-46.
+
+[x] Q-136  CELL 47,-46 (r=2) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 47,-46 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/47_-46-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 47,-46.
+
+[x] Q-137  CELL 48,-47 (r=3) FEATURE Burgess Road (6 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6150,-5986,6204,-5961; OSM w206989512,w206989518,w206989553,w206989557,w206989559,w206989566.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 48,-47 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 48,-47.
+
+[x] Q-138  CELL 48,-47 (r=3) FEATURE Burgess Road (4 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6225,-5990,6262,-5970; OSM w175863458,w175863478,w207002164,w207002167.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 48,-47 layered passes.
+
+[x] Q-139  CELL 48,-47 (r=3) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 48,-47 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/48_-47-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 48,-47.
+
+[x] Q-140  CELL 49,-47 (r=3) FEATURE Burgess Road. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6308,-6007,6330,-5982; OSM w81163505.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 49,-47 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 49,-47.
+
+[x] Q-141  CELL 49,-47 (r=3) FEATURE Burgess Road (1 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6279,-5996,6308,-5984; OSM w207002139.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 49,-47 layered passes.
+
+[x] Q-142  CELL 49,-47 (r=3) FEATURE Burgess Road (5 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6333,-6000,6377,-5985; OSM w207002120,w207002129,w207002137,w207002142,w207002149.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 49,-47 layered passes.
+
+[x] Q-143  CELL 49,-47 (r=3) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 49,-47 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/49_-47-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 49,-47.
+
+[x] Q-144  CELL 50,-47 (r=3) FEATURE Burgess Road 170-176. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6483,-5989,6509,-5959; OSM w224396062.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-47 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 50,-47.
+
+[x] Q-145  CELL 50,-47 (r=3) FEATURE Broadlands Road 284A. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6487,-5925,6498,-5919; OSM w177910441.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-47 layered passes.
+
+[x] Q-146  CELL 50,-47 (r=3) FEATURE Burgess Road 178. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6499,-5990,6507,-5979; OSM w148590559.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-47 layered passes.
+
+[x] Q-147  CELL 50,-47 (r=3) FEATURE Burgess Road 180. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6509,-5990,6516,-5974; OSM w148590577.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-47 layered passes.
+
+[x] Q-148  CELL 50,-47 (r=3) FEATURE Burgess Road 182. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6515,-5991,6524,-5967; OSM w148590570.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-47 layered passes.
+
+[x] Q-149  CELL 50,-47 (r=3) FEATURE Burgess Road 184. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6520,-5992,6527,-5984; OSM w268599722.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-47 layered passes.
+
+[x] Q-150  CELL 50,-47 (r=3) FEATURE Broadlands Road (2 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6486,-5919,6495,-5903; OSM w177910463,w177910486.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-47 layered passes.
+
+[x] Q-151  CELL 50,-47 (r=3) FEATURE Hampton Parkway (1 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6524,-5918,6537,-5907; OSM w177910473.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-47 layered passes.
+
+[x] Q-152  CELL 50,-47 (r=3) FEATURE Mayfield Road (2 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6493,-5897,6506,-5885; OSM w177910468,w177910470.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 50,-47 layered passes.
+
+[x] Q-153  CELL 50,-47 (r=3) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 50,-47 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/50_-47-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 50,-47.
+
+[x] Q-154  CELL 51,-47 (r=3) FEATURE Burgess Road 188. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6528,-5994,6534,-5978; OSM w268599723.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-47 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 51,-47.
+
+[x] Q-155  CELL 51,-47 (r=3) FEATURE Burgess Road 190. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6533,-5995,6540,-5979; OSM w148590556.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-47 layered passes.
+
+[x] Q-156  CELL 51,-47 (r=3) FEATURE Burgess Road 192. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6539,-5995,6546,-5986; OSM w148590560.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-47 layered passes.
+
+[x] Q-157  CELL 51,-47 (r=3) FEATURE Burgess Road 194. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6545,-5996,6550,-5988; OSM w148590569.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-47 layered passes.
+
+[x] Q-158  CELL 51,-47 (r=3) FEATURE Burgess Road 196. RULES: campus.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6549,-5996,6553,-5988; OSM w148590558.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-47 layered passes.
+
+[x] Q-159  CELL 51,-47 (r=3) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 51,-47 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/51_-47-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 51,-47.
+
+[x] Q-160  CELL 51,-46 (r=3) FEATURE Broadlands Road (5 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6526,-5777,6555,-5756; OSM w177809050,w177809055,w177809057,w177809067,w228527052.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-46 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 51,-46.
+
+[x] Q-161  CELL 51,-46 (r=3) FEATURE Mayfield Road (3 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6527,-5848,6553,-5832; OSM w177809777,w177809797,w177809800.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-46 layered passes.
+
+[x] Q-162  CELL 51,-46 (r=3) FEATURE Mayfield Road (3 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6528,-5883,6555,-5866; OSM w177910454,w177910460,w177910479.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-46 layered passes.
+
+[x] Q-163  CELL 51,-46 (r=3) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 51,-46 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/51_-46-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 51,-46.
+
+[x] Q-164  CELL 51,-45 (r=3) FEATURE Broadlands Road (3 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6532,-5737,6561,-5719; OSM w177807780,w177807807,w177807825.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-45 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 51,-45.
+
+[x] Q-165  CELL 51,-45 (r=3) FEATURE Granby Grove (1 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6538,-5635,6547,-5624; OSM w177806522.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-45 layered passes.
+
+[x] Q-166  CELL 51,-45 (r=3) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 51,-45 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/51_-45-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 51,-45.
+
+[x] Q-167  CELL 51,-44 (r=3) FEATURE Granby Grove (6 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6525,-5605,6570,-5580; OSM w177758976,w177758979,w177758990,w177759020,w177759029,w177759031.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-44 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 51,-44.
+
+[x] Q-168  CELL 51,-44 (r=3) FEATURE Granby Grove (3 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6544,-5632,6568,-5616; OSM w177806450,w177806474,w177806482.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-44 layered passes.
+
+[x] Q-169  CELL 51,-44 (r=3) FEATURE Ripstone Gardens (4 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6526,-5527,6558,-5507; OSM w176650773,w176650776,w176650784,w176650788.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-44 layered passes.
+
+[x] Q-170  CELL 51,-44 (r=3) FEATURE Ripstone Gardens (5 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6527,-5558,6570,-5534; OSM w177758978,w177759015,w177759019,w177759030,w177759054.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-44 layered passes.
+
+[x] Q-171  CELL 51,-44 (r=3) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 51,-44 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/51_-44-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 51,-44.
+
+[x] Q-172  CELL 51,-43 (r=3) FEATURE Merton Road (6 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6527,-5490,6550,-5443; OSM w176650760,w176650761,w176650767,w176650769,w176650778,w176650787.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-43 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 51,-43.
+
+[x] Q-173  CELL 51,-43 (r=3) FEATURE Merton Road (11 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6538,-5481,6576,-5391; OSM w176316407,w176650383,w176650384,w176650386,w176650389,w176650392,w176650394,w176650402 ….
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-43 layered passes.
+
+[x] Q-174  CELL 51,-43 (r=3) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 51,-43 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/51_-43-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 51,-43.
+
+[x] Q-175  CELL 51,-42 (r=3) FEATURE Blenheim Gardens (5 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6528,-5347,6578,-5322; OSM r7222149,w176387126,w176387130,w176387144,w176387151.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-42 layered passes.
+           First item of a new cell: cell_marker.py --status (must be clean), then --raise 51,-42.
+
+[x] Q-176  CELL 51,-42 (r=3) FEATURE Blenheim Gardens (5 houses). RULES: property.
+           Major feature, pass 1 of the cell (HANDOFF-LAYERED-PASSES §1, §4): own build, region
+           snapshot + origin fingerprint before apply. bbox 6530,-5377,6575,-5352; OSM w176649310,w176649316,w176649317,w176649321,w176649326.
+           Houses: one build for the whole run on the street (shared frontage, roofs, party walls).
+           House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.
+           Not covered by any feature build. Auto-queued; before the 51,-42 layered passes.
+
+[x] Q-177  CELL 51,-42 (r=3) layered passes: ground, trees, decor. RULES: ground.
+           Auto-queued: next in north-centre-then-clockwise order. The cell marker
+           (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 51,-42 if not already.
+           Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;
+           dry run, check kinds + crowns against the aerial; apply with SITE_OWNER;
+           patrol sweep; update site/cells/51_-42-STAGES.json;
+           Marker stays up after this run; clear it only when decor is done, checks
+           pass and all open issues for the cell are closed: cell_marker.py --clear 51,-42.

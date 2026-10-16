@@ -1,0 +1,132 @@
+{
+  "cell": "46,-43",
+  "stages": {
+    "features": {
+      "status": "applied",
+      "plan": "chamberlain_rd_53_65",
+      "blocks": 5247,
+      "readback": {
+        "planned": 5247,
+        "mismatches": 0,
+        "checked": "2026-10-15 04:00:18"
+      },
+      "snapshot": "backups/regions/2026-10-15-035948-Q-124_chamberlain",
+      "fingerprint": {
+        "5990,51,-5496": "minecraft:stone",
+        "5990,59,-5496": "light_gray_carpet",
+        "5970,59,-5504": "bricks",
+        "6005,52,-5486": "air"
+      },
+      "note": "Q-124 houses 53-65 Chamberlain Rd (OSM w173132114..123), house only. Roof slate hint (blurry z18 aerial). Houses straddle cell edge z-5504 into 46,-44. Geocraft carpet roofs cleared. Ground around is brown dirt from unfinished ground pass; lawns/fences/trees untouched."
+    },
+    "features_q125": {
+      "status": "applied",
+      "plan": "furzedown_rd",
+      "blocks": 13520,
+      "readback": {
+        "planned": 13520,
+        "mismatches": 0,
+        "checked": "2026-10-15 04:05:57"
+      },
+      "snapshot": "backups/regions/2026-10-15-040238-Q-125_furzedown",
+      "fingerprint": {
+        "5946,50,-5440": "minecraft:stone",
+        "5960,50,-5440": "minecraft:gray_terracotta",
+        "5946,65,-5440": "bricks (old Geocraft, pre-apply)"
+      },
+      "note": "Q-125 house on Furzedown Rd (OSM w173433232), house only; floor y53 from plot-edge reference (Hilldown scan-from-41 fails here: Geocraft gaps). Roof slate hint (blurry z18). First apply at y41 was wrong and corrected in place (same snapshot, taken pre-first-apply)."
+    },
+    "features_q126": {
+      "status": "applied",
+      "plan": "hawthorn_rd",
+      "blocks": 6950,
+      "readback": {
+        "planned": 6950,
+        "mismatches": 0,
+        "checked": "2026-10-15 04:09:01"
+      },
+      "snapshot": "backups/regions/2026-10-15-040808-Q-126_hawthorn",
+      "fingerprint": {
+        "5966,52,-5380": "minecraft:stone",
+        "5964,60,-5375": "oak_leaves (pre-apply)",
+        "5960,53,-5379": "air"
+      },
+      "note": "Q-126 house on Hawthorn Rd (OSM w211454485, diagonal footprint, front S), house only; floor y52 from plot-edge reference surface (median of 306 cols, 51-53). Roof slate hint (blurry z18). Trees from highfield_46_m42_trees left untouched where they clashed (15 canopy cells at S edge). Patrol clean for this build (13 door_to_wall are Broadlands, not ours)."
+    },
+    "features_q127": {
+      "status": "applied",
+      "plan": "oakhurst_rd_q127",
+      "blocks": 13940,
+      "readback": {
+        "planned": 13940,
+        "mismatches": 0,
+        "checked": "2026-10-15 04:12:21"
+      },
+      "snapshot": "backups/regions/2026-10-15-041138-Q-127_oakhurst",
+      "fingerprint": {
+        "5950,55,-5470": "minecraft:stone",
+        "5985,54,-5440": "minecraft:stone",
+        "6006,53,-5430": "minecraft:stone",
+        "5960,60,-5465": "air"
+      },
+      "note": "Q-127 10 houses Oakhurst Rd (OSM w173150108..119), house only, own roof each; floors y53-55 from ring-median surface outside footprints. Roof slate hint (blurry z18). 3 ground cells at x6016-6017 z-5440 left alone. Patrol: 13 door_to_wall all Broadlands. Q-128 (4 houses, south side) next."
+    },
+    "features_q128": {
+      "status": "applied",
+      "plan": "oakhurst_rd_q128",
+      "blocks": 4322,
+      "readback": {
+        "planned": 4322,
+        "mismatches": 0,
+        "checked": "2026-10-15 04:16:00"
+      },
+      "snapshot": "backups/regions/2026-10-15-041530-Q-128_oakhurst",
+      "fingerprint": {
+        "5985,51,-5412": "minecraft:stone",
+        "5972,53,-5420": "bricks (old Geocraft, pre-apply)",
+        "5985,52,-5412": "air",
+        "5972,60,-5420": "air"
+      },
+      "note": "Q-128 4 houses Oakhurst Rd south side (OSM w173433219,221,224,226), house only; floors y51-52 from ring-median surface (y41 gap outliers ignored). Own roof each, slate hint (blurry z18). Q-127 houses untouched. Patrol: only 13 Broadlands door_to_wall."
+    },
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_46_m43_ground",
+      "blocks": 17018,
+      "readback": {
+        "planned": 17018,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 04:19:43"
+      },
+      "note": "first-principles ground (OSM + aerial); verify: patrol, visuals; trees and decor re-run after"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_46_m43_trees",
+      "blocks": 23042,
+      "crowns": 143,
+      "readback": {
+        "planned": 23042,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 11:56:55"
+      },
+      "mask": "verification/site/masks/trees-46_-43.mask.json",
+      "note": "2026-10-15 I-059: trees re-run with dense-cover fill + overhang rule (undone from old mask, 92 crowns before; trees on lawn only, TREES_ON_PAVING off). Crowns 143, 23042 blocks, see mask outside the cell. Pre-state snapshot (cell + 12-block margin) backups/regions/2026-10-15-115531-highfield_46_m43_trees_undo; apply snapshot backups/regions/2026-10-15-115633-highfield_46_m43_trees. Decor untouched. Incident: first run's undo aborted on 2 pre-existing air conflicts at (5992,55|56,-5437) yet the apply went ahead and overwrote the mask; repaired by rebuilding the old mask exactly from the old plan.json + pre-apply snapshot (15102 blocks, 15100 live) merged with the stray new mask, undone cleanly (readback 0), then re-run. Readback 0, 0 trunks on non-lawn, patrol floating 0; 49 doors in cell+margin, none blocked by trees (4 Oakhurst Rd doors not reachable to road with or without trees).",
+      "dense_redo": true
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_46_m43_decor",
+      "blocks": 1511,
+      "readback": {
+        "planned": 1511,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 04:23:21"
+      },
+      "mask": "verification/site/masks/decor-46_-43.mask.json"
+    }
+  }
+}

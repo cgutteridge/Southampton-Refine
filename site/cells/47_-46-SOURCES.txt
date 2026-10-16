@@ -1,0 +1,79 @@
+CELL SOURCES — tx=47 tz=-46
+Updated: 2026-10-15  (regenerate: python3 scripts/cell_sources.py --cell 47,-46 --write)
+
+Purpose: one-time prep when this cell opens. Build chats read THIS file + manifest ids;
+do not re-research the whole cell each queue item. Per build step: still at most one
+primary aerial + one street Read (rules/reference-token-budget.md).
+
+MC bbox (inclusive): 6016,-5888,6143,-5761
+OSM clip covers cell centre: yes
+
+MANIFEST (reference/manifest.jsonl)
+  mc_tile 128:47:-46  manifest rows overlapping: 5
+  primary aerial (useful=yes): aerial-highfield-campus-mosaic-z18-5x5-centre-130053-87832-png
+    path=aerial/highfield-campus/mosaic-z18-5x5-centre-130053-87832.png  models=['footprint', 'roof']
+  street/facade useful/maybe: 2 (e.g. photos-highfield-campus-commons-134990247-jpg)
+
+OSM (reference/osm clips via osm_footprints.OSMIndex)
+  named streets in cell: (corridor), (cycleway), (footway), (service), (steps), Lovers Walk North, Salisbury Road, University Service Road West
+  building footprints overlapping: 11
+  natural=tree / landuse=forest polygons (rare): 0
+  Geocraft procedural trees are not surveyed — back-garden canopy from aerial only.
+  area tags (top):
+    grass ×4
+    industrial / Mountbatten Building Service Area ×1
+    residential ×1
+    university / Highfield Campus ×1
+
+COVERAGE PARCELS
+  highfield: 55 parcels — 2 untouched, 28 touched, 25 done
+    gap:6016,-5799  gap  touched  gap:6016,-5799 2567 cols, between University Service Road We
+    gap:6016,-5855  gap  untouched  gap:6016,-5855 1231 cols, between Lovers Walk North and Burg
+    gap:6042,-5849  gap  touched  gap:6042,-5849 687 cols, between Salisbury Road and Lovers W
+    gap:6113,-5779  gap  touched  gap:6113,-5779 683 cols, between Murray and highway=footway 
+    open:w168213672@47,-46  open  touched  landuse=grass w168213672
+    open:w186801749@47,-46  open  touched  landuse=grass w186801749
+    gap:6057,-5783  gap  touched  gap:6057,-5783 345 cols, between highway=footway w1174345816
+    open:w391785199@47,-46  open  touched  landuse=grass w391785199
+    … 1 more gap/open/no_osm (coverage.py status --cell 47,-46 --list)
+
+CROSS-ZONE (generated on --write)
+  grounds zones: (none)
+  neighbor cells: 46,-47, 46,-46, 46,-45, 47,-47, 47,-46, 47,-45, 48,-47, 48,-46, 48,-45
+  warn: gap:5938,-5825 straddles cell edge (5546 cols outside)
+  warn: gap:6007,-5763 straddles cell edge (174 cols outside)
+  warn: gap:6016,-5347 straddles cell edge (7 cols outside)
+  warn: gap:6016,-5401 straddles cell edge (77 cols outside)
+  warn: gap:6016,-5555 straddles cell edge (14 cols outside)
+  warn: gap:6016,-5632 straddles cell edge (255 cols outside)
+  warn: gap:6016,-5638 straddles cell edge (48 cols outside)
+  warn: gap:6016,-5648 straddles cell edge (326 cols outside)
+
+SOURCE CHECKLIST (find what is TODO once; never re-try TRIED ones)
+  [HAVE ] aerial     3 manifest row(s), e.g. aerial-highfield-campus-mosaic-z18-5x5-centre-130053-87832-png
+  [TODO ] kartaview  kartaview_fetch.py list --at CX,CZ --radius-m 80
+  [HAVE ] commons    2 manifest row(s), e.g. photos-highfield-campus-commons-134990247-jpg
+  [TODO ] streetview streetview_sample.py sample --cell TX,TZ (look-only; small grid)
+  [TODO ] rightmove  browser: rightmove.co.uk/house-prices/<postcode>.html for a postcode on a named street in this cell; exteriors only, look-don't-hoard (reference/SOURCES.txt). Skip for non-residential cells.
+  Record each attempt, hit or miss, once:
+    python3 scripts/cell_sources.py --cell 47,-46 --record SOURCE --result found|partial|none|blocked --note "..."
+  A second attempt on the same source needs --retry-reason (new area, new date, tool fixed).
+
+CHARACTER / LANDMARKS (edit by hand after light review)
+  - 
+
+FOLIAGE INTENT (edit after aerial; site/FOLIAGE.txt + site/HIGHFIELD-ZONES.txt)
+  - 
+
+IF MANIFEST GAPS — run (fetch once, judge once, log manifest):
+  python3 scripts/ref_manifest.py find --xz 6079,-5825
+  python3 scripts/geo.py tiles --bbox 6016,-5888,6143,-5761 --zoom 18 --mosaic 3
+  # then: scripts/aerial_mosaic.py … → reference/aerial/<place>/mosaic-z18-3x3-centre-130053-87833.png
+  # COVERAGE: check the z19 aerial actually covers the whole cell (it can stop short, e.g. 47,-43 west of ~x6058). If not, use the zoomed-out (z18) mosaic for the gap: the manifest `find` above lists what covers this cell, else fetch it with the geo.py line below.
+  # ref_manifest.py add … --useful yes --models footprint,roof,landscape --at 6079,-5825
+  python3 scripts/osm_footprints.py frontage --bbox 6016,-5888,6143,-5761
+  python3 scripts/coverage.py status --cell 47,-46 --list
+  python3 scripts/coverage.py gaps --area highfield
+
+TOKEN NOTES (2–5 lines after sources pass)
+  - 

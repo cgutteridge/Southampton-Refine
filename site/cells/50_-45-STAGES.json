@@ -1,0 +1,24 @@
+{
+  "cell": "50,-45",
+  "stages": {
+    "ground": {
+      "status": "applied",
+      "plan": "highfield_50_m45_ground",
+      "blocks": 10269,
+      "note": "2026-10-15 readback 0, patrol 0 floating; z19 mosaic east gap filled from z18 (\u2026-filled-z18east.png); awaiting user visual check"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_50_m45_trees",
+      "blocks": 8569,
+      "crowns": 48,
+      "note": "2026-10-15 readback 0, patrol 0 floating; awaiting user visual check"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_50_m45_decor",
+      "blocks": 571,
+      "note": "2026-10-15 readback 0, patrol 0 floating; awaiting user visual check. Signoff refused (leftover Geocraft) on path:w265246854, path:w1256896084; open parcels w1215432787/w1255994949 touched, unsigned."
+    }
+  }
+}

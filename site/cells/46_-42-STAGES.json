@@ -1,0 +1,42 @@
+{
+  "cell": "46,-42",
+  "stages": {
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_46_m42_ground",
+      "blocks": 12354,
+      "readback": {
+        "planned": 12354,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 03:50:05"
+      },
+      "note": "OSM + aerial. z19 is blank server-side west of tile 260105: new mosaic mosaic-z19-15x15-260101-175664-filled-z18west-matched.png (4 tile cols of z18 upsampled, colour-matched to z19; ground_sources/trees_layer/plant_cell_canopy now point at it, TILE0 260101). West/most of cell is blurry z18. OSM has only 2 footprints here; some roof-red aerial blobs read as brick paving beside unbuilt houses (786 cols). Carpet structure tops skipped. Marker stays on 50,-42. Verify visually."
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_46_m42_trees",
+      "blocks": 20367,
+      "crowns": 127,
+      "readback": {
+        "planned": 20367,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 03:51:05"
+      },
+      "mask": "verification/site/masks/trees-46_-42.mask.json"
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_46_m42_decor",
+      "blocks": 126,
+      "readback": {
+        "planned": 126,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 03:52:02"
+      },
+      "mask": "verification/site/masks/decor-46_-42.mask.json"
+    }
+  }
+}

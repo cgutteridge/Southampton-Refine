@@ -1,0 +1,44 @@
+{
+  "cell": "46,-45",
+  "stages": {
+    "ground-layer": {
+      "status": "applied",
+      "plan": "highfield_46_m45_ground",
+      "blocks": 64381,
+      "readback": {
+        "planned": 64381,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 04:40"
+      },
+      "note": "first-principles ground (OSM+aerial); mostly woodland (grass floor) with Wessex Lane/campus edge on east; snapshot southampton_refine:before_highfield_46_m45_ground; verify: patrol, visuals"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_46_m45_trees",
+      "blocks": 58447,
+      "crowns": 386,
+      "readback": {
+        "planned": 58447,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 10:14:15"
+      },
+      "mask": "verification/site/masks/trees-46_-45.mask.json",
+      "note": "re-run 2026-10-15 with the one tree rule (trunk in cell; crown may overhang neighbour air or neighbour trees-mask leaves, recorded in this mask, never overwriting other blocks): undone from old mask then 386 crowns, 58447 blocks, 1618 outside the cell (N 46,-46 339, S 46,-44 637, E 47,-45 310, W 45,-45 329, +3 diagonal); 0 neighbour blocks overwritten, 0 merges (no coinciding neighbour leaves). snapshots backups/regions/2026-10-15-101227-highfield_46_m45_overhang_pre (cell + 12-block margin) and the apply snapshot highfield_46_m45_trees; undo snapshot before_highfield_46_m45_trees_undo; decor untouched. origin fingerprint surface: (5888,-5760) 60 grass_block, (6015,-5760) 56 light_gray_concrete, (5888,-5633) 59 grass_block, (6015,-5633) 54 gray_concrete",
+      "outside_cell": 1618
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_46_m45_decor",
+      "blocks": 171,
+      "readback": {
+        "planned": 171,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-15 04:40"
+      },
+      "mask": "verification/site/masks/decor-46_-45.mask.json"
+    }
+  }
+}
