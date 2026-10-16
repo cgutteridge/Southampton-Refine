@@ -35,3 +35,23 @@ reference/tpo/cache/**
 
 # handoff stop-hook marker
 site/.handoff-pending.json
+
+# Per-build generated outputs (re-creatable by the build scripts)
+verification/site/*-cells.json
+verification/site/*-result.json
+verification/site/*-backup.json
+verification/site/*-clashes.json
+verification/site/*-footprint-hits.json
+verification/site/*-hits.json
+verification/site/*-plan.json
+verification/site/*-planned.json
+verification/site/*-fingerprint.json
+verification/site/*-removed.json
+verification/site/*-ln.geojson
+verification/site/plots-*.json
+verification/site/osm27700/
+
+# Stray imagery (local only, same policy as reference/photos)
+reference/reference/
+coffin-pillbox/
+.claude/settings.local.json

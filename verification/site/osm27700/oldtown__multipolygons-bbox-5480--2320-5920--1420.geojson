@@ -1,9 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "multipolygons-bbox-5480--2320-5920--1420",
-"southampton_refine": { "source": "geofabrik-hampshire", "pbf": "downloads\/hampshire-latest.osm.pbf", "pbf_url": "https:\/\/download.geofabrik.de\/europe\/united-kingdom\/england\/hampshire-latest.osm.pbf", "bbox_mc": [ 5480, -2320, 5920, -1420 ], "spat_wgs84": [ -1.4080136745812, 50.8971893292399, -1.40165357400195, 50.905314092068899 ], "layers": [ "multipolygons" ], "place": "OLDTOWN" },
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::27700" } },
-"features": [
-
-]
-}
