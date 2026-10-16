@@ -11,6 +11,8 @@ Evidence (rules/evidence-order.md):
            SKYLIGHT (user: it is a skylight, not a raised lantern) set into the roof near x6376; lidar interior columns flat (57/58)                              -> smooth_stone slabs
   openings Street View: the 8-cell straight front reads WW_BB_WW per storey (user, 2026-10-16): 2x1 window pairs, a 2-wide open
            balcony (white front, no glass) over the entrance, brick piers; same rhythm inferred for every straight face
+  no windows on sharp corners (user): the corners of the wing steps stay solid unless a photo or aerial confirms them; wing windows
+           sit on the flat tread between two corners, as single glass blocks.
   not done (good enough): white balconies on the SE face, the taller stair core (lidar 58 centre vs 57 wings), cars.
 The skylight position is a hint (aerial lean puts roof detail a few blocks off its ground position).
 
@@ -40,6 +42,7 @@ m.ROOFS = {WAY: ROOF}
 m.NAME = 'oakdene_court'
 m.MODIFIES = tuple(m.MODIFIES) + (OLD,)
 DIRS, N8, pane = m.DIRS, m.N8, m.pane
+TREAD_GAP = 4                                         # blocks between window blocks on the stepped wings
 
 
 def runs(cells, d):
@@ -62,29 +65,13 @@ def runs(cells, d):
     return out
 
 
-def diagonal_chains(cells):
-    """Chains of stepped-diagonal wall cells (cells exposed two ways), each cell the next one diagonally: [[(x, z), ...], ...].
-    A cell with no diagonal neighbour (a true corner) is a chain of 1 and gets no window."""
-    cells = set(cells)
-    out = []
-    for step in ((1, 1), (1, -1)):
-        for c in sorted(cells):
-            if (c[0] - step[0], c[1] - step[1]) in cells:
-                continue                                  # not the start of a chain along this diagonal
-            chain = [c]
-            while (chain[-1][0] + step[0], chain[-1][1] + step[1]) in cells:
-                chain.append((chain[-1][0] + step[0], chain[-1][1] + step[1]))
-            if len(chain) > 1:
-                out.append(chain)
-    return out
-
-
-def single_slots(n):
-    """One window every third cell along a stepped diagonal (two brick between), centred. A diagonal step is one block along the
-    face, so the straight-wall pair rhythm put glass on six of every eight cells: over the top."""
-    count = (n + 2) // 3
-    off = (n - (3 * count - 2)) // 2
-    return [off + 3 * i for i in range(count)]
+def spaced(cells, gap):
+    """Pick cells so no two are closer than ``gap`` blocks (Chebyshev), scanning in sorted order: thins a staircase of treads."""
+    picked = []
+    for c in sorted(cells):
+        if all(max(abs(c[0] - q[0]), abs(c[1] - q[1])) >= gap for q in picked):
+            picked.append(c)
+    return picked
 
 
 def pair_slots(n):
@@ -117,7 +104,7 @@ class Oakdene(m.Build):
         print('earlier Oakdene blocks cleared:', gone)
 
     def windows(self, k, h):
-        """2-wide window pairs: panes on straight faces, one full glass block every third cell on the stepped diagonals (never panes there), none on a lone corner.
+        """2-wide window pairs: panes on straight faces, one full glass block on a step tread of the stepped wings (never a pane, never on a sharp corner).
         The middle pair of the entrance face is the balcony instead (WW_BB_WW)."""
         b = h.b
         front = getattr(h, 'door', None)
@@ -144,17 +131,15 @@ class Oakdene(m.Build):
                         for c in pair:
                             self.set(c[0], b + 2 + 3 * s_, c[1], pane(axis))
                     n += 2
-        diag = [c for c, e in exp.items() if len(e) > 1]
+        # Stepped diagonal wings: the outline is stairs, and the cells exposed two ways are the sharp step corners (no windows there).
+        # The flat tread between two corners is where a window can sit: one full glass block (never a pane), every few treads.
+        treads = [run[0] for d in 'NSEW' for run in runs([c for c, e in exp.items() if e == [d]], d) if len(run) == 1]
         g = 0
-        for chain in diagonal_chains(diag):
-            for i in single_slots(len(chain)):
-                c = chain[i]
-                if c in doors:
-                    continue
-                for s_ in range(h.levels):
-                    self.set(c[0], b + 2 + 3 * s_, c[1], 'glass')        # a full glass block, never a pane, on a diagonal
-                g += 1
-        print('window panes per storey', n, 'x', h.levels, 'storeys; diagonal glass blocks per storey', g)
+        for c in spaced([c for c in treads if c not in doors], TREAD_GAP):
+            for s_ in range(h.levels):
+                self.set(c[0], b + 2 + 3 * s_, c[1], 'glass')
+            g += 1
+        print('window panes per storey', n, 'x', h.levels, 'storeys; step-tread glass blocks per storey', g)
 
     def balcony(self, h, pair, d):
         """Open recessed balcony, 2 wide, on every upper storey over the entrance: white parapet at the face, open above it,

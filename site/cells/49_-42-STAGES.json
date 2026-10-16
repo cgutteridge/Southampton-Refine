@@ -209,10 +209,10 @@
       "status": "applied",
       "plan": "oakdene_court",
       "owner": "oakdene-rebuild",
-      "started": "2026-10-16 17:24:48",
+      "started": "2026-10-16 17:26:59",
       "blocks": 4831,
       "structure": {
-        "name": "southampton_refine:before_oakdene_court_20261016172448",
+        "name": "southampton_refine:before_oakdene_court_20261016172659",
         "from": [
           6369,
           42,
@@ -226,11 +226,11 @@
       },
       "snapshot": null,
       "planned": "verification/site/oakdene_court-planned.json",
-      "finished": "2026-10-16 17:24:54",
+      "finished": "2026-10-16 17:27:05",
       "readback": {
         "planned": 4831,
         "mismatches": 0,
-        "checked": "2026-10-16 17:24:54"
+        "checked": "2026-10-16 17:27:05"
       }
     }
   }

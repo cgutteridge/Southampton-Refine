@@ -327,8 +327,10 @@ I-069  L  SPECIAL  done  Small non-house structures vs lidar: Oakdene Court (4 l
   USER (2026-10-16, v3): "I think it's a skylight". v4: the rooftop feature is a flush dark skylight set into the roof (tinted_glass replacing 3x2 slabs), not a raised
   box. User confirmed: "ok yes".
   Follow-up (user, 2026-10-16, after confirming): "we should have windows on diagonal walls. Important to not use pane-glass on diagonals." v5: wings now
-  have full-glass-block windows in the step corners (oakdene_court.py diagonal_chains); rule in CRAFTSMANSHIP section 2. User: "bit ott". v6: diagonal windows thinned to one glass block every third step cell (single_slots).
-  Waiting for user check of the wings.
+  have full-glass-block windows in the step corners (oakdene_court.py diagonal_chains); rule in CRAFTSMANSHIP section 2. User: "bit ott". v6: thinned to one block every third step cell.
+  User: "avoid windows on sharp corners unless visual reference material confirms the building definitely has them". v7: the cells exposed two ways
+  on the wings are the step corners (v6 had glass on them); wing windows now sit on the flat treads between corners (spaced(), TREAD_GAP 4), 7 per storey.
+  Sparse from the SE; no photo/aerial of the wings confirms corner windows. Waiting for user check of the wings.
   (earlier note) SETTLED KEEP: Street View (1 look-only frame, Church Lane yaw 90, logged in 49_-42-SOURCES) shows 4 window rows, flat
   roof with white fascia, central stair block a little taller than the wings. Live build: floors y46/49/52/55, flat slab y58 (surface 58.5 vs lidar 58.06, within
   rounding). Only difference: lidar wings read 1 lower than the centre (56 vs 57); left as is (good enough). Lidar said 3 storeys: see I-071.
