@@ -187,6 +187,9 @@ I-073  H  GOOGLE  open  REDO umbrella (user, 2026-10-16): Google satellite (goog
               (rules/evidence-order.md). Redo = edit the house_build / campus spec and re-apply that street or building run (stop rule I-009: a geometry fix is
               revert + re-survey, no _b/_c patches). Houses: rules/frontage-and-evidence.md; terraces: rules/terrace-builds.md.
   3 GROUND    applied ground vs Google: lawn, paving, drives, car parks, paths, surface type; fold in I-068 (this is its evidence source now). Layered ground pass, masks.
+  4 TREES     (added 2026-10-16, user) scripts/tree_review.py --cell TX,TZ: the lidar crown inventory against the live trees, matched by crown tops, then the
+              same crowns on the Google sheet (--marks). Real trees the world lacks go in as extra crowns, invented ones over lawn/paving/roof are fixed at the
+              detector, and the counts go in the cell STAGES note. Method, verdicts and decisions: site/FOLIAGE.txt "Tree review". Runs after ground (trunks need it).
   Keep in mind: aerial lean puts a tall roof a few blocks off its ground footprint (the roof of Oakdene Court sat 2-3 blocks off the OSM outline); judge roofs on roofs.
   Order of work (priority: code, then fixes to existing work, then new builds): Q-179 tooling first, then one cell per Q item, ahead of new-cell passes. Overlaps and now
   folds in: I-066 (campus vs lidar), I-068 (ground vs lidar), I-069 (small structures), I-070 (lumps); close them as their cells are reviewed.

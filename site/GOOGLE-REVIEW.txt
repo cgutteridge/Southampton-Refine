@@ -3,14 +3,15 @@ One cell per chat, in ring order (north centre, then clockwise; rules/radial-goo
 Source of truth for the Google redo: take the first row that is not "done". Edit a row's
 status here when its chat ends; the queue item text only points here.
 
-Per cell, three parts (details in site/ISSUES.txt I-073):
+Per cell, four parts (details in site/ISSUES.txt I-073):
   look      google_aerial.py sheet --cell TX,TZ, recorded with cell_sources --record google
   features  every building (houses, terraces, campus, small structures) against Google: roof form, ridge axis, roof greeblies (plant, vents, skylights, solar panels),
             roof colour/material, rear wings, outbuildings, missing buildings. Keep or redo per building.
   Skip buildings that already have an open feature item on the QUEUE (they are rebuilt there anyway).
   Each building uses three sources: Google (greeblies, colour), the university aerial (footprint, roof form), lidar (heights).
   ground    applied ground (lawn, paving, drives, car parks, paths) against Google.
-Status words: todo | look | features | done  (the last part finished). bld = lidar lump count (size hint).
+  trees     scripts/tree_review.py (lidar crown tops vs live) + Google sheet with its marks; method and decisions in site/FOLIAGE.txt "Tree review".
+Status words: todo | look | features | ground | done  (the last part finished; done = trees too). bld = lidar lump count (size hint).
 
  ring  cell      bld  status
   r0   48,-44     4  features

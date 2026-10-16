@@ -152,7 +152,7 @@ def residual_features(cell, idx=None):
 
 GOOGLE_REVIEW = SITE / 'GOOGLE-REVIEW.txt'
 _REVIEW_ROW = re.compile(r'^(\s+)(r\d+)(\s+)(-?\d+),(-?\d+)(\s+)(\d+)(\s+)(\w+)\s*$')
-REVIEW_STATUSES = ('todo', 'look', 'features', 'done')
+REVIEW_STATUSES = ('todo', 'look', 'features', 'ground', 'done')
 
 
 def google_review_rows():
@@ -227,8 +227,10 @@ def google_review_block(qid, row):
         'and lidar (heights); storeys photo first, then OSM levels, then lidar. Skip buildings that already have an open',
         'feature item on the QUEUE.',
         'Keep or redo per building, snapshot first, stop rule I-009. (3) GROUND applied ground vs Google (I-068).',
-        'Update the row in site/GOOGLE-REVIEW.txt (look/features/done), note matches and mismatches in the cell',
-        f'STAGES file. End the chat with: site_handoff.py end {qid} --review-status look|features|done (default done).',
+        f'(4) TREES scripts/tree_review.py --cell {tx},{tz} (lidar crowns vs live) plus the Google sheet with its marks; fix per',
+        'site/FOLIAGE.txt "Tree review" (missing real trees, invented ones over lawn/paving/roof), then trees pass dry run.',
+        'Update the row in site/GOOGLE-REVIEW.txt (look/features/ground/done), note matches and mismatches in the cell',
+        f'STAGES file. End the chat with: site_handoff.py end {qid} --review-status look|features|ground|done (default done).',
     ])
 
 
@@ -1040,7 +1042,7 @@ def cmd_end(argv):
     fails fast with exit 3.
 
     A "GOOGLE REVIEW cell X" item also sets that cell's row in site/GOOGLE-REVIEW.txt to
-    ``--review-status`` (look|features|done; default done), so advance_to_next_cell moves on.
+    ``--review-status`` (look|features|ground|done; default done), so advance_to_next_cell moves on.
 
     @param argv: remaining CLI args (Q-nnn, --summary, --view, optional --skip-say/--skip-view/--review-status)
     @returns: exit code

@@ -42,7 +42,7 @@ is the go-ahead. Do not read every rule file or all of `site/PROCESS.txt`.
 | How blocks are placed (walls, glass, roofs, streets) | `site/CRAFTSMANSHIP.txt` |
 | How a block looks (top, side, angles; nearest to a colour) | `scripts/block_reference.py` (sheets in `instance/block-reference/`, colours in `reference/blocks/blocks.json`) |
 | Pass order, who clears Geocraft, masks | `site/HANDOFF-LAYERED-PASSES.txt` |
-| Vegetation, saplings | `site/FOLIAGE.txt` |
+| Vegetation, saplings, tree review (lidar + Google) | `site/FOLIAGE.txt`, `scripts/tree_review.py` |
 | Cadence, coverage, session start/end | `site/PROCESS.txt` |
 | Removing files nobody will use again | `site/CLEANUP.txt` (`scripts/site_cleanup.py due` at session end) |
 | Overview, done-bar, accuracy rules | `site/NOTES.txt` |

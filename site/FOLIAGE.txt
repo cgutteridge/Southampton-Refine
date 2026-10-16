@@ -34,6 +34,31 @@ a re-run: scripts/mask_undo.py --cell tx,tz --pass trees (decor first, then tree
 scripts/cross_zone.py report --cell tx,tz lists structure leftovers on open/gap/path
 columns near the cell edge.
 
+------------------------------------------------------------------------
+Tree review (every cell redo: I-073 step 4, before the trees pass is called done)
+------------------------------------------------------------------------
+Lidar and Google answer different questions. Lidar (pristine Geocraft, kind 2/3 columns) is a measured
+crown inventory: where tall crowns stand and how high. It misses shrubs, small trees and anything
+planted after the survey. Google satellite (look-only) shows what is really there now. Neither alone:
+  python3 scripts/tree_review.py --cell tx,tz --marks <scratch>/m.json     # or --zone x0,z0,x1,z1
+  python3 scripts/google_aerial.py sheet --cell tx,tz --marks <scratch>/m.json   # or --at X,Z --radius 60 --zoom 20
+Verdicts (crowns are matched by their tops, never by blob, because the live canopy merges crowns):
+  MISSING  (red)    lidar crown, no live crown top within 4 blocks. Last column = blocks to the nearest live leaf: 0-4 means
+                    a live crown stands there but its top is elsewhere (usually fine), >8 means nothing is there.
+  INVENTED (blue)   live crown with no lidar crown near it. NORMAL where Google shows a tree (lidar misses most
+                    small and recent crowns): it is only wrong when Google shows lawn, paving or a roof.
+  LOW/HIGH (orange) matched, top differs by >= 4 blocks (live plane crowns are 12-17 high, lidar often 4-10: look at
+                    Google shadow length before correcting).
+  ROOF (purple)     lidar crown over a roof (kind 3): check Google that it is a tree overhanging, not a mis-read roof.
+Decide each MISSING with Google showing a real tree (check the distance column) and each INVENTED over lawn/paving/roof:
+  - real tree missing: add it to reference/trees-extra-crowns.json ({"tx,tz": [{"x","z","r","evidence"}]}, evidence names
+    the Google sheet + lidar height), re-run the trees pass for that cell (dry run first, I-043 diff). The lidar height
+    gives the crown size (height 13 = r 6+ plane tree; 7-10 = r 3.5-5; 3-5 = bush).
+  - invented over non-tree ground: remove at the root (trees_layer detection), not by a one-off hand edit.
+  - lawn where lidar and Google both show nothing: leave open (Library Square formal lawn, I-060).
+Record counts and decisions in the cell STAGES note (e.g. "tree review: lidar 12 crowns, 2 missing added, 0 invented over
+non-tree"). Cells whose neighbours' crowns overhang the edge: review them together (--zone across the edge).
+
 Retired (do not use): build_cell_foliage.py, the "foliage last" cadence and the aerial
 canopy pass plant_cell_canopy.py with HAND_CROWNS (Q-064; its 48,-45 result was
 reverted 2026-10-14).
