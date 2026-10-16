@@ -80,7 +80,7 @@ STAIRS = [(b36[0].name, centre(b36[0])), (b34[0].name, centre(b34[0])),
 BOX = bbox(PARTS, pad=2)
 # Roof greeblies of the Jubilee Sports Complex (OSM 93729745), measured off the Google z20 sheet 2026-10-16
 # (google_aerial.py --at 6243,-5495 --radius 44 --zoom 20 --outlines). Sports hall: white standing-seam roof with two
-# seams, a plant yard of AC units at the NW corner, round roof lights and hatches. Extension (2025, south): beige flat
+# seams, a plant yard of AC units at the NW corner (flat: lidar reads the hall deck, 64, there), round roof lights and hatches. Extension (2025, south): beige flat
 # roof, a blue-grey metal strip along its north edge, rows of tilted solar panels (navy), white duct runs.
 EXT_GREEBLIES = [
     ('patch', [(6250, -5483), (6277, -5495), (6303, -5490), (6303, -5425), (6230, -5425), (6229, -5473), (6238, -5476)],
@@ -90,7 +90,6 @@ EXT_GREEBLIES = [
 HALL_GREEBLIES = [
     ('line', [(6247, -5531), (6263, -5495)], 'light_gray_concrete', 0),
     ('line', [(6230, -5508), (6252, -5521)], 'light_gray_concrete', 0),
-    ('plinth', [(6215, -5519), (6223, -5517), (6224, -5509), (6217, -5507)], 2, 'light_gray_concrete'),
     *[('fan', x, z) for x, z in [(6217, -5516), (6220, -5515), (6221, -5512), (6218, -5510)]],
     *[('vent', x, z, 'light_gray_concrete') for x, z in [(6224, -5525), (6226, -5522), (6228, -5517), (6229, -5514)]],
     *[('hatch', x, z) for x, z in [(6243, -5510), (6234, -5505), (6247, -5499), (6238, -5494), (6228, -5489), (6225, -5502)]],

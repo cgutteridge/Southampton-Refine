@@ -223,7 +223,8 @@ def google_review_block(qid, row):
     return _queue_block(qid, f'GOOGLE REVIEW cell {tx},{tz} (first row of site/GOOGLE-REVIEW.txt not done; I-073). RULES: property.', [
         f'Per I-073: (1) LOOK google_aerial.py sheet --cell {tx},{tz} --outlines, then --at for single buildings; record with',
         'cell_sources --record google. (2) FEATURES every building against Google (roof form, ridge axis, roof greeblies, colour/',
-        'material, rear wings, outbuildings, missing/extra); storeys photo first, then OSM levels, then lidar.',
+        'material, rear wings, outbuildings, missing/extra) from Google (greeblies, colour), the uni aerial (footprint, roof form)',
+        'and lidar (heights); storeys photo first, then OSM levels, then lidar.',
         'Keep or redo per building, snapshot first, stop rule I-009. (3) GROUND applied ground vs Google (I-068).',
         'Update the row in site/GOOGLE-REVIEW.txt (look/features/done), note matches and mismatches in the cell',
         f'STAGES file. End the chat with: site_handoff.py end {qid} --review-status look|features|done (default done).',

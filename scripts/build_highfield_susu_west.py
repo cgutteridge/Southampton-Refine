@@ -49,11 +49,11 @@ BOX = bbox(PARTS, pad=2)
 PALE = 'light_gray_concrete'
 # Roof greeblies of B42 (OSM 33830305), measured off the Google z20 sheet 2026-10-16 (google_aerial.py --at 6186,-5543
 # --radius 44 --zoom 20 --outlines): three pale raised roof blocks on the grey deck (NW, long centre, east), rows of round
-# roof lights round them, X-marked hatches, two louvred vents on the centre block, a louvred vent, a dome and a fan on the NW link.
+# roof lights round them, (pale blocks are 2 above the deck: pristine lidar reads 62 on them, 60 elsewhere) X-marked hatches, two louvred vents on the centre block, a louvred vent, a dome and a fan on the NW link.
 GREEBLIES = [
-    ('plinth', [(6165, -5578), (6176, -5572), (6171, -5561), (6159, -5567)], 1, PALE),
-    ('plinth', [(6182, -5570), (6206, -5559), (6202, -5548), (6176, -5560)], 1, PALE),
-    ('plinth', [(6212, -5556), (6223, -5551), (6217, -5540), (6207, -5546)], 1, PALE),
+    ('plinth', [(6165, -5578), (6176, -5572), (6171, -5561), (6159, -5567)], 2, PALE),
+    ('plinth', [(6182, -5570), (6206, -5559), (6202, -5548), (6176, -5560)], 2, PALE),
+    ('plinth', [(6212, -5556), (6223, -5551), (6217, -5540), (6207, -5546)], 2, PALE),
     *[('vent', x, z) for x, z in [(6165, -5576), (6166, -5578), (6169, -5577), (6172, -5575), (6175, -5574), (6174, -5572),
                                   (6164, -5573), (6163, -5570), (6162, -5568), (6160, -5565), (6163, -5563), (6166, -5562),
                                   (6170, -5564), (6213, -5556), (6216, -5555), (6219, -5554), (6222, -5552), (6221, -5550),

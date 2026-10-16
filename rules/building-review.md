@@ -12,6 +12,8 @@ One building per review. Worked example: Oakdene Court, `site/REVIEWS.txt` 2026-
 3. **Compare the live build with the photos side by side.** Game capture from the photo's camera, a top-down capture beside the
    aerial. List matches and mismatches. A build that matches lidar and OSM can still be wrong (Oakdene: right plan and height,
    wrong roof colour and windows). Done when each mismatch is named.
+   A review run of buildings uses all three: Google (greeblies, roof colour), the university aerial (footprint, roof form) and
+   lidar (heights: plinth, plant and wing heights are read off the pristine lidar top, `lidar_heightmap.py`, never guessed).
    Google shows roof greeblies (user, 2026-10-16): plant boxes, vents, louvred vents, skylights, solar panels, lift overruns, parapets. List
    them per roof in this step; lidar filters them out (`geocraft-lidar-filters-small-features`), so Google is the only source.
 4. **Keep or rebuild.** Keep when nothing in the list matters at street scale (`rules/radial-good-enough.md`). Rebuild by
