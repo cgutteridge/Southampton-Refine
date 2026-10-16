@@ -164,6 +164,7 @@ rule-file copy.
   ✗ Roof flush with walls (no overhang)
   ✗ Single-layer stair skin with sky visible through gaps
   ✗ Floating or unflanked glass
+  ✗ Glass (or any block) set on a bottom slab: the slab leaves a half-block gap and it floats. Put a full block under it (Oakdene lantern)
   ✗ Chimney sitting on top of the roof without cutting through
   ✗ Sapling blocks anywhere (site/FOLIAGE.txt)
 

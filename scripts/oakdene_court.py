@@ -152,6 +152,7 @@ class Oakdene(m.Build):
                 self.set(x, y, z, f'{FASCIA}_slab[type=bottom]')              # white fascia round a one-block overhang
         if all(c in own for c in LANTERN):
             for x, z in LANTERN:
+                self.set(x, y, z, ROOF)                                      # full block: glass on a bottom slab would float half a block
                 self.set(x, y + 1, z, 'tinted_glass')                       # one dark glazed layer: reads from above, stays at roof height
         else:
             print('lantern skipped: not wholly on the roof')

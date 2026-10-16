@@ -322,6 +322,8 @@ I-069  L  SPECIAL  done  Small non-house structures vs lidar: Oakdene Court (4 l
   _WW_BB_WW_ ... so we have some learning to do." Rebuilt v2 (same day): 2x1 pairs on straight faces only, WW_BB_WW front with open 2-wide balcony,
   same rhythm inferred on the back; rules in CRAFTSMANSHIP section 2. OPEN: the 45-degree stepped wings have no windows (no straight run);
   ask user: leave brick, square the wings, or window each step. Waiting for user check.
+  USER (2026-10-16, v2): "windows very nice now. doors; whatever if you can't see a doorway you have to put one somewhere I guess. Roof... slabs mean the
+  glass floats." v3: lantern glass now on a full block (rule added to CRAFTSMANSHIP section 4). Rear door position stays an inference. Waiting for user check.
   (earlier note) SETTLED KEEP: Street View (1 look-only frame, Church Lane yaw 90, logged in 49_-42-SOURCES) shows 4 window rows, flat
   roof with white fascia, central stair block a little taller than the wings. Live build: floors y46/49/52/55, flat slab y58 (surface 58.5 vs lidar 58.06, within
   rounding). Only difference: lidar wings read 1 lower than the centre (56 vs 57); left as is (good enough). Lidar said 3 storeys: see I-071.
