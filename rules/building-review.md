@@ -54,3 +54,26 @@ One building per review. Skip any building that already has an open feature item
  - **Browser pane.** It refuses some new `file://` paths. Write the sheet over a filename it has already opened (instance/google-aerial/)
    and navigate again. `google_aerial.py --marks cells.json` paints live cells (tile, membrane, colour patches) on the Google sheet.
 
+
+## Reflection on the 48,-44 review (2026-10-16): what went wrong and the approach we keep
+What cost the most time, in order: (1) building from part of the evidence and being corrected (a whole building black from three frontage photos; tall
+1x2 window slots; doors chosen by habit; a pavilion bigger than its photo; floating balustrades); (2) stacking follow-up patches on a
+building instead of rebuilding it (a dozen plans on B42 made pits, pillars, holes and clashes); (3) scripts that read the world they
+were changing, so a re-run chose different spots (entrances); (4) judging from previews and renders when the user's own view or a number
+would have settled it.
+
+The approach:
+1. **Evidence table first, in the script docstring**: for each fact (footprint, heights, materials per face, doors, roof features) name the
+   source: OSM, lidar grid cell by cell, Google z20, aerial, every portal photo at 800 px (`scripts/portals.py`), block reference for the
+   block choice (`scripts/block_reference.py`). All relevant references, before the first block. A photo shows ONE face: say which.
+2. **One building = one script** (lidar bands -> Campus subclass for per-zone materials -> `entrances` -> clear the old build -> keep trees).
+   A second fix to the same building means rebuild it whole, never another follow-up. Per-face rules need positions as well, because a
+   stepped outline has steps facing every way.
+3. **Re-runnable**: plan from OSM footprints, lidar and recorded states, never from blocks the script itself placed; to re-run, put back
+   the previous own record first (restore, then plan).
+4. **Check with numbers, then show**: live-minus-lidar grid, `scripts/airtight.py`, door frame guard, footprint guard; then the user's
+   own view (read their position, capture, never move them). Renders are rough shapes, not colours.
+5. **Only the building's own cells**: ground, steps, trees and plants are other passes; queue what a door needs.
+6. **Simple**: few big features that read at street scale (solar array, fans, fascia), not individual vents and seams.
+Open items: the Prayer Room corner of the West Building (Q-quoted in the queue), the facade of the other B40 faces, B38/B40 are still the
+older highfield_susu_west builds and should get the same one-script rebuild.
