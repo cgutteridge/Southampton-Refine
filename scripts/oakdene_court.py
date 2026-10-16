@@ -8,11 +8,11 @@ replaces only the roof and the openings. It clears only the blocks the first bui
 Evidence (rules/evidence-order.md):
   storeys  Street View look-only frame, Church Lane yaw 90 (50.931839,-1.395051): 4 window rows            -> 4 storeys of 3
   roof     Google z20 sheet at 6379,-5277 + uni aerial: flat, pale grey membrane, white fascia, a dark glazed
-           lantern, one block high, on the roof near x6376; lidar interior columns flat (57/58)                              -> smooth_stone slabs
+           SKYLIGHT (user: it is a skylight, not a raised lantern) set into the roof near x6376; lidar interior columns flat (57/58)                              -> smooth_stone slabs
   openings Street View: the 8-cell straight front reads WW_BB_WW per storey (user, 2026-10-16): 2x1 window pairs, a 2-wide open
            balcony (white front, no glass) over the entrance, brick piers; same rhythm inferred for every straight face
   not done (good enough): white balconies on the SE face, the taller stair core (lidar 58 centre vs 57 wings), cars.
-The lantern position is a hint (aerial lean puts roof detail a few blocks off its ground position).
+The skylight position is a hint (aerial lean puts roof detail a few blocks off its ground position).
 
   .venv/bin/python scripts/oakdene_court.py            # dry run + preview + door reachability
   SITE_OWNER=... .venv/bin/python scripts/oakdene_court.py --apply
@@ -31,7 +31,7 @@ from site_kit import OUT, preview, apply  # noqa: E402
 
 WAY = '173805553'
 OLD = m.NAME                                          # the build whose Oakdene blocks this replaces
-ROOF, FASCIA, LANTERN = 'smooth_stone', 'smooth_quartz', ((6376, -5277), (6377, -5277), (6378, -5277), (6376, -5276), (6377, -5276), (6378, -5276))
+ROOF, FASCIA, SKYLIGHT = 'smooth_stone', 'smooth_quartz', ((6376, -5277), (6377, -5277), (6378, -5277), (6376, -5276), (6377, -5276), (6378, -5276))
 
 m.SPEC = {WAY: ('W', 4, True)}
 m.WAYS = {WAY: WAY}
@@ -150,12 +150,11 @@ class Oakdene(m.Build):
         for (x, z) in {(x + dx, z + dz) for x, z in own for dx, dz in N8} - set(own):
             if (x, z) not in self.owner and (x, z) not in self.foreign and (x, z) not in self.earlier:
                 self.set(x, y, z, f'{FASCIA}_slab[type=bottom]')              # white fascia round a one-block overhang
-        if all(c in own for c in LANTERN):
-            for x, z in LANTERN:
-                self.set(x, y, z, ROOF)                                      # full block: glass on a bottom slab would float half a block
-                self.set(x, y + 1, z, 'tinted_glass')                       # one dark glazed layer: reads from above, stays at roof height
+        if all(c in own for c in SKYLIGHT):
+            for x, z in SKYLIGHT:
+                self.set(x, y, z, 'tinted_glass')                           # set into the roof, replacing the slabs: flush, nothing to float
         else:
-            print('lantern skipped: not wholly on the roof')
+            print('skylight skipped: not wholly on the roof')
 
 
 def build():
