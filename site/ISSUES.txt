@@ -23,10 +23,12 @@ I-047  M  CELL 49,-43  sched  Unrefined Geocraft lumps either side of University
   UPDATE 2026-10-15 (user): the lump sweep step is dropped. Root cause = a feature must clear its whole
   volume and ground clears the rest, so no Geocraft remains; unmapped buildings are queued as features
   before ground (HANDOFF-LAYERED-PASSES §1, PROCESS 2d-i). lump_scan.py stays as an optional diagnostic.
-I-048  M  CELL 49,-43/50,-43  open  Two small lumps recorded as lump_sweep exceptions, not built: 49,-43 canopy
+I-048  M  CELL 49,-43/50,-43  done  Two small lumps recorded as lump_sweep exceptions, not built: 49,-43 canopy
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   strip (6348..6375, -5465..-5454; OSM w146988290 building=roof, 36 cols diagonal carpet edge) and 50,-43 outbuilding
   (6422..6435, -5498..-5492, 17 cols, no OSM way). Action: look at them in game / aerial, build or delete, clear exception.
-I-060  L  HIGHFIELD  open  Review the trees in Library Square (user, 2026-10-15): it currently has an open lawn.
+I-060  L  HIGHFIELD  done  Review the trees in Library Square (user, 2026-10-15): it currently has an open lawn.
+  MERGED 2026-10-16 into I-059 (consolidation); live threads are in its CARRIED IN block.
   Standing at (6232,85,-5639) at the time (cell 48,-45, inside zone mc, x 6150..6349, z -5787..-5583).
   site/HIGHFIELD-ZONES.txt gives zone mc "Library Square formal lawn (no scatter trees)" and
   site/archive/PARKED-2026-10-14.txt has an unchecked item "Library Square south lawn (open:w160022677, formal, no
@@ -35,7 +37,8 @@ I-060  L  HIGHFIELD  open  Review the trees in Library Square (user, 2026-10-15)
   the zone rule wiped out? Part of the I-059 family (tree phase vs reality) and I-057: if the answer is yes,
   fix it through the same tree-phase mechanism (cover from imagery decides), not a special case for this
   square. Backlog item; nothing inspected or changed yet.
-I-061  M  TREES  open  Half-cut trees at cell borders (user, 2026-10-15): tree at (6064,68,-5504) is cut in
+I-061  M  TREES  done  Half-cut trees at cell borders (user, 2026-10-15): tree at (6064,68,-5504) is cut in
+  MERGED 2026-10-16 into I-059 (consolidation); live threads are in its CARRIED IN block.
   half exactly on the 47,-43 / 47,-44 border. Cause: every tree pass before the overhang rule (one rule: a tree
   belongs to the cell its trunk is in; crown may overhang neighbours) clipped crowns at the cell edge, so every
   border of every earlier cell has flat-cut crowns. The I-059 rerun only redoes cells that need MORE density
@@ -83,6 +86,12 @@ I-059  H  TREES  open  BIG: dense woodland came out very sparse across a whole n
   conflicts) but the pipeline went on and overwrote the mask; repaired from old plan.json + snapshot, see its STAGES note.
   47,-44 trees rerun 2026-10-15 (after I-058 canopies): 53 -> 49 crowns, 9350 -> 9326 blocks (no dense-fill jump, built-up
   campus), overhang-v1 mask, readback 0, decor mask intact (18/18), cell_gaps empty.
+  CARRIED IN 2026-10-16 (consolidation of I-060, I-061, I-067; originals archived): (a) I-061 half-cut crowns at cell borders: FIXED by the overhang-v1
+  rule stamp; cell_gaps re-queues cells with a stale trees mask as "TREES re-run" items automatically, so nothing to do here but let them run, one cell
+  at a time, neighbours merging, decor interplay checked. (b) I-060 Library Square (zone mc, x6150..6349 z-5787..-5583) is an empty lawn by an earlier decision: check it
+  against Google whether real trees stand in or around the square; if yes fix through the same cover mechanism, no special case. (c) I-067 method: the pristine lidar
+  tree columns (kind 2/3) are a crown inventory (position, height, spread); compare applied crowns for missing, invented, wrong-height crowns and crowns over roofs
+  (kind 3); Library Square first. Google (I-073) is now the cover evidence for all of it.
 I-058  M  CELL 47,-44  done  (2026-10-15; user to confirm visually) Unrefined Geocraft mass at the user's position (6038,58,-5573), 2026-10-15 (cell
   47,-44, x 6016..6143, z -5632..-5505; campus). User thinks it is the covered entrance of the physics
   building (Shackleton physics was rebuilt earlier: scripts/build_highfield_shackleton_physics.py), so likely a
@@ -131,27 +140,31 @@ I-055  M  CELL 47,-45  done (2026-10-15, user to check)  Possible junk Geocraft 
   googlemaps-music-law-annex-2026-10-15 + LIDAR dome. Tree planted by the trees layer (cell redone, 73 crowns): one oak at 6139,-5742 (logs y53-58,
   leaves to y60). The z19 mosaic shows no canopy there, so the layer now takes extra crowns from reference/trees-extra-crowns.json (planting rules
   unchanged, footprint 'feature zone' skip waived for those). The y54 canopy w219899639 untouched. Check by eye: tree at 6139,53..60,-5742.
-I-054  M  CELL 50,-47  open  Unrefined Geocraft buildings reported by the user standing at (6418,152,-6002),
+I-054  M  CELL 50,-47  done  Unrefined Geocraft buildings reported by the user standing at (6418,152,-6002),
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   2026-10-15 (cell 50,-47, x 6400..6527, z -6016..-5889; west end of the Burgess Rd shop row built in
   Q-144..Q-150, near the unbuilt white-roof building Q-153 reported at ~6420-6440,-5960..-5930, which is
   paving at y56). Logged only, nothing built or scanned yet. Same standing rule as I-047: if photo sources
   show a building missing from OSM/lidar, build it anyway. Action: when scheduled, run scripts/lump_scan.py on
   50,-47 (and neighbours 49,-47, 50,-48), identify each lump from imagery, then queue a feature build per
   street.
-I-053  M  CELL 51,-46  open  Unrefined Geocraft buildings reported by the user standing at (6602,152,-5845),
+I-053  M  CELL 51,-46  done  Unrefined Geocraft buildings reported by the user standing at (6602,152,-5845),
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   2026-10-15 (cell 51,-46, x 6528..6655, z -5888..-5761; near the Broadlands Rd / Mayfield Rd houses built in
   Q-160..Q-162). Logged only, nothing built or scanned yet. Cell 51,-46 had Q-160..Q-162 houses and Q-163
   ground/trees/decor (Q-163 also found 89% of the aerial black and OSM roads missing from the clip), which
   cover mapped features only. Same standing rule as I-047: if photo sources show a building missing from
   OSM/lidar, build it anyway. Action: when scheduled, run scripts/lump_scan.py on 51,-46 (and neighbours
   52,-46, 51,-47), identify each lump from imagery, then queue a feature build per street.
-I-052  M  CELL 51,-44  open  Unrefined Geocraft buildings reported by the user standing at (6610,152,-5538),
+I-052  M  CELL 51,-44  done  Unrefined Geocraft buildings reported by the user standing at (6610,152,-5538),
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   2026-10-15 (cell 51,-44, x 6528..6655, z -5632..-5505; near Granby Grove / Ripstone Gardens / Merton Rd).
   Logged only, nothing built or scanned yet. Cell 51,-44 had Q-167..Q-170 houses and Q-171 ground/trees/decor,
   which cover mapped features only. Same standing rule as I-047: if photo sources show a building missing
   from OSM/lidar, build it anyway. Action: when scheduled, run scripts/lump_scan.py on 51,-44 (and neighbours
   52,-44, 51,-45), identify each lump from imagery, then queue a feature build per street.
-I-051  M  CELL 51,-42  open  More unrefined Geocraft buildings reported by the user standing at (6619,152,-5367),
+I-051  M  CELL 51,-42  done  More unrefined Geocraft buildings reported by the user standing at (6619,152,-5367),
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   2026-10-15 (cell 51,-42, x 6528..6655, z -5376..-5249; near the 52,-42 / 51,-43 edges). Logged only, nothing
   built or scanned yet. Cell 51,-42 had Q-175/Q-176 Blenheim houses and Q-177 ground/trees/decor, which cover
   mapped features only; likely unmapped in OSM or outside the OSM clip (see I-050). Same standing rule as I-047:
@@ -163,17 +176,20 @@ I-045  M  CELL 50,-42  open  Cell marker (site/CURRENT-CELL.json) still on 50,-4
   since Q-111. cell_marker --raise refuses while it holds focus, so no later cell (49,-42 .. 51,-42, 46,-43 ..)
   was ever raised; all overnight builds ran with the marker on 50,-42. Action: visual check 50,-42, clear it,
   then raise/adopt the current working cell; decide whether the marker should block raising at all.
-I-044  M  50,-43  open  3 doors unreachable by site_walk at (6528,46,-5421), (6528,46,-5431), (6528,46,-5436):
+I-044  M  50,-43  done  3 doors unreachable by site_walk at (6528,46,-5421), (6528,46,-5431), (6528,46,-5436):
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   50,-43 Hartley/Merton-side houses (Q-105 builds), found by the Q-174 reachability sweep, untouched.
   Action: inspect, add door steps or fix kerb levels, re-run site_walk over cell 50,-43.
 I-043  M  TOOL  open  Shared scripts changed mid-run by builders, affecting any rerun of earlier cells:
+  Prerequisite for the I-073 redo: see its CARRIED IN block (dry-run diff before every re-apply).
   ground_layer.py (aerial brick >4 cols from a path -> lawn; guessed lawn between road and building front ->
   paving; pebblestone->gravel), decor_layer.py (skip fence posts on light_gray_carpet structure tops),
   ground_sources.py (SUPPLEMENT_ROADS: unmapped carriageway south of Welbeck, University Rd south, road east of
   junction), trees_layer.py / plant_cell_canopy.py (mosaic pointers). Action: review diffs, check the 15
   ground-layer tests cover them, note which finished cells predate each change (esp. 48,-42, 49,-42, 50,-42,
   46,-4x) and decide whether to re-run ground there.
-I-042  M  AERIAL  open  Aerial coverage is patchy/black over the whole ring-2/3 area west and east of Highfield:
+I-042  M  AERIAL  done  Aerial coverage is patchy/black over the whole ring-2/3 area west and east of Highfield:
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   z19 tiles west of 260105 are blank server-side (z18 upsampled fallback, blurry), several mosaics built by hand
   (mosaic-z19-15x15..-filled-z18west-matched, 15x17 northext, 18x17 eastext..eastext6, tile origin 260101,175662).
   Roof colours across ~60 houses (Chamberlain, Oakhurst, Burgess, Granby, Ripstone, Merton, Blenheim...) are
@@ -228,7 +244,8 @@ I-042  M  AERIAL  open  Aerial coverage is patchy/black over the whole ring-2/3 
   clean in cell, doors unchanged. SCOPE: other early plans (before 10-15 09:05) are likely affected: dry runs show 47,-44 ~1140 and
   47,-43 ~1360 grey->lawn columns, 49,-45 ~700 and 48,-44 (hand-made, not touched) ~60 mixed flips; 46,-45 none. NOT applied: re-plan each
   with ground_layer dry run, then redo ground->trees->decor per cell. User to eyeball 47,-45 (kinds image highfield_47_m45_ground-kinds.png).
-I-041  L  HOUSES  open  Overnight run (Q-107..Q-177) was verified by readback + site_walk only: no in-world walk
+I-041  L  HOUSES  done  Overnight run (Q-107..Q-177) was verified by readback + site_walk only: no in-world walk
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   for most builds (player tools unused). Visual-check items to look at: Hilldown 7-15 / 13 / west side roofs,
   Roselands 30 and 35/36 fronts (OSM frontage E/W vs aerial road NE), Burgess Rd 82b west-corner brick pillar,
   Burgess Rd 225-231 rear doors, Burgess Rd shop fronts 170-196 and door steps, Chamberlain Rd 53-65 roof colour,
@@ -244,12 +261,14 @@ I-038  M  HIGHFIELD  open  7 coverage sign-offs lapsed below 100% (seen 2026-10-
   COVERAGE-SIGNOFFS.jsonl.
 
 I-029  M  TOOL  open  site_kit.World.ground() skips any id containing "air", so
+  Queued as Q-181 (small, specified code fix).
   *_stairs count as air ("stairs"): ground() looks through stair steps to the block below.
   Found by Q-038 (stone under a Broadlands front step read as exposed). Callers: the
   footprint guard (rise), frontage, plots street test (+ any other ground() user). coverage.py uses its own
   exact-id surface(). Action: match air by exact id in ground(), then re-run
   osm_footprints.py check --all and compare before trusting the change.
-I-037  M  HIGHFIELD  open  Building at player position (6089,68,-5599) is badly messed up
+I-037  M  HIGHFIELD  done  Building at player position (6089,68,-5599) is badly messed up
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   Reported by user 2026-10-14 while standing at MC x 6089, y 68, z -5599 (cell 47,-44,
   campus polygon; COVERAGE lists it done-bar). "Really messed up this feature" - exact
   defect and building id not yet specified. Action: inspect on next Highfield review
@@ -264,7 +283,8 @@ I-063  L  HIGHFIELD  open  Parked character tasks (moved from the old TODO/PARKE
   Library Square south lawn (open:w160022677; see I-060), Law forecourt (prop:w93729747 paths + lawn edges, aerial z18),
   Staff Club courtyard (prop:r2139045 plaza/pond). Non-Minecraft, only if needed: measured OSGB for seed places (I-002),
   Mapillary token, CCO z19 licence check before publishing crops, own phone photos for a named house.
-I-064  M  LIDAR  open  BACKLOG umbrella (user, 2026-10-16): no hard reset. Review every NON-HOUSE feature against the pristine
+I-064  M  LIDAR  done  BACKLOG umbrella (user, 2026-10-16): no hard reset. Review every NON-HOUSE feature against the pristine
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   lidar data (scripts/lidar_heightmap.py: h, roof, tree, storeys, ridge, UNMAPPED) and improve what the data shows is wrong or
   guessed. Houses are out of scope here (house_build specs handle them). Work one item below per chat; each ends with a
   region snapshot, a dry run, and a note in the cell STAGES file. Order: I-065 first (tooling), then I-066..I-071.
@@ -276,27 +296,33 @@ I-065  M  TOOL  done  (2026-10-16) Lidar audit tool + safety. DONE: (a) pristine
   scripts/lidar_audit.py: for a footprint/bbox compare the built top height, roof shape and ridge axis in the live world with
   the pristine map; list columns off by >= 2 blocks. (c) run lidar_heightmap --cell on every touched cell with --write and
   keep the lump tables in site/cells/<tx>_<tz>-LIDAR.txt. (d) calibrate STOREY / eave estimate against known 2-storey streets.
-I-066  M  CAMPUS  open  Highfield campus buildings vs lidar: Shackleton B44 (physics repair, I-038 era), Library B34/B18, Engineering,
+I-066  M  CAMPUS  done  Highfield campus buildings vs lidar: Shackleton B44 (physics repair, I-038 era), Library B34/B18, Engineering,
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   Mountbatten, Nuffield/Law, Life Sciences, Maths/Murray, Faraday, SUSU west, B35, B30/B37, B29, Early Years/Estates, school
   r2310853 (47,-43). Check storey heights, roof type, ridge axis, courtyards/pockets (campus.lidar_parts, fill_pockets) against the
   new height map; fix with campus.py, one building per run.
-I-067  M  TREES  open  Trees pass vs lidar tree columns (kind 2/3). Geocraft draws every lidar tree return as log+leaf, so the pristine
+I-067  M  TREES  done  Trees pass vs lidar tree columns (kind 2/3). Geocraft draws every lidar tree return as log+leaf, so the pristine
+  MERGED 2026-10-16 into I-059 (consolidation); live threads are in its CARRIED IN block.
   map is a direct crown inventory (position, height, spread). Compare each cell's planned/applied crowns (trees_layer, I-059/I-061
   clipped trees) with it: missing crowns, invented crowns, wrong heights, crowns over roofs (kind 3). Replaces the aerial-only
   cover guess where they disagree; Library Square (I-060) is the first test.
-I-068  M  GROUND  open  Ground pass vs lidar: ground/paving heights against pristine base under lumps (floor levels, ledges, the
+I-068  M  GROUND  done  Ground pass vs lidar: ground/paving heights against pristine base under lumps (floor levels, ledges, the
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   step_out cases in house_build), terraces and slopes, kerb and path heights (campus grounds zones mc/mw/sc/sw/nc/ne/nw/se/me).
   Find columns where the applied surface differs from base by >= 2 without a reason.
   Google satellite is now the primary evidence for surface type; this is worked cell by cell inside I-073.
-I-069  L  SPECIAL  open  Small non-house structures vs lidar: Oakdene Court (4 levels, flat roof assumed), garages (49,-42), bike
+I-069  L  SPECIAL  done  Small non-house structures vs lidar: Oakdene Court (4 levels, flat roof assumed), garages (49,-42), bike
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   shed, toilets, staff club pond, canopies (47,-45 y54 diagonal, physics canopies 47,-44), Welbeck Ave lump fixes. Roof shape and
   height from the lump table; keep or rebuild.
   SETTLED 2026-10-16 Oakdene Court w173805553: KEEP. Street View (1 look-only frame, Church Lane yaw 90, logged in 49_-42-SOURCES) shows 4 window rows, flat
   roof with white fascia, central stair block a little taller than the wings. Live build: floors y46/49/52/55, flat slab y58 (surface 58.5 vs lidar 58.06, within
   rounding). Only difference: lidar wings read 1 lower than the centre (56 vs 57); left as is (good enough). Lidar said 3 storeys: see I-071.
-I-070  L  LUMPS  open  Re-run the lump report on all cells and settle I-048 (49,-43 canopy strip, 50,-43 outbuilding) and the 3 truly
+I-070  L  LUMPS  done  Re-run the lump report on all cells and settle I-048 (49,-43 canopy strip, 50,-43 outbuilding) and the 3 truly
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
   unmapped lumps (46,-46, 48,-47, 49,-47) using storeys/roof from the lidar instead of guessing; record exceptions in STAGES.
 I-071  L  QUEUE  open  Feature queue text and cell_gaps: make the lidar table part of "cell done" (every lump built or excepted,
+  Implemented together with Q-179 (same code: cell_gaps / advance_to_next_cell); do not edit those functions in two chats.
   every tree-over-roof resolved), and have the feature item show storeys/roof/ridge from lidar_heightmap automatically.
   Storey evidence order (user, 2026-10-16): Street View / Rightmove / other-side photos, then OSM building:levels, then the lidar
   estimate as a fallback; label lidar counts as estimates. Known lidar bias: ground_y is the median of the ring AROUND the lump, so a
@@ -325,3 +351,28 @@ I-073  H  GOOGLE  open  REDO umbrella (user, 2026-10-16): Google satellite (goog
   DONE 2026-10-16: fetched 3 new z18 mosaics (46,-42 47,-42 50,-42; 49,-42 earlier); the other 10 cells were already covered 84-100% by existing
   mosaics (campus 5x5 etc.), so they only needed SOURCES regenerated. Audit: 33 of 33 cells now name an aerial covering >= 50% of the cell.
   Google satellite look (scripts/google_aerial.py) tested on Oakdene Court: works, much sharper than the uni aerial; logged as google=found for 49,-42.
+  CARRIED IN 2026-10-16 (consolidation of I-064, I-066, I-068, I-069, I-070, I-037, I-041, I-042; originals archived):
+  - I-064 principle: no hard reset; every item ends with a region snapshot, a dry run and a note in the cell STAGES file.
+  - I-066 campus, one building per run via campus.py (storey heights, roof type, ridge axis, courtyards/pockets): Shackleton B44 (physics repair), Library B34/B18, Engineering,
+    Mountbatten, Nuffield/Law, Life Sciences, Maths/Murray, Faraday, SUSU west, B35, B30/B37, B29, Early Years/Estates, school r2310853 (47,-43).
+  - I-068 ground: applied ground/paving heights vs the pristine base under lumps (floor levels, ledges, step_out cases), terraces and slopes, kerb and path heights, campus
+    grounds zones (mc mw sc sw nc ne nw se me); find columns differing by >= 2 without a reason.
+  - I-069 small structures: garages (49,-42), bike sheds, toilets, staff club pond, canopies (47,-45 y54 diagonal, physics canopies 47,-44), Welbeck Ave lump fixes.
+    Oakdene Court is settled (keep).
+  - I-070 lumps: settle I-048 (49,-43 canopy strip, 50,-43 outbuilding) and the 3 unmapped lumps (46,-46, 48,-47, 49,-47) from Google plus lidar storeys/roof, not guesses.
+  - I-037 47,-44: the building at (6089,68,-5599) was reported "badly messed up", defect never specified: inspect (view_capture + scan x6070-6108 z-5615..-5582), name it.
+  - I-041 visual-check list: Hilldown 7-15 / 13 / west roofs, Roselands 30 and 35/36 fronts, Burgess Rd 82b brick pillar, 225-231 rear doors, shop fronts 170-196 and door
+    steps, Chamberlain Rd 53-65 roof colour, Oakhurst 117 door side, Furzedown tall brick walls, Q-137 C/D stoops, Q-117 north rows of 197/200.
+  - I-042 roof colours of ~60 houses (Chamberlain, Oakhurst, Burgess, Granby, Ripstone, Merton, Blenheim...) are hints, not read from imagery: read them from Google. Ground
+    47,-45 east of way 442 (x6054-6074 z-5712..-5682): plan and world are light_gray_concrete, the aerial shows lawn plus a diagonal dirt path: run a ground_layer dry run for
+    47,-45 to see how many columns flip paving to grass. The canonical-aerial part of I-042 is now I-072.
+  - I-043 hazard: shared scripts (ground_layer, decor_layer, ground_sources, trees_layer, plant_cell_canopy) changed mid-run, so re-applying an earlier cell can differ from what
+    was built. Before every re-apply in this redo, run a dry run and diff it against the cell's current world; a changed result is a decision, not a surprise.
+  - I-048 lumps: 49,-43 canopy strip (6348..6375, -5465..-5454; OSM w146988290 building=roof, 36 cols diagonal carpet edge) and 50,-43 outbuilding (6422..6435,
+    -5498..-5492, 17 cols, no OSM way): look at them in Google, build or delete.
+  - I-044 50,-43 Hartley/Merton-side houses (Q-105): 3 doors unreachable by site_walk at (6528,46,-5421), (6528,46,-5431), (6528,46,-5436): door steps or kerb levels, re-run
+    site_walk over the cell during its review.
+  - I-051 / I-052 / I-053 / I-054 user-reported "unrefined Geocraft buildings", logged only, nothing built or scanned: 51,-42 (user at 6619,152,-5367; near the 52,-42 / 51,-43 edges),
+    51,-44 (6610,152,-5538; Granby Grove / Ripstone Gardens / Merton Rd), 51,-46 (6602,152,-5845; Broadlands Rd / Mayfield Rd; 89% of the aerial was black there), 50,-47 (6418,152,-6002;
+    west end of the Burgess Rd shop row, unbuilt white-roof building at ~6420-6440,-5960..-5930, paving at y56). Standing rule (I-047): a building visible in photos but missing from
+    OSM/lidar is built anyway. Method: the cell's lidar table (UNMAPPED rows) and the Google sheet replace lump_scan.py, which stays an optional diagnostic.

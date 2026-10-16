@@ -18,8 +18,13 @@ Read before choosing, planning or signing off build work.
   (north is smaller tz).
 - Coverage, parcels and sign-off: `site/PROCESS.txt` §2c. The record is
   `coverage.py`, never chat, and never hand-edit PROCESSED CELLS.
-- Skip signed-off parcels. Where an area already has builds (Broadlands),
-  keep them.
-- Revisits of processed ground are allowed but are not the focus.
+- Skip signed-off parcels in new-cell work. Where an area already has builds
+  (Broadlands), keep them.
+- Exception, current priority (user, 2026-10-16): the Google review (I-073,
+  `site/GOOGLE-REVIEW.txt`) deliberately re-opens finished cells in ring order,
+  features and ground, and runs ahead of new-cell passes (code first, then fixes
+  to existing work, then new builds). A sign-off lapses where a redo touches it:
+  re-sign afterwards. Snapshot first, dry-run diff before any re-apply (I-043).
+- Outside that review, revisits of processed ground are allowed but not the focus.
 - Queue explicit todos for distinctive local features (PROCESS §2e).
 - If the focus changes, update COVERAGE FOCUS and leave no holes behind.

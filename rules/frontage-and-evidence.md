@@ -49,13 +49,16 @@ and patrol all passed. All five were reverted.
 porches, opening rhythm, materials, roof form (aerial), front boundary line
 (street photo). Name the photo or aerial id for each. Same-terrace typology
 may be used as a hint for side and rear elevations; label it `hint`.
+Storeys: photo evidence first (Street View, Rightmove, other-side photos), then OSM
+`building:levels`, then the lidar estimate only if nothing else exists; label it.
 
 ## 4. Check the result against the evidence, not against itself
 Readback, walk and patrol prove the blocks match the plan, not that the plan
 matches Southampton. Done needs:
 - `osm_footprints.py check --build <name>` passes.
 - A client view from the reference photo's camera (manifest `bbox_mc`) beside
-  the photo, and a top-down view beside the aerial, in the contact sheet.
+  the photo, and a top-down view beside the Google sheet (`google_aerial.py`; the university aerial too where it
+  helps), in the contact sheet.
 - 3 concrete matches or mismatches written in REVIEWS.
 
 ## 5. Stop instead of patching

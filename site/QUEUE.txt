@@ -9,6 +9,8 @@ Done items: site/archive/QUEUE-done.txt (moved by scripts/site_archive.py).
            advance_to_next_cell: while site/GOOGLE-REVIEW.txt has a cell that is not "done", queue a "GOOGLE REVIEW
            cell X" item for the first one (text as Q-180) above the new-cell layered-passes item; the end of a
            review chat sets that row's status. (3) tests for both; docs in reference/SOURCES.txt.
+           (4) I-071, same functions: make the lidar table part of "cell done" (every lump built or excepted,
+           every tree-over-roof resolved) and show storeys/roof/ridge in the feature item. One chat owns cell_gaps.
            When done, Q-180 stops needing to re-queue itself by hand.
 
 [ ] Q-180  GOOGLE REVIEW cell 48,-44 (first row of site/GOOGLE-REVIEW.txt not done; I-073). RULES: property.
@@ -18,6 +20,10 @@ Done items: site/archive/QUEUE-done.txt (moved by scripts/site_archive.py).
            Keep or redo per building, snapshot first, stop rule I-009. (3) GROUND applied ground vs Google (I-068).
            Update the row in site/GOOGLE-REVIEW.txt (look/features/done), note matches and mismatches in the cell
            STAGES file. Until Q-179 automates it: when done, add the next row's item above Q-178 (copy this text).
+
+[ ] Q-181  TOOLING (I-029) site_kit.World.ground() skips any id containing "air", so *_stairs count as air.
+           Match air by exact id, then re-run osm_footprints check and the footprint guard over earlier builds;
+           note any result that changes. RULES: tooling. No Minecraft apply.
 
 [ ] Q-178  CELL 51,-41 (r=3) layered passes: ground, trees, decor. RULES: ground.
            Auto-queued: next in north-centre-then-clockwise order. The cell marker

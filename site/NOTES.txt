@@ -89,7 +89,8 @@ ACCURACY RULES
     PROCESS §2c. Current focus: Highfield campus centre, origin cell 48,-44
     (site/COVERAGE.txt). The earlier Portswood Rd × Broadlands Rd focus is
     retired.
-11. REVISITS: allowed, not the focus (rules/radial-good-enough.md).
+11. REVISITS: the Google review (I-073, site/GOOGLE-REVIEW.txt) is the current priority and
+    re-opens finished cells; otherwise allowed, not the focus (rules/radial-good-enough.md).
 12. FRONTAGE AUTHORITY (I-009, 11 Oct 2026): rules/frontage-and-evidence.md
     (footprints via scripts/osm_footprints.py frontage / plots; never "last
     solid block before the pavement"; site_kit.apply() guards). Street names
