@@ -114,7 +114,19 @@ RETAIL_GREEBLIES = [
 ]
 EXTRA = None
 MODIFIES = (NAME, NAME + '-greeblies', NAME + '-greeblies-restore', NAME + '-greeblies-coping', NAME + '-greeblies-cleanup',
-            NAME + '-greeblies-yardclear', 'highfield_q052_b57', 'highfield_q051_ur')
+            NAME + '-greeblies-yardclear', NAME + '-retail-fill', 'highfield_q052_b57', 'highfield_q051_ur')
+
+
+def retail_fill_plan():
+    """The retail roof's rim band was built at lidar's blurred edge height (58/59), a pit round the north edge: fill it to the
+    61 roof level (lidar's flat top) so the roof is solid (user, 2026-10-16: huge holes where the solar panels are)."""
+    from campus import Plan
+    v = RoofView(NAME, only=way_cells('33830236'), live=True)
+    p = Plan(NAME + '-retail-fill')
+    for (x, z), t in v._top.items():
+        for y in range(t + 1, 62) if t < 61 else ():
+            p.set(x, y, z, 'white_concrete')
+    return p
 
 
 def greeblies_plan():
@@ -123,7 +135,7 @@ def greeblies_plan():
     ext = RoofView(NAME, only=sports & new)          # colours of the 2025 extension stay on its own cells (user: no spill)
     hall = RoofView(NAME, only=sports - new)
     print('greeblies ext', roof_greeblies(ext, EXT_GREEBLIES), 'hall', roof_greeblies(hall, HALL_GREEBLIES))
-    retail = RoofView('highfield_q052_b57', only=way_cells('33830236'))      # q052 re-did the retail roof after this build
+    retail = RoofView(NAME, only=way_cells('33830236'), live=True)      # q052 re-did the retail roof after this build: read the world
     print('retail', roof_greeblies(retail, RETAIL_GREEBLIES))
     ext.p.cells.update(hall.p.cells)
     ext.p.cells.update(retail.p.cells)
@@ -141,8 +153,13 @@ def build():
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--apply', action='store_true')
+    ap.add_argument('--retail-fill', action='store_true', help='fill the SU retail roof rim pit to roof level (run before --greeblies)')
     ap.add_argument('--greeblies', action='store_true', help='only the roof greeblies, on the standing build (feature follow-up)')
     a = ap.parse_args()
+    if a.retail_fill:
+        plan = retail_fill_plan()
+        apply(plan, dry=not a.apply, modifies=MODIFIES)
+        raise SystemExit(0)
     if a.greeblies:
         plan = greeblies_plan()
         preview(plan, ROOT / f'verification/site/{NAME}-greeblies-preview.png', scale=2)

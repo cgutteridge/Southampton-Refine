@@ -432,7 +432,7 @@ class RoofView:
     there (-999 elsewhere); edge cells carry the coping slab, which roof_greeblies will not build over.
     """
 
-    def __init__(self, name, only=None, lower=None):
+    def __init__(self, name, only=None, lower=None, live=False):
         """
         @param name: build whose cells file holds the roof
         @param only: optional (x, z) set the view is limited to

@@ -17,6 +17,8 @@ One building per review. Skip any building that already has an open feature item
    Greeblies are the decor step of a feature (`site/CRAFTSMANSHIP.txt`): unusual blocks welcome, plants matched by colour and size.
    Roof levels and their extents come from the lidar cell by cell (3x3 majority filter, rim cells take their neighbour's level), never
    from boxes drawn on a picture; Google decides colours and greeblies, not heights (user, 2026-10-16: "you ignored the lidar").
+   Before painting or adding to a roof, print the live columns (top block and Y per cell) and compare with the lidar grid; a
+   later build can have left pits, holes or lidar-rim bands (SU retail: a 5-wide pit round the north edge, 2026-10-16).
    Google shows roof greeblies (user, 2026-10-16): plant boxes, vents, louvred vents, skylights, solar panels, lift overruns, parapets. List
    them per roof in this step; lidar filters them out (`geocraft-lidar-filters-small-features`), so Google is the only source.
 4. **Keep or rebuild.** Keep when nothing in the list matters at street scale (`rules/radial-good-enough.md`). Rebuild by
