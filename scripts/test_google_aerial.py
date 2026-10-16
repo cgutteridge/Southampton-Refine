@@ -53,6 +53,11 @@ class TestGrid(unittest.TestCase):
         self.assertIn('>441</text>', page)
         self.assertNotIn('class="osm"', ga.sheet_html((6354, -5302, 6404, -5252), 20, 't'))
 
+    def test_marks_are_drawn_per_cell(self):
+        page = ga.sheet_html((6354, -5302, 6404, -5252), 20, 't', marks=[(6360, -5290, '#f0f'), (6361, -5290, '#0ff')])
+        self.assertEqual(page.count('class="mark"'), 2)
+        self.assertNotIn('class="mark"', ga.sheet_html((6354, -5302, 6404, -5252), 20, 't'))
+
     def test_osm_outlines_keep_buildings_with_a_vertex_in_the_box(self):
         inside = ([[(10, 10), (20, 10), (20, 20), (10, 10)]], {'osm_way_id': 'w123456'})
         outside = ([[(900, 900), (910, 900), (910, 910), (900, 900)]], {'osm_way_id': 'w999'})

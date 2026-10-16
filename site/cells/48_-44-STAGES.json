@@ -43,13 +43,13 @@
    "status": "applied",
    "plan": "highfield_susu_west-greeblies",
    "owner": "claude-q180",
-   "started": "2026-10-16 18:55:59",
-   "blocks": 2017,
+   "started": "2026-10-16 19:07:21",
+   "blocks": 1939,
    "structure": {
-    "name": "southampton_refine:before_highfield_susu_west-greeblies_20261016185559",
+    "name": "southampton_refine:before_highfield_susu_west-greeblies_20261016190721",
     "from": [
      6148,
-     53,
+     54,
      -5579
     ],
     "to": [
@@ -60,11 +60,11 @@
    },
    "snapshot": null,
    "planned": "verification/site/highfield_susu_west-greeblies-planned.json",
-   "finished": "2026-10-16 18:56:05",
+   "finished": "2026-10-16 19:07:27",
    "readback": {
-    "planned": 2017,
+    "planned": 1939,
     "mismatches": 0,
-    "checked": "2026-10-16 18:56:05"
+    "checked": "2026-10-16 19:07:27"
    }
   },
   "feature-highfield_library_b34_b18-greeblies-restore": {
@@ -290,10 +290,38 @@
     "mismatches": 0,
     "checked": "2026-10-16 19:04:35"
    }
+  },
+  "feature-highfield_susu_west-membrane-spill": {
+   "status": "applied",
+   "plan": "highfield_susu_west-membrane-spill",
+   "owner": "claude-q180",
+   "started": "2026-10-16 19:07:13",
+   "blocks": 76,
+   "structure": {
+    "name": "southampton_refine:before_highfield_susu_west-membrane-spill",
+    "from": [
+     6173,
+     53,
+     -5565
+    ],
+    "to": [
+     6204,
+     61,
+     -5505
+    ]
+   },
+   "snapshot": null,
+   "planned": "verification/site/highfield_susu_west-membrane-spill-planned.json",
+   "finished": "2026-10-16 19:07:19",
+   "readback": {
+    "planned": 76,
+    "mismatches": 0,
+    "checked": "2026-10-16 19:07:19"
+   }
   }
  },
  "google_review": {
-  "status": "features in progress (2026-10-16): B42 + Jubilee greeblies done (lanterns, membrane, hatches, domes); red-tile range w34391673, SU retail w33830236, B42 height fix, ground not yet",
+  "status": "features: B42 + Jubilee + B40 roofs reviewed (colours, greeblies, heights); open: B42 lower door/platform (waiting for the user reference), SU retail w33830236, ground",
   "matches": [
    "Jubilee w93729745: footprint and white flat roof match Google; woodland on its west side matches",
    "OSM outlines line up with the roofs on the central grey block and the SU retail strip"
@@ -303,7 +331,8 @@
    "Jubilee hall standing-seam roof lines not drawn (only the two main seams)",
    "Roof terrace north of the SW wing (beige decking, benches, about 6158-6177,-5554..-5538) is not part of the B42 cells (live ground 48): its owner building not identified yet",
    "B42 north entrance (user 2026-10-16): real layout is outside steps going down WNW from the plaza (OSM steps line 6194,-5571 -> 6163,-5583, already built by highfield_q050_opens) with the lower door off a platform between flights. Generator door at (6200,49,-5565) + its 7-deep approach trench was wrong: trench filled, bump (grounds_sc polished_granite) lowered, door closed (highfield_susu_west-trenchfix). Lower door + platform still to place; user to confirm where.",
-   "Canopy w391790374 (micro parcel, highfield_q054_micro) at about 6190-6195,-5569..-5564 removed: Google shows plain B42 flat roof edge there, OSM \"roof\" way has no visible structure; roof deck and coping closed (highfield_susu_west-canopyfix)."
+   "Canopy w391790374 (micro parcel, highfield_q054_micro) at about 6190-6195,-5569..-5564 removed: Google shows plain B42 flat roof edge there, OSM \"roof\" way has no visible structure; roof deck and coping closed (highfield_susu_west-canopyfix).",
+   "Roof colours (2026-10-16, google_aerial.py --marks overlay): B42 dark membrane colour restricted to its lowered cells (76 spilled cells restored); Jubilee extension colours confined to its own cells; B40 red tile matches the Google tile roofs with a thin (about 3 block) band of tile colour east of the north dark roof, left as good enough. Jubilee overlay sheet would not open in the browser pane, checked in game instead."
   ],
   "greeblies": {
    "B42": "build_highfield_susu_west.py --greeblies (Google z20 sheet; plinth height 2 from pristine lidar 62 vs deck 60)",

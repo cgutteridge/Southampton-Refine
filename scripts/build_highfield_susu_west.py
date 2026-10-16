@@ -64,9 +64,6 @@ GREEBLIES = [
     ('louvre', [(6194, -5555), (6200, -5553), (6200, -5551), (6194, -5552)]),
     ('dome', 6175, -5567),
     # SW wing, extract-fan block and the dark membrane roof (Google z20, same sheet; lidar: wing 53, lanterns 60-61, membrane 58)
-    ('patch', [(6179, -5526), (6206, -5514), (6197, -5491), (6169, -5506)], 'gray_concrete', 0),
-    *[('line', l, 'light_gray_concrete', 0) for l in ([(6173, -5515), (6202, -5502)], [(6187, -5521), (6176, -5506)],
-                                                      [(6197, -5515), (6190, -5499)])],
     *[('hatch', x, z) for x, z in [(6181, -5513), (6194, -5507), (6157, -5540), (6163, -5537), (6168, -5535), (6155, -5531),
                                    (6152, -5524), (6149, -5517), (6165, -5521), (6162, -5514), (6153, -5507), (6158, -5505)]],
     ('dome', 6154, -5534), ('dome', 6165, -5518),
@@ -74,6 +71,12 @@ GREEBLIES = [
         ('line', [(cx - 2, cz - 2), (cx + 2, cz - 2), (cx + 2, cz + 2), (cx - 2, cz + 2), (cx - 2, cz - 2)], 'light_gray_concrete', 1),
         ('patch', [(cx - 1, cz - 1), (cx + 2, cz - 1), (cx + 2, cz + 2), (cx - 1, cz + 2)], 'iron_trapdoor[facing=north,half=bottom,open=false]', 1))],
     ('fan', 6174, -5564),
+]
+# dark membrane roof: only on the cells that were lowered to it (its colour must not spill onto the higher block beside it)
+MEMBRANE = [
+    ('patch', [(6179, -5526), (6206, -5514), (6197, -5491), (6169, -5506)], 'gray_concrete', 0),
+    *[('line', l, 'light_gray_concrete', 0) for l in ([(6173, -5515), (6202, -5502)], [(6187, -5521), (6176, -5506)],
+                                                      [(6197, -5515), (6190, -5499)])],
 ]
 EXTRA = lambda c: print('greeblies', roof_greeblies(c, GREEBLIES))  # noqa: E731
 
@@ -118,8 +121,12 @@ def lower_plan():
 
 def greeblies_plan():
     """Follow-up step of this feature: roof greeblies on the standing B42 roof (no re-plan of the shells)."""
-    v = RoofView(NAME, only=way_cells('33830305'), lower=lower_map())
+    low = lower_map()
+    v = RoofView(NAME, only=way_cells('33830305'), lower=low)
     print('greeblies', roof_greeblies(v, GREEBLIES))
+    m = RoofView(NAME, only=set(low), lower=low)
+    print('membrane', roof_greeblies(m, MEMBRANE))
+    v.p.cells.update(m.p.cells)
     return v.p
 
 

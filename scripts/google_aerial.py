@@ -13,6 +13,7 @@ cyan, labelled) so a position on the picture reads straight off as a block coord
   python3 scripts/google_aerial.py sheet --at 6379,-5277          # around a building, z20, radius 30 blocks
   python3 scripts/google_aerial.py sheet --at 6379,-5277 --radius 60 --zoom 19
   python3 scripts/google_aerial.py sheet --cell 49,-42 --outlines # + OSM building outlines (red, way-id tail) to compare at a glance
+  python3 scripts/google_aerial.py sheet --at 6180,-5606 --marks cells.json   # colour the listed MC cells: [[x, z, "#rrggbb"], ...]
   python3 scripts/google_aerial.py url --at 6379,-5277 --zoom 19  # the single tile URL
 
 Sheet: instance/google-aerial/<name>.html (gitignored). Open it as file://... in the browser pane.
@@ -119,7 +120,7 @@ def osm_outlines(bbox: tuple[int, int, int, int]) -> list[dict]:
 
 
 def sheet_html(bbox: tuple[int, int, int, int], zoom: int, title: str, scale: float = 2.0,
-               outlines: list[dict] | None = None) -> str:
+               outlines: list[dict] | None = None, marks: list | None = None) -> str:
     """The sheet page: seamless tiles, the bbox outline and the labelled MC grid.
 
     @param bbox: MC x0, z0, x1, z1 to outline (tiles cover it and a margin)
@@ -127,6 +128,7 @@ def sheet_html(bbox: tuple[int, int, int, int], zoom: int, title: str, scale: fl
     @param title: heading text
     @param scale: on-screen size of one 256 px tile, as a multiple
     @param outlines: optional building outlines (osm_outlines()), drawn red with a yellow label at the centroid
+    @param marks: optional [(x, z, colour)] MC cells drawn as translucent squares (compare live blocks with the picture)
     @returns: HTML text
     """
     tx0, ty0, tx1, ty1 = tile_range(bbox, zoom)
@@ -145,6 +147,13 @@ def sheet_html(bbox: tuple[int, int, int, int], zoom: int, title: str, scale: fl
         svg += (f'<line x1="{ax:.1f}" y1="{ay:.1f}" x2="{bx:.1f}" y2="{by:.1f}" stroke="{col}" stroke-opacity=".55" stroke-width="1"/>'
                 f'<text x="{ax + 2:.1f}" y="{ay + 11:.1f}" fill="{col}" font-size="11">{ln["axis"]}{ln["value"]}</text>')
     c = px[-4:]
+    if marks:
+        corners = [(x + a, z + b) for x, z, _c in marks for a, b in ((0, 0), (1, 0), (1, 1), (0, 1))]
+        cp = [((fx - tx0) * s, (fy - ty0) * s) for fx, fy in mc_to_tile(corners, zoom)]
+        for i, (_x, _z, col) in enumerate(marks):
+            q = cp[4 * i:4 * i + 4]
+            svg += ('<polygon points="' + ' '.join(f'{a:.1f},{b:.1f}' for a, b in q)
+                    + f'" fill="{html.escape(col)}" fill-opacity=".45" stroke="none" class="mark"/>')
     if outlines:
         flat = [p for o in outlines for p in o['ring']]
         proj = [((fx - tx0) * s, (fy - ty0) * s) for fx, fy in mc_to_tile(flat, zoom)]
@@ -167,7 +176,7 @@ def sheet_html(bbox: tuple[int, int, int, int], zoom: int, title: str, scale: fl
 
 
 def write_sheet(name: str, bbox: tuple[int, int, int, int], zoom: int, title: str, scale: float,
-                outlines: list[dict] | None = None) -> Path:
+                outlines: list[dict] | None = None, marks: list | None = None) -> Path:
     """Write the sheet under instance/google-aerial/.
 
     @param name: file stem
@@ -176,11 +185,12 @@ def write_sheet(name: str, bbox: tuple[int, int, int, int], zoom: int, title: st
     @param title: heading text
     @param scale: tile display scale
     @param outlines: optional building outlines (osm_outlines())
+    @param marks: optional [(x, z, colour)] cells to colour
     @returns: path
     """
     SHEETS.mkdir(parents=True, exist_ok=True)
     out = SHEETS / f'{name}.html'
-    out.write_text(sheet_html(bbox, zoom, title, scale, outlines))
+    out.write_text(sheet_html(bbox, zoom, title, scale, outlines, marks))
     return out
 
 
@@ -212,6 +222,7 @@ def main() -> int:
     ap.add_argument('--zoom', type=int, help='default 19 for a cell, 20 for --at')
     ap.add_argument('--scale', type=float, default=2.0, help='on-screen size of a tile as a multiple of 256 px')
     ap.add_argument('--outlines', action='store_true', help='draw the OSM building outlines (red, way-id tail) on the sheet')
+    ap.add_argument('--marks', help='JSON file [[x, z, "#rrggbb"], ...]: MC cells to colour on the sheet')
     a = ap.parse_args()
     bbox, name, zoom = _bbox(a)
     if a.cmd == 'url':
@@ -221,7 +232,10 @@ def main() -> int:
         return 0
     try:
         outlines = osm_outlines(bbox) if a.outlines else None
-        path = write_sheet(name + ('_osm' if a.outlines else ''), bbox, zoom, f'Google aerial {name} z{zoom}', a.scale, outlines)
+        import json
+        marks = [tuple(m) for m in json.loads(Path(a.marks).read_text())] if a.marks else None
+        path = write_sheet(name + ('_osm' if a.outlines else '') + ('_marks' if marks else ''), bbox, zoom,
+                           f'Google aerial {name} z{zoom}', a.scale, outlines, marks)
     except ValueError as e:
         print(e, file=sys.stderr)
         return 2
