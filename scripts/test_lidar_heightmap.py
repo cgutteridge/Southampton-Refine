@@ -19,6 +19,12 @@ class ColumnTest(unittest.TestCase):
     def test_plain_ground_ignores_grass_tufts(self):
         self.assertEqual(col({40: 'minecraft:stone', 41: 'minecraft:short_grass'}), (40, 40, 0, L.GROUND))
 
+    def test_flowers_and_tall_plants_are_not_lidar_height(self):
+        for plant in ('minecraft:dandelion', 'minecraft:blue_orchid', 'minecraft:oxeye_daisy', 'minecraft:tall_grass[half=upper]',
+                      'minecraft:lilac[half=lower]', 'minecraft:fern', 'minecraft:oak_sign[rotation=3]'):
+            with self.subTest(plant=plant):
+                self.assertEqual(col({40: 'minecraft:grass_block', 41: plant}), (40, 40, 0, L.GROUND))
+
     def test_carpet_is_ignored_for_height_and_marks_a_roof(self):
         self.assertEqual(col({40: 'minecraft:stone', 48: 'minecraft:bricks', 49: 'minecraft:light_gray_carpet'}),
                          (48, 48, 49, L.ROOF))

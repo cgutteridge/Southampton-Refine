@@ -43,7 +43,8 @@ OUT = ROOT / 'verification/site/lidar'
 _AIRS = ('minecraft:air', 'minecraft:cave_air', 'minecraft:void_air', 'minecraft:light')
 _TREE = ('leaves', '_log', '_wood')
 _PLANT = ('short_grass', 'tall_grass', 'fern', 'flower', 'tulip', 'poppy', 'dandelion', 'bush', 'vine', 'daisy',
-          'bluet', 'orchid', 'allium', 'cornflower', 'lily', 'sugar_cane', 'mushroom', 'azure', 'peony', 'rose')
+          'bluet', 'orchid', 'allium', 'cornflower', 'lily', 'sugar_cane', 'mushroom', 'azure', 'peony', 'rose',
+          'lilac', 'sunflower', 'dead_bush', 'petals', 'seagrass', 'kelp', '_sign')
 
 
 def _id(b) -> str:
