@@ -429,7 +429,7 @@ class RoofView:
 
     Lets roof_greeblies() run as a follow-up step after the feature build (the full build cannot be re-planned once
     later builds stand beside it). ``part`` = the build's cells inside ``only``; ``deck`` = the topmost block it placed
-    there (-999 elsewhere); edge cells carry the coping, so roof_greeblies skips them.
+    there (-999 elsewhere); edge cells carry the coping slab, which roof_greeblies will not build over.
     """
 
     def __init__(self, name, only=None, lower=None):
@@ -441,9 +441,11 @@ class RoofView:
         from site_kit import OUT, _parse_cells_file
         adds, _air = _parse_cells_file(OUT / f'{name}-cells.json')
         top = {}
-        for (x, y, z) in adds:
+        self._state = {}
+        for (x, y, z), (_b, st) in adds.items():
             if only is None or (x, z) in only:
                 top[(x, z)] = max(top.get((x, z), -999), y)
+                self._state[(x, y, z)] = st
         self.p = Plan(f'{name}-greeblies')
         self.part = {q: name for q in top}
         self._top = top
@@ -451,12 +453,20 @@ class RoofView:
             if q in top:
                 edge = any((q[0] + a, q[1] + b) not in top for a, b in N4)
                 top[q] = d + (1 if edge else 0)
+                self._state[(q[0], top[q], q[1])] = 'smooth_stone_slab[type=bottom]' if edge else 'light_gray_concrete'
 
     def deck(self, x, z):
         return self._top.get((x, z), -999)
 
+    def block(self, x, y, z):
+        """State this build placed at (x, y, z), None elsewhere."""
+        return self._state.get((x, y, z))
+
     def set(self, x, y, z, s):
         self.p.set(x, y, z, s)
+
+
+PARTIAL = ('_slab', '_carpet', '_stairs', '_trapdoor', '_button', '_pressure_plate', 'snow', 'candle', '_wall', '_fence')
 
 
 def roof_greeblies(c, items):
@@ -466,13 +476,13 @@ def roof_greeblies(c, items):
       ('plinth', poly, h, block)   raised pale roof block, h above the deck, over cells inside poly
       ('vent', x, z[, block])      round vent / roof light: one block (default white) on the roof (or plinth)
       ('patch', poly, block, lvl)  area of one block: lvl 0 recolours the roof surface, lvl 1 stands on it (solar panels);
-                                   edge (coping) cells are never touched
+                                   cells over slab-type blocks (coping, carpet, stairs, ...) are never touched
       ('line', [(x, z), ...], block, lvl)  1-wide run (seam, duct) along the points, same levels as patch
       ('hatch', x, z)              access hatch: flat iron trapdoor
       ('louvre', poly)                louvred plant vent (user: these are vents, not skylights): flat iron trapdoors on the roof
       ('dome', x, z)               2x2 round rooflight: glass over quartz slabs
       ('fan', x, z)                extract fan / plant unit: one gray block
-    Only cells of the build's own parts are touched; point items move off the edge (coping) to the nearest interior cell,
+    Only cells of the build's own parts are touched; point items move to the nearest cell (within 2) with a full block under it,
     and are skipped and counted when there is none.
 
     @param c: Campus (after shells)
@@ -487,8 +497,16 @@ def roof_greeblies(c, items):
     def ok(x, z):
         return (x, z) in c.part and c.deck(x, z) > -999
 
+    def state(x, y, z):
+        got = c.p.get(x, y, z)
+        if got is None:
+            got = c.block(x, y, z) if hasattr(c, 'block') else c.w.block(x, y, z)
+        return got or ''
+
     def edge(x, z):
-        return any(c.deck(x + dx, z + dz) < c.deck(x, z) for dx, dz in N4)
+        """True when the surface under a greeblie is a slab-type block (coping slab, carpet, stairs...): nothing is placed
+        over those, it hovers or towers (user, 2026-10-16). Not about being at the roof edge."""
+        return any(k in state(x, c.deck(x, z), z) for k in PARTIAL)
 
     for it in (i for i in items if i[0] == 'plinth'):
         _, poly, h, blk = it
@@ -501,8 +519,8 @@ def roof_greeblies(c, items):
                     top[(x, z)] = h
                     n_ok += 1
     def inner(x, z, size):
-        """Nearest spot (within 2) whose size x size cells are all roof and none on the edge (coping): a point
-        greeblie on a coping slab hovers or towers over it (user, 2026-10-16)."""
+        """Nearest spot (within 2) whose size x size cells are all roof with a full block under them: a point
+        greeblie on a slab hovers or towers over it (user, 2026-10-16)."""
         for r in range(0, 3):
             for dx in range(-r, r + 1):
                 for dz in range(-r, r + 1):

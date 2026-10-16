@@ -226,8 +226,10 @@ GREEBLIES ARE THE DECOR STEP OF A FEATURE (user, 2026-10-16)
  feature's shell, as part of that feature (campus.roof_greeblies, build script --greeblies), not as a separate pass.
  - Use unusual blocks freely for flavour (iron trapdoors, tinted glass, mushroom stem, terracotta, quartz, blackstone):
    pick by colour and texture read off Google, not by habit.
- - Plants: match species colour and size from the aerial/Street View. Grass and flowers come in two heights
+ - Plants: match species colour and size from Google and any other clear reference. Grass and flowers come in two heights
    (short_grass / tall_grass, small flower / double-height flower); bushes are multi-block clumps of leaves
    (see site/FOLIAGE.txt for the allowlist and where air is required).
- - Heights come from lidar (plinth, plant yard, wing tops), colours and positions from Google; keep greeblies off edge
-   (coping) cells and inside the feature's own cells.
+ - Heights come from lidar (plinth, plant yard, wing tops); colours and positions from Google and any other clear reference.
+   Where sources conflict, make it look nice and realistic in Minecraft terms.
+ - Placement rule: never place a greeblie over slab-type blocks (slabs, carpets, stairs, trapdoors...); it hovers. Coping slabs
+   along a roof edge are the usual case. This is not "keep off the edge": a full block at the edge is fine.
