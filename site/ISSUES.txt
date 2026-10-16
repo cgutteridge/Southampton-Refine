@@ -303,7 +303,7 @@ I-071  L  QUEUE  open  Feature queue text and cell_gaps: make the lidar table pa
   building on a bank above the road is measured too tall by the bank height (Oakdene Court: lidar 3, photo + OSM 4). DONE 2026-10-16
   (18d11d5): flat/pitched judged on the interior of wide lumps (rim blur read as eave). Open: lumps over ~400 columns merge several
   buildings, so one flat/pitched label per lump is not meaningful (report "mixed" or judge per OSM building).
-I-072  M  SOURCES  open  Wrong aerial in cell SOURCES files (found 2026-10-16 reviewing Oakdene Court, 49,-42). references_for_cell() matched any manifest
+I-072  M  SOURCES  done  (2026-10-16, all 14 cells) Wrong aerial in cell SOURCES files (found 2026-10-16 reviewing Oakdene Court, 49,-42). references_for_cell() matched any manifest
   row whose mc_tiles touched the cell, so an aerial clipping a cell edge counted as "primary aerial" / "[HAVE] aerial". FIXED in code (cell_coverage(), an aerial
   must show >= 50% of the cell; test_cell_sources) and in 49,-42 (new mosaic aerial/highfield-welbeck, manifest + SOURCES regenerated). STILL WRONG: 14 of the 33
   cells whose SOURCES name a primary aerial cover < 50% of the cell: 46,-42 46,-44 47,-42 47,-44 48,-42 48,-43 48,-44 48,-45 50,-42 50,-45 51,-42 51,-43 51,-44 51,-45
@@ -322,3 +322,6 @@ I-073  H  GOOGLE  open  REDO umbrella (user, 2026-10-16): Google satellite (goog
   Keep in mind: aerial lean puts a tall roof a few blocks off its ground footprint (the roof of Oakdene Court sat 2-3 blocks off the OSM outline); judge roofs on roofs.
   Order of work (priority: code, then fixes to existing work, then new builds): Q-179 tooling first, then one cell per Q item, ahead of new-cell passes. Overlaps and now
   folds in: I-066 (campus vs lidar), I-068 (ground vs lidar), I-069 (small structures), I-070 (lumps); close them as their cells are reviewed.
+  DONE 2026-10-16: fetched 3 new z18 mosaics (46,-42 47,-42 50,-42; 49,-42 earlier); the other 10 cells were already covered 84-100% by existing
+  mosaics (campus 5x5 etc.), so they only needed SOURCES regenerated. Audit: 33 of 33 cells now name an aerial covering >= 50% of the cell.
+  Google satellite look (scripts/google_aerial.py) tested on Oakdene Court: works, much sharper than the uni aerial; logged as google=found for 49,-42.

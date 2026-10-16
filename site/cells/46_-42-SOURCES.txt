@@ -1,22 +1,22 @@
 CELL SOURCES — tx=46 tz=-42
-Updated: 2026-10-15  (regenerate: python3 scripts/cell_sources.py --cell 46,-42 --write)
+Updated: 2026-10-16  (regenerate: python3 scripts/cell_sources.py --cell 46,-42 --write)
 
 Purpose: one-time prep when this cell opens. Build chats read THIS file + manifest ids;
 do not re-research the whole cell each queue item. Per build step: still at most one
 primary aerial + one street Read (rules/reference-token-budget.md).
 
 MC bbox (inclusive): 5888,-5376,6015,-5249
-OSM clip covers cell centre: NO — osm_extract before trusting footprints
+OSM clip covers cell centre: yes
 
 MANIFEST (reference/manifest.jsonl)
-  mc_tile 128:46:-42  manifest rows overlapping: 1
-  primary aerial (useful=yes): aerial-highfield-campus-mosaic-z18-5x5-centre-130053-87835-png
-    path=aerial/highfield-campus/mosaic-z18-5x5-centre-130053-87835.png  models=['footprint', 'roof']
+  mc_tile 128:46:-42  manifest rows overlapping: 2
+  primary aerial (useful=yes): aerial-cell-46-42-mosaic-z18-3x3-centre-130051-87838-png
+    path=aerial/cell-46_-42/mosaic-z18-3x3-centre-130051-87838.png  models=['footprint', 'roof']
   street: none tagged — Commons / KartaView near cell centre if fronts matter
 
 OSM (reference/osm clips via osm_footprints.OSMIndex)
-  named streets in cell: Hawthorn Road, Lovers Walk North
-  building footprints overlapping: 2
+  named streets in cell: (service), Furzedown Road, Hawthorn Road, Highcrown Mews, Highcrown Street, Highfield Lane, Lovers Walk North
+  building footprints overlapping: 52
   natural=tree / landuse=forest polygons (rare): 0
   Geocraft procedural trees are not surveyed — back-garden canopy from aerial only.
   area tags (top):
@@ -24,25 +24,25 @@ OSM (reference/osm clips via osm_footprints.OSMIndex)
     university / Highfield Campus ×1
 
 COVERAGE PARCELS
-  highfield: 7 parcels — 3 untouched, 3 touched, 1 done
-    no_osm@46,-42  no_osm  untouched  no OSM clip in cell 46,-42
-    gap:5969,-5346  gap  touched  gap:5969,-5346 633 cols, between building=school r2310853 an
+  highfield: 66 parcels — 0 untouched, 65 touched, 1 done
+    gap:5987,-5372  gap  touched  gap:5987,-5372 130 cols, between building=school r2310853 an
+    gap:5923,-5281  gap  touched  gap:5923,-5281 89 cols, between highway=service w1119254825 
     gap:6009,-5368  gap  touched  gap:6009,-5368 33 cols, beside building=school r2310853, in 
 
 CROSS-ZONE (generated on --write)
   grounds zones: (none)
   neighbor cells: 45,-43, 45,-42, 45,-41, 46,-43, 46,-42, 46,-41, 47,-43, 47,-42, 47,-41
-  warn: gap:5938,-5825 straddles cell edge (5546 cols outside)
+  warn: gap:5888,-5403 straddles cell edge (1033 cols outside)
+  warn: gap:5888,-5504 straddles cell edge (1952 cols outside)
+  warn: gap:5888,-5632 straddles cell edge (3795 cols outside)
+  warn: gap:5888,-5656 straddles cell edge (151 cols outside)
+  warn: gap:5888,-5760 straddles cell edge (11849 cols outside)
+  warn: gap:5888,-5795 straddles cell edge (7758 cols outside)
   warn: gap:5968,-5636 straddles cell edge (3265 cols outside)
   warn: gap:5975,-5549 straddles cell edge (639 cols outside)
-  warn: gap:5991,-5377 straddles cell edge (297 cols outside)
-  warn: gap:5998,-5595 straddles cell edge (199 cols outside)
-  warn: gap:6007,-5592 straddles cell edge (85 cols outside)
-  warn: gap:6007,-5763 straddles cell edge (174 cols outside)
-  warn: neighbor 46,-43: 4 open/gap/path parcels not done (margin 8 may touch them)
 
 SOURCE CHECKLIST (find what is TODO once; never re-try TRIED ones)
-  [HAVE ] aerial     1 manifest row(s), e.g. aerial-highfield-campus-mosaic-z18-5x5-centre-130053-87835-png
+  [HAVE ] aerial     1 manifest row(s), e.g. aerial-cell-46-42-mosaic-z18-3x3-centre-130051-87838-png
   [TODO ] kartaview  kartaview_fetch.py list --at CX,CZ --radius-m 80
   [TODO ] commons    commons_fetch.py list --at CX,CZ --radius-m 250
   [TODO ] streetview streetview_sample.py sample --cell TX,TZ (look-only; small grid)

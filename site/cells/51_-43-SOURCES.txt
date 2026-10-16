@@ -1,22 +1,22 @@
 CELL SOURCES — tx=51 tz=-43
-Updated: 2026-10-15  (regenerate: python3 scripts/cell_sources.py --cell 51,-43 --write)
+Updated: 2026-10-16  (regenerate: python3 scripts/cell_sources.py --cell 51,-43 --write)
 
 Purpose: one-time prep when this cell opens. Build chats read THIS file + manifest ids;
 do not re-research the whole cell each queue item. Per build step: still at most one
 primary aerial + one street Read (rules/reference-token-budget.md).
 
 MC bbox (inclusive): 6528,-5504,6655,-5377
-OSM clip covers cell centre: NO — osm_extract before trusting footprints
+OSM clip covers cell centre: yes
 
 MANIFEST (reference/manifest.jsonl)
-  mc_tile 128:51:-43  manifest rows overlapping: 3
-  primary aerial (useful=yes): aerial-highfield-b35-mosaic-z18-3x3-centre-130056-87836-png
-    path=aerial/highfield-b35/mosaic-z18-3x3-centre-130056-87836.png  models=['footprint', 'roof']
+  mc_tile 128:51:-43  manifest rows overlapping: 4
+  primary aerial (useful=yes): aerial-highfield-campus-mosaic-z18-5x5-centre-130056-87835-png
+    path=aerial/highfield-campus/mosaic-z18-5x5-centre-130056-87835.png  models=['footprint', 'roof']
   street: none tagged — Commons / KartaView near cell centre if fronts matter
 
 OSM (reference/osm clips via osm_footprints.OSMIndex)
-  named streets in cell: (footway), Blenheim Gardens, Broadlands Road, Merton Road, Ripstone Gardens
-  building footprints overlapping: 21
+  named streets in cell: (footway), Blenheim Gardens, Broadlands Road, Merton Road, Ripstone Gardens, Sherborne Road
+  building footprints overlapping: 52
   natural=tree / landuse=forest polygons (rare): 0
   Geocraft procedural trees are not surveyed — back-garden canopy from aerial only.
   area tags (top):
@@ -29,17 +29,18 @@ COVERAGE PARCELS
 CROSS-ZONE (generated on --write)
   grounds zones: (none)
   neighbor cells: 50,-44, 50,-43, 50,-42, 51,-44, 51,-43, 51,-42, 52,-44, 52,-43, 52,-42
+  warn: gap:5888,-5504 straddles cell edge (1952 cols outside)
+  warn: gap:5930,-5496 straddles cell edge (42 cols outside)
   warn: gap:5991,-5377 straddles cell edge (297 cols outside)
   warn: gap:6086,-5499 straddles cell edge (79 cols outside)
   warn: gap:6097,-5492 straddles cell edge (80 cols outside)
   warn: gap:6163,-5496 straddles cell edge (3448 cols outside)
   warn: gap:6319,-5479 straddles cell edge (262 cols outside)
   warn: gap:6326,-5472 straddles cell edge (1088 cols outside)
-  warn: gap:6344,-5504 straddles cell edge (95 cols outside)
-  warn: gap:6413,-5504 straddles cell edge (16 cols outside)
 
 SOURCE CHECKLIST (find what is TODO once; never re-try TRIED ones)
-  [HAVE ] aerial     2 manifest row(s), e.g. aerial-highfield-b35-mosaic-z18-3x3-centre-130056-87836-png
+  [HAVE ] aerial     1 manifest row(s), e.g. aerial-highfield-campus-mosaic-z18-5x5-centre-130056-87835-png
+  [TODO ] google     ALWAYS, every cell: google_aerial.py sheet --cell TX,TZ (look-only, often clearer than the uni aerial); then --record google --result found --note "what it shows"
   [TODO ] kartaview  kartaview_fetch.py list --at CX,CZ --radius-m 80
   [TODO ] commons    commons_fetch.py list --at CX,CZ --radius-m 250
   [TODO ] streetview streetview_sample.py sample --cell TX,TZ (look-only; small grid)
@@ -55,6 +56,7 @@ FOLIAGE INTENT (edit after aerial; site/FOLIAGE.txt + site/HIGHFIELD-ZONES.txt)
   - 
 
 IF MANIFEST GAPS — run (fetch once, judge once, log manifest):
+  python3 scripts/google_aerial.py sheet --cell 51,-43   # ALWAYS: look-only, then --record google
   python3 scripts/ref_manifest.py find --xz 6591,-5441
   python3 scripts/geo.py tiles --bbox 6528,-5504,6655,-5377 --zoom 18 --mosaic 3
   # then: scripts/aerial_mosaic.py … → reference/aerial/<place>/mosaic-z18-3x3-centre-130058-87837.png

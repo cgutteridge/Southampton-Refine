@@ -1,22 +1,22 @@
 CELL SOURCES — tx=47 tz=-42
-Updated: 2026-10-15  (regenerate: python3 scripts/cell_sources.py --cell 47,-42 --write)
+Updated: 2026-10-16  (regenerate: python3 scripts/cell_sources.py --cell 47,-42 --write)
 
 Purpose: one-time prep when this cell opens. Build chats read THIS file + manifest ids;
 do not re-research the whole cell each queue item. Per build step: still at most one
 primary aerial + one street Read (rules/reference-token-budget.md).
 
 MC bbox (inclusive): 6016,-5376,6143,-5249
-OSM clip covers cell centre: NO — osm_extract before trusting footprints
+OSM clip covers cell centre: yes
 
 MANIFEST (reference/manifest.jsonl)
-  mc_tile 128:47:-42  manifest rows overlapping: 1
-  primary aerial (useful=yes): aerial-highfield-campus-mosaic-z18-5x5-centre-130053-87835-png
-    path=aerial/highfield-campus/mosaic-z18-5x5-centre-130053-87835.png  models=['footprint', 'roof']
+  mc_tile 128:47:-42  manifest rows overlapping: 3
+  primary aerial (useful=yes): aerial-cell-47-42-mosaic-z18-3x3-centre-130053-87838-png
+    path=aerial/cell-47_-42/mosaic-z18-3x3-centre-130053-87838.png  models=['footprint', 'roof']
   street: none tagged — Commons / KartaView near cell centre if fronts matter
 
 OSM (reference/osm clips via osm_footprints.OSMIndex)
-  named streets in cell: Hawthorn Road, Highcrown Street, Lovers Walk North, Roselands Gardens
-  building footprints overlapping: 8
+  named streets in cell: (service), Hawthorn Road, Highcrown Mews, Highcrown Street, Lovers Walk North, Roselands Gardens
+  building footprints overlapping: 61
   natural=tree / landuse=forest polygons (rare): 0
   Geocraft procedural trees are not surveyed — back-garden canopy from aerial only.
   area tags (top):
@@ -24,25 +24,23 @@ OSM (reference/osm clips via osm_footprints.OSMIndex)
     university / Highfield Campus ×1
 
 COVERAGE PARCELS
-  highfield: 17 parcels — 4 untouched, 12 touched, 1 done
-    no_osm@47,-42  no_osm  untouched  no OSM clip in cell 47,-42
-    gap:6143,-5324  gap  untouched  gap:6143,-5324 26 cols, beside Chamberlain Road 3, in landus
-    gap:6016,-5347  gap  untouched  gap:6016,-5347 7 cols, between Roselands Gardens 30 and buil
+  highfield: 73 parcels — 0 untouched, 72 touched, 1 done
 
 CROSS-ZONE (generated on --write)
   grounds zones: (none)
   neighbor cells: 46,-43, 46,-42, 46,-41, 47,-43, 47,-42, 47,-41, 48,-43, 48,-42, 48,-41
-  warn: gap:5969,-5346 straddles cell edge (633 cols outside)
+  warn: gap:5987,-5372 straddles cell edge (130 cols outside)
   warn: gap:6016,-5401 straddles cell edge (77 cols outside)
   warn: gap:6016,-5555 straddles cell edge (14 cols outside)
   warn: gap:6016,-5632 straddles cell edge (255 cols outside)
   warn: gap:6016,-5638 straddles cell edge (48 cols outside)
   warn: gap:6016,-5648 straddles cell edge (326 cols outside)
   warn: gap:6016,-5662 straddles cell edge (26 cols outside)
-  warn: neighbor 46,-43: 4 open/gap/path parcels not done (margin 8 may touch them)
+  warn: gap:6016,-5760 straddles cell edge (649 cols outside)
 
 SOURCE CHECKLIST (find what is TODO once; never re-try TRIED ones)
-  [HAVE ] aerial     1 manifest row(s), e.g. aerial-highfield-campus-mosaic-z18-5x5-centre-130053-87835-png
+  [HAVE ] aerial     1 manifest row(s), e.g. aerial-cell-47-42-mosaic-z18-3x3-centre-130053-87838-png
+  [TODO ] google     ALWAYS, every cell: google_aerial.py sheet --cell TX,TZ (look-only, often clearer than the uni aerial); then --record google --result found --note "what it shows"
   [TODO ] kartaview  kartaview_fetch.py list --at CX,CZ --radius-m 80
   [TODO ] commons    commons_fetch.py list --at CX,CZ --radius-m 250
   [TODO ] streetview streetview_sample.py sample --cell TX,TZ (look-only; small grid)
@@ -58,6 +56,7 @@ FOLIAGE INTENT (edit after aerial; site/FOLIAGE.txt + site/HIGHFIELD-ZONES.txt)
   - 
 
 IF MANIFEST GAPS — run (fetch once, judge once, log manifest):
+  python3 scripts/google_aerial.py sheet --cell 47,-42   # ALWAYS: look-only, then --record google
   python3 scripts/ref_manifest.py find --xz 6079,-5313
   python3 scripts/geo.py tiles --bbox 6016,-5376,6143,-5249 --zoom 18 --mosaic 3
   # then: scripts/aerial_mosaic.py … → reference/aerial/<place>/mosaic-z18-3x3-centre-130053-87838.png
