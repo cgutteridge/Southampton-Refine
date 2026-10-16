@@ -84,10 +84,11 @@ class Part:
 
 class Campus:
     """parts: priority list. ways: OSM way ids this build replaces (their old Geocraft is cleared).
-    box: (x0, z0, x1, z1) search window for part cells."""
+    box: (x0, z0, x1, z1) search window for part cells. portals=True adds a door at each university entrance
+    (reference/portals, scripts/portals.py) that sits against the build, besides the explicit doors=."""
 
     def __init__(self, name, parts, ways, box, doors=(), stair=None, avoid_built=False, step_down_stairs=False,
-                 max_fill=None):
+                 max_fill=None, portals=False):
         self.step_down_stairs = step_down_stairs
         self.clear_to = max([CLEAR_TO] + [max([p.top or p.deck, p.deck] + list(getattr(p, 'roof', {}).values())) + 3
                                           for p in parts])
@@ -109,7 +110,10 @@ class Campus:
                     if pt.has(x, z):
                         self.part[(x, z)] = pt
                         break
-        self.door_specs, self.stair_spec = doors, stair
+        self.door_specs, self.stair_spec = list(doors), stair
+        if portals:                                       # university entrance register: a door at each one on this build
+            from portals import door_specs
+            self.door_specs += door_specs(self.part)
         self._terr = {}
         cells = self.idx.cells()
         self.other = {q for q, i in cells.items() if oid(self.idx.buildings[i][1]) not in self.ways}
@@ -284,7 +288,12 @@ class Campus:
                 d = math.hypot(x - ax, z - az)
                 if best is None or d < best[0]:
                     best = (d, x, z, dx, dz, f)
+            if best is None:                              # no free wall cell near the anchor: skip, say so, do not crash
+                print(f'door at {ax},{az}: no free wall cell, skipped')
+                continue
             _, x, z, dx, dz, f = best
+            if any(c[1] == x and c[3] == z for c in self.door_cells):
+                continue                                  # two anchors (explicit + portal) picked the same wall cell
             face = FACING[(dx, dz)]
             self.set(x, f + 1, z, f'dark_oak_door[facing={face},half=lower,hinge=left,open=false]')
             self.set(x, f + 2, z, f'dark_oak_door[facing={face},half=upper,hinge=left,open=false]')

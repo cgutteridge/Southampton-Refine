@@ -234,6 +234,62 @@
     "mismatches": 0,
     "checked": "2026-10-16 19:02:15"
    }
+  },
+  "feature-highfield_q054_micro-canopy-removed": {
+   "status": "applied",
+   "plan": "highfield_q054_micro-canopy-removed",
+   "owner": "claude-q180",
+   "started": "2026-10-16 19:04:00",
+   "blocks": 79,
+   "structure": {
+    "name": "southampton_refine:before_highfield_q054_micro-canopy-removed",
+    "from": [
+     6189,
+     55,
+     -5570
+    ],
+    "to": [
+     6196,
+     64,
+     -5563
+    ]
+   },
+   "snapshot": null,
+   "planned": "verification/site/highfield_q054_micro-canopy-removed-planned.json",
+   "finished": "2026-10-16 19:04:06",
+   "readback": {
+    "planned": 79,
+    "mismatches": 0,
+    "checked": "2026-10-16 19:04:06"
+   }
+  },
+  "feature-highfield_susu_west-canopyfix": {
+   "status": "applied",
+   "plan": "highfield_susu_west-canopyfix",
+   "owner": "claude-q180",
+   "started": "2026-10-16 19:04:29",
+   "blocks": 30,
+   "structure": {
+    "name": "southampton_refine:before_highfield_susu_west-canopyfix",
+    "from": [
+     6189,
+     58,
+     -5570
+    ],
+    "to": [
+     6195,
+     61,
+     -5563
+    ]
+   },
+   "snapshot": null,
+   "planned": "verification/site/highfield_susu_west-canopyfix-planned.json",
+   "finished": "2026-10-16 19:04:35",
+   "readback": {
+    "planned": 30,
+    "mismatches": 0,
+    "checked": "2026-10-16 19:04:35"
+   }
   }
  },
  "google_review": {
@@ -246,7 +302,8 @@
    "small white outbuilding east of the central block (about 6250,-5545): check it is built",
    "Jubilee hall standing-seam roof lines not drawn (only the two main seams)",
    "Roof terrace north of the SW wing (beige decking, benches, about 6158-6177,-5554..-5538) is not part of the B42 cells (live ground 48): its owner building not identified yet",
-   "B42 north entrance (user 2026-10-16): real layout is outside steps going down WNW from the plaza (OSM steps line 6194,-5571 -> 6163,-5583, already built by highfield_q050_opens) with the lower door off a platform between flights. Generator door at (6200,49,-5565) + its 7-deep approach trench was wrong: trench filled, bump (grounds_sc polished_granite) lowered, door closed (highfield_susu_west-trenchfix). Lower door + platform still to place; user to confirm where."
+   "B42 north entrance (user 2026-10-16): real layout is outside steps going down WNW from the plaza (OSM steps line 6194,-5571 -> 6163,-5583, already built by highfield_q050_opens) with the lower door off a platform between flights. Generator door at (6200,49,-5565) + its 7-deep approach trench was wrong: trench filled, bump (grounds_sc polished_granite) lowered, door closed (highfield_susu_west-trenchfix). Lower door + platform still to place; user to confirm where.",
+   "Canopy w391790374 (micro parcel, highfield_q054_micro) at about 6190-6195,-5569..-5564 removed: Google shows plain B42 flat roof edge there, OSM \"roof\" way has no visible structure; roof deck and coping closed (highfield_susu_west-canopyfix)."
   ],
   "greeblies": {
    "B42": "build_highfield_susu_west.py --greeblies (Google z20 sheet; plinth height 2 from pristine lidar 62 vs deck 60)",

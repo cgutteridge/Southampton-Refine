@@ -201,9 +201,10 @@ def lump_features(lumps: list, taken_refs=(), streets=()) -> list:
     @param lumps: scan_cell() output (with 'osm')
     @param taken_refs: OSM refs already covered by missing_features items
     @param streets: OSMIndex.streets for naming
-    @returns: [{'kind': 'lumps', 'label', 'street', 'refs', 'bbox'}]
+    @returns: [{'kind': 'lumps', 'label', 'street', 'refs', 'bbox', 'portals'}]
     """
     from cell_features import _split_runs, _street_of
+    from portals import in_bbox
     taken = set(taken_refs)
     items = [{'bbox': tuple(lp['bbox']), 'refs': lp.get('osm') or [], 'cols': lp['columns']}
              for lp in lumps if 'exception' not in lp
@@ -216,6 +217,7 @@ def lump_features(lumps: list, taken_refs=(), streets=()) -> list:
         unmapped = sum(1 for o in run if not o['refs'])
         street = _street_of({}, bbox, streets)
         out.append({'kind': 'lumps', 'street': street, 'refs': refs or ['unmapped'], 'bbox': bbox,
+                    'portals': in_bbox(*bbox, pad=3),
                     'label': f'{street or "unnamed street"} ({len(run)} unrefined Geocraft building(s)'
                              + (f', {unmapped} not in OSM' if unmapped else '') + ')'})
     return out

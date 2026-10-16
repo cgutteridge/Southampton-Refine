@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'scripts'))
 
 import cell_features as cf  # noqa: E402
+import portals as pt  # noqa: E402
 import site_handoff as sh  # noqa: E402
 
 
@@ -31,6 +32,38 @@ class TestCellFeatures(unittest.TestCase):
         self.assertEqual(sh.ring_cells(1), [(48, -45), (49, -45), (49, -44), (49, -43),
                                             (48, -43), (47, -43), (47, -44), (47, -45)])
         self.assertEqual(len(set(sh.ring_cells(2))), 16)
+
+
+class TestPortals(unittest.TestCase):
+    def test_store_loaded_and_merged(self):
+        ps = pt.load()
+        self.assertGreater(len(ps), 250)
+        self.assertEqual(len({p['id'] for p in ps}), len(ps))          # the register's per-photo duplicates merged
+        p = next(p for p in ps if p['id'] == '63A-A')
+        self.assertEqual(len(p['images']), 2)
+
+    def test_mc_coordinates_match_the_map(self):
+        # Union building 42 sits in cell 48,-44 (x 6144.., z -5632..)
+        self.assertTrue(any(p['building'] == '42' for p in pt.in_cell(48, -44)))
+        self.assertEqual(sorted(p['id'] for p in pt.building('32')), ['32-A', '32-B', '32-C'])
+
+    def test_for_footprint_takes_entrances_on_the_wall(self):
+        ring = [[(0, 0), (10, 0), (10, 10), (0, 10)]]
+        saved = pt.load.__wrapped__
+        try:
+            pt.load = lambda: [{'id': 'a', 'x': 5, 'z': -2}, {'id': 'b', 'x': 5, 'z': 5}, {'id': 'c', 'x': 5, 'z': -20}]
+            self.assertEqual([p['id'] for p in pt.for_footprint(ring)], ['b', 'a'])
+        finally:
+            pt.load = pt.load.__class__ and __import__('functools').lru_cache(maxsize=1)(saved)
+
+    def test_door_specs_skips_far_portals(self):
+        cells = {(x, z) for x in range(0, 10) for z in range(0, 10)}
+        saved = pt.load.__wrapped__
+        try:
+            pt.load = lambda: [{'id': 'a', 'x': 10, 'z': 4}, {'id': 'b', 'x': 40, 'z': 4}]
+            self.assertEqual(pt.door_specs(cells), [(None, 10, 4, 0)])
+        finally:
+            pt.load = __import__('functools').lru_cache(maxsize=1)(saved)
 
 
 if __name__ == '__main__':
