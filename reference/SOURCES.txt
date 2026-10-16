@@ -188,7 +188,10 @@ Tool:      python3 scripts/portals.py  (fetch | info | cell tx,tz | bbox | build
   Trust: positions sit on the building wall (median 0.5 blocks from the OSM footprint, 103 of 114 within 6). Use them
   for WHERE a door goes and what it is called; the photo says what it looks like. Not every door is listed (no
   private or staff-only doors, few small buildings), so a missing portal is not evidence of no door.
-  Photos: look-only like Street View (open the URL in the browser pane, write down what it shows). Do not bulk-download.
+  Photos: the register's links are 200 px thumbnails; the archive also serves 400/600/800/1000/1600 px (swap the number
+  in the URL; portals.photos() does it). Work at 800 px (~45 KB, signs and glazing legible); 1600 only for a detail.
+  Saved locally (user, 2026-10-16): python3 scripts/portals.py download -> reference/photos/portals/<id>.jpg at 800 px
+  (86 files, gitignored, each logged in manifest.jsonl). Look at those, not the URLs. Otherwise look-only like Street View (open the URL in the browser pane, write down what it shows). Do not bulk-download.
   Feature builds: cell_features.missing_features and the queue item list a feature's portals; Campus(..., portals=True)
   puts a door at each one. See site/CRAFTSMANSHIP.txt "ENTRANCES".
 

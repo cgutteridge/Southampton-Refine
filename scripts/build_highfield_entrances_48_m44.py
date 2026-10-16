@@ -20,19 +20,26 @@ from campus import way_cells  # noqa: E402
 from entrances import entrances  # noqa: E402
 
 NAME = 'highfield_entrances_48_m44'
-BUILDINGS = {'18': '93729745', '38': '2139045', '40': '34391673'}      # university building number -> OSM way
+WAYS = ('93729745', '2139045', '34391673')      # Jubilee, Staff Club, West Building: a portal belongs to the nearest footprint, not
+                                                # to its university building number (38-D, the Prayer Room, stands at the West Building)
 DOUBLE = {'18-A', '40-A'}                       # the Main entrances
-WOOD = {'40-A'}                                 # dark recessed entrance under the Us. sign; the rest are glazed metal
+# 800 px photos: Jubilee = glazed lobby in a grey metal frame; Us. (40-A) = brick opening with dark wooden doors; Stags = white
+# render with glazed doors; Prayer Room has no photo (brick building, wooden door)
+STYLE = {'18-A': ('iron_door', 'gray_concrete'), '40-A': ('dark_oak_door', 'bricks'), '40-B': ('iron_door', 'white_concrete'),
+         '38-D': ('dark_oak_door', 'bricks')}
 
 
 def build():
     w = World()
     plan, notes = Plan(NAME), []
+    footprints = {way: way_cells(way) for way in WAYS}
     for p in portals.in_cell(48, -44):
-        b = p['building']
-        if b not in BUILDINGS:
-            continue
-        entrances(plan, w, way_cells(BUILDINGS[b]), {p['id']: (p['x'], p['z'])}, notes, double=DOUBLE, flat=DOUBLE, wood=WOOD)
+        if p['building'] in ('42', '57'):
+            continue                                    # their own scripts
+        near = {way: min((x - p['x']) ** 2 + (z - p['z']) ** 2 for x, z in c) for way, c in footprints.items()}
+        way = min(near, key=near.get)
+        notes.append(f"{p['id']} -> footprint {way} ({near[way] ** 0.5:.0f} blocks)")
+        entrances(plan, w, footprints[way], {p['id']: (p['x'], p['z'])}, notes, double=DOUBLE, flat=DOUBLE, style=STYLE)
     return plan, notes
 
 

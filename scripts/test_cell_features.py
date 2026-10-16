@@ -48,6 +48,13 @@ class TestPortals(unittest.TestCase):
         self.assertTrue(any(p['building'] == '42' for p in pt.in_cell(48, -44)))
         self.assertEqual(sorted(p['id'] for p in pt.building('32')), ['32-A', '32-B', '32-C'])
 
+    def test_image_url_swaps_width(self):
+        u = 'https://data.southampton.ac.uk/image-archive/building-portals/200/42-A.jpg'
+        self.assertEqual(pt.image_url(u), u.replace('/200/', '/800/'))
+        self.assertEqual(pt.image_url(u, 1600), u.replace('/200/', '/1600/'))
+        with self.assertRaises(ValueError):
+            pt.image_url(u, 500)
+
     def test_for_footprint_takes_entrances_on_the_wall(self):
         ring = [[(0, 0), (10, 0), (10, 10), (0, 10)]]
         fake = [{'id': 'a', 'x': 5, 'z': -2}, {'id': 'b', 'x': 5, 'z': 0.5}, {'id': 'c', 'x': 5, 'z': -20}]

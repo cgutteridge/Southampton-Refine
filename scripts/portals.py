@@ -11,6 +11,9 @@ about a third, a photo of it. Stored normalised in reference/portals/portals.jso
   python3 scripts/portals.py bbox 6200,-5900,6330,-5800 [--pad 6]
   python3 scripts/portals.py building 32                # every entrance of university building 32
   python3 scripts/portals.py near 6240,-5850 [--radius 15]
+  python3 scripts/portals.py download [--size 800]      # every photo -> reference/photos/portals/<id>.jpg (gitignored)
+
+Photos: the register links 200 px thumbnails; photos()/image_url() give the same picture at PHOTO_SIZE (800 px wide).
 
 Use (feature builds, `site/CRAFTSMANSHIP.txt` "ENTRANCES"): a portal is the best evidence for WHERE a door goes and
 what it is called (Main, Rear, Lower ground entrance...). It does not say what the door looks like: for that open the
@@ -33,6 +36,8 @@ from osgb import in_bounds, load_offsets, to_mc  # noqa: E402
 SOURCE_URL = 'https://maps.southampton.ac.uk/data/portals.json'
 STORE = ROOT / 'reference' / 'portals' / 'portals.json'
 FOOTPRINT_REACH = 6      # blocks: an entrance this close to an OSM footprint belongs to that building
+PHOTO_SIZE = 800         # px wide: legible signs, glazing and steps at ~45 KB; the register's own URLs are 200 px thumbnails
+PHOTO_SIZES = (100, 200, 300, 400, 600, 800, 1000, 1600)    # widths the image archive serves (1600 is the biggest)
 DOOR_REACH = 5           # blocks: Campus.door_specs ignores a portal further than this from a part cell
 
 
@@ -162,6 +167,30 @@ def for_footprint(rings, reach: float = FOOTPRINT_REACH) -> list:
     return [p for _d, _i, p in sorted(hits, key=lambda h: h[:2])]
 
 
+def image_url(url: str, size: int = PHOTO_SIZE) -> str:
+    """A register photo URL at another width (the archive keeps one folder per width: .../building-portals/<w>/<file>).
+
+    @param url: image URL as stored (the register gives the 200 px one)
+    @param size: one of PHOTO_SIZES
+    @returns: URL for that width
+    """
+    if size not in PHOTO_SIZES:
+        raise ValueError(f'photo width must be one of {PHOTO_SIZES}')
+    head, _, tail = url.rpartition('/')
+    head, _, _w = head.rpartition('/')
+    return f'{head}/{size}/{tail}'
+
+
+def photos(p: dict, size: int = PHOTO_SIZE) -> list:
+    """A portal's photo URLs at the working width.
+
+    @param p: portal
+    @param size: width in px
+    @returns: URLs
+    """
+    return [image_url(u, size) for u in p['images']]
+
+
 def describe(p: dict) -> str:
     """One line: id, name, block position, photo count.
 
@@ -199,10 +228,57 @@ def door_specs(cells, reach: float = DOOR_REACH, pname=None, base=0) -> list:
     return out
 
 
+PHOTO_DIR = ROOT / 'reference' / 'photos' / 'portals'
+MANIFEST = ROOT / 'reference' / 'manifest.jsonl'
+
+
+def download(size: int = PHOTO_SIZE) -> tuple:
+    """Save every portal photo at one width under reference/photos/portals/ and log each in the manifest.
+
+    Files are <portal id>.jpg, or <id>-2.jpg etc. for a portal with several photos. Existing files are kept, so a
+    rerun only fetches what is missing. Images stay gitignored (reference/photos/**); the manifest lines are committed.
+
+    @param size: width in px (one of PHOTO_SIZES)
+    @returns: (saved, already there, failed [(url, error)])
+    """
+    import datetime
+    import hashlib
+    PHOTO_DIR.mkdir(parents=True, exist_ok=True)
+    logged = {json.loads(ln).get('id') for ln in MANIFEST.read_text().splitlines() if ln.strip()}
+    today = datetime.date.today().isoformat()
+    saved = have = 0
+    failed = []
+    for p in load():
+        for i, url in enumerate(photos(p, size), 1):
+            stem = p['id'] if i == 1 else f'{p["id"]}-{i}'
+            path = PHOTO_DIR / f'{stem}.jpg'
+            if not path.exists():
+                try:
+                    with urllib.request.urlopen(url, timeout=60) as r:
+                        data = r.read()
+                except OSError as e:
+                    failed.append((url, str(e)))
+                    continue
+                path.write_bytes(data)
+                saved += 1
+            else:
+                have += 1
+            mid = f'portal-{stem.lower()}-{size}'
+            if mid not in logged:
+                line = {'id': mid, 'place': 'UOS_CAMPUSES', 'path': f'photos/portals/{path.name}', 'kind': 'facade',
+                        'source': 'uos-portals', 'url': url, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+                        'captured': '', 'added': today, 'useful': 'yes', 'models': ['doors', 'entrances'],
+                        'not_for': ['private_interior'],
+                        'notes': f'entrance {p["id"]} "{p["label"]}" at {p["x"]},{p["z"]}; {size}px'}
+                with MANIFEST.open('a') as f:
+                    f.write(json.dumps(line, separators=(',', ':')) + '\n')
+    return saved, have, failed
+
+
 def _print(ps: list) -> None:
     for p in ps:
         print(describe(p))
-        for u in p['images']:
+        for u in photos(p):
             print('    ' + u)
     print(f'{len(ps)} portal(s)')
 
@@ -220,7 +296,15 @@ def main(argv=None) -> int:
     n = sub.add_parser('near')
     n.add_argument('xz')
     n.add_argument('--radius', type=float, default=15)
+    d = sub.add_parser('download')
+    d.add_argument('--size', type=int, default=PHOTO_SIZE, choices=PHOTO_SIZES)
     a = ap.parse_args(argv)
+    if a.cmd == 'download':
+        saved, have, failed = download(a.size)
+        print(f'{saved} saved, {have} already there, {len(failed)} failed -> {PHOTO_DIR.relative_to(ROOT)}')
+        for u, e in failed:
+            print(f'  FAILED {u}: {e}')
+        return 1 if failed else 0
     if a.cmd == 'fetch':
         ps = fetch()
         print(f'{len(ps)} portals written to {STORE.relative_to(ROOT)}')

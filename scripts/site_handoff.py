@@ -268,6 +268,13 @@ def lidar_facts(lumps, bbox):
     return out
 
 
+def _portal_photo(p):
+    """Local saved copy of a portal's first photo (reference/photos/portals) when there is one, else its 800 px URL."""
+    from portals import PHOTO_DIR, photos
+    local = PHOTO_DIR / f'{p["id"]}.jpg'
+    return str(local.relative_to(ROOT)) if local.exists() else photos(p)[0]
+
+
 def portal_facts(portals):
     """Entrance lines for a feature item: university portals (scripts/portals.py) on the feature's footprint.
 
@@ -278,7 +285,7 @@ def portal_facts(portals):
         return []
     from portals import describe
     return ([f'Entrances (reference/portals, university register; position is the door, name is what it is called, '
-             f'photos are look-only):'] + [f'  {describe(p)}' + (f'  {p["images"][0]}' if p['images'] else '')
+             f'photos are look-only, 800 px):'] + [f'  {describe(p)}' + (f'  {_portal_photo(p)}' if p['images'] else '')
                                            for p in portals[:12]]
             + ['Put a door at each one (Campus door_specs / portals.door_specs); say in the build note any you skip and why.'])
 

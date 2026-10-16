@@ -62,7 +62,7 @@ def wall_cell(cells, px, pz, width='single', world=None):
     return best
 
 
-def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_door'):
+def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_door', frame=WALL):
     """A framed glazed door (or pair) at wall cell (x, z) facing (dx, dz).
 
     @param plan: Plan to add to
@@ -74,6 +74,8 @@ def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_d
     @param notes: list the one-line description is appended to
     @param width: 'double' | 'pair' | 'single' | 'narrow' (WIDTHS)
     @param y0: door height override (default: ground outside + 1)
+    @param frame: jamb/lintel block (black_concrete metal frames at the Union, gray_concrete at the Jubilee porch, bricks, white); glass flanks
+                  only beside a metal/white frame, matching brick beside a brick one
     @param leaf: door block: 'iron_door' (grey metal: the glazed metal-framed doors in the portal photos) or 'dark_oak_door'
     """
     face = FACE[(dx, dz)]
@@ -83,22 +85,28 @@ def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_d
     doors = (0, 1) if width in ('double', 'pair') else (0,)
     for k in range(lo, hi + 1):
         cx, cz = x + k * ax, z + k * az
-        if k in doors:
+        if k in doors and leaf is not None:
             hinge = 'right' if (width in ('double', 'pair') and k == 1) else 'left'
             plan.set(cx, y0, cz, f'minecraft:{leaf}[facing={face},half=lower,hinge={hinge},open=false]')
             plan.set(cx, y0 + 1, cz, f'minecraft:{leaf}[facing={face},half=upper,hinge={hinge},open=false]')
             plan.set(cx - dx, y0 - 1, cz - dz, 'minecraft:smooth_stone')       # floor inside, level with the door
             for yy in (y0, y0 + 1):
                 plan.set(cx - dx, yy, cz - dz, 'minecraft:air')
+        elif k in doors:                                                        # an open passage: no leaf, floor level with outside
+            plan.set(cx - dx, y0 - 1, cz - dz, 'minecraft:smooth_stone')
+            for yy in (y0, y0 + 1):
+                plan.set(cx, yy, cz, 'minecraft:air')
+                plan.set(cx - dx, yy, cz - dz, 'minecraft:air')
         else:
-            blk = WALL if k in (lo, hi) else GLASS                              # jamb at the ends, glass flank inside it
+            flank = GLASS if frame in (WALL, 'black_concrete', 'gray_concrete') else frame
+            blk = frame if k in (lo, hi) else flank                             # jamb at the ends, flank inside it
             for yy in (y0, y0 + 1):
                 plan.set(cx, yy, cz, blk)
-        plan.set(cx, y0 + 2, cz, WALL)                                          # lintel
-    notes.append(f'{width} {leaf} at {x},{y0},{z} facing {face}, ground outside {y0 - 1}')
+        plan.set(cx, y0 + 2, cz, frame)                                         # lintel
+    notes.append(f'{width} {leaf or "opening"}/{frame} at {x},{y0},{z} facing {face}, ground outside {y0 - 1}')
 
 
-def entrances(plan, world, cells, found, notes, double=(), flat=(), wood=()):
+def entrances(plan, world, cells, found, notes, double=(), flat=(), style=None):
     """Add a door for each portal.
 
     @param plan: Plan
@@ -108,14 +116,15 @@ def entrances(plan, world, cells, found, notes, double=(), flat=(), wood=()):
     @param notes: list of report lines
     @param double: portal ids that are double doors (main entrances)
     @param flat: portal ids whose wall is made flush first (flatten) so a double door fits
-    @param wood: portal ids with a dark wooden door (the rest are glazed metal: iron_door); chosen from the portal photos and
-                 scripts/block_reference.py (iron_door light grey, dark_oak_door very dark brown)
+    @param style: {portal id: (leaf, frame)}; default (iron_door, white_concrete). Chosen from the 800 px portal photos and
+                  scripts/block_reference.py (iron_door light grey, dark_oak_door very dark brown; leaf None = open passage)
     """
     for pid, (px, pz) in found.items():
         if pid in flat:
             f = flatten(plan, world, cells, px, pz, notes)
             if f:
-                door(plan, world, f[0], f[1], f[2], f[3], notes, 'double', leaf='dark_oak_door' if pid in wood else 'iron_door')
+                lf, fr = (style or {}).get(pid, ('iron_door', WALL))
+                door(plan, world, f[0], f[1], f[2], f[3], notes, 'double', leaf=lf, frame=fr)
                 continue
         order = ('double', 'pair', 'single', 'narrow') if pid in double else ('single', 'narrow')
         cands = [(wd, wall_cell(cells, px, pz, wd, world)) for wd in order]
@@ -131,7 +140,8 @@ def entrances(plan, world, cells, found, notes, double=(), flat=(), wood=()):
                          'mapped footprint): skipped')
             continue
         notes.append(f'{pid}: portal {px},{pz} -> wall {x},{z} {FACE[(dx, dz)]}, {round(d ** 0.5)} blocks away')
-        door(plan, world, x, z, dx, dz, notes, wd, leaf='dark_oak_door' if pid in wood else 'iron_door')
+        lf, fr = (style or {}).get(pid, ('iron_door', WALL))
+        door(plan, world, x, z, dx, dz, notes, wd, leaf=lf, frame=fr)
 
 
 def flatten(plan, world, cells, px, pz, notes, ks=range(-2, 4)):
