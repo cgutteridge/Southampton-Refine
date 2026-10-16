@@ -207,5 +207,51 @@ class TestExtraCrowns(unittest.TestCase):
         self.assertEqual(placed, {})
 
 
+class TestGoogleCrowns(unittest.TestCase):
+    """reference/trees-google-crowns.json: crowns read from Google replace the detector inside the zones."""
+
+    X0, Z0 = CELL[0] * 128, CELL[1] * 128
+
+    def run_plan(self, surface, detected=((20, 20, 3.0),), in_footprint=False):
+        import json
+        with tempfile.TemporaryDirectory() as d:
+            f = Path(d) / 'google.json'
+            f.write_text(json.dumps({f'{CELL[0]},{CELL[1]}': {
+                'zones': [[self.X0, self.Z0, self.X0 + 50, self.Z0 + 50]],
+                'crowns': [{'x': self.X0 + 60, 'z': self.Z0 + 60, 'r': 3.4}]}}))
+            osm = types.ModuleType('osm_footprints')
+            fp = {(self.X0 + 60, self.Z0 + 60)} if in_footprint else set()
+            osm.OSMIndex = lambda: types.SimpleNamespace(cells=lambda: fp)
+            plan = types.SimpleNamespace(set=lambda *a: None)
+            with mock.patch.object(tl, 'GOOGLE_CROWNS', f), \
+                    mock.patch.object(tl, 'canopy_grid', lambda c: np.zeros((128, 128))), \
+                    mock.patch.object(tl, 'find_crowns', lambda g: list(detected)), \
+                    mock.patch.object(tl, 'cover_grid', lambda c: np.zeros((128, 128))), \
+                    mock.patch.object(tl, 'surface_y', lambda w, x, z: (60, surface)), \
+                    mock.patch.object(tl, 'built_cells', lambda exclude=None: []), \
+                    mock.patch.object(tl, 'load_masked_positions', lambda: {}), \
+                    mock.patch.dict(sys.modules, {'osm_footprints': osm}):
+                return tl.plan_cell(CELL, plan, FakeWorld())
+
+    def test_detector_crown_inside_a_zone_is_dropped_and_the_google_crown_planted(self):
+        _placed, rep = self.run_plan('grass_block')
+        self.assertEqual([(x, z) for x, z, _r, _k in rep['trees']], [(self.X0 + 60, self.Z0 + 60)])
+
+    def test_google_crown_may_stand_on_paving_and_in_a_footprint(self):
+        _placed, rep = self.run_plan('light_gray_concrete', in_footprint=True)
+        self.assertEqual(len(rep['trees']), 1)
+
+    def test_detector_crown_outside_the_zones_is_kept(self):
+        _placed, rep = self.run_plan('grass_block', detected=((90, 90, 3.0),))
+        self.assertEqual(len(rep['trees']), 2)
+
+    def test_no_entry_means_no_change(self):
+        import json
+        with tempfile.TemporaryDirectory() as d:
+            f = Path(d) / 'g.json'
+            f.write_text(json.dumps({'1,1': {'crowns': []}}))
+            self.assertIsNone(tl.google_crowns(CELL, f))
+
+
 if __name__ == '__main__':
     unittest.main()

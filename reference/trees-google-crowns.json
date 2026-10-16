@@ -1,0 +1,974 @@
+{
+ "48,-45": {
+  "evidence": "Google satellite z20 (look-only), cropped 64-block windows with a 5-block grid (2026-10-16): x6144..6208 z-5760..-5696, x6208..6272 z-5760..-5696, x6144..6208 z-5696..-5632, x6208..6272 z-5696..-5632. Crowns read by eye (centre, diameter/2 = r); plan to be dry-run and compared over the same crops. Pristine lidar holds ~1/3 of these crowns and sits ~3-4 blocks south of them, so it is not used for position. East woodland strip (x>=6263, z<-5680) is left to the detector (crowns not separable by eye). ADDED 2026-10-16 (user: redo the road-side strips): the woodland strip between the roads (centre line from x6255 at z-5863 to x6273 at z-5717, 9-11 blocks wide, 25 px/block crops) read as overlapping crowns every 6 blocks, r 4.6-5; the 48,-45 east-strip zone and the 49,-45 west-strip zone are now Google too.",
+  "zones": [
+   [
+    6144,
+    -5760,
+    6262,
+    -5632
+   ],
+   [
+    6263,
+    -5680,
+    6271,
+    -5632
+   ],
+   [
+    6263,
+    -5760,
+    6271,
+    -5681
+   ]
+  ],
+  "crowns": [
+   {
+    "x": 6182,
+    "z": -5721,
+    "r": 2.8,
+    "note": "plaza tree east of Building 2"
+   },
+   {
+    "x": 6196,
+    "z": -5715,
+    "r": 3.0,
+    "note": "plaza tree"
+   },
+   {
+    "x": 6176,
+    "z": -5707,
+    "r": 2.6,
+    "note": "plaza tree by the steps"
+   },
+   {
+    "x": 6206,
+    "z": -5696,
+    "r": 6.0,
+    "note": "large dark crown NE of the plaza, continues into the next window"
+   },
+   {
+    "x": 6148,
+    "z": -5692,
+    "r": 4.5,
+    "note": "dense crown on the west edge of the cell"
+   },
+   {
+    "x": 6199,
+    "z": -5674,
+    "r": 3.5,
+    "note": "courtyard tree in the white-roofed building"
+   },
+   {
+    "x": 6241,
+    "z": -5720,
+    "r": 3.0,
+    "note": "lawn tree on the coach-turning island"
+   },
+   {
+    "x": 6234,
+    "z": -5689,
+    "r": 5.5,
+    "note": "big crown north of the lawn"
+   },
+   {
+    "x": 6246,
+    "z": -5688,
+    "r": 5.0,
+    "note": "crown, big merged group"
+   },
+   {
+    "x": 6256,
+    "z": -5687,
+    "r": 4.5,
+    "note": "crown, big merged group"
+   },
+   {
+    "x": 6252,
+    "z": -5674,
+    "r": 6.0,
+    "note": "big crown east of the lawn"
+   },
+   {
+    "x": 6240,
+    "z": -5664,
+    "r": 6.0,
+    "note": "big round lawn tree (no live crown near it before)"
+   },
+   {
+    "x": 6230,
+    "z": -5668,
+    "r": 2.8,
+    "note": ""
+   },
+   {
+    "x": 6226,
+    "z": -5659,
+    "r": 2.8,
+    "note": ""
+   },
+   {
+    "x": 6250,
+    "z": -5653,
+    "r": 4.0,
+    "note": ""
+   },
+   {
+    "x": 6222,
+    "z": -5650,
+    "r": 2.8,
+    "note": ""
+   },
+   {
+    "x": 6217,
+    "z": -5642,
+    "r": 2.4,
+    "note": ""
+   },
+   {
+    "x": 6229,
+    "z": -5648,
+    "r": 3.0,
+    "note": "dark mass, three crowns"
+   },
+   {
+    "x": 6233,
+    "z": -5643,
+    "r": 3.0,
+    "note": "dark mass"
+   },
+   {
+    "x": 6246,
+    "z": -5637,
+    "r": 3.6,
+    "note": ""
+   },
+   {
+    "x": 6261,
+    "z": -5643,
+    "r": 3.6,
+    "note": ""
+   },
+   {
+    "x": 6258,
+    "z": -5636,
+    "r": 4.5,
+    "note": ""
+   },
+   {
+    "x": 6258,
+    "z": -5659,
+    "r": 4.0,
+    "note": "dark woodland crown"
+   },
+   {
+    "x": 6264,
+    "z": -5668,
+    "r": 4.0,
+    "note": "dark woodland crown"
+   },
+   {
+    "x": 6264,
+    "z": -5657,
+    "r": 4.0,
+    "note": "dark woodland crown"
+   },
+   {
+    "x": 6248,
+    "z": -5641,
+    "r": 3.2,
+    "note": "small round tree"
+   },
+   {
+    "x": 6265,
+    "z": -5678,
+    "r": 3.5,
+    "note": "woodland edge crown"
+   },
+   {
+    "x": 6263,
+    "z": -5647,
+    "r": 3.5,
+    "note": "woodland edge crown"
+   },
+   {
+    "x": 6270,
+    "z": -5756,
+    "r": 5.2
+   },
+   {
+    "x": 6270,
+    "z": -5748,
+    "r": 5.0
+   },
+   {
+    "x": 6271,
+    "z": -5742,
+    "r": 5.0
+   }
+  ]
+ },
+ "48,-44": {
+  "evidence": "Google satellite z20 (look-only), gridded 64x32-block crops (2026-10-16), whole cell x6144..6272 z-5632..-5504 read by eye (rows z-5633..-5600 as two 64x44 crops). Replaces the detector for the whole cell: the old crowns sat on lawn and path between the real ones (checked with footprints over Google). Dense dark mass around (6240,-5603) is read as four large crowns; shrubs below r2 are left to decor.",
+  "zones": [
+   [
+    6144,
+    -5632,
+    6271,
+    -5505
+   ]
+  ],
+  "crowns": [
+   {
+    "x": 6154,
+    "z": -5623,
+    "r": 4.3
+   },
+   {
+    "x": 6148,
+    "z": -5619,
+    "r": 2.2
+   },
+   {
+    "x": 6160,
+    "z": -5612,
+    "r": 3.8
+   },
+   {
+    "x": 6164,
+    "z": -5606,
+    "r": 3.2
+   },
+   {
+    "x": 6153,
+    "z": -5608,
+    "r": 4.0
+   },
+   {
+    "x": 6167,
+    "z": -5596,
+    "r": 3.5
+   },
+   {
+    "x": 6184,
+    "z": -5603,
+    "r": 3.2
+   },
+   {
+    "x": 6150,
+    "z": -5597,
+    "r": 3.2
+   },
+   {
+    "x": 6145,
+    "z": -5612,
+    "r": 2.5
+   },
+   {
+    "x": 6161,
+    "z": -5600,
+    "r": 3.0
+   },
+   {
+    "x": 6203,
+    "z": -5628,
+    "r": 2.2
+   },
+   {
+    "x": 6239,
+    "z": -5622,
+    "r": 3.8
+   },
+   {
+    "x": 6217,
+    "z": -5615,
+    "r": 3.5
+   },
+   {
+    "x": 6213,
+    "z": -5624,
+    "r": 2.8
+   },
+   {
+    "x": 6234,
+    "z": -5614,
+    "r": 3.6
+   },
+   {
+    "x": 6255,
+    "z": -5614,
+    "r": 5.0
+   },
+   {
+    "x": 6257,
+    "z": -5628,
+    "r": 4.0
+   },
+   {
+    "x": 6220,
+    "z": -5606,
+    "r": 2.4
+   },
+   {
+    "x": 6269,
+    "z": -5622,
+    "r": 2.5
+   },
+   {
+    "x": 6232,
+    "z": -5603,
+    "r": 5.0
+   },
+   {
+    "x": 6240,
+    "z": -5606,
+    "r": 5.0
+   },
+   {
+    "x": 6247,
+    "z": -5601,
+    "r": 4.5
+   },
+   {
+    "x": 6238,
+    "z": -5597,
+    "r": 4.0
+   },
+   {
+    "x": 6168,
+    "z": -5590,
+    "r": 4.5
+   },
+   {
+    "x": 6177,
+    "z": -5589,
+    "r": 2.5
+   },
+   {
+    "x": 6171,
+    "z": -5584,
+    "r": 2.2
+   },
+   {
+    "x": 6190,
+    "z": -5588,
+    "r": 2.2
+   },
+   {
+    "x": 6147,
+    "z": -5578,
+    "r": 3.4
+   },
+   {
+    "x": 6148,
+    "z": -5573,
+    "r": 3.5
+   },
+   {
+    "x": 6216,
+    "z": -5588,
+    "r": 2.5
+   },
+   {
+    "x": 6230,
+    "z": -5580,
+    "r": 2.2
+   },
+   {
+    "x": 6233,
+    "z": -5584,
+    "r": 2.4
+   },
+   {
+    "x": 6235,
+    "z": -5588,
+    "r": 2.5
+   },
+   {
+    "x": 6241,
+    "z": -5589,
+    "r": 2.4
+   },
+   {
+    "x": 6247,
+    "z": -5589,
+    "r": 2.6
+   },
+   {
+    "x": 6248,
+    "z": -5583,
+    "r": 2.5
+   },
+   {
+    "x": 6250,
+    "z": -5576,
+    "r": 3.0
+   },
+   {
+    "x": 6253,
+    "z": -5570,
+    "r": 2.5
+   },
+   {
+    "x": 6265,
+    "z": -5581,
+    "r": 3.0
+   },
+   {
+    "x": 6266,
+    "z": -5572,
+    "r": 2.8
+   },
+   {
+    "x": 6147,
+    "z": -5565,
+    "r": 3.8
+   },
+   {
+    "x": 6148,
+    "z": -5553,
+    "r": 4.0
+   },
+   {
+    "x": 6148,
+    "z": -5544,
+    "r": 3.6
+   },
+   {
+    "x": 6228,
+    "z": -5558,
+    "r": 2.2
+   },
+   {
+    "x": 6232,
+    "z": -5558,
+    "r": 2.3
+   },
+   {
+    "x": 6243,
+    "z": -5553,
+    "r": 2.4
+   },
+   {
+    "x": 6250,
+    "z": -5550,
+    "r": 2.0
+   },
+   {
+    "x": 6260,
+    "z": -5551,
+    "r": 5.0
+   },
+   {
+    "x": 6267,
+    "z": -5556,
+    "r": 3.5
+   },
+   {
+    "x": 6226,
+    "z": -5542,
+    "r": 3.4
+   },
+   {
+    "x": 6240,
+    "z": -5539,
+    "r": 2.8
+   },
+   {
+    "x": 6147,
+    "z": -5533,
+    "r": 3.0
+   },
+   {
+    "x": 6146,
+    "z": -5526,
+    "r": 2.8
+   },
+   {
+    "x": 6228,
+    "z": -5607,
+    "r": 2.8
+   },
+   {
+    "x": 6225,
+    "z": -5583,
+    "r": 2.0
+   },
+   {
+    "x": 6156,
+    "z": -5617,
+    "r": 3.4
+   },
+   {
+    "x": 6166,
+    "z": -5618,
+    "r": 3.2
+   },
+   {
+    "x": 6169,
+    "z": -5612,
+    "r": 3.0
+   }
+  ]
+ },
+ "49,-45": {
+  "evidence": "Google satellite z20 (look-only), gridded 64x48-block crops (2026-10-16), x6240..6368 z-5760..-5616 read by eye over the Library Square part x6272..6349. Avenue row east of the road (x6279..6292) and the plaza/lawn trees read as crowns; the woodland strip west of the road (x6272..6278, z<-5713) is left to the detector (continuation of the 48,-45 east strip). ADDED 2026-10-16 (user: redo the road-side strips): the woodland strip between the roads (centre line from x6255 at z-5863 to x6273 at z-5717, 9-11 blocks wide, 25 px/block crops) read as overlapping crowns every 6 blocks, r 4.6-5; the 48,-45 east-strip zone and the 49,-45 west-strip zone are now Google too.",
+  "zones": [
+   [
+    6272,
+    -5712,
+    6349,
+    -5633
+   ],
+   [
+    6279,
+    -5760,
+    6349,
+    -5713
+   ],
+   [
+    6272,
+    -5760,
+    6278,
+    -5713
+   ]
+  ],
+  "crowns": [
+   {
+    "x": 6284,
+    "z": -5757,
+    "r": 4.5
+   },
+   {
+    "x": 6288,
+    "z": -5754,
+    "r": 4
+   },
+   {
+    "x": 6283,
+    "z": -5749,
+    "r": 4.2
+   },
+   {
+    "x": 6288,
+    "z": -5746,
+    "r": 4
+   },
+   {
+    "x": 6286,
+    "z": -5741,
+    "r": 4.5
+   },
+   {
+    "x": 6286,
+    "z": -5734,
+    "r": 4.3
+   },
+   {
+    "x": 6289,
+    "z": -5727,
+    "r": 4.4
+   },
+   {
+    "x": 6289,
+    "z": -5720,
+    "r": 4.3
+   },
+   {
+    "x": 6289,
+    "z": -5714,
+    "r": 3.5
+   },
+   {
+    "x": 6294,
+    "z": -5710,
+    "r": 4.5
+   },
+   {
+    "x": 6296,
+    "z": -5738,
+    "r": 4.8
+   },
+   {
+    "x": 6306,
+    "z": -5739,
+    "r": 4.6
+   },
+   {
+    "x": 6312,
+    "z": -5739,
+    "r": 4.8
+   },
+   {
+    "x": 6316,
+    "z": -5738,
+    "r": 2
+   },
+   {
+    "x": 6314,
+    "z": -5750,
+    "r": 2.5
+   },
+   {
+    "x": 6313,
+    "z": -5755,
+    "r": 2.2
+   },
+   {
+    "x": 6320,
+    "z": -5759,
+    "r": 2.7
+   },
+   {
+    "x": 6335,
+    "z": -5756,
+    "r": 2.5
+   },
+   {
+    "x": 6341,
+    "z": -5749,
+    "r": 2.3
+   },
+   {
+    "x": 6335,
+    "z": -5722,
+    "r": 3
+   },
+   {
+    "x": 6273,
+    "z": -5701,
+    "r": 5
+   },
+   {
+    "x": 6291,
+    "z": -5695,
+    "r": 4.7
+   },
+   {
+    "x": 6289,
+    "z": -5686,
+    "r": 5
+   },
+   {
+    "x": 6286,
+    "z": -5680,
+    "r": 5
+   },
+   {
+    "x": 6284,
+    "z": -5672,
+    "r": 5
+   },
+   {
+    "x": 6300,
+    "z": -5682,
+    "r": 6.2
+   },
+   {
+    "x": 6303,
+    "z": -5704,
+    "r": 4.9
+   },
+   {
+    "x": 6329,
+    "z": -5700,
+    "r": 5
+   },
+   {
+    "x": 6342,
+    "z": -5702,
+    "r": 4.8
+   },
+   {
+    "x": 6322,
+    "z": -5680,
+    "r": 4.8
+   },
+   {
+    "x": 6332,
+    "z": -5678,
+    "r": 2.3
+   },
+   {
+    "x": 6348,
+    "z": -5714,
+    "r": 4.2
+   },
+   {
+    "x": 6272,
+    "z": -5730,
+    "r": 5.0
+   },
+   {
+    "x": 6273,
+    "z": -5724,
+    "r": 5.0
+   },
+   {
+    "x": 6274,
+    "z": -5718,
+    "r": 4.6
+   },
+   {
+    "x": 6272,
+    "z": -5736,
+    "r": 5.0
+   }
+  ]
+ },
+ "49,-44": {
+  "evidence": "Google satellite z20 (look-only), gridded 64x48-block crops (2026-10-16), x6272..6368 z-5632..-5584 read by eye over the Library Square part (x6272..6349, z-5632..-5583). The area is paved plaza, flower beds and roofs: one tree stands in the zone (east of the retail courtyard, by the Building 40 car park). Detector crowns in the zone are dropped (they sat on beds and paving). The crown at x6272..6278 z-5622 belongs to 48,-44 (centre x6271.7).",
+  "zones": [
+   [
+    6272,
+    -5632,
+    6349,
+    -5583
+   ]
+  ],
+  "crowns": [
+   {
+    "x": 6328,
+    "z": -5594,
+    "r": 4.7
+   }
+  ]
+ },
+ "48,-46": {
+  "evidence": "Google satellite z20 (look-only), gridded 64x32-block crops (2026-10-16), x6150..6278 z-5792..-5760 read by eye over the Library Square part (x6150..6259, z-5790..-5761 of this cell). The woodland strip beside the road (x>=6260) is left to the detector, as in 48,-45; the shaded woodland west of the Building 4 block is read as four crowns. ADDED 2026-10-16 (user: redo the road-side strips): the woodland strip between the roads (centre line from x6255 at z-5863 to x6273 at z-5717, 9-11 blocks wide, 25 px/block crops) read as overlapping crowns every 6 blocks, r 4.6-5; the 48,-45 east-strip zone and the 49,-45 west-strip zone are now Google too.",
+  "zones": [
+   [
+    6150,
+    -5790,
+    6259,
+    -5761
+   ],
+   [
+    6250,
+    -5870,
+    6271,
+    -5761
+   ]
+  ],
+  "crowns": [
+   {
+    "x": 6154,
+    "z": -5767,
+    "r": 5
+   },
+   {
+    "x": 6190,
+    "z": -5764,
+    "r": 3.8
+   },
+   {
+    "x": 6224,
+    "z": -5788,
+    "r": 4.5
+   },
+   {
+    "x": 6230,
+    "z": -5788,
+    "r": 3.8
+   },
+   {
+    "x": 6234,
+    "z": -5782,
+    "r": 4
+   },
+   {
+    "x": 6239,
+    "z": -5777,
+    "r": 4.6
+   },
+   {
+    "x": 6216,
+    "z": -5764,
+    "r": 4
+   },
+   {
+    "x": 6255,
+    "z": -5769,
+    "r": 4.5
+   },
+   {
+    "x": 6256,
+    "z": -5863,
+    "r": 4.7
+   },
+   {
+    "x": 6256,
+    "z": -5857,
+    "r": 4.7
+   },
+   {
+    "x": 6257,
+    "z": -5851,
+    "r": 4.7
+   },
+   {
+    "x": 6259,
+    "z": -5845,
+    "r": 4.7
+   },
+   {
+    "x": 6260,
+    "z": -5839,
+    "r": 4.7
+   },
+   {
+    "x": 6261,
+    "z": -5833,
+    "r": 4.7
+   },
+   {
+    "x": 6262,
+    "z": -5827,
+    "r": 4.7
+   },
+   {
+    "x": 6262,
+    "z": -5821,
+    "r": 4.7
+   },
+   {
+    "x": 6262,
+    "z": -5815,
+    "r": 4.7
+   },
+   {
+    "x": 6263,
+    "z": -5809,
+    "r": 4.7
+   },
+   {
+    "x": 6264,
+    "z": -5803,
+    "r": 4.7
+   },
+   {
+    "x": 6265,
+    "z": -5797,
+    "r": 4.7
+   },
+   {
+    "x": 6265,
+    "z": -5791,
+    "r": 4.7
+   },
+   {
+    "x": 6266,
+    "z": -5785,
+    "r": 4.7
+   },
+   {
+    "x": 6267,
+    "z": -5779,
+    "r": 4.7
+   },
+   {
+    "x": 6267,
+    "z": -5773,
+    "r": 4.6
+   }
+  ]
+ },
+ "49,-46": {
+  "evidence": "Google satellite z20 (look-only), gridded 64x48-block crops (2026-10-16): the tree row east of the road along the EEE building (B32), x6274..6290 z-5835..-5761, plus the four small trees on the plaza edge east of the building. The row is one continuous canopy (about 11-13 blocks wide, centre x6279 at z-5830 to x6284 at z-5762), read as overlapping crowns every ~6 blocks; the detector had put its crowns 6 blocks west, on the road. Rest of the cell stays with the detector.",
+  "zones": [
+   [
+    6272,
+    -5808,
+    6349,
+    -5761
+   ],
+   [
+    6272,
+    -5836,
+    6327,
+    -5809
+   ]
+  ],
+  "crowns": [
+   {
+    "x": 6277,
+    "z": -5830,
+    "r": 3.2
+   },
+   {
+    "x": 6279,
+    "z": -5826,
+    "r": 4.6
+   },
+   {
+    "x": 6280,
+    "z": -5820,
+    "r": 4.7
+   },
+   {
+    "x": 6280,
+    "z": -5814,
+    "r": 4.7
+   },
+   {
+    "x": 6280,
+    "z": -5808,
+    "r": 4.7
+   },
+   {
+    "x": 6281,
+    "z": -5802,
+    "r": 4.7
+   },
+   {
+    "x": 6282,
+    "z": -5796,
+    "r": 4.7
+   },
+   {
+    "x": 6282,
+    "z": -5790,
+    "r": 4.6
+   },
+   {
+    "x": 6282,
+    "z": -5784,
+    "r": 4.4
+   },
+   {
+    "x": 6283,
+    "z": -5778,
+    "r": 4.7
+   },
+   {
+    "x": 6284,
+    "z": -5772,
+    "r": 4.7
+   },
+   {
+    "x": 6284,
+    "z": -5766,
+    "r": 4.7
+   },
+   {
+    "x": 6314,
+    "z": -5794,
+    "r": 2.8
+   },
+   {
+    "x": 6312,
+    "z": -5773,
+    "r": 2.5
+   },
+   {
+    "x": 6313,
+    "z": -5768,
+    "r": 2.8
+   },
+   {
+    "x": 6313,
+    "z": -5763,
+    "r": 2.8
+   }
+  ]
+ }
+}

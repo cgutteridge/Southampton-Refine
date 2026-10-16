@@ -10,14 +10,52 @@
     "trees": {
       "status": "applied",
       "plan": "highfield_49_m45_trees",
-      "blocks": 5423,
-      "note": "2026-10-14 readback 0, patrol 0 floating; awaiting user visual check"
+      "blocks": 8129,
+      "crowns": 41,
+      "readback": {
+        "planned": 8129,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-16 22:43:47"
+      },
+      "mask": "verification/site/masks/trees-49_-45.mask.json",
+      "note": "2026-10-16 ROAD-SIDE STRIP redone from Google: west strip x6272..6278 z-5760..-5713 now Google crowns (4 read, z-5736..-5718), zone added; 41 crowns planted, 8129 blocks, readback 0, patrol floating 0. Road-side strip signed off by user 2026-10-16 (\"the strip trees look right\")."
     },
     "decor": {
       "status": "applied",
       "plan": "highfield_49_m45_decor",
       "blocks": 1,
       "note": "2026-10-14 readback 0, patrol 0 floating; awaiting user visual check"
+    },
+    "trees-undo": {
+      "status": "applied",
+      "plan": "highfield_49_m45_trees_undo",
+      "owner": "trees-google-49",
+      "started": "2026-10-16 22:42:32",
+      "blocks": 7612,
+      "structure": {
+        "name": "southampton_refine:before_highfield_49_m45_trees_undo_20261016224232",
+        "from": [
+          6266,
+          49,
+          -5763
+        ],
+        "to": [
+          6405,
+          69,
+          -5667
+        ]
+      },
+      "snapshot": "backups/regions/2026-10-16-224230-highfield_49_m45_trees_undo",
+      "planned": "verification/site/highfield_49_m45_trees_undo-planned.json",
+      "kind": "undo",
+      "pass": "trees",
+      "finished": "2026-10-16 22:42:48",
+      "readback": {
+        "planned": 7612,
+        "mismatches": 0,
+        "checked": "2026-10-16 22:42:48"
+      }
     }
   }
 }

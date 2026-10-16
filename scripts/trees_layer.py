@@ -37,6 +37,9 @@ from site_kit import Plan, World, built_cells  # noqa: E402
 
 MOSAIC = ROOT / 'reference/aerial/highfield-z19/mosaic-z19-18x17-260101-175662-eastext6.png'
 LAYER_PLAN = re.compile(r'^highfield_\d+_m\d+_(ground|trees|decor|foliage|stripabove|edge_grass|podium_flatten)$')
+# Surfaces a Google-evidenced crown may stand on besides lawn and PAVED_SURFACES: the ground layer's path/plaza colours (granite, stone) and tarmac wool,
+# which are often wrong under a real tree (a brick plaza painted black); the evidence for the crown is the Google sheet, not the ground block.
+GOOGLE_SURFACES = frozenset({'granite', 'stone', 'black_wool', 'gray_concrete', 'polished_diorite', 'smooth_stone_slab'})
 LAWN_SURFACES = frozenset({'grass_block', 'dirt', 'podzol', 'coarse_dirt', 'moss_block'})
 # Hard ground a tree can stand in: the real pavement has a soil pit under the trunk that the aerial
 # never shows (user, 2026-10-14); the trunk hides the paving block, so nothing is placed below it.
@@ -241,6 +244,32 @@ def extra_crowns(cell: tuple[int, int], path: Path | None = None) -> list[tuple[
     return out
 
 
+GOOGLE_CROWNS = ROOT / 'reference/trees-google-crowns.json'
+
+
+def google_crowns(cell: tuple[int, int], path: Path | None = None):
+    """Crowns read by eye from the Google satellite sheet (look-only), from reference/trees-google-crowns.json.
+
+    {"tx,tz": {"evidence": "...", "zones": [[x0, z0, x1, z1]], "crowns": [{"x", "z", "r", "note"}]}}. Inside a zone the
+    detector's crowns (mosaic detection, dense fill, extra crowns) are DROPPED and these replace them: Google is the
+    position source there (the z19 mosaic and the lidar both put crowns blocks off, and the lidar holds ~1/3 of them).
+    Outside the zones the detector is unchanged. Google crowns go first (they win overlaps), are exempt from the OSM
+    feature-zone skip (a courtyard tree is real) and may stand on PAVED_SURFACES (a plaza tree has a soil pit); every
+    other rule (trunk in cell, air only, mask) is the normal one.
+
+    @returns: (zones, [(dx, dz, r) cell-local]) or None when the cell has no entry
+    """
+    path = path or GOOGLE_CROWNS
+    if not path.exists():
+        return None
+    e = json.loads(path.read_text()).get(f'{cell[0]},{cell[1]}')
+    if not e:
+        return None
+    x0, z0 = cell[0] * CELL, cell[1] * CELL
+    out = [(int(c['x']) - x0, int(c['z']) - z0, float(c['r'])) for c in e['crowns']]
+    return [tuple(z) for z in e.get('zones', [])], [c for c in out if 0 <= c[0] < 128 and 0 <= c[1] < 128]
+
+
 def voxels_for(x: int, z: int, gy: int, r: float) -> dict:
     """Voxels for one crown: bush for small ones, plane/round tree otherwise."""
     rnd = random.Random(RNG_SEED + x * 31 + z)
@@ -270,6 +299,13 @@ def plan_cell(cell: tuple[int, int], plan: Plan, world: World):
     extra = {(x0 + i, z0 + j) for i, j, _r in extra_crowns(cell)}
     crowns = crowns + [c for c in extra_crowns(cell) if not any((c[0] - ci) ** 2 + (c[1] - cj) ** 2 <= (cr * 0.75) ** 2
                                                                 for ci, cj, cr in crowns)]
+    google = set()
+    g = google_crowns(cell)
+    if g:
+        zones, gc = g
+        crowns = gc + [c for c in crowns
+                       if not any(a <= x0 + c[0] <= cx and b <= z0 + c[1] <= cz for a, b, cx, cz in zones)]
+        google = {(x0 + i, z0 + j) for i, j, _r in gc}
     owned = set(built_cells(exclude=ignored_builds(cell)))
     # Feature zones are the columns the ground layer did not surface (building footprints, structure
     # builds, bridges). A tree-phase tree is never rooted in one; a feature's own build may plant inside it.
@@ -284,10 +320,10 @@ def plan_cell(cell: tuple[int, int], plan: Plan, world: World):
     for i, j, r in crowns:
         x, z = x0 + i, z0 + j
         surf = surface_y(world, x, z)
-        if (x, z) not in extra and ((x, z) in fp or (ground_cols is not None and (x, z) not in ground_cols)):
+        if (x, z) not in extra and (x, z) not in google and ((x, z) in fp or (ground_cols is not None and (x, z) not in ground_cols)):
             report['skipped'].append((x, z, r, 'feature zone'))      # no tree-phase tree is rooted in a feature
             continue
-        if not surf or surf[1] not in (LAWN_SURFACES | PAVED_SURFACES if TREES_ON_PAVING else LAWN_SURFACES):
+        if not surf or surf[1] not in (LAWN_SURFACES | PAVED_SURFACES | GOOGLE_SURFACES if (x, z) in google else LAWN_SURFACES | PAVED_SURFACES if TREES_ON_PAVING else LAWN_SURFACES):
             report['skipped'].append((x, z, r, f'surface {surf[1] if surf else None}'))
             continue
         gy = surf[0]

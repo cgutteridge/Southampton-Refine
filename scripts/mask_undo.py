@@ -56,12 +56,17 @@ def finish_undo(cell: tuple[int, int], pass_name: str, name: str, mask_dir: Path
     site_stages.write(cell, data)
 
 
-def run(cell: tuple[int, int], pass_name: str, live: bool) -> int:
+def run(cell: tuple[int, int], pass_name: str, live: bool, skip_changed: bool = False) -> int:
     """Plan (and with ``live`` apply) the undo. Returns 0 on success.
 
     Fail-closed: a conflict, a failed flush, or a readback mismatch raises SystemExit instead of
     returning, so a calling script cannot carry on and overwrite the mask. After a mismatch the
     stage '<pass>-undo' stays 'applying' (site_recover.py).
+
+    ``skip_changed`` (CLI --skip-changed): a masked position that no longer holds its masked block (already air because
+    another pass cleared it, or replaced by a later build, e.g. a roof over an old crown) is not ours any more: it is
+    listed and left alone, and the rest is undone. Without it any such position stops the undo (an aborted run goes
+    through site_recover.py, not through this flag).
     """
     tx, tz = cell
     path = mask_path(pass_name, cell)
@@ -92,7 +97,9 @@ def run(cell: tuple[int, int], pass_name: str, live: bool) -> int:
     print(f'{pass_name} {tx},{tz}: mask {mask["count"]} blocks, undo {len(to_air)}, left (shared with another mask) {len(shared)}, conflicts {len(conflicts)}')
     for pos, want, got in conflicts[:10]:
         print(f'  CONFLICT {pos}: mask says {want}, live is {got}')
-    if conflicts:
+    if conflicts and skip_changed:
+        print(f'  --skip-changed: {len(conflicts)} position(s) no longer hold their masked block (air or another build) and are left in place')
+    elif conflicts:
         raise SystemExit(f'STOP: {len(conflicts)} position(s) differ from the mask; nothing written, mask kept.')
     name = plan_name(tx, tz, f'{pass_name}_undo')
     plan = Plan(name)
@@ -122,8 +129,9 @@ def main() -> int:
     ap.add_argument('--cell', required=True)
     ap.add_argument('--pass', dest='pass_name', required=True, choices=PASSES)
     ap.add_argument('--apply', action='store_true', help='LIVE: needs SITE_OWNER + claimed lock')
+    ap.add_argument('--skip-changed', action='store_true', help='leave masked positions that now hold a different non-air block instead of stopping')
     a = ap.parse_args()
-    return run(tuple(int(v) for v in a.cell.split(',')), a.pass_name, a.apply)
+    return run(tuple(int(v) for v in a.cell.split(',')), a.pass_name, a.apply, a.skip_changed)
 
 
 if __name__ == '__main__':

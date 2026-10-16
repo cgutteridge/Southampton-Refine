@@ -10,14 +10,52 @@
     "trees": {
       "status": "applied",
       "plan": "highfield_49_m46_trees",
-      "blocks": 13731,
-      "note": "2026-10-14 readback 0, patrol 0 floating; NE woodland via z18-filled canopy rule in trees_layer.canopy_pixels; awaiting user visual check"
+      "blocks": 5709,
+      "crowns": 36,
+      "readback": {
+        "planned": 5709,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-16 22:28:09"
+      },
+      "mask": "verification/site/masks/trees-49_-46.mask.json",
+      "note": "2026-10-16 REDONE from Google after user steering (trees in front of B32 evenly spaced, detector crowns sat on the road): 16 crowns read by eye in zones x6272..6349 z-5808..-5761 and x6272..6327 z-5836..-5809 (the tree row east of the road along B32 as overlapping crowns every ~6 blocks, plus four plaza-edge trees); rest of the cell stays with the detector. 35 crowns planted, 5709 blocks, readback 0, patrol floating 0. Signed off by user 2026-10-16 (\"the B32 trees look right\")."
     },
     "decor": {
       "status": "applied",
       "plan": "highfield_49_m46_decor",
       "blocks": 671,
       "note": "2026-10-14 readback 0, patrol 0 floating; awaiting user visual check"
+    },
+    "trees-undo": {
+      "status": "applied",
+      "plan": "highfield_49_m46_trees_undo",
+      "owner": "trees-google-49",
+      "started": "2026-10-16 22:26:35",
+      "blocks": 13731,
+      "structure": {
+        "name": "southampton_refine:before_highfield_49_m46_trees_undo",
+        "from": [
+          6271,
+          49,
+          -5889
+        ],
+        "to": [
+          6400,
+          71,
+          -5760
+        ]
+      },
+      "snapshot": "backups/regions/2026-10-16-222633-highfield_49_m46_trees_undo",
+      "planned": "verification/site/highfield_49_m46_trees_undo-planned.json",
+      "kind": "undo",
+      "pass": "trees",
+      "finished": "2026-10-16 22:26:51",
+      "readback": {
+        "planned": 13731,
+        "mismatches": 0,
+        "checked": "2026-10-16 22:26:51"
+      }
     }
   }
 }

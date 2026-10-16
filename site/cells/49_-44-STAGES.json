@@ -1,8 +1,62 @@
 {
   "cell": "49,-44",
   "stages": {
-    "ground": {"status": "applied", "plan": "highfield_49_m44_ground", "blocks": 8212, "note": "2026-10-14 readback 0, patrol 0 floating; awaiting user visual check"},
-    "trees": {"status": "applied", "plan": "highfield_49_m44_trees", "blocks": 1787, "crowns": 10, "mask": "verification/site/masks/trees-49_-44.mask.json", "note": "2026-10-14 readback 0; 48 of 58 crowns skipped (ground under them is hard surface, trees go on lawn only); awaiting user visual check"},
-    "decor": {"status": "applied", "plan": "highfield_49_m44_decor", "blocks": 60, "mask": "verification/site/masks/decor-49_-44.mask.json", "note": "2026-10-14 readback 0; awaiting user visual check"}
+    "ground": {
+      "status": "applied",
+      "plan": "highfield_49_m44_ground",
+      "blocks": 8212,
+      "note": "2026-10-14 readback 0, patrol 0 floating; awaiting user visual check"
+    },
+    "trees": {
+      "status": "applied",
+      "plan": "highfield_49_m44_trees",
+      "blocks": 974,
+      "crowns": 5,
+      "readback": {
+        "planned": 974,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-16 22:07:43"
+      },
+      "mask": "verification/site/masks/trees-49_-44.mask.json",
+      "note": "2026-10-16 REDONE from Google in the Library Square zone x6272..6349 z-5632..-5583 (1 crown read by eye; the plaza, beds and roofs hold no other trees; detector crowns there dropped). Rest of the cell stays with the detector. 5 crowns planted, 974 blocks, readback 0, patrol floating 0. Old mask undone with --skip-changed. Awaiting user check."
+    },
+    "decor": {
+      "status": "applied",
+      "plan": "highfield_49_m44_decor",
+      "blocks": 60,
+      "mask": "verification/site/masks/decor-49_-44.mask.json",
+      "note": "2026-10-14 readback 0; awaiting user visual check"
+    },
+    "trees-undo": {
+      "status": "applied",
+      "plan": "highfield_49_m44_trees_undo",
+      "owner": "trees-google-49",
+      "started": "2026-10-16 22:06:49",
+      "blocks": 1787,
+      "structure": {
+        "name": "southampton_refine:before_highfield_49_m44_trees_undo",
+        "from": [
+          6271,
+          53,
+          -5632
+        ],
+        "to": [
+          6387,
+          70,
+          -5504
+        ]
+      },
+      "snapshot": "backups/regions/2026-10-16-220647-highfield_49_m44_trees_undo",
+      "planned": "verification/site/highfield_49_m44_trees_undo-planned.json",
+      "kind": "undo",
+      "pass": "trees",
+      "finished": "2026-10-16 22:06:56",
+      "readback": {
+        "planned": 1787,
+        "mismatches": 0,
+        "checked": "2026-10-16 22:06:56"
+      }
+    }
   }
 }

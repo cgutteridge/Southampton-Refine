@@ -389,6 +389,10 @@ class TestUndoFailsClosed(Base):
         self.assertTrue(self.mpath.exists())                             # mask kept: a caller cannot carry on over it
         self.assertFalse(site_stages.stage_path(CELL).exists())
 
+    def test_skip_changed_leaves_the_changed_position_and_plans_the_rest(self):
+        FakePaced.world[(X0, 61, Z0)] = 'minecraft:oak_leaves'          # the other position is already air
+        self.assertEqual(mask_undo.run(CELL, 'trees', live=False, skip_changed=True), 0)
+
     def test_live_flush_failure_raises(self):
         FakePaced.abort_on_save = True
         with self.assertRaises(SystemExit):

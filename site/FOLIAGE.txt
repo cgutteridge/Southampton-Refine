@@ -37,16 +37,18 @@ columns near the cell edge.
 ------------------------------------------------------------------------
 Tree review (every cell redo: I-073 step 4, before the trees pass is called done)
 ------------------------------------------------------------------------
-Lidar and Google answer different questions. Lidar (pristine Geocraft, kind 2/3 columns) is a measured
-crown inventory: where tall crowns stand and how high. It misses shrubs, small trees and anything
-planted after the survey. Google satellite (look-only) shows what is really there now. Neither alone:
+CAUTION (2026-10-16, checked on 48,-45 x6208..6272 z-5696..-5632 with the lidar/live footprints drawn over Google): the pristine lidar
+tree columns hold only about a third of the real crowns and sit ~3-4 blocks SOUTH of the crown seen in Google; the live trees match Google
+crowns poorly too. So lidar is a rough height hint and a cross-check, never the position source and never a complete inventory. Google is the
+position source: read crowns by eye from a cropped, gridded Google window (64 blocks, 12 px per block) and record them as explicit crowns.
+Lidar (pristine Geocraft, kind 2/3 columns) is measured heights for the crowns it has; Google satellite (look-only) shows what is there now. Use both:
   python3 scripts/tree_review.py --cell tx,tz --marks <scratch>/m.json     # or --zone x0,z0,x1,z1
   python3 scripts/google_aerial.py sheet --cell tx,tz --marks <scratch>/m.json   # or --at X,Z --radius 60 --zoom 20
 Verdicts (crowns are matched by their tops, never by blob, because the live canopy merges crowns):
   MISSING  (red)    lidar crown, no live crown top within 4 blocks. Last column = blocks to the nearest live leaf: 0-4 means
                     a live crown stands there but its top is elsewhere (usually fine), >8 means nothing is there.
-  INVENTED (blue)   live crown with no lidar crown near it. NORMAL where Google shows a tree (lidar misses most
-                    small and recent crowns): it is only wrong when Google shows lawn, paving or a roof.
+  INVENTED (blue)   live crown with no lidar crown near it. Says nothing by itself (lidar misses most crowns): look at Google, and
+                    expect the live crown to be misplaced as often as invented.
   LOW/HIGH (orange) matched, top differs by >= 4 blocks (live plane crowns are 12-17 high, lidar often 4-10: look at
                     Google shadow length before correcting).
   ROOF (purple)     lidar crown over a roof (kind 3): check Google that it is a tree overhanging, not a mis-read roof.
@@ -58,6 +60,28 @@ Decide each MISSING with Google showing a real tree (check the distance column) 
   - lawn where lidar and Google both show nothing: leave open (Library Square formal lawn, I-060).
 Record counts and decisions in the cell STAGES note (e.g. "tree review: lidar 12 crowns, 2 missing added, 0 invented over
 non-tree"). Cells whose neighbours' crowns overhang the edge: review them together (--zone across the edge).
+
+------------------------------------------------------------------------
+Redo from Google (user, 2026-10-16: the trees pass reads the z19 mosaic; Google is the position source)
+------------------------------------------------------------------------
+Done for 48,-45, 48,-44, 49,-45, 49,-44 and 48,-46 (Library Square zone x6150..6349 z-5787..-5583; 2026-10-16). Crowns are read BY EYE from gridded Google crops (Google is look-only: never
+downloaded or processed by code) and stored in reference/trees-google-crowns.json:
+  {"tx,tz": {"evidence", "zones": [[x0,z0,x1,z1]], "crowns": [{"x","z","r","note"}]}}
+Inside a zone the detector's crowns are dropped and these replace them; outside, the detector is unchanged (use that for a woodland
+you cannot split into crowns). Google crowns may stand on paving, path colours, tarmac wool and slabs (trees_layer.GOOGLE_SURFACES;
+the ground block under a real tree is often wrong) and inside OSM footprints (courtyards); water, trunk blocked and the normal air-only
+rules still apply. Radius guide: r>=6 plane tree, 3.5-6 mid tree, 2-3.5 small round, <2 bush (leave bushes to decor).
+  1 python3 scripts/google_window.py crop --at X,Z --half 32x16 --ppb 13      one window per 64x32 blocks (a cell = 8); open in the browser pane,
+                                                                              close old tabs first (tab cap). Read centre (px->block from the grid) and r (diameter/2).
+  2 write the crowns into reference/trees-google-crowns.json (zones = the part you read).
+  3 python3 scripts/trees_replan.py --cell tx,tz --out plan.json ; python3 scripts/google_window.py plan --at X,Z --half 32x16 --plan plan.json
+    yellow circles must sit on the real crowns; add the ones you missed, move the ones that are off; red dashed = skipped (water, blocked...).
+  4 claim the lock; SITE_OWNER=<owner> python3 scripts/mask_undo.py --cell tx,tz --pass trees [--skip-changed] [--apply]
+    (--skip-changed leaves masked positions that are already air or that a later build replaced; without it any such
+    position stops the undo and an aborted run goes through site_recover.py);
+    then trees_layer.py --cell tx,tz (dry) and --apply; patrol sweep floating 0; release the lock; note in the cell STAGES.
+Do NOT snap to lidar: it holds ~1/3 of the crowns and sits 3-4 blocks south of them (checked 2026-10-16). Skipped-by-water crowns mean the
+ground layer drew water under a wooded bank: a ground-step issue to settle against Google.
 
 Retired (do not use): build_cell_foliage.py, the "foliage last" cadence and the aerial
 canopy pass plant_cell_canopy.py with HAND_CROWNS (Q-064; its 48,-45 result was

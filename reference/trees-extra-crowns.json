@@ -1,6 +1,48 @@
 {
  "47,-45": [
-  {"x": 6139, "z": -5742, "r": 3.4, "issue": "I-055",
-   "evidence": "reference/aerial/highfield-user/googlemaps-music-law-annex-2026-10-15.webp (registered): one broadleaf crown on the lawn strip east of Building 2; LIDAR dome 57-59 at x6137-6141, z-5745..-5739; OSM w154067444 (building=roof) is this tree, not a canopy. z19 mosaic shows no canopy here."}
+  {
+   "x": 6139,
+   "z": -5742,
+   "r": 3.4,
+   "issue": "I-055",
+   "evidence": "reference/aerial/highfield-user/googlemaps-music-law-annex-2026-10-15.webp (registered): one broadleaf crown on the lawn strip east of Building 2; LIDAR dome 57-59 at x6137-6141, z-5745..-5739; OSM w154067444 (building=roof) is this tree, not a canopy. z19 mosaic shows no canopy here."
+  }
+ ],
+ "48,-44": [
+  {
+   "x": 6152,
+   "z": -5562,
+   "r": 4.0,
+   "issue": "I-073",
+   "evidence": "Google z19 sheet 48,-44 (tree_review marks, 2026-10-16): tall tree strip between the lawn and the path on the cell's west edge; lidar crown top h9, live world has no leaf within 7 blocks"
+  },
+  {
+   "x": 6154,
+   "z": -5566,
+   "r": 3.0,
+   "issue": "I-073",
+   "evidence": "Google z19 sheet 48,-44 (tree_review marks, 2026-10-16): tall tree strip between the lawn and the path on the cell's west edge; lidar crown top h5, live world has no leaf within 7 blocks"
+  },
+  {
+   "x": 6154,
+   "z": -5552,
+   "r": 3.2,
+   "issue": "I-073",
+   "evidence": "Google z19 sheet 48,-44 (tree_review marks, 2026-10-16): tall tree strip between the lawn and the path on the cell's west edge; lidar crown top h6, live world has no leaf within 6 blocks"
+  },
+  {
+   "x": 6150,
+   "z": -5528,
+   "r": 3.8,
+   "issue": "I-073",
+   "evidence": "Google z19 sheet 48,-44 (tree_review marks, 2026-10-16): tall tree strip between the lawn and the path on the cell's west edge; lidar crown top h8, live world has no leaf within 6 blocks"
+  },
+  {
+   "x": 6149,
+   "z": -5524,
+   "r": 3.4,
+   "issue": "I-073",
+   "evidence": "Google z19 sheet 48,-44 (tree_review marks, 2026-10-16): tall tree strip between the lawn and the path on the cell's west edge; lidar crown top h7, live world has no leaf within 9 blocks"
+  }
  ]
 }

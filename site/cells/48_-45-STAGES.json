@@ -20,10 +20,18 @@
       "note": "first-principles ground (OSM + aerial); verify: patrol, visuals; trees and decor re-run after"
     },
     "trees": {
-      "status": "verified",
+      "status": "applied",
       "plan": "highfield_48_m45_trees",
-      "blocks": 7067,
-      "note": "2026-10-14 applied, readback 0, patrol 0 floating, user visual OK"
+      "blocks": 5476,
+      "crowns": 29,
+      "readback": {
+        "planned": 5476,
+        "mismatches": 0,
+        "mismatch_sample": {},
+        "checked": "2026-10-16 22:42:29"
+      },
+      "mask": "verification/site/masks/trees-48_-45.mask.json",
+      "note": "2026-10-16 ROAD-SIDE STRIP redone from Google: east strip x6263..6271 z-5760..-5681 now Google crowns (4 read, z-5756..-5742), zone added; 29 crowns planted, 5476 blocks, readback 0, patrol floating 0. Road-side strip signed off by user 2026-10-16 (\"the strip trees look right\")."
     },
     "decor": {
       "status": "applied",
@@ -42,6 +50,36 @@
       "plan": "highfield_48_m45_ground",
       "blocks": 10325,
       "note": "2026-10-14 applied, readback 0, patrol 0 floating, user visual OK"
+    },
+    "trees-undo": {
+      "status": "applied",
+      "plan": "highfield_48_m45_trees_undo",
+      "owner": "trees-google-49",
+      "started": "2026-10-16 22:40:56",
+      "blocks": 5319,
+      "structure": {
+        "name": "southampton_refine:before_highfield_48_m45_trees_undo_20261016224056",
+        "from": [
+          6143,
+          54,
+          -5762
+        ],
+        "to": [
+          6276,
+          72,
+          -5631
+        ]
+      },
+      "snapshot": "backups/regions/2026-10-16-224053-highfield_48_m45_trees_undo",
+      "planned": "verification/site/highfield_48_m45_trees_undo-planned.json",
+      "kind": "undo",
+      "pass": "trees",
+      "finished": "2026-10-16 22:41:12",
+      "readback": {
+        "planned": 5319,
+        "mismatches": 0,
+        "checked": "2026-10-16 22:41:12"
+      }
     }
   }
 }
