@@ -43,10 +43,10 @@
       "status": "applied",
       "plan": "highfield_susu_west-greeblies",
       "owner": "claude-q180",
-      "started": "2026-10-16 19:13:04",
-      "blocks": 1939,
+      "started": "2026-10-16 19:24:15",
+      "blocks": 1955,
       "structure": {
-        "name": "southampton_refine:before_highfield_susu_west-greeblies_20261016191304",
+        "name": "southampton_refine:before_highfield_susu_west-greeblies_20261016192415",
         "from": [
           6148,
           54,
@@ -60,11 +60,11 @@
       },
       "snapshot": null,
       "planned": "verification/site/highfield_susu_west-greeblies-planned.json",
-      "finished": "2026-10-16 19:13:10",
+      "finished": "2026-10-16 19:24:22",
       "readback": {
-        "planned": 1939,
+        "planned": 1955,
         "mismatches": 0,
-        "checked": "2026-10-16 19:13:10"
+        "checked": "2026-10-16 19:24:22"
       }
     },
     "feature-highfield_library_b34_b18-greeblies-restore": {
@@ -127,28 +127,28 @@
       "status": "applied",
       "plan": "highfield_susu_west-lower",
       "owner": "claude-q180",
-      "started": "2026-10-16 19:12:52",
-      "blocks": 5920,
+      "started": "2026-10-16 19:24:05",
+      "blocks": 5731,
       "structure": {
-        "name": "southampton_refine:before_highfield_susu_west-lower_20261016191252",
+        "name": "southampton_refine:before_highfield_susu_west-lower_20261016192405",
         "from": [
           6167,
           57,
-          -5540
+          -5541
         ],
         "to": [
-          6207,
+          6206,
           63,
           -5491
         ]
       },
       "snapshot": null,
       "planned": "verification/site/highfield_susu_west-lower-planned.json",
-      "finished": "2026-10-16 19:12:58",
+      "finished": "2026-10-16 19:24:12",
       "readback": {
-        "planned": 5920,
+        "planned": 5731,
         "mismatches": 0,
-        "checked": "2026-10-16 19:12:58"
+        "checked": "2026-10-16 19:24:12"
       }
     },
     "feature-highfield_susu_west-doorframe": {
@@ -267,10 +267,10 @@
       "status": "applied",
       "plan": "highfield_susu_west-canopyfix",
       "owner": "claude-q180",
-      "started": "2026-10-16 19:04:29",
+      "started": "2026-10-16 19:22:14",
       "blocks": 30,
       "structure": {
-        "name": "southampton_refine:before_highfield_susu_west-canopyfix",
+        "name": "southampton_refine:before_highfield_susu_west-canopyfix_20261016192214",
         "from": [
           6189,
           58,
@@ -284,11 +284,11 @@
       },
       "snapshot": null,
       "planned": "verification/site/highfield_susu_west-canopyfix-planned.json",
-      "finished": "2026-10-16 19:04:35",
+      "finished": "2026-10-16 19:22:21",
       "readback": {
         "planned": 30,
         "mismatches": 0,
-        "checked": "2026-10-16 19:04:35"
+        "checked": "2026-10-16 19:22:21"
       }
     },
     "feature-highfield_susu_west-membrane-spill": {
@@ -317,6 +317,62 @@
         "planned": 76,
         "mismatches": 0,
         "checked": "2026-10-16 19:07:19"
+      }
+    },
+    "feature-highfield_susu_west-followups-reset": {
+      "status": "applied",
+      "plan": "highfield_susu_west-followups-reset",
+      "owner": "claude-q180",
+      "started": "2026-10-16 19:21:31",
+      "blocks": 2584,
+      "structure": {
+        "name": "southampton_refine:before_highfield_susu_west-followups-reset",
+        "from": [
+          6148,
+          53,
+          -5579
+        ],
+        "to": [
+          6223,
+          63,
+          -5491
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_susu_west-followups-reset-planned.json",
+      "finished": "2026-10-16 19:21:38",
+      "readback": {
+        "planned": 2584,
+        "mismatches": 0,
+        "checked": "2026-10-16 19:21:38"
+      }
+    },
+    "feature-highfield_susu_west-holes": {
+      "status": "applied",
+      "plan": "highfield_susu_west-holes",
+      "owner": "claude-q180",
+      "started": "2026-10-16 19:23:17",
+      "blocks": 122,
+      "structure": {
+        "name": "southampton_refine:before_highfield_susu_west-holes",
+        "from": [
+          6168,
+          58,
+          -5539
+        ],
+        "to": [
+          6206,
+          61,
+          -5491
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_susu_west-holes-planned.json",
+      "finished": "2026-10-16 19:23:23",
+      "readback": {
+        "planned": 122,
+        "mismatches": 0,
+        "checked": "2026-10-16 19:23:23"
       }
     }
   },

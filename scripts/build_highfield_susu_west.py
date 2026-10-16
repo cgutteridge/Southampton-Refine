@@ -81,21 +81,41 @@ MEMBRANE = [
 EXTRA = lambda c: print('greeblies', roof_greeblies(c, GREEBLIES))  # noqa: E731
 
 
-# Roofs the pristine lidar reads lower than the build (live-minus-lidar grid, 2026-10-16): the low block east of the
-# lanterns (lidar 57) and the dark membrane roof (lidar 58); both were built 60. Lowered as part of this feature.
-# every record that may hold cells of this feature's roof (the follow-up steps re-write each other's cells)
+# Roofs the pristine lidar reads lower than the build: the south end of B42 is a 57 band and a 58 block, built 60. Taken
+# from the lidar cell by cell (not from drawn boxes), 3x3 majority filtered so single stray returns do not count.
 MODIFIES = (NAME, NAME + '-greeblies', NAME + '-lower', NAME + '-membrane-spill', NAME + '-canopyfix', 'highfield_q051_ur')
-LOWER = [((6184, -5538, 6205, -5519), 57), ((6169, -5518, 6201, -5492), 58)]
+LOWER_REGION = (6160, -5540, 6206, -5492)      # x0, z0, x1, z1 where the south-end roofs are looked for
 
 
 def lower_map():
-    """{(x, z): new deck} for the B42 cells inside the LOWER rectangles that stand at 60 (the original deck)."""
+    """{(x, z): new deck} for B42 cells built at 60 that the pristine lidar reads at 57 or 58 (south-end roofs)."""
+    import lidar_heightmap as lh
+    pw = lh.pristine_world()
+    maps = {c: lh.heightmap(pw, c) for c in ((48, -44), (48, -43))}     # B42 straddles the cell edge at z -5505
+
+    def lidar(x, z):
+        hm = maps[(48, -44) if z <= -5505 else (48, -43)]
+        return int(hm['roof'][x - hm['x0'], z - hm['z0']])
     v = RoofView(NAME, only=way_cells('33830305'))
-    out = {}
-    for (x0, z0, x1, z1), y in LOWER:
-        for q in v.part:
-            if x0 <= q[0] <= x1 and z0 <= q[1] <= z1 and v.deck(*q) >= 60:
-                out[q] = y
+    x0, z0, x1, z1 = LOWER_REGION
+    cand = {}
+    for q in v.part:
+        if x0 <= q[0] <= x1 and z0 <= q[1] <= z1 and v.deck(*q) >= 60:
+            t = lidar(*q)
+            if t in (57, 58):
+                cand[q] = t
+    core = {q: t for q, t in cand.items()
+            if sum((q[0] + a, q[1] + b) in cand for a in (-1, 0, 1) for b in (-1, 0, 1)) >= 5}
+    # the rim: lidar reads a building's edge columns low (blur), so they fail the 57/58 test; any cell within 2 of a lowered
+    # one that lidar reads at 58 or below takes that neighbour's height, or it stands up as a pillar above the lowered roof
+    out = dict(core)
+    for q in v.part:
+        if q in core or not (x0 <= q[0] <= x1 and z0 <= q[1] <= z1) or v.deck(*q) < 60 or lidar(*q) > 58:
+            continue
+        near = [(abs(q[0] - c[0]) + abs(q[1] - c[1]), t) for c, t in core.items()
+                if abs(q[0] - c[0]) <= 2 and abs(q[1] - c[1]) <= 2]
+        if near:
+            out[q] = min(near)[1]
     return out
 
 
