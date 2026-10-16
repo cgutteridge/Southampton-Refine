@@ -47,10 +47,6 @@ def build():
     door(p, w, 6196, Z1, 0, 1, notes, width='pair', y0=GROUND + 1, leaf='iron_door', frame='white_concrete')
     for x in range(6196, 6198):                                                             # two brick steps in front of the door
         p.set(x, GROUND, Z1 + 1, 'minecraft:stone_brick_stairs[facing=north,half=bottom]')
-    for x0, x1 in ((X0 - 3, X0 - 1), (X1 + 1, X1 + 3)):                                      # low white balustrade walls either side
-        for x in range(x0, x1 + 1):
-            for y in (GROUND + 1, GROUND + 2):
-                p.set(x, y, Z1, 'minecraft:white_concrete')
     return p, notes
 
 
