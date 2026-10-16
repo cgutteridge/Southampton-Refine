@@ -413,7 +413,12 @@ class RoofView:
     there (-999 elsewhere); edge cells carry the coping, so roof_greeblies skips them.
     """
 
-    def __init__(self, name, only=None):
+    def __init__(self, name, only=None, lower=None):
+        """
+        @param name: build whose cells file holds the roof
+        @param only: optional (x, z) set the view is limited to
+        @param lower: optional {(x, z): new deck} for roofs lowered after the build (lower_roofs); edge cells carry coping one up
+        """
         from site_kit import OUT, _parse_cells_file
         adds, _air = _parse_cells_file(OUT / f'{name}-cells.json')
         top = {}
@@ -423,6 +428,10 @@ class RoofView:
         self.p = Plan(f'{name}-greeblies')
         self.part = {q: name for q in top}
         self._top = top
+        for q, d in (lower or {}).items():
+            if q in top:
+                edge = any((q[0] + a, q[1] + b) not in top for a, b in N4)
+                top[q] = d + (1 if edge else 0)
 
     def deck(self, x, z):
         return self._top.get((x, z), -999)

@@ -63,7 +63,7 @@ GREEBLIES = [
     ('louvre', [(6197, -5560), (6202, -5558), (6202, -5555), (6196, -5557)]),
     ('louvre', [(6194, -5555), (6200, -5553), (6200, -5551), (6194, -5552)]),
     ('dome', 6175, -5567),
-    # SW wing, lantern block and the dark membrane roof (Google z20, same sheet; lidar: wing 53, lanterns 60-61, membrane 58)
+    # SW wing, extract-fan block and the dark membrane roof (Google z20, same sheet; lidar: wing 53, lanterns 60-61, membrane 58)
     ('patch', [(6179, -5526), (6206, -5514), (6197, -5491), (6169, -5506)], 'gray_concrete', 0),
     *[('line', l, 'light_gray_concrete', 0) for l in ([(6173, -5515), (6202, -5502)], [(6187, -5521), (6176, -5506)],
                                                       [(6197, -5515), (6190, -5499)])],
@@ -71,16 +71,54 @@ GREEBLIES = [
                                    (6152, -5524), (6149, -5517), (6165, -5521), (6162, -5514), (6153, -5507), (6158, -5505)]],
     ('dome', 6154, -5534), ('dome', 6165, -5518),
     *[i for cx, cz in [(6183, -5546), (6181, -5540), (6178, -5535)] for i in (
-        ('line', [(cx - 2, cz - 2), (cx + 2, cz - 2), (cx + 2, cz + 2), (cx - 2, cz + 2), (cx - 2, cz - 2)], 'smooth_quartz', 1),
-        ('patch', [(cx - 1, cz - 1), (cx + 2, cz - 1), (cx + 2, cz + 2), (cx - 1, cz + 2)], 'light_blue_stained_glass', 1))],
+        ('line', [(cx - 2, cz - 2), (cx + 2, cz - 2), (cx + 2, cz + 2), (cx - 2, cz + 2), (cx - 2, cz - 2)], 'light_gray_concrete', 1),
+        ('patch', [(cx - 1, cz - 1), (cx + 2, cz - 1), (cx + 2, cz + 2), (cx - 1, cz + 2)], 'iron_trapdoor[facing=north,half=bottom,open=false]', 1))],
     ('fan', 6174, -5564),
 ]
 EXTRA = lambda c: print('greeblies', roof_greeblies(c, GREEBLIES))  # noqa: E731
 
 
+# Roofs the pristine lidar reads lower than the build (live-minus-lidar grid, 2026-10-16): the low block east of the
+# lanterns (lidar 57) and the dark membrane roof (lidar 58); both were built 60. Lowered as part of this feature.
+LOWER = [((6187, -5537, 6205, -5516), 57), ((6169, -5518, 6201, -5492), 58)]
+
+
+def lower_map():
+    """{(x, z): new deck} for the B42 cells inside the LOWER rectangles that stand at 60 (the original deck)."""
+    v = RoofView(NAME, only=way_cells('33830305'))
+    out = {}
+    for (x0, z0, x1, z1), y in LOWER:
+        for q in v.part:
+            if x0 <= q[0] <= x1 and z0 <= q[1] <= z1 and v.deck(*q) >= 60:
+                out[q] = y
+    return out
+
+
+def lower_plan():
+    """Plan that cuts the listed roofs down to the lidar height: clear above the new deck, new slab, coping on the edge,
+    and a wall on the higher neighbours' boundary cells."""
+    from campus import Plan, N4
+    low = lower_map()
+    v = RoofView(NAME, only=way_cells('33830305'))
+    p = Plan(NAME + '-lower')
+    for (x, z), y in low.items():
+        edge = any((x + a, z + b) not in v.part for a, b in N4)
+        for yy in range(y + 1, 64):
+            p.set(x, yy, z, 'air')
+        p.set(x, y, z, 'light_gray_concrete')
+        if edge:
+            p.set(x, y + 1, z, 'smooth_stone_slab[type=bottom]')
+        for a, b in N4:
+            q = (x + a, z + b)
+            if q in v.part and q not in low and v.deck(*q) >= 60:
+                for yy in range(y + 1, 60):
+                    p.set(q[0], yy, q[1], 'light_gray_concrete')
+    return p
+
+
 def greeblies_plan():
     """Follow-up step of this feature: roof greeblies on the standing B42 roof (no re-plan of the shells)."""
-    v = RoofView(NAME, only=way_cells('33830305'))
+    v = RoofView(NAME, only=way_cells('33830305'), lower=lower_map())
     print('greeblies', roof_greeblies(v, GREEBLIES))
     return v.p
 
@@ -96,12 +134,18 @@ def build():
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--apply', action='store_true')
+    ap.add_argument('--lower', action='store_true', help='cut the two roofs lidar reads lower down to its height (run before --greeblies)')
     ap.add_argument('--greeblies', action='store_true', help='only the roof greeblies, on the standing build (feature follow-up)')
     a = ap.parse_args()
+    if a.lower:
+        plan = lower_plan()
+        preview(plan, ROOT / f'verification/site/{NAME}-lower-preview.png', scale=2)
+        apply(plan, dry=not a.apply, modifies=(NAME, NAME + '-greeblies', 'highfield_q051_ur'))
+        raise SystemExit(0)
     if a.greeblies:
         plan = greeblies_plan()
         preview(plan, ROOT / f'verification/site/{NAME}-greeblies-preview.png', scale=2)
-        apply(plan, dry=not a.apply, modifies=(NAME, NAME + '-greeblies'))
+        apply(plan, dry=not a.apply, modifies=(NAME, NAME + '-greeblies', NAME + '-lower', 'highfield_q051_ur'))
         raise SystemExit(0)
     c = make()
     plan = c.build(EXTRA)
