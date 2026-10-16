@@ -150,19 +150,161 @@ def residual_features(cell, idx=None):
     return feats + lump_features(lumps, taken, idx.streets)
 
 
+GOOGLE_REVIEW = SITE / 'GOOGLE-REVIEW.txt'
+_REVIEW_ROW = re.compile(r'^(\s+)(r\d+)(\s+)(-?\d+),(-?\d+)(\s+)(\d+)(\s+)(\w+)\s*$')
+REVIEW_STATUSES = ('todo', 'look', 'features', 'done')
+
+
+def google_review_rows():
+    """Rows of site/GOOGLE-REVIEW.txt (I-073) in file (ring) order.
+
+    @returns: [{'cell': (tx, tz), 'ring': 'r1', 'bld': int, 'status': str}]
+    """
+    try:
+        lines = GOOGLE_REVIEW.read_text().splitlines()
+    except OSError:
+        return []
+    rows = []
+    for ln in lines:
+        m = _REVIEW_ROW.match(ln)
+        if m:
+            rows.append({'cell': (int(m[4]), int(m[5])), 'ring': m[2], 'bld': int(m[7]), 'status': m[9]})
+    return rows
+
+
+def next_google_review():
+    """First Google-review row whose status is not "done".
+
+    @returns: row dict or None
+    """
+    return next((r for r in google_review_rows() if r['status'] != 'done'), None)
+
+
+def set_google_review_status(cell, status):
+    """Set one cell's status word in site/GOOGLE-REVIEW.txt, keeping the column layout.
+
+    @param cell: (tx, tz)
+    @param status: one of REVIEW_STATUSES
+    @returns: True when a row was changed
+    @raises ValueError: for an unknown status word
+    """
+    if status not in REVIEW_STATUSES:
+        raise ValueError(f'review status must be one of {", ".join(REVIEW_STATUSES)}')
+    lines = GOOGLE_REVIEW.read_text().splitlines()
+    changed = False
+    for i, ln in enumerate(lines):
+        m = _REVIEW_ROW.match(ln)
+        if m and (int(m[4]), int(m[5])) == tuple(cell):
+            lines[i] = ln[:m.start(9)] + status
+            changed = True
+    if changed:
+        GOOGLE_REVIEW.write_text('\n'.join(lines) + '\n')
+    return changed
+
+
+def google_review_cell(item):
+    """Cell of a "GOOGLE REVIEW cell X" queue item.
+
+    @param item: queue item dict
+    @returns: (tx, tz) or None
+    """
+    m = re.search(r'GOOGLE REVIEW cell\s+(-?\d+)\s*,\s*(-?\d+)', item.get('text', ''))
+    return (int(m[1]), int(m[2])) if m else None
+
+
+def google_review_block(qid, row):
+    """Queue text of a Google review item (same text as Q-180, I-073).
+
+    @param qid: queue id
+    @param row: google_review_rows() row
+    @returns: queue block text
+    """
+    tx, tz = row['cell']
+    return _queue_block(qid, f'GOOGLE REVIEW cell {tx},{tz} (first row of site/GOOGLE-REVIEW.txt not done; I-073). RULES: property.', [
+        f'Per I-073: (1) LOOK google_aerial.py sheet --cell {tx},{tz} --outlines, then --at for single buildings; record with',
+        'cell_sources --record google. (2) FEATURES every building against Google (roof form, ridge axis, colour/',
+        'material, rear wings, outbuildings, missing/extra); storeys photo first, then OSM levels, then lidar.',
+        'Keep or redo per building, snapshot first, stop rule I-009. (3) GROUND applied ground vs Google (I-068).',
+        'Update the row in site/GOOGLE-REVIEW.txt (look/features/done), note matches and mismatches in the cell',
+        f'STAGES file. End the chat with: site_handoff.py end {qid} --review-status look|features|done (default done).',
+    ])
+
+
+def lidar_lumps(cell):
+    """Pristine-Geocraft lidar lumps of a cell (lidar_heightmap), [] when the pristine save or world is unavailable.
+
+    @param cell: (tx, tz)
+    @returns: lidar_heightmap.lumps() items
+    """
+    try:
+        import lidar_heightmap as lh
+        return lh.lumps(lh.heightmap(lh.pristine_world(), cell))
+    except (OSError, ValueError, KeyError, SystemExit, ImportError):
+        return []
+
+
+def _inside(inner, outer):
+    return inner[0] >= outer[0] and inner[1] >= outer[1] and inner[2] <= outer[2] and inner[3] <= outer[3]
+
+
+def lidar_facts(lumps, bbox):
+    """Storeys / roof / ridge lines of the lidar lumps whose centre lies in a bbox (for the feature item).
+
+    @param lumps: lidar_lumps() output
+    @param bbox: (x0, z0, x1, z1)
+    @returns: ['lidar lump x0,z0..x1,z1: N storeys (estimate), roof R, ridge axis A[, T trees over roof]']
+    """
+    x0, z0, x1, z1 = bbox
+    out = []
+    for lp in lumps:
+        cx, cz = lp['centre']
+        if not (x0 <= cx <= x1 and z0 <= cz <= z1):
+            continue
+        b = lp['bbox']
+        out.append(f'lidar lump {b[0]},{b[1]}..{b[2]},{b[3]}: {lp.get("storeys")} storeys (estimate), roof {lp["roof"]}, '
+                   f'ridge axis {lp.get("ridge_axis") or "-"}' + (f', {lp["trees_over"]} cols tree over roof' if lp.get('trees_over') else ''))
+    return out
+
+
+def resolved_trees_over_roof(cell):
+    """stages.lidar.trees_over_roof_resolved from the cell stage file: [{'bbox': [...], 'reason': str}].
+
+    @param cell: (tx, tz)
+    @returns: list ([] if none)
+    """
+    return ((_cell_stages(cell) or {}).get('lidar') or {}).get('trees_over_roof_resolved', [])
+
+
+def trees_over_roof_open(cell, lumps=None):
+    """Lidar lumps with trees over the roof that no stage record resolves (I-071).
+
+    A lump is resolved when its bbox lies inside a recorded ``trees_over_roof_resolved`` bbox (a tree-pass
+    decision: crown kept over the roof, or the roof rebuilt). The trees pass writes the record.
+
+    @param cell: (tx, tz)
+    @param lumps: optional lidar_lumps(cell) result
+    @returns: [lump] still open
+    """
+    lumps = lidar_lumps(cell) if lumps is None else lumps
+    done = [r['bbox'] for r in resolved_trees_over_roof(cell) if r.get('bbox')]
+    return [lp for lp in lumps if lp.get('trees_over') and not any(_inside(lp['bbox'], d) for d in done)]
+
+
 def cell_gaps(cell, features=True):
     """What keeps a cell from being done.
 
     A cell is done when ground, trees and decor are applied, the trees mask follows the current
-    overhang rule (pass_mask.TREES_RULE, I-061) and no unrefined original Geocraft is left
-    (residual_features; recorded lump exceptions excepted).
+    overhang rule (pass_mask.TREES_RULE, I-061), no unrefined original Geocraft is left
+    (residual_features: every lidar lump built or excepted) and every lidar tree-over-roof is resolved
+    (trees_over_roof_open, I-071).
 
     @param cell: (tx, tz)
     @param features: also compute residual_features (slow: reads the world and OSM)
     A stage left 'applying' (aborted run, site_stages) is never done: it is reported first as
     in_flight 'in-flight: <plan>' and recovered with scripts/site_recover.py.
 
-    @returns: {'in_flight': ['in-flight: <plan>'], 'layers': [missing pass names], 'trees_stale': bool, 'features': [...]}
+    @returns: {'in_flight': [...], 'layers': [missing pass names], 'trees_stale': bool, 'features': [...],
+              'trees_over_roof': [open lidar lumps with trees over the roof]}
     """
     stages = _cell_stages(cell)
     in_flight = [f'in-flight: {v.get("plan", k)}' for k, v in (stages or {}).items()
@@ -176,7 +318,8 @@ def cell_gaps(cell, features=True):
         from pass_mask import trees_rule_current
         stale = not trees_rule_current(cell)
     return {'in_flight': in_flight, 'layers': layers, 'trees_stale': stale,
-            'features': residual_features(cell) if features else []}
+            'features': residual_features(cell) if features else [],
+            'trees_over_roof': trees_over_roof_open(cell) if features else []}
 
 
 def layers_done(cell):
@@ -188,7 +331,7 @@ def layers_done(cell):
     g = cell_gaps(cell, features=False)
     if g.get('in_flight') or g['layers'] or g['trees_stale']:
         return False
-    return not residual_features(cell)
+    return not residual_features(cell) and not trees_over_roof_open(cell)
 
 
 def next_cell(max_ring=12):
@@ -216,7 +359,7 @@ def requeue_plan(max_ring=12):
             if _cell_stages(cell) is None:
                 continue
             g = cell_gaps(cell)
-            if not (g.get('in_flight') or g['layers'] or g['trees_stale'] or g['features']):
+            if not (g.get('in_flight') or g['layers'] or g['trees_stale'] or g['features'] or g.get('trees_over_roof')):
                 continue
             out.append((cell[0], cell[1], r, g))
     return out
@@ -248,12 +391,21 @@ def advance_to_next_cell():
     @returns: first new queue item dict, or None if every cell is done
     """
     nxt = next_cell()
-    if not nxt:
+    review = next_google_review()
+    if not nxt and not review:
         return None
-    tx, tz, r = nxt
-    gaps = cell_gaps((tx, tz))
     n = _max_queue_number()
     blocks, first = [], None
+    if review and not any(google_review_cell(i) == review['cell'] for i in _queue_items() if i['open']):
+        n += 1
+        first = f'Q-{n:03d}'
+        blocks.append(google_review_block(first, review))
+    if not nxt:
+        QUEUE.write_text(QUEUE.read_text().rstrip('\n') + '\n' + ''.join(blocks))
+        return next((i for i in _queue_items() if i['id'] == first), None)
+    tx, tz, r = nxt
+    gaps = cell_gaps((tx, tz))
+    lumps = lidar_lumps((tx, tz)) if gaps['features'] else []
     if gaps.get('in_flight'):
         n += 1
         qid = f'Q-{n:03d}'
@@ -276,12 +428,20 @@ def advance_to_next_cell():
             'House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.',
             f'Lidar first: python3 scripts/lidar_heightmap.py --cell {tx},{tz}  (pristine Geocraft: storeys, roof shape, ridge axis, trees over roof, unmapped lumps).',
             'Use scripts/house_build.py: write site/builds/<name>.json (copy the nearest spec; ways, roofs, front), do not copy a build script.',
-        ] + ([
+        ] + lidar_facts(lumps, (x0, z0, x1, z1)) + ([
             'Original Geocraft still standing here (lump_scan). Not in OSM or outside its clip: trace the',
             'footprint from the aerial, record source + year (PROCESS.txt 2d-i). Residual after the build must',
             'be 0, or record an exception in the STAGES file (stages.lump_sweep.exceptions).',
         ] if lump else [f'Not covered by any feature build. Auto-queued; before the {tx},{tz} layered passes.'])
           + ([f'First item of a new cell: cell_marker.py --status (must be clean), then --raise {tx},{tz}.'] if not blocks else [])))
+    if gaps.get('trees_over_roof'):
+        n += 1
+        qid = f'Q-{n:03d}'
+        first = first or qid
+        blocks.append(_queue_block(qid, f'CELL {tx},{tz} (r={r}) TREES OVER ROOF {len(gaps["trees_over_roof"])} lidar lump(s) (I-071). RULES: foliage.', [
+            'Lidar shows tree columns over these roofs; decide each (crown kept over the roof, or roof/crown rebuilt) and record',
+            f'it in site/cells/{tx}_{tz}-STAGES.json stages.lidar.trees_over_roof_resolved = [{{"bbox": [x0,z0,x1,z1], "reason": ...}}].',
+        ] + lidar_facts(gaps['trees_over_roof'], (-10**9, -10**9, 10**9, 10**9))))
     if gaps['layers']:
         n += 1
         qid = f'Q-{n:03d}'
@@ -296,7 +456,7 @@ def advance_to_next_cell():
             f'Marker stays up after this run; clear it only when decor is done, checks',
             f'pass and all open issues for the cell are closed: cell_marker.py --clear {tx},{tz}.',
         ]))
-    elif gaps['trees_stale']:
+    if not gaps['layers'] and gaps['trees_stale']:
         n += 1
         qid = f'Q-{n:03d}'
         first = first or qid
@@ -828,7 +988,10 @@ def cmd_end(argv):
     Invoke it outside any command sandbox so ``say`` is audible; a sandbox
     fails fast with exit 3.
 
-    @param argv: remaining CLI args (Q-nnn, --summary, --view, optional --skip-say/--skip-view)
+    A "GOOGLE REVIEW cell X" item also sets that cell's row in site/GOOGLE-REVIEW.txt to
+    ``--review-status`` (look|features|done; default done), so advance_to_next_cell moves on.
+
+    @param argv: remaining CLI args (Q-nnn, --summary, --view, optional --skip-say/--skip-view/--review-status)
     @returns: exit code
     """
     done = None
@@ -879,6 +1042,17 @@ def cmd_end(argv):
         area_line = done_item['text']
         if len(area_line) > 160:
             area_line = area_line[:157].rstrip() + '…'
+
+    rc_cell = google_review_cell(done_item) if done_item else None
+    if rc_cell:
+        status = _flag_value(argv, '--review-status') or 'done'
+        try:
+            hit = set_google_review_status(rc_cell, status)
+        except ValueError as e:
+            print(f'ERROR: {e}', file=sys.stderr)
+            return 2
+        print(f'GOOGLE-REVIEW.txt: cell {rc_cell[0]},{rc_cell[1]} -> {status}' if hit
+              else f'GOOGLE-REVIEW.txt: no row for cell {rc_cell[0]},{rc_cell[1]}')
 
     ticked, owner = finish_item(done)
     print(f'{done or "no item"}: {"ticked [x]" if ticked else "already ticked / not in queue"}; '

@@ -45,7 +45,7 @@ class Base(unittest.TestCase):
         (self.site / 'HANDOFF.txt').write_text(HANDOFF_TEXT)
         patches = [mock.patch.object(H, n, v) for n, v in dict(
             SITE=self.site, QUEUE=self.site / 'QUEUE.txt', HANDOFF=self.site / 'HANDOFF.txt',
-            PENDING=self.site / '.handoff-pending.json', LOCK=self.site / 'LOCK.json',
+            PENDING=self.site / '.handoff-pending.json', GOOGLE_REVIEW=self.site / 'GOOGLE-REVIEW.txt', LOCK=self.site / 'LOCK.json',
             QUEUE_DONE=self.site / 'archive' / 'QUEUE-done.txt').items()]
         for p in patches:
             p.start()
@@ -112,11 +112,96 @@ class DoneTest(Base):
                 'street': 'Hartley Avenue', 'refs': ['w1'], 'bbox': (6400, -5500, 6430, -5480)}
         gaps = {'layers': [], 'trees_stale': True, 'features': [feat]}
         with mock.patch.object(H, 'next_cell', return_value=(48, -44, 0)), \
-                mock.patch.object(H, 'cell_gaps', return_value=gaps):
+                mock.patch.object(H, 'cell_gaps', return_value=gaps), \
+                mock.patch.object(H, 'lidar_lumps', return_value=[]):
             first = H.advance_to_next_cell()
         self.assertIn('FEATURE Hartley Avenue', first['text'])
         ids = [(i['id'], 'TREES re-run' in i['text']) for i in H._queue_items() if i['id'] > 'Q-002']
         self.assertEqual([t for _i, t in ids], [False, True])
+
+
+REVIEW_TEXT = '''head
+ ring  cell      bld  status
+  r0   1,1        4  done
+  r1   2,2        2  features
+  r1   3,3        8  todo
+'''
+
+
+class GoogleReviewTest(Base):
+    def setUp(self):
+        super().setUp()
+        (self.site / 'GOOGLE-REVIEW.txt').write_text(REVIEW_TEXT)
+
+    def test_first_row_not_done_is_next(self):
+        self.assertEqual(H.next_google_review()['cell'], (2, 2))
+        H.set_google_review_status((2, 2), 'done')
+        self.assertEqual(H.next_google_review()['cell'], (3, 3))
+        self.assertIn('  r1   3,3        8  todo', (self.site / 'GOOGLE-REVIEW.txt').read_text())
+
+    def test_bad_status_word_is_refused(self):
+        with self.assertRaises(ValueError):
+            H.set_google_review_status((2, 2), 'finished')
+
+    def test_review_item_is_queued_above_the_new_cell_items(self):
+        gaps = {'layers': ['ground'], 'trees_stale': False, 'features': [], 'trees_over_roof': []}
+        with mock.patch.object(H, 'next_cell', return_value=(4, 4, 2)), \
+                mock.patch.object(H, 'cell_gaps', return_value=gaps):
+            first = H.advance_to_next_cell()
+            H.advance_to_next_cell()            # the review item is open: not queued twice
+        self.assertIn('GOOGLE REVIEW cell 2,2', first['text'])
+        self.assertEqual(H.google_review_cell(first), (2, 2))
+        texts = [i['text'] for i in H._queue_items() if i['id'] > 'Q-002']
+        self.assertTrue(texts[0].startswith('GOOGLE REVIEW'))
+        self.assertEqual(sum('GOOGLE REVIEW' in t for t in texts), 1)
+        self.assertTrue(any('layered passes' in t for t in texts))
+
+    def test_end_of_review_chat_sets_the_row(self):
+        gaps = {'layers': [], 'trees_stale': False, 'features': [], 'trees_over_roof': []}
+        with mock.patch.object(H, 'next_cell', return_value=None), \
+                mock.patch.object(H, 'cell_gaps', return_value=gaps):
+            first = H.advance_to_next_cell()
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()), \
+                mock.patch('site_archive.run'):
+            H.main(['end', first['id'], '--summary', 's', '--skip-say', '--skip-view', '--review-status', 'look'])
+            self.assertEqual(H.next_google_review()['status'], 'look')
+            self.assertEqual(H.cmd_end([first['id'], '--summary', 's', '--skip-say', '--skip-view']), 0)
+        self.assertEqual(H.next_google_review()['cell'], (3, 3))
+
+
+class LidarGapsTest(Base):
+    LUMP = {'bbox': [10, 10, 20, 20], 'centre': [15, 15], 'storeys': 2, 'roof': 'pitched', 'ridge_axis': 'x', 'trees_over': 12}
+
+    def test_trees_over_roof_open_until_resolved(self):
+        self.assertEqual(H.trees_over_roof_open((1, 1), lumps=[self.LUMP]), [self.LUMP])
+        self.stages((1, 1), lidar={'trees_over_roof_resolved': [{'bbox': [5, 5, 30, 30], 'reason': 'crown kept'}]})
+        self.assertEqual(H.trees_over_roof_open((1, 1), lumps=[self.LUMP]), [])
+        self.assertEqual(H.trees_over_roof_open((1, 1), lumps=[dict(self.LUMP, trees_over=0)]), [])
+
+    def test_open_tree_over_roof_keeps_a_cell_not_done(self):
+        self.stages((1, 1), **APPLIED)
+        with mock.patch('pass_mask.trees_rule_current', return_value=True), \
+                mock.patch.object(H, 'residual_features', return_value=[]), \
+                mock.patch.object(H, 'lidar_lumps', return_value=[self.LUMP]):
+            self.assertFalse(H.layers_done((1, 1)))
+            self.assertEqual(H.cell_gaps((1, 1))['trees_over_roof'], [self.LUMP])
+
+    def test_feature_item_shows_lidar_storeys_roof_ridge(self):
+        feat = {'kind': 'building', 'label': 'Hartley Avenue', 'street': 'x', 'refs': ['w1'], 'bbox': (0, 0, 40, 40)}
+        gaps = {'layers': [], 'trees_stale': False, 'features': [feat], 'trees_over_roof': []}
+        with mock.patch.object(H, 'next_cell', return_value=(1, 1, 0)), \
+                mock.patch.object(H, 'cell_gaps', return_value=gaps), \
+                mock.patch.object(H, 'lidar_lumps', return_value=[self.LUMP]):
+            first = H.advance_to_next_cell()
+        blob = ' '.join(first['lines'])
+        self.assertIn('2 storeys (estimate), roof pitched, ridge axis x', blob)
+
+    def test_open_tree_over_roof_is_queued(self):
+        gaps = {'layers': [], 'trees_stale': False, 'features': [], 'trees_over_roof': [self.LUMP]}
+        with mock.patch.object(H, 'next_cell', return_value=(1, 1, 0)), \
+                mock.patch.object(H, 'cell_gaps', return_value=gaps):
+            first = H.advance_to_next_cell()
+        self.assertIn('TREES OVER ROOF 1', first['text'])
 
 
 class EndTest(Base):

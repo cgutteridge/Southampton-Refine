@@ -304,3 +304,191 @@ I-046  M  TOOL  done  (2026-10-15) site_handoff.py end (seen Q-109..Q-176, 2026-
   (tick QUEUE, release LOCK, clear nudge) runs first, then say/move/archive/starter (errors only warn), then the
   nudge is armed for the real next item (never the done one). Done id defaults to the lock task's Q-nnn. Test:
   scripts/test_site_handoff.py (temp SITE). The IndexError itself could not be reproduced; it can no longer strand state.
+
+I-060  L  HIGHFIELD  done  Review the trees in Library Square (user, 2026-10-15): it currently has an open lawn.
+  MERGED 2026-10-16 into I-059 (consolidation); live threads are in its CARRIED IN block.
+  Standing at (6232,85,-5639) at the time (cell 48,-45, inside zone mc, x 6150..6349, z -5787..-5583).
+  site/HIGHFIELD-ZONES.txt gives zone mc "Library Square formal lawn (no scatter trees)" and
+  site/archive/PARKED-2026-10-14.txt has an unchecked item "Library Square south lawn (open:w160022677, formal, no
+  scatter trees)". So the empty lawn is by an earlier decision, not an accident; the review is whether that
+  decision matches imagery (aerial + Street View look-only): are there real trees around/in the square that
+  the zone rule wiped out? Part of the I-059 family (tree phase vs reality) and I-057: if the answer is yes,
+  fix it through the same tree-phase mechanism (cover from imagery decides), not a special case for this
+  square. Backlog item; nothing inspected or changed yet.
+
+I-061  M  TREES  done  Half-cut trees at cell borders (user, 2026-10-15): tree at (6064,68,-5504) is cut in
+  MERGED 2026-10-16 into I-059 (consolidation); live threads are in its CARRIED IN block.
+  half exactly on the 47,-43 / 47,-44 border. Cause: every tree pass before the overhang rule (one rule: a tree
+  belongs to the cell its trunk is in; crown may overhang neighbours) clipped crowns at the cell edge, so every
+  border of every earlier cell has flat-cut crowns. The I-059 rerun only redoes cells that need MORE density
+  (2x rule), so 47,-43 and 47,-44 (both 'skip' in site/archive/TREE-DENSITY-BACKLOG.txt) keep their cut trees. Symptom of
+  I-059 / I-057, not a new rule: tree sites are deterministic (not shifted by neighbours), so re-running the tree
+  pass under the new rule in ALL finished cells restores whole crowns with no extra detector.
+  UPDATE 2026-10-15 (I-057): detection is a rule stamp, not a check step: pass_mask.build_mask writes rule
+  'overhang-v1' into every trees mask; trees_rule_current() also accepts unstamped masks that carry
+  outside_cell (written under the overhang rule), while old clip masks (dropped_outside_cell) and missing masks
+  are stale. cell_gaps -> next_cell re-queues those cells as 'TREES re-run' items automatically (28 of 32 cells
+  on 2026-10-15). Action: after the
+  I-059 batch, re-run trees (new rule) for every finished cell not yet redone, one at a time, neighbours
+  merging; then no 'clip' behaviour is left anywhere. Check decor interplay per cell.
+
+I-044  M  50,-43  done  3 doors unreachable by site_walk at (6528,46,-5421), (6528,46,-5431), (6528,46,-5436):
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
+  50,-43 Hartley/Merton-side houses (Q-105 builds), found by the Q-174 reachability sweep, untouched.
+  Action: inspect, add door steps or fix kerb levels, re-run site_walk over cell 50,-43.
+
+I-042  M  AERIAL  done  Aerial coverage is patchy/black over the whole ring-2/3 area west and east of Highfield:
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
+  z19 tiles west of 260105 are blank server-side (z18 upsampled fallback, blurry), several mosaics built by hand
+  (mosaic-z19-15x15..-filled-z18west-matched, 15x17 northext, 18x17 eastext..eastext6, tile origin 260101,175662).
+  Roof colours across ~60 houses (Chamberlain, Oakhurst, Burgess, Granby, Ripstone, Merton, Blenheim...) are
+  hints, not read from imagery. Action: pick one canonical mosaic, record it in SOURCES, then re-check roof
+  colours from a better source (Street View look-only) in review.
+  2026-10-15 (I-050): no aerial extent change; only the OSM clip extent was widened (x5760..6783, z-6144..-5120).
+  2026-10-15 (user walk, symptom of I-057): 47,-45 ground east of the big grey-roof building (way 442), x6054-6074
+  z-5712..-5682, is light_gray_concrete in the plan AND the world; the aerial (aerial_annot, highfield-campus z18
+  8x8) shows lawn + a diagonal dirt path, OSM there is grass (pri 30). Today's ground_sources.aerial_class on the
+  current MOSAIC (eastext6) gives lawn/shade for those columns, so the plan (highfield_47_m45_ground, 10-14 20:14)
+  was made before MOSAIC eastext6 (10-15 09:05) and the 10-15 07:53 ground_sources change. Unconfirmed: needs a
+  ground_layer dry run for 47,-45 to see how many columns flip paving->grass. Ground plans dated before 10-15 09:06
+  (all cells above 51,-42's) may carry the same fault; check with dry runs, not per-cell hand fixes.
+  2026-10-15 (user, stop 2 of vision walk): y58 canopy by the white building (way 444) 'not great'; user added a sharp Google Maps
+  aerial: reference/aerial/highfield-user/googlemaps-music-law-annex-2026-10-15.webp (manifest id aerial-highfield-user-googlemaps-...).
+  Not georeferenced yet. Use it to redo the canopy and the grey-vs-lawn ground east of Building 2 (I-057 process, not a hand fix).
+  2026-10-15 user vision walk (47,-45 / 50,-42 / 49,-42), in-world: y54 diagonal canopy (6050-6059,-5708..-5691): building
+  wrong but Good Enough, accepted; ground east of it grey where aerial shows lawn (see above). y58 canopy by Building 2:
+  'not great', redo once the Google aerial is registered. Welbeck Avenue frontage (50,-42): good enough. Oakdene Court +
+  Church Lane garages (49,-42): looks good. Marker I-045 still on 50,-42, not cleared (user's call).
+  2026-10-16 (ground vs Google ref, 47,-45): ground_layer.classify ranked any mapped surface of priority >= 40 above the aerial, so a lawn
+  strip inside an OSM pedestrian area (Building 2 east strip, x6132-6141 z-5748..-5731) was paved however clear the aerial was.
+  Added: registered-aerial lawn inside a mapped plaza -> grass (ground_layer.py, test in test_ground_layer.py, 21 tests OK); the
+  registered-aerial colour source (ground_sources.registered_rgb, RegRGB) was added by an earlier agent that died mid-task. Dry run
+  flips only 19 columns: of ~170 strip columns about 83 are owned by earlier structure builds (promenade slabs/stone, skipped by
+  design) and ~64 are plaza paving the Google image also shows as paving. Applied 2026-10-16 on the user's go: ground 13 blocks changed, trees (12953) and decor (734) re-run after mask undo, 0 mismatches, oak at 6139,-5742 intact.
+  2026-10-16 (checked before changing the layer; user doubted it would work, and was right): the strip columns the ground layer skips as 'structure build' are
+  not a promenade. Profiles e.g. (6133,-5738), (6136,-5744): ground y52, then smooth_stone floors every 3 blocks up to y67 and a roof at y71,
+  i.e. the highfield_nuffield_law build of Building 2 cantilevers over the lawn strip, about 3 blocks further east than the Google image
+  shows (registration is 2-3 blocks uncertain away from its ties, so unconfirmed). Free columns beside it (e.g. x6135) are paved because the
+  registered colour there reads as promenade. An 'ignore high overhead blocks' change to ground_layer would only let it plan ground under
+  the overhang and would not make the strip lawn. Not changed. Real fix is the Building 2 build's east edge (building accuracy), not the ground layer. 47,-45 decor re-run done
+  2026-10-16 SPEED (from the 'btw: why is this so slow' thread, user asked for it): ground dry run 47,-45 74 s -> 22 s with identical output.
+  (1) ground_sources.poly_cells: numpy even-odd fill, same formula, so the same columns (OSMGround 47,-45 35.0 s -> 2.8 s; checked
+  identical against the old scan for kind/pri/feat/water/soft/hedge/wall/fence/bridge/road/marks, plus a randomised test in
+  test_ground_layer.py). (2) site_kit.built_cells: per-file pickle cache in backups/cells-cache (git-ignored, keyed by mtime+size,
+  rebuilt per file when a cells file changes; atomic writes), merge by dict.update/pop per file; 10.2 s -> 4.5 s warm, 12 s on the first
+  cold run, result identical to the old loop on 2.24M cells. All 200 script tests pass. Further saving if wanted: cache the merged dict.
+  2026-10-16 SPEED round 2 (user: implement all four): (a) site_kit.World.block caches bit width per section; World.uniform_air + lump_scan.surface
+  jump all-air 16-block sections (block reads in next --plan 39M -> 7M); (b) pass_mask.decode_runs numpy (68 real masks, 637k blocks 1.7 s -> 0.4 s);
+  (c) osm_footprints.cells vectorised (408k cells 2.4 s -> 0.3 s); (d) coverage.touched_by_build memoised per process, keyed on every
+  *-cells.json name+mtime+size (68 calls per next --plan, 0.19 s -> 0.03 s each). coverage.decode_runs left as it was (a C-set variant was slower).
+  Every change checked identical to the old code on real data (verify script) and covered in scripts/test_speedups.py; 205 tests pass.
+  Timings now: next --plan ~50 s -> 21 s; ground dry run 47,-45 74 s -> 18 s; decor dry run 23 s; trees dry run 51 s (not yet profiled, now the slowest).
+  2026-10-16 (734 blocks, 0 mismatches); the dead agent's lock was stale and taken over normally.
+  2026-10-15 20:40 CAUSE CONFIRMED + FIXED (47,-45 only): the 10-14 plan's aerial was the older mosaic with BLACK (no-data) pixels over
+  the west ~half of the cell; ground_sources.aerial_class read black as 'dark' -> paving/tarmac. Dry run on current MOSAIC flips 2765
+  grey columns to lawn (303 in the x6054-6074 z-5712..-5682 box). Process fix: ground_sources.aerial_rgb now drops blank pixels
+  (window mean < NO_DATA_LUM 0.01; 3.9% of the current mosaic is still pure black, so this guards the edges), test in
+  test_ground_layer.TestAerialNoData. Applied to 47,-45: ground (3058 blocks changed), trees redone 44->72 crowns, decor redone 38->712 blocks
+  (mask undo + reapply, snapshots backups/regions/2026-10-15-2029*/2032*/2033*/2035*/2037*), readback 0 (ground 3 = dirt under trunks), patrol
+  clean in cell, doors unchanged. SCOPE: other early plans (before 10-15 09:05) are likely affected: dry runs show 47,-44 ~1140 and
+  47,-43 ~1360 grey->lawn columns, 49,-45 ~700 and 48,-44 (hand-made, not touched) ~60 mixed flips; 46,-45 none. NOT applied: re-plan each
+  with ground_layer dry run, then redo ground->trees->decor per cell. User to eyeball 47,-45 (kinds image highfield_47_m45_ground-kinds.png).
+
+I-041  L  HOUSES  done  Overnight run (Q-107..Q-177) was verified by readback + site_walk only: no in-world walk
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
+  for most builds (player tools unused). Visual-check items to look at: Hilldown 7-15 / 13 / west side roofs,
+  Roselands 30 and 35/36 fronts (OSM frontage E/W vs aerial road NE), Burgess Rd 82b west-corner brick pillar,
+  Burgess Rd 225-231 rear doors, Burgess Rd shop fronts 170-196 and door steps, Chamberlain Rd 53-65 roof colour,
+  Oakhurst no.117 door side, Furzedown tall brick walls (old Geocraft?), Q-137 C/D stoops, Q-117 north rows
+  of 197/200, Q-117 took 20 cells of highfield_48_m43_ground at the 48,-43 edge, Q-129 cleared 2 leaf blocks of a
+  tree at Oakhurst door (mask undo will conflict), Q-152 shaved a grass bump 6495,54,-5888, Q-176 lowered 3
+  grass cells at 6543,43,-5377..-5379, Q-171 added slab 6562,-5617, Q-163 gravel alley behind Mayfield looks wide.
+
+I-037  M  HIGHFIELD  done  Building at player position (6089,68,-5599) is badly messed up
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
+  Reported by user 2026-10-14 while standing at MC x 6089, y 68, z -5599 (cell 47,-44,
+  campus polygon; COVERAGE lists it done-bar). "Really messed up this feature" - exact
+  defect and building id not yet specified. Action: inspect on next Highfield review
+  (view_capture + scan around x 6070-6108, z -5615..-5582), identify the building/OSM
+  way, note what is wrong, then schedule a rebuild queue item.
+  2026-10-15 CELL 49,-42 (I-057 symptom work; marker untouched): 19 buildings built house-only (scripts/build_cell_49_m42_lumps.py + fix_cell_49_m42_lumps.py), trees re-run 127 -> 108 crowns,
+  readback 0 everywhere, lump_scan 0, cell_gaps empty, 82 doors none sealed in a pocket (site_walk components, door_report). Process refinements in the script, not new rules: surface scan treats
+  grass_block as ground and goes down to y30 (the 50,-42 scan skipped grass_block and stopped at y41: fails where lawn is y39-40); stoop stairs also for a 1-block rise; rear door only onto open ground;
+  fringe roof that meets an earlier build's roof is dropped, not clashed; door check is component size (the old fixed goal point 10 out gave false alarms). Patrol: 13 door_to_wall, all Broadlands Rd (not this cell).
+  Check by eye: Oakdene Court (4 levels, flat roof assumed from roof:levels=0), garages w280523743 (single storey, flat, no aerial checked), roofs all deepslate tile = hint.
+
+I-064  M  LIDAR  done  BACKLOG umbrella (user, 2026-10-16): no hard reset. Review every NON-HOUSE feature against the pristine
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
+  lidar data (scripts/lidar_heightmap.py: h, roof, tree, storeys, ridge, UNMAPPED) and improve what the data shows is wrong or
+  guessed. Houses are out of scope here (house_build specs handle them). Work one item below per chat; each ends with a
+  region snapshot, a dry run, and a note in the cell STAGES file. Order: I-065 first (tooling), then I-066..I-071.
+
+I-065  M  TOOL  done  (2026-10-16) Lidar audit tool + safety. DONE: (a) pristine_path() stops loudly; read-only APFS clone in
+  backups/pristine-geocraft/region; (b) scripts/lidar_audit.py --cell tx,tz; (c) site/cells/<tx>_<tz>-LIDAR.txt for the 35 touched cells
+  (lidar_heightmap.py --tables); (d) storeys = round((ridge - ground - 3) / 3): 57% exact, 89% within one level of OSM
+  building:levels over 54 lumps (eave height is useless). Original request: (a) lidar_heightmap fails loudly when pristine_region_path is missing (today it
+  returns empty columns); copy the pristine region folder to backups/ (1.6 GB, read-only source is outside the repo). (b)
+  scripts/lidar_audit.py: for a footprint/bbox compare the built top height, roof shape and ridge axis in the live world with
+  the pristine map; list columns off by >= 2 blocks. (c) run lidar_heightmap --cell on every touched cell with --write and
+  keep the lump tables in site/cells/<tx>_<tz>-LIDAR.txt. (d) calibrate STOREY / eave estimate against known 2-storey streets.
+
+I-066  M  CAMPUS  done  Highfield campus buildings vs lidar: Shackleton B44 (physics repair, I-038 era), Library B34/B18, Engineering,
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
+  Mountbatten, Nuffield/Law, Life Sciences, Maths/Murray, Faraday, SUSU west, B35, B30/B37, B29, Early Years/Estates, school
+  r2310853 (47,-43). Check storey heights, roof type, ridge axis, courtyards/pockets (campus.lidar_parts, fill_pockets) against the
+  new height map; fix with campus.py, one building per run.
+
+I-067  M  TREES  done  Trees pass vs lidar tree columns (kind 2/3). Geocraft draws every lidar tree return as log+leaf, so the pristine
+  MERGED 2026-10-16 into I-059 (consolidation); live threads are in its CARRIED IN block.
+  map is a direct crown inventory (position, height, spread). Compare each cell's planned/applied crowns (trees_layer, I-059/I-061
+  clipped trees) with it: missing crowns, invented crowns, wrong heights, crowns over roofs (kind 3). Replaces the aerial-only
+  cover guess where they disagree; Library Square (I-060) is the first test.
+
+I-068  M  GROUND  done  Ground pass vs lidar: ground/paving heights against pristine base under lumps (floor levels, ledges, the
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
+  step_out cases in house_build), terraces and slopes, kerb and path heights (campus grounds zones mc/mw/sc/sw/nc/ne/nw/se/me).
+  Find columns where the applied surface differs from base by >= 2 without a reason.
+  Google satellite is now the primary evidence for surface type; this is worked cell by cell inside I-073.
+
+I-069  L  SPECIAL  done  Small non-house structures vs lidar: Oakdene Court (4 levels, flat roof assumed), garages (49,-42), bike
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
+  shed, toilets, staff club pond, canopies (47,-45 y54 diagonal, physics canopies 47,-44), Welbeck Ave lump fixes. Roof shape and
+  height from the lump table; keep or rebuild.
+  DONE 2026-10-16, user confirmed (after v4): Oakdene Court w173805553: REBUILT roof + openings (scripts/oakdene_court.py, REVIEWS 2026-10-16). Earlier the same day it was judged KEEP on shape
+  and height; the photo + Google comparison then showed dark slate roof and slit windows. Stays open until the user confirms in the game.
+  USER (2026-10-16, first rebuild): "roof is ok. windows are on the corners in mc but not real world. one block panes in corners looks bad. no windows in
+  the back -- that's weird if you can't see it, infer. there is no glass in the balconies. the front has room for 2x1 windows and balcony as it's
+  _WW_BB_WW_ ... so we have some learning to do." Rebuilt v2 (same day): 2x1 pairs on straight faces only, WW_BB_WW front with open 2-wide balcony,
+  same rhythm inferred on the back; rules in CRAFTSMANSHIP section 2. OPEN: the 45-degree stepped wings have no windows (no straight run);
+  ask user: leave brick, square the wings, or window each step. Waiting for user check.
+  USER (2026-10-16, v2): "windows very nice now. doors; whatever if you can't see a doorway you have to put one somewhere I guess. Roof... slabs mean the
+  glass floats." v3: lantern glass now on a full block (rule added to CRAFTSMANSHIP section 4). Rear door position stays an inference. Waiting for user check.
+  USER (2026-10-16, v3): "I think it's a skylight". v4: the rooftop feature is a flush dark skylight set into the roof (tinted_glass replacing 3x2 slabs), not a raised
+  box. User confirmed: "ok yes".
+  Follow-up (user, 2026-10-16, after confirming): "we should have windows on diagonal walls. Important to not use pane-glass on diagonals." v5: wings now
+  have full-glass-block windows in the step corners (oakdene_court.py diagonal_chains); rule in CRAFTSMANSHIP section 2. User: "bit ott". v6: thinned to one block every third step cell.
+  User: "avoid windows on sharp corners unless visual reference material confirms the building definitely has them". v7: the cells exposed two ways
+  on the wings are the step corners (v6 had glass on them); wing windows now sit on the flat treads between corners (spaced(), TREAD_GAP 4), 7 per storey.
+  Sparse from the SE; no photo/aerial of the wings confirms corner windows. User confirmed 2026-10-16: "it's ok" (wings stay sparse, not squared). Oakdene Court closed.
+  (earlier note) SETTLED KEEP: Street View (1 look-only frame, Church Lane yaw 90, logged in 49_-42-SOURCES) shows 4 window rows, flat
+  roof with white fascia, central stair block a little taller than the wings. Live build: floors y46/49/52/55, flat slab y58 (surface 58.5 vs lidar 58.06, within
+  rounding). Only difference: lidar wings read 1 lower than the centre (56 vs 57); left as is (good enough). Lidar said 3 storeys: see I-071.
+
+I-070  L  LUMPS  done  Re-run the lump report on all cells and settle I-048 (49,-43 canopy strip, 50,-43 outbuilding) and the 3 truly
+  MERGED 2026-10-16 into I-073 (consolidation); live threads are in its CARRIED IN block.
+  unmapped lumps (46,-46, 48,-47, 49,-47) using storeys/roof from the lidar instead of guessing; record exceptions in STAGES.
+
+I-071  L  QUEUE  done (2026-10-16, Q-179)  Feature queue text and cell_gaps: make the lidar table part of "cell done" (every lump built or excepted,
+  Implemented together with Q-179 (same code: cell_gaps / advance_to_next_cell); do not edit those functions in two chats.
+  every tree-over-roof resolved), and have the feature item show storeys/roof/ridge from lidar_heightmap automatically.
+  Storey evidence order (user, 2026-10-16) now lives in rules/evidence-order.md. Known lidar bias: ground_y is the median of the ring AROUND the lump, so a
+  building on a bank above the road is measured too tall by the bank height (Oakdene Court: lidar 3, photo + OSM 4). DONE 2026-10-16
+  (18d11d5): flat/pitched judged on the interior of wide lumps (rim blur read as eave). Open: lumps over ~400 columns merge several
+  buildings, so one flat/pitched label per lump is not meaningful (report "mixed" or judge per OSM building).
+
+I-072  M  SOURCES  done  (2026-10-16, all 14 cells) Wrong aerial in cell SOURCES files (found 2026-10-16 reviewing Oakdene Court, 49,-42). references_for_cell() matched any manifest
+  row whose mc_tiles touched the cell, so an aerial clipping a cell edge counted as "primary aerial" / "[HAVE] aerial". FIXED in code (cell_coverage(), an aerial
+  must show >= 50% of the cell; test_cell_sources) and in 49,-42 (new mosaic aerial/highfield-welbeck, manifest + SOURCES regenerated). STILL WRONG: 14 of the 33
+  cells whose SOURCES name a primary aerial cover < 50% of the cell: 46,-42 46,-44 47,-42 47,-44 48,-42 48,-43 48,-44 48,-45 50,-42 50,-45 51,-42 51,-43 51,-44 51,-45
+  (several at 0-5%). Per cell: aerial_mosaic.py --at <cell centre> --zoom 18 --dir aerial/<name>, ref_manifest add, cell_sources --cell tx,tz --write. Do it as each cell is
+  opened, not in bulk. Note 48,-44 and 48,-45 are the two finished cells (their ground/decor were built from whatever aerial existed).

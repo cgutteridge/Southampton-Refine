@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import sys
 import unittest
+from unittest import mock
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -44,6 +45,21 @@ class TestGrid(unittest.TestCase):
         self.assertEqual(page.count('<img '), (tx1 - tx0 + 1) * (ty1 - ty0 + 1))
         self.assertIn('x6370', page)
         self.assertIn('<polygon', page)
+
+    def test_outlines_are_drawn_with_their_labels(self):
+        ring = [(6360, -5290), (6370, -5290), (6370, -5280), (6360, -5280), (6360, -5290)]
+        page = ga.sheet_html((6354, -5302, 6404, -5252), 20, 't', outlines=[{'ring': ring, 'label': '441'}])
+        self.assertEqual(page.count('class="osm"'), 1)
+        self.assertIn('>441</text>', page)
+        self.assertNotIn('class="osm"', ga.sheet_html((6354, -5302, 6404, -5252), 20, 't'))
+
+    def test_osm_outlines_keep_buildings_with_a_vertex_in_the_box(self):
+        inside = ([[(10, 10), (20, 10), (20, 20), (10, 10)]], {'osm_way_id': 'w123456'})
+        outside = ([[(900, 900), (910, 900), (910, 910), (900, 900)]], {'osm_way_id': 'w999'})
+        fake = type('I', (), {'buildings': [inside, outside]})
+        with mock.patch('osm_footprints.OSMIndex', return_value=fake):
+            out = ga.osm_outlines((0, 0, 50, 50))
+        self.assertEqual([o['label'] for o in out], ['456'])
 
 
 if __name__ == '__main__':

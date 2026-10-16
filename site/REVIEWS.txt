@@ -1,16 +1,4 @@
 Older reviews: site/archive/REVIEWS-archive.txt (scripts/site_archive.py).
-2026-10-16  I-069 Oakdene Court (w173805553, cell 49,-42) rebuilt (Claude). scripts/oakdene_court.py, build oakdene_court (4,843 cells, then re-applied 3 times on user steering: WW_BB_WW windows + open balconies, skylight). Readback 0; footprint check OK; 81/81 doors reachable. Snapshot southampton_refine:before_oakdene_court.
-            Replaced only the first build's roof and openings (it kept floors, doors, 4 storeys, plan); cleared only the old build's blocks (no trees).
-            Evidence: Street View look-only frame Church Lane yaw 90 (4 window rows, white balcony fronts over the entrance); Google z20 sheet at
-            6379,-5277 (flat pale roof, white fascia, glazed skylight); uni aerial mosaic-z18-3x3-centre-130055-87838 + verification/site/oakdene/aerial-oakdene.png.
-            Matches: (1) pale smooth_stone flat roof with a white quartz fascia ring, as both aerials; (2) four rows of windows with white balcony panels
-            stacked over the entrance and a window each side, as the Street View frame; (3) chevron plan and roof height still equal lidar (live 59 vs 58 = skylight).
-            Mismatches: (1) windows are 1-wide panes (2-wide pairs only on straight runs; the entrance face is too short for pairs) where the real ones are ~2 wide;
-            (2) SE-face balconies, taller stair core (lidar 58 vs 57 wings) and cars not built; (3) skylight position is a hint (aerial lean).
-TOKEN NOTES (Oakdene)
-- Reuse the 49,-42 builder by subclass (floors/doors/stoops proven) instead of a new generator; its clear() strips ring-2 incl. trees, so a re-run must
-  clear only the build's own recorded blocks (cells.json), as oakdene_court.py does.
-- Check aerial coverage before opening a mosaic (I-072); the first one opened did not cover the building.
 2026-10-12  Q-045 done: ring-1 rear lanes, driveways and car-park aisles round the
             Broadlands focus (Claude). Build broadlands_ring1_lanes (5,948 cells), 25 path
             parcels signed at 100% (cells 54..56, -45..-43; all ring-1 service/path ways

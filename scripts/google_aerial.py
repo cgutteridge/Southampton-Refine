@@ -12,6 +12,7 @@ cyan, labelled) so a position on the picture reads straight off as a block coord
   python3 scripts/google_aerial.py sheet --cell 49,-42            # whole cell, z19
   python3 scripts/google_aerial.py sheet --at 6379,-5277          # around a building, z20, radius 30 blocks
   python3 scripts/google_aerial.py sheet --at 6379,-5277 --radius 60 --zoom 19
+  python3 scripts/google_aerial.py sheet --cell 49,-42 --outlines # + OSM building outlines (red, way-id tail) to compare at a glance
   python3 scripts/google_aerial.py url --at 6379,-5277 --zoom 19  # the single tile URL
 
 Sheet: instance/google-aerial/<name>.html (gitignored). Open it as file://... in the browser pane.
@@ -101,13 +102,31 @@ def grid_lines(bbox: tuple[int, int, int, int]) -> list[dict]:
     return out
 
 
-def sheet_html(bbox: tuple[int, int, int, int], zoom: int, title: str, scale: float = 2.0) -> str:
+def osm_outlines(bbox: tuple[int, int, int, int]) -> list[dict]:
+    """OSM building outlines with a vertex inside a bbox, labelled by the last 3 digits of the way id (as aerial_annot.py).
+
+    @param bbox: MC x0, z0, x1, z1
+    @returns: [{'ring': [(x, z), ...], 'label': str}]
+    """
+    from osm_footprints import OSMIndex
+    x0, z0, x1, z1 = bbox
+    out = []
+    for rings, props in OSMIndex().buildings:
+        ring = rings[0]
+        if any(x0 <= x <= x1 and z0 <= z <= z1 for x, z in ring):
+            out.append({'ring': list(ring), 'label': str(props.get('osm_way_id') or props.get('osm_id') or '')[-3:]})
+    return out
+
+
+def sheet_html(bbox: tuple[int, int, int, int], zoom: int, title: str, scale: float = 2.0,
+               outlines: list[dict] | None = None) -> str:
     """The sheet page: seamless tiles, the bbox outline and the labelled MC grid.
 
     @param bbox: MC x0, z0, x1, z1 to outline (tiles cover it and a margin)
     @param zoom: zoom level
     @param title: heading text
     @param scale: on-screen size of one 256 px tile, as a multiple
+    @param outlines: optional building outlines (osm_outlines()), drawn red with a yellow label at the centroid
     @returns: HTML text
     """
     tx0, ty0, tx1, ty1 = tile_range(bbox, zoom)
@@ -126,6 +145,17 @@ def sheet_html(bbox: tuple[int, int, int, int], zoom: int, title: str, scale: fl
         svg += (f'<line x1="{ax:.1f}" y1="{ay:.1f}" x2="{bx:.1f}" y2="{by:.1f}" stroke="{col}" stroke-opacity=".55" stroke-width="1"/>'
                 f'<text x="{ax + 2:.1f}" y="{ay + 11:.1f}" fill="{col}" font-size="11">{ln["axis"]}{ln["value"]}</text>')
     c = px[-4:]
+    if outlines:
+        flat = [p for o in outlines for p in o['ring']]
+        proj = [((fx - tx0) * s, (fy - ty0) * s) for fx, fy in mc_to_tile(flat, zoom)]
+        i = 0
+        for o in outlines:
+            pts = proj[i:i + len(o['ring'])]
+            i += len(o['ring'])
+            svg += ('<polygon points="' + ' '.join(f'{x:.1f},{y:.1f}' for x, y in pts)
+                    + '" fill="none" stroke="#f33" stroke-width="1.5" class="osm"/>')
+            cx, cy = sum(x for x, _ in pts) / len(pts), sum(y for _, y in pts) / len(pts)
+            svg += f'<text x="{cx:.1f}" y="{cy:.1f}" fill="#ff0" font-size="11" text-anchor="middle">{html.escape(o["label"])}</text>'
     svg += '<polygon points="' + ' '.join(f'{x:.1f},{y:.1f}' for x, y in (c[0], c[1], c[2], c[3])) + '" fill="none" stroke="#f33" stroke-width="2"/>'
     w, h = (tx1 - tx0 + 1) * s, (ty1 - ty0 + 1) * s
     return (f'<!doctype html><meta charset=utf-8><title>{html.escape(title)}</title>'
@@ -136,7 +166,8 @@ def sheet_html(bbox: tuple[int, int, int, int], zoom: int, title: str, scale: fl
             f'grid every {GRID} blocks.</p><div id=m>{imgs}<svg width="{w}" height="{h}">{svg}</svg></div>')
 
 
-def write_sheet(name: str, bbox: tuple[int, int, int, int], zoom: int, title: str, scale: float) -> Path:
+def write_sheet(name: str, bbox: tuple[int, int, int, int], zoom: int, title: str, scale: float,
+                outlines: list[dict] | None = None) -> Path:
     """Write the sheet under instance/google-aerial/.
 
     @param name: file stem
@@ -144,11 +175,12 @@ def write_sheet(name: str, bbox: tuple[int, int, int, int], zoom: int, title: st
     @param zoom: zoom level
     @param title: heading text
     @param scale: tile display scale
+    @param outlines: optional building outlines (osm_outlines())
     @returns: path
     """
     SHEETS.mkdir(parents=True, exist_ok=True)
     out = SHEETS / f'{name}.html'
-    out.write_text(sheet_html(bbox, zoom, title, scale))
+    out.write_text(sheet_html(bbox, zoom, title, scale, outlines))
     return out
 
 
@@ -179,6 +211,7 @@ def main() -> int:
     ap.add_argument('--radius', type=int, default=30, help='blocks either side of --at (default 30)')
     ap.add_argument('--zoom', type=int, help='default 19 for a cell, 20 for --at')
     ap.add_argument('--scale', type=float, default=2.0, help='on-screen size of a tile as a multiple of 256 px')
+    ap.add_argument('--outlines', action='store_true', help='draw the OSM building outlines (red, way-id tail) on the sheet')
     a = ap.parse_args()
     bbox, name, zoom = _bbox(a)
     if a.cmd == 'url':
@@ -187,7 +220,8 @@ def main() -> int:
         print(tile_url(int(fx), int(fy), zoom))
         return 0
     try:
-        path = write_sheet(name, bbox, zoom, f'Google aerial {name} z{zoom}', a.scale)
+        outlines = osm_outlines(bbox) if a.outlines else None
+        path = write_sheet(name + ('_osm' if a.outlines else ''), bbox, zoom, f'Google aerial {name} z{zoom}', a.scale, outlines)
     except ValueError as e:
         print(e, file=sys.stderr)
         return 2

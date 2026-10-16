@@ -134,6 +134,9 @@ Google satellite tiles (ALWAYS look, every cell; added 2026-10-16, user)
   z19 tile ~48 blocks, z20 ~24 blocks. Do not use the tile URL by hand; use the sheet:
     python3 scripts/google_aerial.py sheet --cell TX,TZ            # whole cell at z19, MC grid every 10 blocks
     python3 scripts/google_aerial.py sheet --at X,Z [--radius 30]  # a building at z20
+    add --outlines to draw the OSM building outlines (red, way-id tail in yellow) so each building compares at a glance;
+    the file is then <name>_osm.html. Review chats (site/GOOGLE-REVIEW.txt, I-073) are queued automatically by
+    site_handoff.py next; end one with: site_handoff.py end Q-nnn --review-status look|features|done (default done).
   It writes instance/google-aerial/<name>.html; open it as file://... in the built-in browser. Tiles load from Google
   in the browser; nothing is downloaded. Look, write what it shows (roof, materials, footprint, trees) in the cell
   SOURCES / script docstring, then record it:
