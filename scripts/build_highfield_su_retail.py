@@ -34,7 +34,7 @@ PART = Part('b57', BASE, DECK, floors=(BASE, BASE + 3), cells=cells, wall='white
 BOX = bbox([PART], pad=3)
 OLD_RETAIL = {'highfield_library_b34_b18', 'highfield_library_b34_b18-greeblies', 'highfield_library_b34_b18-retail-fill', 'highfield_q052_b57'}
 KEEP = {'highfield_48_m44_trees'}
-DOORS = [(None, 6230, -5571, None)]
+DOORS = [(None, 6225, -5566, None)]      # portal 57-A "Union Shop" (reference/portals, scripts/portals.py)
 # roof features, measured off the Google sheet (see docstring): the solar array and the plant box
 FEATURES = [
     ('patch', [(6234, -5573), (6250, -5567), (6249, -5564), (6234, -5570)], 'light_gray_concrete', 1),

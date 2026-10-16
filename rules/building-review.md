@@ -6,7 +6,8 @@ One building per review. Skip any building that already has an open feature item
 1. **Read the data, not the label.** Lump row (`site/cells/<cell>-LIDAR.txt`), `lidar_audit.py --cell`, and the raw
    height grid of the building. Labels (flat/pitched, storeys) are estimates until the grid and a photo agree.
    Done when you can say what lidar shows for shape, top Y and floor level.
-2. **Gather evidence in `rules/evidence-order.md` order.** One Street View frame, a Google sheet
+2. **Gather evidence in `rules/evidence-order.md` order.** For a university building run `scripts/portals.py cell tx,tz` first: it
+   gives every entrance's exact position and name (a canopy or door found in OSM/the build may be one of them: 42-A, 2026-10-16). One Street View frame, a Google sheet
    (`google_aerial.py`), and a university aerial that covers the building (check `bbox_mc`, `rules/reference-token-budget.md`).
    Log each with `cell_sources.py --record`. Done when storeys, roof and openings each name a source.
 3. **Compare the live build with the photos side by side.** Game capture from the photo's camera, a top-down capture beside the
