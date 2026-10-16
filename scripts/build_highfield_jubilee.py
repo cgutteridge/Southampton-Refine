@@ -79,7 +79,7 @@ class Jubilee(Campus):
         if pt.name.startswith('b18_') and any(d == (1, 0) for d in ex):
             if y - pt.base < 2 or y in pt.floors[:1]:
                 return 'bricks'
-            return 'black_concrete' if z % 4 == 0 else 'glass'
+            return 'black_concrete' if z % 4 == 0 else 'tinted_glass'      # dark reflective glass in the 18-A photo
         return super().wall_block(x, y, z, pt, ex)
 
 
@@ -122,6 +122,6 @@ if __name__ == '__main__':
     print('\n'.join(notes))
     preview(plan, ROOT / f'verification/site/{NAME}-preview.png', scale=1)
     owners = {b for b, _s in built_cells(within=plan.cells).values()}
-    mod = tuple(sorted((owners | OLD | {'highfield_48_m43_trees', 'highfield_49_m43_trees'}) - {NAME}))    # the porch wall may take a few leaf cells
+    mod = tuple(sorted((owners | OLD | {'highfield_48_m43_trees', 'highfield_48_m44_trees', 'highfield_49_m43_trees'}) - {NAME}))    # the porch wall may take a few leaf cells
     print('replaces blocks of', mod)
     apply(plan, dry=not a.apply, modifies=mod)

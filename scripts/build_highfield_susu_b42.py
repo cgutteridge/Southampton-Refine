@@ -57,7 +57,7 @@ class B42(Campus):
             return b
         if any(d == (0, -1) for d in ex) and x >= PLAZA_X0 and z <= PLAZA_Z1:
             floors = set(pt.floors) | {pt.base, pt.deck}
-            return 'black_concrete' if (y in floors or (x + z) % 3 == 0) else 'glass'
+            return 'black_concrete' if (y in floors or (x + z) % 3 == 0) else 'tinted_glass'     # dark reflective glazing in the photos
         return 'white_concrete'
 
 

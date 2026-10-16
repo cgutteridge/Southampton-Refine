@@ -98,10 +98,10 @@
       "status": "applied-with-mismatches",
       "plan": "highfield_jubilee",
       "owner": "claude-q180",
-      "started": "2026-10-16 20:23:15",
-      "blocks": 180668,
+      "started": "2026-10-16 20:27:59",
+      "blocks": 180667,
       "structure": {
-        "name": "southampton_refine:before_highfield_jubilee",
+        "name": "southampton_refine:before_highfield_jubilee_20261016202758",
         "from": [
           6209,
           50,
@@ -115,11 +115,11 @@
       },
       "snapshot": null,
       "planned": "verification/site/highfield_jubilee-planned.json",
-      "finished": "2026-10-16 20:23:22",
+      "finished": "2026-10-16 20:28:15",
       "readback": {
-        "planned": 180668,
-        "mismatches": 2,
-        "checked": "2026-10-16 20:23:22"
+        "planned": 180667,
+        "mismatches": 1,
+        "checked": "2026-10-16 20:28:15"
       }
     }
   }
