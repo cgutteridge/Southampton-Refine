@@ -78,6 +78,7 @@ DOORS = [(None, 6296, -5642, None), (None, 6390, -5640, None), (None, 6352, -556
 STAIRS = [(b36[0].name, centre(b36[0])), (b34[0].name, centre(b34[0])),
           (b57[0].name, centre(b57[0])), ('b18x', centre(b18x))]
 BOX = bbox(PARTS, pad=2)
+# The SU Retail Centre (33830236) is no longer built here: scripts/build_highfield_su_retail.py (one clean build).
 # Roof greeblies of the Jubilee Sports Complex (OSM 93729745), measured off the Google z20 sheet 2026-10-16
 # (google_aerial.py --at 6243,-5495 --radius 44 --zoom 20 --outlines). Sports hall: white standing-seam roof with two
 # seams, a plant yard of AC units at the NW corner (flat: lidar reads the hall deck, 64, there), round roof lights and hatches. Extension (2025, south): beige flat
@@ -103,30 +104,9 @@ EXT_GREEBLIES += [
         [(6265, -5450), (6273, -5452), (6274, -5447), (6265, -5445)], [(6275, -5473), (6283, -5476), (6284, -5472), (6276, -5470)],
         [(6279, -5465), (6287, -5468), (6288, -5464), (6279, -5462)], [(6282, -5457), (6291, -5460), (6291, -5456), (6283, -5452)]]],
 ]
-# SU Retail Centre (OSM 33830236), Google z20 sheet at 6238,-5563 (2026-10-16): white flat roof, a solar array on the north half,
-# a grey gutter strip along the long axis and one along the west end, a plant box at the east end. Heights are lidar's (0 off).
-RETAIL_GREEBLIES = [
-    ('patch', [(6210, -5585), (6262, -5585), (6262, -5545), (6210, -5545)], 'white_concrete', 0),
-    ('line', [(6227, -5572), (6252, -5560)], 'gray_concrete', 0),
-    ('line', [(6225, -5567), (6228, -5575)], 'gray_concrete', 0),
-    ('patch', [(6234, -5573), (6250, -5567), (6249, -5564), (6234, -5570)], 'light_blue_terracotta', 1),
-    ('fan', 6254, -5563),
-]
 EXTRA = None
 MODIFIES = (NAME, NAME + '-greeblies', NAME + '-greeblies-restore', NAME + '-greeblies-coping', NAME + '-greeblies-cleanup',
             NAME + '-greeblies-yardclear', NAME + '-retail-fill', 'highfield_q052_b57', 'highfield_q051_ur')
-
-
-def retail_fill_plan():
-    """The retail roof's rim band was built at lidar's blurred edge height (58/59), a pit round the north edge: fill it to the
-    61 roof level (lidar's flat top) so the roof is solid (user, 2026-10-16: huge holes where the solar panels are)."""
-    from campus import Plan
-    v = RoofView(NAME, only=way_cells('33830236'), live=True)
-    p = Plan(NAME + '-retail-fill')
-    for (x, z), t in v._top.items():
-        for y in range(t + 1, 62) if t < 61 else ():
-            p.set(x, y, z, 'white_concrete')
-    return p
 
 
 def greeblies_plan():
@@ -135,10 +115,7 @@ def greeblies_plan():
     ext = RoofView(NAME, only=sports & new)          # colours of the 2025 extension stay on its own cells (user: no spill)
     hall = RoofView(NAME, only=sports - new)
     print('greeblies ext', roof_greeblies(ext, EXT_GREEBLIES), 'hall', roof_greeblies(hall, HALL_GREEBLIES))
-    retail = RoofView(NAME, only=way_cells('33830236'), live=True)      # q052 re-did the retail roof after this build: read the world
-    print('retail', roof_greeblies(retail, RETAIL_GREEBLIES))
     ext.p.cells.update(hall.p.cells)
-    ext.p.cells.update(retail.p.cells)
     return ext.p
 
 
@@ -153,13 +130,8 @@ def build():
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--apply', action='store_true')
-    ap.add_argument('--retail-fill', action='store_true', help='fill the SU retail roof rim pit to roof level (run before --greeblies)')
     ap.add_argument('--greeblies', action='store_true', help='only the roof greeblies, on the standing build (feature follow-up)')
     a = ap.parse_args()
-    if a.retail_fill:
-        plan = retail_fill_plan()
-        apply(plan, dry=not a.apply, modifies=MODIFIES)
-        raise SystemExit(0)
     if a.greeblies:
         plan = greeblies_plan()
         preview(plan, ROOT / f'verification/site/{NAME}-greeblies-preview.png', scale=2)
