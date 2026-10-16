@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'scripts'))
 from site_kit import Plan, apply, built_cells, preview  # noqa: E402
 from campus import Campus, Part, bbox, roof_greeblies, way_cells  # noqa: E402
+from entrances import entrances  # noqa: E402
 
 NAME = 'highfield_su_retail'
 WAY = '33830236'
@@ -34,7 +35,7 @@ PART = Part('b57', BASE, DECK, floors=(BASE, BASE + 3), cells=cells, wall='white
 BOX = bbox([PART], pad=3)
 OLD_RETAIL = {'highfield_library_b34_b18', 'highfield_library_b34_b18-greeblies', 'highfield_library_b34_b18-retail-fill', 'highfield_q052_b57'}
 KEEP = {'highfield_48_m44_trees'}
-DOORS = [(None, 6225, -5566, None)]      # portal 57-A "Union Shop" (reference/portals, scripts/portals.py)
+DOORS = []                                  # portal 57-A "Union Shop" (reference/portals): scripts/entrances.py, below
 # roof features, measured off the Google sheet (see docstring): the solar array and the plant box
 FEATURES = [
     ('patch', [(6234, -5573), (6250, -5567), (6249, -5564), (6234, -5570)], 'light_gray_concrete', 1),
@@ -46,9 +47,33 @@ def make():
     return Campus(NAME, [PART], (WAY,), BOX, DOORS, [], avoid_built=False)
 
 
+class PlanOverWorld:
+    """block() of a plan where it has the cell, else of the live world."""
+
+    def __init__(self, plan, world):
+        self.plan, self.world = plan, world
+
+    def block(self, x, y, z):
+        return self.plan.cells.get((x, y, z)) or self.world.block(x, y, z)
+
+
 def build():
     c = make()
     plan = c.build(lambda cc: print('roof features', roof_greeblies(cc, FEATURES)))
+    from site_kit import OUT, World, _parse_cells_file
+    ep, notes = Plan(NAME), []
+    entrances(ep, PlanOverWorld(plan, World()), cells, {'57-A': (6225, -5566)}, notes, double={'57-A'}, flat={'57-A'},
+              style={'57-A': ('iron_door', 'white_concrete')}, check_walls=False)      # Union Shop: glazed shop doors, white frame
+    plan.cells.update(ep.cells)
+    print('\n'.join(notes))
+    try:                                              # an earlier version of this build (Campus door, approach steps): put back what was under it
+        oldown, _air = _parse_cells_file(OUT / f'{NAME}-cells.json')
+        prev = built_cells(exclude=(NAME,), within=list(oldown))
+        for q in oldown:
+            if q not in plan.cells:
+                plan.set(*q, prev[q][1] if q in prev else 'minecraft:air')
+    except (OSError, ValueError, KeyError):
+        pass
     # clear what the earlier retail builds left standing on the footprint (and one cell round it) above the plaza, then the new
     # shell on top; trees and other builds' blocks are never cleared
     col = [(x + a, y, z + b) for x, z in cells for a in (-1, 0, 1) for b in (-1, 0, 1) for y in range(BASE + 1, DECK + 6)]

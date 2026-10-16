@@ -407,10 +407,10 @@
       "status": "applied",
       "plan": "highfield_su_retail",
       "owner": "claude-q180",
-      "started": "2026-10-16 19:42:59",
-      "blocks": 14943,
+      "started": "2026-10-16 20:41:27",
+      "blocks": 14978,
       "structure": {
-        "name": "southampton_refine:before_highfield_su_retail_20261016194259",
+        "name": "southampton_refine:before_highfield_su_retail_20261016204127",
         "from": [
           6218,
           51,
@@ -424,11 +424,11 @@
       },
       "snapshot": null,
       "planned": "verification/site/highfield_su_retail-planned.json",
-      "finished": "2026-10-16 19:43:05",
+      "finished": "2026-10-16 20:41:34",
       "readback": {
-        "planned": 14943,
+        "planned": 14978,
         "mismatches": 0,
-        "checked": "2026-10-16 19:43:05"
+        "checked": "2026-10-16 20:41:34"
       }
     },
     "feature-highfield_susu_entrances": {
