@@ -290,7 +290,15 @@ I-068  M  GROUND  open  Ground pass vs lidar: ground/paving heights against pris
 I-069  L  SPECIAL  open  Small non-house structures vs lidar: Oakdene Court (4 levels, flat roof assumed), garages (49,-42), bike
   shed, toilets, staff club pond, canopies (47,-45 y54 diagonal, physics canopies 47,-44), Welbeck Ave lump fixes. Roof shape and
   height from the lump table; keep or rebuild.
+  SETTLED 2026-10-16 Oakdene Court w173805553: KEEP. Street View (1 look-only frame, Church Lane yaw 90, logged in 49_-42-SOURCES) shows 4 window rows, flat
+  roof with white fascia, central stair block a little taller than the wings. Live build: floors y46/49/52/55, flat slab y58 (surface 58.5 vs lidar 58.06, within
+  rounding). Only difference: lidar wings read 1 lower than the centre (56 vs 57); left as is (good enough). Lidar said 3 storeys: see I-071.
 I-070  L  LUMPS  open  Re-run the lump report on all cells and settle I-048 (49,-43 canopy strip, 50,-43 outbuilding) and the 3 truly
   unmapped lumps (46,-46, 48,-47, 49,-47) using storeys/roof from the lidar instead of guessing; record exceptions in STAGES.
 I-071  L  QUEUE  open  Feature queue text and cell_gaps: make the lidar table part of "cell done" (every lump built or excepted,
   every tree-over-roof resolved), and have the feature item show storeys/roof/ridge from lidar_heightmap automatically.
+  Storey evidence order (user, 2026-10-16): Street View / Rightmove / other-side photos, then OSM building:levels, then the lidar
+  estimate as a fallback; label lidar counts as estimates. Known lidar bias: ground_y is the median of the ring AROUND the lump, so a
+  building on a bank above the road is measured too tall by the bank height (Oakdene Court: lidar 3, photo + OSM 4). DONE 2026-10-16
+  (18d11d5): flat/pitched judged on the interior of wide lumps (rim blur read as eave). Open: lumps over ~400 columns merge several
+  buildings, so one flat/pitched label per lump is not meaningful (report "mixed" or judge per OSM building).
