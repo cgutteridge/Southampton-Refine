@@ -43,10 +43,10 @@
       "status": "applied",
       "plan": "highfield_susu_west-greeblies",
       "owner": "claude-q180",
-      "started": "2026-10-16 18:46:31",
+      "started": "2026-10-16 18:55:59",
       "blocks": 2017,
       "structure": {
-        "name": "southampton_refine:before_highfield_susu_west-greeblies_20261016184631",
+        "name": "southampton_refine:before_highfield_susu_west-greeblies_20261016185559",
         "from": [
           6148,
           53,
@@ -60,11 +60,11 @@
       },
       "snapshot": null,
       "planned": "verification/site/highfield_susu_west-greeblies-planned.json",
-      "finished": "2026-10-16 18:46:38",
+      "finished": "2026-10-16 18:56:05",
       "readback": {
         "planned": 2017,
         "mismatches": 0,
-        "checked": "2026-10-16 18:46:38"
+        "checked": "2026-10-16 18:56:05"
       }
     },
     "feature-highfield_library_b34_b18-greeblies-restore": {
@@ -177,6 +177,34 @@
         "planned": 2,
         "mismatches": 0,
         "checked": "2026-10-16 18:52:44"
+      }
+    },
+    "feature-highfield_susu_west-greeblies-cleanup": {
+      "status": "applied",
+      "plan": "highfield_susu_west-greeblies-cleanup",
+      "owner": "claude-q180",
+      "started": "2026-10-16 18:55:41",
+      "blocks": 2,
+      "structure": {
+        "name": "southampton_refine:before_highfield_susu_west-greeblies-cleanup",
+        "from": [
+          6162,
+          55,
+          -5538
+        ],
+        "to": [
+          6169,
+          55,
+          -5534
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_susu_west-greeblies-cleanup-planned.json",
+      "finished": "2026-10-16 18:55:47",
+      "readback": {
+        "planned": 2,
+        "mismatches": 0,
+        "checked": "2026-10-16 18:55:47"
       }
     }
   },

@@ -463,7 +463,8 @@ def roof_greeblies(c, items):
       ('louvre', poly)                louvred plant vent (user: these are vents, not skylights): flat iron trapdoors on the roof
       ('dome', x, z)               2x2 round rooflight: glass over quartz slabs
       ('fan', x, z)                extract fan / plant unit: one gray block
-    Only cells of the build's own parts are touched; a position off the roof is skipped and counted.
+    Only cells of the build's own parts are touched; point items move off the edge (coping) to the nearest interior cell,
+    and are skipped and counted when there is none.
 
     @param c: Campus (after shells)
     @param items: list of tuples as above
@@ -490,6 +491,19 @@ def roof_greeblies(c, items):
                         c.set(x, c.deck(x, z) + 1 + k, z, blk)
                     top[(x, z)] = h
                     n_ok += 1
+    def inner(x, z, size):
+        """Nearest spot (within 2) whose size x size cells are all roof and none on the edge (coping): a point
+        greeblie on a coping slab hovers or towers over it (user, 2026-10-16)."""
+        for r in range(0, 3):
+            for dx in range(-r, r + 1):
+                for dz in range(-r, r + 1):
+                    if max(abs(dx), abs(dz)) != r:
+                        continue
+                    qs = [(x + dx + a, z + dz + b) for a in range(size) for b in range(size)]
+                    if all(ok(*q) and not edge(*q) for q in qs):
+                        return x + dx, z + dz
+        return None, None
+
     def cells_of(it):
         if it[0] == 'patch':
             poly = it[1]
@@ -526,11 +540,11 @@ def roof_greeblies(c, items):
             n_ok += bool(cells)
             n_skip += not cells
             continue
-        x, z = it[1], it[2]
-        cells = [(x + a, z + b) for a in (0, 1) for b in (0, 1)] if kind == 'dome' else [(x, z)]
-        if not all(ok(*q) for q in cells):
+        x, z = inner(it[1], it[2], 2 if kind == 'dome' else 1)
+        if x is None:
             n_skip += 1
             continue
+        cells = [(x + a, z + b) for a in (0, 1) for b in (0, 1)] if kind == 'dome' else [(x, z)]
         for qx, qz in cells:
             y = y_of(qx, qz)
             if kind == 'vent':
