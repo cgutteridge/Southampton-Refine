@@ -37,6 +37,34 @@
         "checked": "2026-10-14 16:39:35"
       },
       "mask": "verification/site/masks/decor-48_-43.mask.json"
+    },
+    "feature-highfield_library_b34_b18-greeblies": {
+      "status": "applied",
+      "plan": "highfield_library_b34_b18-greeblies",
+      "owner": "claude-q180",
+      "started": "2026-10-16 17:58:16",
+      "blocks": 2939,
+      "structure": {
+        "name": "southampton_refine:before_highfield_library_b34_b18-greeblies",
+        "from": [
+          6214,
+          62,
+          -5531
+        ],
+        "to": [
+          6302,
+          67,
+          -5426
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_library_b34_b18-greeblies-planned.json",
+      "finished": "2026-10-16 17:58:23",
+      "readback": {
+        "planned": 2939,
+        "mismatches": 0,
+        "checked": "2026-10-16 17:58:23"
+      }
     }
   }
 }

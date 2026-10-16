@@ -436,7 +436,9 @@ def roof_greeblies(c, items):
 
     Positions are measured off the Google sheet (google_aerial.py). Items, in this order of effect:
       ('plinth', poly, h, block)   raised pale roof block, h above the deck, over cells inside poly
-      ('vent', x, z)               round vent / roof light: one white block on the roof (or plinth)
+      ('vent', x, z[, block])      round vent / roof light: one block (default white) on the roof (or plinth)
+      ('patch', poly, block, lvl)  area of one block: lvl 0 recolours the roof surface, lvl 1 stands on it (solar panels)
+      ('line', [(x, z), ...], block, lvl)  1-wide run (seam, duct) along the points, same levels as patch
       ('hatch', x, z)              access hatch: flat iron trapdoor
       ('louvre', poly)                louvred plant vent (user: these are vents, not skylights): flat iron trapdoors on the roof
       ('dome', x, z)               2x2 round rooflight: glass over quartz slabs
@@ -468,9 +470,31 @@ def roof_greeblies(c, items):
                         c.set(x, c.deck(x, z) + 1 + k, z, blk)
                     top[(x, z)] = h
                     n_ok += 1
+    def cells_of(it):
+        if it[0] == 'patch':
+            poly = it[1]
+            xs, zs = [q[0] for q in poly], [q[1] for q in poly]
+            return [(x, z) for x in range(min(xs), max(xs) + 1) for z in range(min(zs), max(zs) + 1)
+                    if inside(x + 0.5, z + 0.5, poly)]
+        out = []
+        for (ax, az), (bx, bz) in zip(it[1], it[1][1:]):
+            n = max(abs(bx - ax), abs(bz - az), 1)
+            out += [(round(ax + (bx - ax) * i / n), round(az + (bz - az) * i / n)) for i in range(n + 1)]
+        return out
+
     for it in items:
         kind = it[0]
         if kind == 'plinth':
+            continue
+        if kind in ('patch', 'line'):
+            blk, lvl = it[2], it[3]
+            cells = [q for q in cells_of(it) if ok(*q) and (lvl == 0 or not edge(*q))]
+            for x, z in cells:
+                c.set(x, c.deck(x, z) + lvl if lvl == 0 else y_of(x, z), z, blk)
+                if lvl:
+                    top[(x, z)] = top.get((x, z), 0) + 1
+            n_ok += bool(cells)
+            n_skip += not cells
             continue
         if kind == 'louvre':
             poly = it[1]
@@ -490,7 +514,7 @@ def roof_greeblies(c, items):
         for qx, qz in cells:
             y = y_of(qx, qz)
             if kind == 'vent':
-                c.set(qx, y, qz, 'white_concrete')
+                c.set(qx, y, qz, it[3] if len(it) > 3 else 'white_concrete')
             elif kind == 'hatch':
                 c.set(qx, y, qz, 'iron_trapdoor[facing=north,half=bottom,open=false]')
             elif kind == 'fan':

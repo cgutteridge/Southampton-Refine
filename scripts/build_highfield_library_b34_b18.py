@@ -32,8 +32,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'scripts'))
 from site_kit import apply, preview  # noqa: E402
-from campus import (Campus, N4, Part, XZ, aerial_rgb, bbox, centre, lidar_parts,  # noqa: E402
-                    pitched_part, tiled, way_cells)
+from campus import (Campus, N4, Part, RoofView, XZ, aerial_rgb, bbox, centre, lidar_parts,  # noqa: E402
+                    pitched_part, roof_greeblies, tiled, way_cells)
 
 NAME = 'highfield_library_b34_b18'
 BRICK = dict(wall='bricks', glass='glass', rows=(1, 2), pier=3, corner_glass=True)
@@ -78,7 +78,36 @@ DOORS = [(None, 6296, -5642, None), (None, 6390, -5640, None), (None, 6352, -556
 STAIRS = [(b36[0].name, centre(b36[0])), (b34[0].name, centre(b34[0])),
           (b57[0].name, centre(b57[0])), ('b18x', centre(b18x))]
 BOX = bbox(PARTS, pad=2)
+# Roof greeblies of the Jubilee Sports Complex (OSM 93729745), measured off the Google z20 sheet 2026-10-16
+# (google_aerial.py --at 6243,-5495 --radius 44 --zoom 20 --outlines). Sports hall: white standing-seam roof with two
+# seams, a plant yard of AC units at the NW corner, round roof lights and hatches. Extension (2025, south): beige flat
+# roof, a blue-grey metal strip along its north edge, rows of tilted solar panels (navy), white duct runs.
+GREEBLIES = [
+    ('patch', [(6250, -5483), (6277, -5495), (6303, -5490), (6303, -5425), (6230, -5425), (6229, -5473), (6238, -5476)],
+     'white_terracotta', 0),
+    ('patch', [(6250, -5483), (6277, -5495), (6279, -5489), (6253, -5476)], 'light_blue_terracotta', 0),
+    ('line', [(6247, -5531), (6263, -5495)], 'light_gray_concrete', 0),
+    ('line', [(6230, -5508), (6252, -5521)], 'light_gray_concrete', 0),
+    ('plinth', [(6215, -5519), (6223, -5517), (6224, -5509), (6217, -5507)], 2, 'light_gray_concrete'),
+    *[('fan', x, z) for x, z in [(6217, -5516), (6220, -5515), (6221, -5512), (6218, -5510)]],
+    *[('vent', x, z, 'light_gray_concrete') for x, z in [(6224, -5525), (6226, -5522), (6228, -5517), (6229, -5514)]],
+    *[('hatch', x, z) for x, z in [(6243, -5510), (6234, -5505), (6247, -5499), (6238, -5494), (6228, -5489), (6225, -5502)]],
+    ('line', [(6264, -5478), (6269, -5469)], 'white_concrete', 1),
+    ('line', [(6273, -5468), (6279, -5452)], 'white_concrete', 1),
+    *[('patch', q, 'blue_concrete', 1) for q in [
+        [(6253, -5480), (6257, -5481), (6258, -5478), (6254, -5477)], [(6268, -5487), (6274, -5488), (6274, -5485), (6269, -5484)],
+        [(6257, -5466), (6265, -5468), (6267, -5465), (6258, -5462)], [(6261, -5457), (6269, -5460), (6270, -5457), (6262, -5454)],
+        [(6265, -5450), (6273, -5452), (6274, -5447), (6265, -5445)], [(6275, -5473), (6283, -5476), (6284, -5472), (6276, -5470)],
+        [(6279, -5465), (6287, -5468), (6288, -5464), (6279, -5462)], [(6282, -5457), (6291, -5460), (6291, -5456), (6283, -5452)]]],
+]
 EXTRA = None
+
+
+def greeblies_plan():
+    """Follow-up step of this feature: roof greeblies on the standing Jubilee roof (no re-plan of the shells)."""
+    v = RoofView(NAME, only=way_cells('93729745'))
+    print('greeblies', roof_greeblies(v, GREEBLIES))
+    return v.p
 
 
 def make():
@@ -92,7 +121,13 @@ def build():
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--apply', action='store_true')
+    ap.add_argument('--greeblies', action='store_true', help='only the roof greeblies, on the standing build (feature follow-up)')
     a = ap.parse_args()
+    if a.greeblies:
+        plan = greeblies_plan()
+        preview(plan, ROOT / f'verification/site/{NAME}-greeblies-preview.png', scale=2)
+        apply(plan, dry=not a.apply, modifies=(NAME,))
+        raise SystemExit(0)
     c = make()
     plan = c.build()
     print('parts', {pt.name: sum(1 for q in c.part.values() if q is pt) for pt in PARTS})
