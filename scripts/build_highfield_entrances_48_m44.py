@@ -33,6 +33,14 @@ STYLE = {'18-A': ('iron_door', 'gray_concrete'), '40-A': ('dark_oak_door', 'bric
 def build():
     w = World()
     plan, notes = Plan(NAME), []
+    from site_kit import OUT, _parse_cells_file
+    try:                                              # an earlier version of this plan: put back what was under it first
+        old, _air = _parse_cells_file(OUT / f'{NAME}-cells.json')
+        prev = built_cells(exclude=(NAME,), within=list(old))
+        for q in old:
+            plan.set(*q, prev[q][1] if q in prev else 'minecraft:air')
+    except (OSError, ValueError, KeyError):
+        pass
     footprints = {way: way_cells(way) for way in WAYS}
     for p in portals.in_cell(48, -44):
         if p['id'] in ('18-A', '40-B') or p['building'] in ('42', '57'):
@@ -53,7 +61,7 @@ if __name__ == '__main__':
     a = ap.parse_args()
     plan, notes = build()
     print('\n'.join(notes))
-    mod = tuple(sorted({b for b, _s in built_cells(within=plan.cells).values()} - {NAME} | {'highfield_q061_stragglers'}))
+    mod = tuple(sorted({b for b, _s in built_cells(within=plan.cells).values()} - {NAME} | {'highfield_q061_stragglers', 'highfield_susu_west'}))
     print('changes cells of', mod)
     preview(plan, ROOT / f'verification/site/{NAME}-preview.png', scale=2)
     apply(plan, dry=not a.apply, modifies=mod)

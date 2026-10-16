@@ -76,7 +76,7 @@ def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_d
     @param y0: door height override (default: ground outside + 1)
     @param frame: jamb/lintel block (black_concrete metal frames at the Union, gray_concrete at the Jubilee porch, bricks, white); glass flanks
                   only beside a metal/white frame, matching brick beside a brick one
-    @param fascia: a white sign band two high over the lintel, one cell wider each side (the Us. entrance, 40-A)
+    @param fascia: a white sign band one high over the lintel, as wide as the door frame (the Us. entrance, 40-A)
     @param leaf: door block: 'iron_door' (grey metal: the glazed metal-framed doors in the portal photos) or 'dark_oak_door'
     """
     face = FACE[(dx, dz)]
@@ -105,9 +105,8 @@ def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_d
                 plan.set(cx, yy, cz, blk)
         plan.set(cx, y0 + 2, cz, frame)                                         # lintel
     if fascia:
-        for k in range(lo - 1, hi + 2):
-            for yy in (y0 + 3, y0 + 4):
-                plan.set(x + k * ax, yy, z + k * az, WALL)
+        for k in range(lo, hi + 1):
+            plan.set(x + k * ax, y0 + 3, z + k * az, WALL)
     notes.append(f'{width} {leaf or "opening"}/{frame} at {x},{y0},{z} facing {face}, ground outside {y0 - 1}')
 
 
