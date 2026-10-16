@@ -9,8 +9,8 @@ Evidence (rules/evidence-order.md):
   storeys  Street View look-only frame, Church Lane yaw 90 (50.931839,-1.395051): 4 window rows            -> 4 storeys of 3
   roof     Google z20 sheet at 6379,-5277 + uni aerial: flat, pale grey membrane, white fascia, a dark glazed
            lantern, one block high, on the roof near x6376; lidar interior columns flat (57/58)                              -> smooth_stone slabs
-  openings Street View: regular grid of paired windows, recessed white-fronted balconies stacked over the
-           entrance on the W face                                                                         -> 2-wide window pairs, balcony pockets
+  openings Street View: the 8-cell straight front reads WW_BB_WW per storey (user, 2026-10-16): 2x1 window pairs, a 2-wide open
+           balcony (white front, no glass) over the entrance, brick piers; same rhythm inferred for every straight face
   not done (good enough): white balconies on the SE face, the taller stair core (lidar 58 centre vs 57 wings), cars.
 The lantern position is a hint (aerial lean puts roof detail a few blocks off its ground position).
 
@@ -62,16 +62,15 @@ def runs(cells, d):
     return out
 
 
-def window_slots(n):
-    """Indexes along a straight run of n wall cells that get glass: 2-wide pairs every 4, centred, one solid flank at each end;
-    a 3-cell run gets a single pane; shorter runs none."""
-    if n < 3:
-        return []
-    pairs = n // 4
+def pair_slots(n):
+    """Window pairs along a straight run of n wall cells: [(i, i+1), ...], one-block brick piers between them, the group centred.
+    The run's two end cells are already walls beside a corner cell, so a pair may start at the very end of the run.
+    A real front is e.g. 8 cells = WW_BB_WW (windows, balcony, windows); every face gets the same rhythm so unseen backs are inferred."""
+    pairs = (n + 1) // 3
     if not pairs:
-        return [n // 2]
-    off = (n - (4 * pairs - 2)) // 2
-    return [off + 4 * i + j for i in range(pairs) for j in (0, 1)]
+        return []
+    off = (n - (3 * pairs - 1)) // 2
+    return [(off + 3 * i, off + 3 * i + 1) for i in range(pairs)]
 
 
 class Oakdene(m.Build):
@@ -93,48 +92,54 @@ class Oakdene(m.Build):
         print('earlier Oakdene blocks cleared:', gone)
 
     def windows(self, k, h):
+        """2-wide window pairs on straight faces only (never on corners or the stepped diagonals: a lone pane there looks wrong).
+        The middle pair of the entrance face is the balcony instead (WW_BB_WW)."""
         b = h.b
-        door = [q for q in (getattr(h, 'door', None), getattr(h, 'rear', None)) if q]
-        near = lambda c: any(abs(c[0] - q[0]) + abs(c[1] - q[1]) < 3 for q in door)
+        front = getattr(h, 'door', None)
+        doors = {q for q in (front, getattr(h, 'rear', None)) if q}
         exp = {c: [d for d in 'NSEW' if self.exposed(c, d)] for c in h.walls}
-        spots = []                                    # (cell, axis)
-        for d in 'NSEW':
-            for run in runs([c for c, e in exp.items() if e == [d]], d):
-                spots += [(run[i], 'z' if d in 'EW' else 'x') for i in window_slots(len(run))]
-        for c, e in exp.items():                      # 45 degree stepped faces (the wings): a pane every third step, as before
-            if len(e) > 1 and (c[0] + c[1]) % 3 == 0:
-                spots.append((c, 'z' if e[0] in 'EW' else 'x'))
         n = 0
-        for c, axis in spots:
-            if near(c):
-                continue
-            n += 1
-            for s in range(h.levels):
-                self.set(c[0], b + 2 + 3 * s, c[1], pane(axis))
-        print('window spots', n, 'x', h.levels, 'storeys')
-        self.balconies(h)
+        for d in 'NSEW':
+            axis = 'z' if d in 'EW' else 'x'
+            for run in runs([c for c, e in exp.items() if e == [d]], d):
+                slots = pair_slots(len(run))
+                balcony = None
+                if front in run and len(slots) % 2 == 1:            # only the front entrance has balconies over it, not the rear door
+                    mid = slots[len(slots) // 2]
+                    if front in (run[mid[0]], run[mid[1]]):
+                        balcony = mid
+                for i, j in slots:
+                    pair = (run[i], run[j])
+                    if (i, j) == balcony:
+                        self.balcony(h, pair, d)
+                        continue
+                    for s_ in range(h.levels):
+                        if s_ == 0 and doors & set(pair):
+                            continue                  # the rear door sits in this pair on the ground floor
+                        for c in pair:
+                            self.set(c[0], b + 2 + 3 * s_, c[1], pane(axis))
+                    n += 2
+        print('window panes per storey', n, 'x', h.levels, 'storeys')
 
-    def balconies(self, h):
-        """Recessed balcony pocket above the entrance on each upper storey: white parapet at the face, open above it,
-        glazed back one cell in. Sealed on all sides (brick flanks, floor course below, next floor above)."""
-        c0, f, b = getattr(h, 'door', None), h.frontused, h.b
-        if not c0:
-            return
-        fx, fz = DIRS[f]
-        lat = ((0, 1), (0, -1)) if f in 'EW' else ((1, 0), (-1, 0))
-        behind = (c0[0] - fx, c0[1] - fz)
-        flanks = [(c0[0] + lx, c0[1] + lz) for lx, lz in lat]
-        if behind not in h.inner or not all(c in h.walls and self.exposed(c, f) for c in flanks):
-            print('balconies skipped: entrance is not on a straight face', c0)
-            return
-        axis = 'z' if f in 'EW' else 'x'
-        for s in range(1, h.levels):
-            y = b + 3 * s
-            self.set(c0[0], y + 1, c0[1], FASCIA)
-            self.set(c0[0], y + 2, c0[1], 'air')
-            self.set(behind[0], y + 1, behind[1], m.WALL)
-            self.set(behind[0], y + 2, behind[1], pane(axis))
-        print('balcony pockets at', c0, 'storeys 2-%d' % h.levels)
+    def balcony(self, h, pair, d):
+        """Open recessed balcony, 2 wide, on every upper storey over the entrance: white parapet at the face, open above it,
+        plain white back wall one cell in. No glass. Sealed (brick piers either side, floor course below, next floor above)."""
+        b = h.b
+        fx, fz = DIRS[d]
+        for c in pair:
+            behind = (c[0] - fx, c[1] - fz)
+            if behind not in h.inner:
+                print('balcony skipped: no interior behind', c)
+                return
+        for c in pair:
+            behind = (c[0] - fx, c[1] - fz)
+            for s_ in range(1, h.levels):
+                y = b + 3 * s_
+                self.set(c[0], y + 1, c[1], FASCIA)
+                self.set(c[0], y + 2, c[1], 'air')
+                self.set(behind[0], y + 1, behind[1], FASCIA)
+                self.set(behind[0], y + 2, behind[1], FASCIA)
+        print('balcony pockets', pair, 'storeys 2-%d' % h.levels)
 
     def roof(self):
         h = self.houses[0]

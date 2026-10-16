@@ -50,6 +50,16 @@ rule-file copy.
     wall is 1 thick, still keep solid flanks and a coherent surround.
   - No glass as a corner block; no 1-wide glass strip with air beside it.
 
+ Window rhythm (user steering, Oakdene Court, 2026-10-16):
+  - Count the blocks on the face and write the bay rhythm from the photo, e.g. an 8-cell front = WW_BB_WW
+    (W window 2 wide x 1 high, B balcony 2 wide, _ brick pier 1 wide; the corner cells are the end piers).
+    Windows are 2x1 pairs, never single-block panes.
+  - Never put a pane on a corner or on a stepped diagonal face: a lone one-block pane at a corner looks wrong.
+    A face with no straight run of 2+ cells gets no windows (or square it, see section 1).
+  - A face you cannot see is inferred, not left blank: give every straight face the same rhythm as the one in the photo.
+  - Balconies are open: white parapet at the face, plain back wall, no glass. Only the entrance face has them.
+  - A blank flank at each run end is wasted: the corner cell already is the pier.
+
  Doors: solid surround, facing the numbered street, walkable stoop.
 
  Depth (good-enough, not decoration chase):

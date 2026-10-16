@@ -1,22 +1,26 @@
 import unittest
 
-from oakdene_court import runs, window_slots
+from oakdene_court import pair_slots, runs
 
 
-class WindowSlotsTest(unittest.TestCase):
-    def test_short_runs_have_no_windows(self):
-        self.assertEqual([window_slots(n) for n in (0, 1, 2)], [[], [], []])
+class PairSlotsTest(unittest.TestCase):
+    def test_runs_too_short_for_a_pair_have_none(self):
+        self.assertEqual([pair_slots(n) for n in (0, 1)], [[], []])
 
-    def test_three_cells_get_one_centred_pane(self):
-        self.assertEqual(window_slots(3), [1])
+    def test_the_8_cell_front_is_WW_BB_WW(self):
+        self.assertEqual(pair_slots(8), [(0, 1), (3, 4), (6, 7)])          # middle pair is the balcony on the entrance face
 
-    def test_pairs_are_centred_with_a_solid_flank_each_end(self):
-        self.assertEqual(window_slots(4), [1, 2])
-        self.assertEqual(window_slots(8), [1, 2, 5, 6])
-        for n in range(3, 40):
-            slots = window_slots(n)
-            self.assertGreaterEqual(min(slots), 1)
-            self.assertLessEqual(max(slots), n - 2)
+    def test_pairs_have_one_cell_piers_and_stay_inside_the_run(self):
+        for n in range(2, 40):
+            slots = pair_slots(n)
+            self.assertTrue(slots)
+            self.assertGreaterEqual(slots[0][0], 0)
+            self.assertLessEqual(slots[-1][1], n - 1)
+            for a, b in zip(slots, slots[1:]):
+                self.assertEqual(b[0] - a[1], 2)
+
+    def test_group_is_centred(self):
+        self.assertEqual(pair_slots(4), [(1, 2)])
 
 
 class RunsTest(unittest.TestCase):
