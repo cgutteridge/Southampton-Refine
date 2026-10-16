@@ -31,6 +31,7 @@ is the go-ahead. Do not read every rule file or all of `site/PROCESS.txt`.
 | What to trust from Geocraft | `rules/geocraft-accuracy.md` (+ `site/GEOCRAFT.txt`) |
 | House footprints, frontage, evidence, interiors | `rules/frontage-and-evidence.md` |
 | Terraces | `rules/terrace-builds.md` |
+| Reviewing a built building | `rules/building-review.md` |
 | Reference imagery | `rules/reference-token-budget.md` |
 | What to trust per question (storeys, roof, ground) | `rules/evidence-order.md` |
 | How blocks are placed (walls, glass, roofs, streets) | `site/CRAFTSMANSHIP.txt` |
