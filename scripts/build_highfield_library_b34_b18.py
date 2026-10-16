@@ -103,7 +103,18 @@ EXT_GREEBLIES += [
         [(6265, -5450), (6273, -5452), (6274, -5447), (6265, -5445)], [(6275, -5473), (6283, -5476), (6284, -5472), (6276, -5470)],
         [(6279, -5465), (6287, -5468), (6288, -5464), (6279, -5462)], [(6282, -5457), (6291, -5460), (6291, -5456), (6283, -5452)]]],
 ]
+# SU Retail Centre (OSM 33830236), Google z20 sheet at 6238,-5563 (2026-10-16): white flat roof, a solar array on the north half,
+# a grey gutter strip along the long axis and one along the west end, a plant box at the east end. Heights are lidar's (0 off).
+RETAIL_GREEBLIES = [
+    ('patch', [(6210, -5585), (6262, -5585), (6262, -5545), (6210, -5545)], 'white_concrete', 0),
+    ('line', [(6227, -5572), (6252, -5560)], 'gray_concrete', 0),
+    ('line', [(6225, -5567), (6228, -5575)], 'gray_concrete', 0),
+    ('patch', [(6234, -5573), (6250, -5567), (6249, -5564), (6234, -5570)], 'light_blue_terracotta', 1),
+    ('fan', 6254, -5563),
+]
 EXTRA = None
+MODIFIES = (NAME, NAME + '-greeblies', NAME + '-greeblies-restore', NAME + '-greeblies-coping', NAME + '-greeblies-cleanup',
+            NAME + '-greeblies-yardclear', 'highfield_q052_b57', 'highfield_q051_ur')
 
 
 def greeblies_plan():
@@ -112,7 +123,10 @@ def greeblies_plan():
     ext = RoofView(NAME, only=sports & new)          # colours of the 2025 extension stay on its own cells (user: no spill)
     hall = RoofView(NAME, only=sports - new)
     print('greeblies ext', roof_greeblies(ext, EXT_GREEBLIES), 'hall', roof_greeblies(hall, HALL_GREEBLIES))
+    retail = RoofView('highfield_q052_b57', only=way_cells('33830236'))      # q052 re-did the retail roof after this build
+    print('retail', roof_greeblies(retail, RETAIL_GREEBLIES))
     ext.p.cells.update(hall.p.cells)
+    ext.p.cells.update(retail.p.cells)
     return ext.p
 
 
@@ -132,7 +146,7 @@ if __name__ == '__main__':
     if a.greeblies:
         plan = greeblies_plan()
         preview(plan, ROOT / f'verification/site/{NAME}-greeblies-preview.png', scale=2)
-        apply(plan, dry=not a.apply, modifies=(NAME, NAME + '-greeblies'))
+        apply(plan, dry=not a.apply, modifies=MODIFIES)
         raise SystemExit(0)
     c = make()
     plan = c.build()

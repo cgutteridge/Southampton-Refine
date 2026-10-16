@@ -661,11 +661,14 @@ def _bring_player(m, lo, hi, reach=80):
     m.call('player_set_gamemode', {'uuid': UUID, 'gamemode': 'spectator'})
     m.call('entity_teleport', {'uuid': UUID, 'dimension': D, 'position': xyz([cx, hi[1] + 20, cz])})
     time.sleep(6)
-    print(f'  (moved player to {cx:.0f},{cz:.0f} to load chunks)')
+    print(f'  (moved player to {cx:.0f},{cz:.0f} to load chunks; will put them back)')
 
     def restore():
-        # user (10 Oct 2026): no need to put them back where they were - leave them at the
-        # build, just give back their game mode
+        # user (16 Oct 2026, after being moved repeatedly): never leave them somewhere new. Back to the exact spot,
+        # facing the way they were (yaw/pitch turned into a look-at point), and their own game mode.
+        yr, pr = math.radians(yaw), math.radians(pitch)
+        look = [px - math.sin(yr) * math.cos(pr) * 10, py + 1.62 - math.sin(pr) * 10, pz + math.cos(yr) * math.cos(pr) * 10]
+        m.call('entity_teleport', {'uuid': UUID, 'dimension': D, 'position': xyz([px, py, pz]), 'facing': {'x': look[0], 'y': look[1], 'z': look[2]}})
         m.call('player_set_gamemode', {'uuid': UUID, 'gamemode': mode})
     return restore
 
