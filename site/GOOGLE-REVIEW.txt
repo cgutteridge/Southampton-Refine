@@ -13,7 +13,7 @@ Per cell, three parts (details in site/ISSUES.txt I-073):
 Status words: todo | look | features | done  (the last part finished). bld = lidar lump count (size hint).
 
  ring  cell      bld  status
-  r0   48,-44     4  look
+  r0   48,-44     4  features
   r1   48,-45     2  todo
   r1   49,-45     8  todo
   r1   49,-44     7  todo
