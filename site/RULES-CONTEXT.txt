@@ -76,6 +76,7 @@ auto-loaded: read only what the brief lists for this item.
 
  CAMPUS (includes Always + imagery when surveying):
    site/CRAFTSMANSHIP.txt — full
+   reference/portals: entrances of this building (queue item lists them; scripts/portals.py building N)
    rules/frontage-and-evidence.md — plot/footprint sections if OSM homes
 
  TOOLING / SESSION:

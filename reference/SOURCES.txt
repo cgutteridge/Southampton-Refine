@@ -176,6 +176,23 @@ source=geofabrik-hampshire). Backend: ogr2ogr OSM driver. Presets:
 buildings, highways, railway, waterway, water, landuse, amenity, shops.
 
 ------------------------------------------------------------------------
+F. University building entrances ("portals") — door positions + photos
+------------------------------------------------------------------------
+Register:  https://maps.southampton.ac.uk/data/portals.json   (added 2026-10-16, user)
+Stored:    reference/portals/portals.json  (committed; normalised, coordinates in OSGB and Minecraft X/Z)
+Tool:      python3 scripts/portals.py  (fetch | info | cell tx,tz | bbox | building N | near x,z)
+  285 entrances of 152 university buildings (273 inside the Geocraft map; the rest are Winchester / other sites).
+  Each row: id (building-letter, e.g. 42-A), building number, label ("Main", "Concourse entrance"), lat/lon of the
+  ENTRANCE (not the photo), and 0+ photo URLs on data.southampton.ac.uk (80 portals have one). The register repeats a
+  row per photo; the store merges them into `images`.
+  Trust: positions sit on the building wall (median 0.5 blocks from the OSM footprint, 103 of 114 within 6). Use them
+  for WHERE a door goes and what it is called; the photo says what it looks like. Not every door is listed (no
+  private or staff-only doors, few small buildings), so a missing portal is not evidence of no door.
+  Photos: look-only like Street View (open the URL in the browser pane, write down what it shows). Do not bulk-download.
+  Feature builds: cell_features.missing_features and the queue item list a feature's portals; Campus(..., portals=True)
+  puts a door at each one. See site/CRAFTSMANSHIP.txt "ENTRANCES".
+
+------------------------------------------------------------------------
 G. Tree Preservation Orders (protected trees only)
 ------------------------------------------------------------------------
 Council page (look-up UI, not authoritative geometry):

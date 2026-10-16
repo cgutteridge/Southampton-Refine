@@ -64,6 +64,7 @@ rule-file copy.
   - A blank flank at each run end is wasted: the corner cell already is the pier.
 
  Doors: solid surround, facing the numbered street, walkable stoop.
+ University buildings: put a door at every portal (see ENTRANCES below), not wherever looks best.
 
  Depth (good-enough, not decoration chase):
   - Bays/porches are structural bumps from the ground, not stick-on frames.
@@ -205,3 +206,28 @@ DOORS ARE FRAMED (user, 2026-10-16)
  A door has a jamb each side and a lintel above, at both door heights. campus.doors adds them; site_kit.apply refuses a
  plan whose door lacks one (plan.allow_unframed_doors for a genuinely free-standing door). scripts/door_audit.py lists
  the old ones (142 of 700 doors on 2026-10-16, mostly Chamberlain Road and the campus builds): see the QUEUE item.
+
+
+ENTRANCES (university register, user, 2026-10-16)
+ reference/portals/portals.json lists every university entrance with its real position (the door, not the photo), name
+ and, for 80, a photo. scripts/portals.py cell tx,tz | building N | near x,z. The feature queue item and
+ cell_features.py print the portals on each feature's footprint.
+  - Campus builds: Campus(..., portals=True) adds a door (framed, with stoop) at each portal on the build; doors= still
+    holds hand-placed extras. A portal with no free wall cell is skipped with a printed line: say so in the build note.
+  - Other builds (house_build, scripts): portals.door_specs(cells) or portals.for_footprint(rings) give the positions.
+  - The portal fixes where the door is and what it is called (a "Main" entrance gets the canopy/stoop, a "Rear" or
+    "Lower ground" one is plainer, one "Concourse entrance" can be a wide opening). Its photo decides door type: look
+    at it once (look-only, no saving) when the door is a visible feature of the face.
+  - A portal placed on a face the build does not have (OSM footprint off, wing not built) means the footprint is wrong:
+    check the wall there before moving the door.
+
+GREEBLIES ARE THE DECOR STEP OF A FEATURE (user, 2026-10-16)
+ Roof and site detail (plant, vents, hatches, fans, panels, seams, planting beside the building) is applied after the
+ feature's shell, as part of that feature (campus.roof_greeblies, build script --greeblies), not as a separate pass.
+ - Use unusual blocks freely for flavour (iron trapdoors, tinted glass, mushroom stem, terracotta, quartz, blackstone):
+   pick by colour and texture read off Google, not by habit.
+ - Plants: match species colour and size from the aerial/Street View. Grass and flowers come in two heights
+   (short_grass / tall_grass, small flower / double-height flower); bushes are multi-block clumps of leaves
+   (see site/FOLIAGE.txt for the allowlist and where air is required).
+ - Heights come from lidar (plinth, plant yard, wing tops), colours and positions from Google; keep greeblies off edge
+   (coping) cells and inside the feature's own cells.

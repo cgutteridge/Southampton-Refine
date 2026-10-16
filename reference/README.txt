@@ -22,3 +22,7 @@ Local tip: Uni Southampton XYZ aerial tiles at
   https://tiles.maps.southampton.ac.uk/aer/{z}/{x}/{y}.png
 Zoom 18 = Hampshire Hub (OGL). Zoom 19 = Channel Coastal Observatory —
 sharper, less coverage, more oblique over the river. See SOURCES.txt.
+
+Building entrances: reference/portals/portals.json is the university's register of
+entrances (position + name + photo URL), one record per door. Query it with
+scripts/portals.py; feature builds pick it up automatically. See SOURCES.txt section F.

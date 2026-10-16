@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import sys
 import unittest
+from unittest import mock
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -49,21 +50,15 @@ class TestPortals(unittest.TestCase):
 
     def test_for_footprint_takes_entrances_on_the_wall(self):
         ring = [[(0, 0), (10, 0), (10, 10), (0, 10)]]
-        saved = pt.load.__wrapped__
-        try:
-            pt.load = lambda: [{'id': 'a', 'x': 5, 'z': -2}, {'id': 'b', 'x': 5, 'z': 5}, {'id': 'c', 'x': 5, 'z': -20}]
+        fake = [{'id': 'a', 'x': 5, 'z': -2}, {'id': 'b', 'x': 5, 'z': 0.5}, {'id': 'c', 'x': 5, 'z': -20}]
+        with mock.patch.object(pt, 'load', return_value=fake):
             self.assertEqual([p['id'] for p in pt.for_footprint(ring)], ['b', 'a'])
-        finally:
-            pt.load = pt.load.__class__ and __import__('functools').lru_cache(maxsize=1)(saved)
 
     def test_door_specs_skips_far_portals(self):
         cells = {(x, z) for x in range(0, 10) for z in range(0, 10)}
-        saved = pt.load.__wrapped__
-        try:
-            pt.load = lambda: [{'id': 'a', 'x': 10, 'z': 4}, {'id': 'b', 'x': 40, 'z': 4}]
+        fake = [{'id': 'a', 'x': 10, 'z': 4}, {'id': 'b', 'x': 40, 'z': 4}]
+        with mock.patch.object(pt, 'load', return_value=fake):
             self.assertEqual(pt.door_specs(cells), [(None, 10, 4, 0)])
-        finally:
-            pt.load = __import__('functools').lru_cache(maxsize=1)(saved)
 
 
 if __name__ == '__main__':

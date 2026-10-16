@@ -14,6 +14,7 @@ One building per review. Skip any building that already has an open feature item
    wrong roof colour and windows). Done when each mismatch is named.
    A review run of buildings uses all three: Google (greeblies, roof colour), the university aerial (footprint, roof form) and
    lidar (heights: plinth, plant and wing heights are read off the pristine lidar top, `lidar_heightmap.py`, never guessed).
+   Greeblies are the decor step of a feature (`site/CRAFTSMANSHIP.txt`): unusual blocks welcome, plants matched by colour and size.
    Google shows roof greeblies (user, 2026-10-16): plant boxes, vents, louvred vents, skylights, solar panels, lift overruns, parapets. List
    them per roof in this step; lidar filters them out (`geocraft-lidar-filters-small-features`), so Google is the only source.
 4. **Keep or rebuild.** Keep when nothing in the list matters at street scale (`rules/radial-good-enough.md`). Rebuild by
