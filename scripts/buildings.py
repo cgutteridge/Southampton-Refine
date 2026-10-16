@@ -171,7 +171,8 @@ def photos(b: dict, size: int = PHOTO_SIZE) -> list:
     @param size: width in px
     @returns: [URL] or []
     """
-    return [image_url(b['image'], size)] if b['image'] else []
+    # the register writes a space in a file name as '+' ("..._0253+-+Copy.JPG"); the image archive wants %20
+    return [image_url(b['image'], size).replace('+', '%20')] if b['image'] else []
 
 
 def describe(b: dict) -> str:

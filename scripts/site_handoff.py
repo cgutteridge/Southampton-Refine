@@ -294,7 +294,12 @@ def _building_photo(b):
     """Local saved copy of a university building photo (reference/photos/buildings) when there is one, else its 800 px URL."""
     from buildings import PHOTO_DIR, photos
     local = PHOTO_DIR / f'{b["id"]}.jpg'
-    return str(local.relative_to(ROOT)) if local.exists() else photos(b)[0]
+    if not local.exists():
+        return photos(b)[0]
+    try:
+        return str(local.relative_to(ROOT))
+    except ValueError:
+        return str(local)
 
 
 def building_facts(pictures):

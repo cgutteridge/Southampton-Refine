@@ -41,6 +41,10 @@ class Lookups(unittest.TestCase):
         with self.assertRaises(ValueError):
             B.photos(STORE[0], 123)
 
+    def test_plus_in_a_file_name_is_a_space(self):
+        b = row('1601', 1, 1, 'https://d.example/image-archive/buildings/200/147_DSC_0253+-+Copy.JPG')
+        self.assertEqual(B.photos(b), ['https://d.example/image-archive/buildings/800/147_DSC_0253%20-%20Copy.JPG'])
+
     def test_describe_says_what_exists(self):
         self.assertIn('photo, outline', B.describe(STORE[0]))
         self.assertIn('no photo, no outline', B.describe(STORE[1]))
@@ -70,9 +74,13 @@ class Handoff(unittest.TestCase):
     def test_building_facts_lists_only_buildings_with_something(self):
         import site_handoff as H
         self.assertEqual(H.building_facts([row('9', 1, 1)]), [])
-        lines = H.building_facts([row('2', 1, 1, 'https://d.example/image-archive/buildings/200/2.jpg')])
-        self.assertIn('University building', lines[0])
-        self.assertIn('/800/2.jpg', lines[1])
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.object(B, 'PHOTO_DIR', Path(tmp)):
+            lines = H.building_facts([row('2', 1, 1, 'https://d.example/image-archive/buildings/200/2.jpg')])
+            self.assertIn('University building', lines[0])
+            self.assertIn('/800/2.jpg', lines[1])               # no saved copy: the 800 px URL
+            (Path(tmp) / '2.jpg').write_bytes(b'x')
+            self.assertIn('2.jpg', H.building_facts([row('2', 1, 1, 'https://d.example/a/200/2.jpg')])[1])
 
 
 if __name__ == '__main__':
