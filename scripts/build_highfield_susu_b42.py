@@ -43,14 +43,18 @@ for pt in PARTS:
 BOX = bbox(PARTS, pad=3)
 
 
+PLAZA_X0, PLAZA_Z1 = 6181, -5550          # the plaza frontage: north-facing walls east of the Cafe steps (portals 42-A/B/C photos)
+
+
 class B42(Campus):
-    """Black steel and glass on the plaza (north) faces only: the 42-A/B/C photos are the plaza frontage and 42-D (west, by the
+    """Black steel and glass on the plaza (north) frontage only (a stepped outline has north-facing steps on every side, so a face
+    rule alone paints the west and south black too): the 42-A/B/C photos are the plaza frontage and 42-D (west, by the
     steps) is white board-marked concrete, so every other face is white concrete."""
 
     def wall_block(self, x, y, z, pt, ex):
         b = super().wall_block(x, y, z, pt, ex)
         if b == 'minecraft:black_concrete' or b == 'black_concrete':
-            return b if any(d == (0, -1) for d in ex) else 'white_concrete'
+            return b if (any(d == (0, -1) for d in ex) and x >= PLAZA_X0 and z <= PLAZA_Z1) else 'white_concrete'
         return b
 
 
