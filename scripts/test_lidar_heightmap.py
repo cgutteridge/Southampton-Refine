@@ -1,0 +1,63 @@
+import unittest
+
+import lidar_heightmap as L
+
+
+class FakeWorld:
+    def __init__(self, blocks):
+        self.blocks = blocks
+
+    def block(self, x, y, z):
+        return self.blocks.get((x, y, z))
+
+
+def col(blocks, x=0, z=0):
+    return L.column(FakeWorld({(x, y, z): b for y, b in blocks.items()}), x, z, top=80)
+
+
+class ColumnTest(unittest.TestCase):
+    def test_plain_ground_ignores_grass_tufts(self):
+        self.assertEqual(col({40: 'minecraft:stone', 41: 'minecraft:short_grass'}), (40, 40, 0, L.GROUND))
+
+    def test_carpet_is_ignored_for_height_and_marks_a_roof(self):
+        self.assertEqual(col({40: 'minecraft:stone', 48: 'minecraft:bricks', 49: 'minecraft:light_gray_carpet'}),
+                         (48, 48, 49, L.ROOF))
+
+    def test_leaves_and_logs_count_as_height_but_are_not_ground(self):
+        h, base, roof, kind = col({40: 'minecraft:grass_block', 41: 'minecraft:oak_log', 42: 'minecraft:oak_log',
+                                   43: 'minecraft:oak_leaves[distance=1]'})
+        self.assertEqual((h, base, roof, kind), (43, 40, 0, L.TREE))
+
+    def test_crown_over_a_roof_is_flagged(self):
+        h, base, roof, kind = col({40: 'minecraft:stone', 48: 'minecraft:bricks', 49: 'minecraft:light_gray_carpet',
+                                   51: 'minecraft:oak_leaves'})
+        self.assertEqual((h, roof, kind), (51, 49, L.TREE_OVER_ROOF))
+
+    def test_empty_column(self):
+        self.assertEqual(col({}), (0, 0, 0, L.GROUND))
+
+
+class LumpTest(unittest.TestCase):
+    def test_two_buildings_with_storeys_and_roof_shape(self):
+        import numpy as np
+        n = 128
+        hm = {'cell': (0, 0), 'x0': 0, 'z0': 0, 'h': np.zeros((n, n), 'int16'), 'base': np.full((n, n), 40, 'int16'),
+              'roof': np.zeros((n, n), 'int16'), 'kind': np.zeros((n, n), 'uint8')}
+        for x in range(10, 20):                    # pitched: ridge along x at z=15
+            for z in range(10, 21):
+                hm['roof'][x, z] = 46 - abs(z - 15) // 2 + 4
+                hm['kind'][x, z] = L.ROOF
+        for x in range(60, 70):                    # flat
+            for z in range(60, 70):
+                hm['roof'][x, z] = 47
+                hm['kind'][x, z] = L.ROOF
+        hm['roof'][5, 5] = 47                      # a 1-column sliver is ignored
+        items = L.lumps(hm)
+        self.assertEqual(len(items), 2)
+        pitched, flat = items
+        self.assertEqual((pitched['roof'], pitched['ridge_axis'], pitched['ground_y']), ('pitched', 'x', 40))
+        self.assertEqual((flat['roof'], flat['ridge_axis'], flat['storeys']), ('flat', None, 2))
+
+
+if __name__ == '__main__':
+    unittest.main()

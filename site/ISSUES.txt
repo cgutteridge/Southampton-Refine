@@ -264,3 +264,9 @@ I-063  L  HIGHFIELD  open  Parked character tasks (moved from the old TODO/PARKE
   Library Square south lawn (open:w160022677; see I-060), Law forecourt (prop:w93729747 paths + lawn edges, aerial z18),
   Staff Club courtyard (prop:r2139045 plaza/pond). Non-Minecraft, only if needed: measured OSGB for seed places (I-002),
   Mapillary token, CCO z19 licence check before publishing crops, own phone photos for a named house.
+I-064  M  WORLD  open  BACKLOG: hard reset. Restore the whole world from the Geocraft files (pristine save), then redo every
+  cell's features from the lidar lump report (scripts/lidar_heightmap.py): storeys, roof shape, ridge axis, unmapped lumps, trees
+  over roofs. Everything is reset, including 48,-44 and 48,-45 (user, 2026-10-16). Before starting: take a region backup of the
+  live world; clear site/cells/*-STAGES.json, COVERAGE-SIGNOFFS.jsonl and verification/site/*-cells.json (the ownership index
+  rebuilds itself); keep site/builds/*.json specs and scripts, which replay. Plan as a queue of ring-ordered cells, features first.
+  Not scheduled: do not start without the user.

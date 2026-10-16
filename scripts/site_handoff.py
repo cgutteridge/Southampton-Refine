@@ -274,6 +274,7 @@ def advance_to_next_cell():
             + (' …' if len(f['refs']) > 8 else '') + '.',
             'Houses: one build for the whole run on the street (shared frontage, roofs, party walls).',
             'House only: no gardens. Lawn is GROUND; trees/shrubs TREES; fences, sheds, planting DECOR.',
+            f'Lidar first: python3 scripts/lidar_heightmap.py --cell {tx},{tz}  (pristine Geocraft: storeys, roof shape, ridge axis, trees over roof, unmapped lumps).',
             'Use scripts/house_build.py: write site/builds/<name>.json (copy the nearest spec; ways, roofs, front), do not copy a build script.',
         ] + ([
             'Original Geocraft still standing here (lump_scan). Not in OSM or outside its clip: trace the',

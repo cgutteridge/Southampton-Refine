@@ -55,3 +55,6 @@ verification/site/osm27700/
 reference/reference/
 coffin-pillbox/
 .claude/settings.local.json
+
+# Lidar height maps (regenerable from the pristine save)
+verification/site/lidar/
