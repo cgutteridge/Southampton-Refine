@@ -438,7 +438,7 @@ def roof_greeblies(c, items):
       ('plinth', poly, h, block)   raised pale roof block, h above the deck, over cells inside poly
       ('vent', x, z)               round vent / roof light: one white block on the roof (or plinth)
       ('hatch', x, z)              access hatch: flat iron trapdoor
-      ('sky', poly)                rectangular skylight: tinted glass flush on the roof
+      ('louvre', poly)                louvred plant vent (user: these are vents, not skylights): flat iron trapdoors on the roof
       ('dome', x, z)               2x2 round rooflight: glass over quartz slabs
       ('fan', x, z)                extract fan / plant unit: one gray block
     Only cells of the build's own parts are touched; a position off the roof is skipped and counted.
@@ -472,13 +472,13 @@ def roof_greeblies(c, items):
         kind = it[0]
         if kind == 'plinth':
             continue
-        if kind == 'sky':
+        if kind == 'louvre':
             poly = it[1]
             xs, zs = [q[0] for q in poly], [q[1] for q in poly]
             cells = [(x, z) for x in range(min(xs), max(xs) + 1) for z in range(min(zs), max(zs) + 1)
                      if inside(x + 0.5, z + 0.5, poly) and ok(x, z)]
             for x, z in cells:
-                c.set(x, y_of(x, z), z, 'tinted_glass')
+                c.set(x, y_of(x, z), z, 'iron_trapdoor[facing=north,half=bottom,open=false]')
             n_ok += bool(cells)
             n_skip += not cells
             continue
