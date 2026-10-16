@@ -1,0 +1,41 @@
+---
+description: Agent soundboard cues for Southampton Refine (core + optional flair)
+alwaysApply: true
+---
+
+# Sound cues (Southampton Refine)
+
+Play short audio so the user hears status without reading chat. Same CLI as other projects:
+
+```bash
+python3 ~/Projects/agent-soundboard/scripts/play.py <id>
+```
+
+In Cursor Shell, use `required_permissions: ["all"]` if audio does not play.
+
+Default: command exits at once; audio continues in background. Do not use `--wait` unless the user asks.
+
+## Core (most sessions)
+
+| id | when |
+| --- | --- |
+| `done` | Substantive work finished (queue item chunk, script run, docs)—user can return |
+| `need-you` | Blocked: `site/LOCK.json`, `human-confirm-fix`, approval, or only the user can act in-game |
+| `error` | Unrecoverable failure the user must know (apply broken, cannot proceed safely) |
+
+After `done`, do not write empty closers (“Done”, “All done”)—state what changed or what to verify.
+
+## Optional flair (rare)
+
+Meme-style ids from the shared soundboard. **Sparingly**—not every chat, not small edits. Usually **once** at the end of a **long** arc (full queue item through apply/verify, session handoff, major milestone). **Default stays `done`.** One flair cue max per task. Real accuracy or apply failures → `error`, not trombone.
+
+| id | Southampton-ish when |
+| --- | --- |
+| `yay` | Long build phase landed cleanly; light celebratory beat |
+| `vine-boom` | Big “there it is” moment after heavy kit work or a punchline fix |
+| `epic-impact` | Large milestone (place review done, major pass complete) |
+| `party-cheer` | Festive win after long grind (not every apply) |
+| `whoosh` | Rare punctuation when handing off a big reveal |
+| `fail-wah` / `sad-horn` | Long effort fizzled in a **low-stakes** way—never for wrong geometry in the real world |
+
+More detail: `~/Projects/agent-soundboard/sounds/reference/youtube-cliche/SOURCES.md`

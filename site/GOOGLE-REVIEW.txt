@@ -5,13 +5,13 @@ status here when its chat ends; the queue item text only points here.
 
 Per cell, three parts (details in site/ISSUES.txt I-073):
   look      google_aerial.py sheet --cell TX,TZ, recorded with cell_sources --record google
-  features  every building (houses, terraces, campus, small structures) against Google: roof form, ridge axis,
+  features  every building (houses, terraces, campus, small structures) against Google: roof form, ridge axis, roof greebles (plant, vents, skylights, solar panels),
             roof colour/material, rear wings, outbuildings, missing buildings. Keep or redo per building.
   ground    applied ground (lawn, paving, drives, car parks, paths) against Google.
 Status words: todo | look | features | done  (the last part finished). bld = lidar lump count (size hint).
 
  ring  cell      bld  status
-  r0   48,-44     4  todo
+  r0   48,-44     4  look
   r1   48,-45     2  todo
   r1   49,-45     8  todo
   r1   49,-44     7  todo

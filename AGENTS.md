@@ -22,6 +22,8 @@ is the go-ahead. Do not read every rule file or all of `site/PROCESS.txt`.
   the issue.
 - Process, session start/end, handoff, chain rule and the "call the user in"
   rule: `site/PROCESS.txt` §6–§7.
+- Sound cues: `python3 ~/Projects/agent-soundboard/scripts/play.py <id>` (`done`, `need-you`, `error`;
+  flair rare). Table and rules: `.cursor/rules/agent-soundboard-flair.mdc`. Never `--wait`.
 - Python: `.venv/bin/python` (system python is locked down).
 
 ## Where rules live (one home each)
