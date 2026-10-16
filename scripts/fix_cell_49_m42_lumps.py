@@ -3,8 +3,7 @@
 construction building w590171653; the rule is now in build_cell_49_m42_lumps.doors (rear door needs open ground). Walls it up."""
 import argparse, sys
 from pathlib import Path
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 from site_kit import Plan, apply
 import build_cell_49_m42_lumps as B
 p = Plan('cell_49_m42_lumps_fix')

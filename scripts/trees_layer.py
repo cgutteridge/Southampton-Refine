@@ -26,13 +26,13 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 from ground_layer import plan_name as ground_plan_name, bare, cell_bbox_str, ignored_builds, is_air, load_masked_positions  # noqa: E402
 from surface_probe import short_id, surface_y  # noqa: E402
 from pass_mask import OVERHANG_MARGIN, build_mask, cell_bounds, clip_to_cell, write_mask  # noqa: E402
 from plant_cell_canopy import MOSAIC_TILE0, RNG_SEED, bush_voxels, mosaic_px, tree_voxels  # noqa: E402
+from cellmath import CELL  # noqa: E402
 from site_kit import Plan, World, built_cells  # noqa: E402
 
 MOSAIC = ROOT / 'reference/aerial/highfield-z19/mosaic-z19-18x17-260101-175662-eastext6.png'
@@ -140,7 +140,7 @@ def cover_pixels(img_path: Path = MOSAIC) -> np.ndarray:
 def cover_grid(cell: tuple[int, int], mask: np.ndarray | None = None) -> np.ndarray:
     """128×128 [x - x0, z - z0] = fraction of cover pixels in a ~7-block window around the column."""
     tx, tz = cell
-    x0, z0 = tx * 128, tz * 128
+    x0, z0 = tx * CELL, tz * CELL
     pix = mosaic_px([(x, z) for x in range(x0, x0 + 128) for z in range(z0, z0 + 128)])
     mask = cover_pixels() if mask is None else mask
     dens = _box(mask.astype(float), 35)
@@ -180,7 +180,7 @@ def fill_dense(cover: np.ndarray, crowns: list[tuple[int, int, float]], seed: in
 def canopy_grid(cell: tuple[int, int]) -> np.ndarray:
     """128×128 array [x - x0, z - z0] = fraction of canopy pixels around that column."""
     tx, tz = cell
-    x0, z0 = tx * 128, tz * 128
+    x0, z0 = tx * CELL, tz * CELL
     cols = [(x, z) for x in range(x0, x0 + 128) for z in range(z0, z0 + 128)]
     pix = mosaic_px(cols)
     mask = canopy_pixels()
@@ -232,7 +232,7 @@ def extra_crowns(cell: tuple[int, int], path: Path | None = None) -> list[tuple[
     path = path or EXTRA_CROWNS
     if not path.exists():
         return []
-    x0, z0 = cell[0] * 128, cell[1] * 128
+    x0, z0 = cell[0] * CELL, cell[1] * CELL
     out = []
     for e in json.loads(path.read_text()).get(f'{cell[0]},{cell[1]}', []):
         i, j = int(e['x']) - x0, int(e['z']) - z0
@@ -260,7 +260,7 @@ def voxels_for(x: int, z: int, gy: int, r: float) -> dict:
 def plan_cell(cell: tuple[int, int], plan: Plan, world: World):
     """Plan the trees. Returns (placements, report)."""
     tx, tz = cell
-    x0, z0 = tx * 128, tz * 128
+    x0, z0 = tx * CELL, tz * CELL
     bx0, bz0, bx1, bz1 = cell_bounds(tx, tz)
     cell_xz = _InCell(bx0, bz0, bx1, bz1)
     grid = canopy_grid(cell)
@@ -314,7 +314,7 @@ def review_image(cell: tuple[int, int], report: dict, out: Path) -> None:
     from PIL import Image, ImageDraw
 
     tx, tz = cell
-    x0, z0 = tx * 128, tz * 128
+    x0, z0 = tx * CELL, tz * CELL
     pts = [(x0, z0), (x0 + 127, z0), (x0, z0 + 127), (x0 + 127, z0 + 127)]
     px = mosaic_px(pts)
     xs, ys = [v[0] for v in px.values()], [v[1] for v in px.values()]

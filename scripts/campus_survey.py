@@ -15,8 +15,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 from PIL import Image, ImageDraw  # noqa: E402
 from site_kit import World  # noqa: E402
 from osm_footprints import OSMIndex, PRISTINE  # noqa: E402

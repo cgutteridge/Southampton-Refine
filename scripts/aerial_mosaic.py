@@ -28,8 +28,7 @@ from pathlib import Path
 
 from PIL import Image
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 from geodetic import osgb_to_wgs84  # noqa: E402
 from osgb import to_osgb  # noqa: E402
 import ref_manifest  # noqa: E402

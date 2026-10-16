@@ -21,7 +21,7 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+from script_env import ROOT  # noqa: E402
 OFFSETS = ROOT / 'config/map-maker-offsets.json'
 
 

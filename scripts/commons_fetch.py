@@ -22,8 +22,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 from kartaview_fetch import mc_to_ll, ll_to_mc  # noqa: E402
 
 REF = ROOT / 'reference'

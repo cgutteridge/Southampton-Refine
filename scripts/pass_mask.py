@@ -20,8 +20,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
+import cellmath  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent.parent
+from script_env import ROOT  # noqa: E402
 MASK_DIR = ROOT / 'verification' / 'site' / 'masks'
 CELL_SIZE = 128
 AIR = 'minecraft:air'
@@ -34,8 +35,7 @@ Pos = tuple[int, int, int]
 
 def cell_bounds(tx: int, tz: int) -> tuple[int, int, int, int]:
     """Inclusive x/z bounds of a 128-block cell: (x0, z0, x1, z1)."""
-    x0, z0 = tx * CELL_SIZE, tz * CELL_SIZE
-    return x0, z0, x0 + CELL_SIZE - 1, z0 + CELL_SIZE - 1
+    return cellmath.bounds((tx, tz))
 
 
 def clip_to_cell(placements: dict[Pos, str], tx: int, tz: int) -> tuple[dict[Pos, str], int]:

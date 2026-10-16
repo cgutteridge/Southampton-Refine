@@ -21,7 +21,7 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+from script_env import ROOT  # noqa: E402
 OUT = ROOT / 'verification/site'
 
 # facing -> (axis the slope rises along, +1/-1 uphill direction on that axis)

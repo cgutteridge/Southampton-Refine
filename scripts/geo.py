@@ -25,8 +25,7 @@ import math
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 from geodetic import osgb_to_wgs84, wgs84_to_osgb  # noqa: E402
 from osgb import in_bounds, load_offsets, to_mc, to_osgb  # noqa: E402

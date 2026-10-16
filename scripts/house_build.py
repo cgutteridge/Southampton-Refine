@@ -14,6 +14,7 @@ q165..q176 and later). A run is a small JSON spec in site/builds/<name>.json ins
   floor_min      minimum floor y (front pavement height) or null
   step_max       how far a door stoop looks outward for ground to level or step (default 4; 13 on long ledges)
   ledge_stair    true: ground that ends at a 1-block ledge beyond 4 columns gets a rising stair (default false)
+  door_frame     true (default): doors only where the wall has a wall cell each side, so they are framed on angled walls
   keep_edits     true: stoop/step cells survive the earlier-build clash filter (needed when `modifies` a ground build)
 
 Usage:  .venv/bin/python scripts/house_build.py site/builds/<name>.json [--apply]   (dry run unless --apply)
@@ -26,8 +27,7 @@ import statistics
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 import osm_footprints  # noqa: E402
 from site_kit import Plan, World, apply, preview  # noqa: E402
 
@@ -64,6 +64,7 @@ def load_spec(path):
     spec.setdefault('step_max', 4)
     spec.setdefault('ledge_stair', False)
     spec.setdefault('keep_edits', False)
+    spec.setdefault('door_frame', True)
     labels = set(spec['ways'].values())
     for g in spec['groups']:
         if g['front'] not in DIRS or g.get('mode', 'each') not in ('each', 'group'):
@@ -200,6 +201,23 @@ class Build:
                 self.set(x, y, z, 'air')
             self.set(x, b + 3, z, FLOOR)
 
+    def framed(self, h, cand, d):
+        """Door candidates with a wall cell on both sides along the wall, exposed the same way.
+
+        On a diagonal (stair-stepped) wall a door in a step corner has air beside it and is not framed.
+        spec door_frame false restores the old pick (kept only to prove the generator against old scripts).
+        Second choice: both neighbours are wall cells but one is set forward (a notch). Last: ``cand`` unchanged.
+        """
+        if not self.spec['door_frame']:
+            return cand
+        lat = ((0, 1), (0, -1)) if d in 'EW' else ((1, 0), (-1, 0))
+        strict = [c for c in cand
+                  if all((c[0] + lx, c[1] + lz) in h.walls and self.exposed((c[0] + lx, c[1] + lz), d) for lx, lz in lat)]
+        if strict:
+            return strict
+        # a notch (neighbour wall set forward of the door) still frames it; air beside the door does not
+        return [c for c in cand if all((c[0] + lx, c[1] + lz) in h.walls for lx, lz in lat)] or cand
+
     def doors(self, k, h, taken):
         b = h.b
         f = h.front
@@ -207,10 +225,10 @@ class Build:
         fx, fz = DIRS[f]
         # front door cell: wall cell exposed to the front, nearest the middle of the
         # front-most run of the house (per unit for the block group)
-        units = [h]
         cand = [c for c in h.walls if self.exposed(c, f) and (c[0] - fx, c[1] - fz) in h.inner]
         if not cand:
             return
+        cand = self.framed(h, cand, f)
         if f == 'N':
             front_edge = min(c[1] for c in cand)
             cand = [c for c in cand if c[1] <= front_edge + 2]
@@ -245,6 +263,7 @@ class Build:
         # rear door
         cand = [c for c in h.walls if self.exposed(c, r) and (c[0] - DIRS[r][0], c[1] - DIRS[r][1]) in h.inner]
         if cand:
+            cand = self.framed(h, cand, r)
             if r in 'NS':
                 e = min(c[1] for c in cand) if r == 'N' else max(c[1] for c in cand)
                 cc = [c for c in cand if (c[1] <= e + 2 if r == 'N' else c[1] >= e - 2)]

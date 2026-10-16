@@ -18,7 +18,7 @@ import time
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+from script_env import ROOT  # noqa: E402
 CELLS = ROOT / 'site' / 'cells'
 SNAPSHOTS = ROOT / 'backups' / 'regions'
 CELL_SHIFT = 7                       # 128-block cells

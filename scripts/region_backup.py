@@ -20,7 +20,7 @@ import sys
 import time
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+from script_env import ROOT  # noqa: E402
 CFG = json.loads((ROOT / 'config/world.json').read_text())
 REGION = Path(CFG['region_path'])
 BACKUP_ROOT = ROOT / 'backups' / 'regions'

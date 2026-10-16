@@ -35,8 +35,7 @@ import statistics
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 MIN_COLUMNS = 12      # ignore slivers (bin stores, sheds under 12 columns)
 TOP = 140             # highest y scanned

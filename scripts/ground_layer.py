@@ -34,8 +34,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 from ground_sources import (OSMGround, PRI, RegRGB, aerial_class, aerial_rgb, cell_box,  # noqa: E402
                             line_cells, hsv, majority, MARGIN)

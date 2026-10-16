@@ -20,8 +20,7 @@ import os
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 from ground_layer import bare, ignored_builds, plan_name  # noqa: E402
 from pass_mask import OVERHANG_MARGIN, PASSES, mask_path, mask_placements, read_mask, shared_positions, verify_integrity  # noqa: E402

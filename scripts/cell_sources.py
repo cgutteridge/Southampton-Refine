@@ -22,8 +22,7 @@ from collections import Counter
 from datetime import date
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 from coverage import (  # noqa: E402
     cell_bbox,
@@ -54,16 +53,7 @@ def sources_path(tx: int, tz: int) -> Path:
     return CELLS / f'{tx}_{tz}-SOURCES.txt'
 
 
-def parse_cell(spec: str) -> tuple[int, int]:
-    """Parse ``tx,tz`` cell indices.
-
-    @param spec: comma-separated integers
-    @returns: (tx, tz)
-    """
-    parts = [p.strip() for p in spec.split(',')]
-    if len(parts) != 2:
-        raise SystemExit(f'expected tx,tz got {spec!r}')
-    return int(parts[0]), int(parts[1])
+from cellmath import parse_cell  # noqa: E402,F401
 
 
 def in_flight_cell() -> tuple[int, int] | None:

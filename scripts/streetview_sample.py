@@ -30,8 +30,7 @@ import urllib.request
 from datetime import date
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 from coverage import cell_bbox  # noqa: E402
 from geodetic import osgb_batch_to_wgs84  # noqa: E402

@@ -21,8 +21,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 OUT = ROOT / 'verification/site'
 HOUSE_GROUPS = ('chamberlain_rd_8_58', 'hartley_ave_17_31', 'university_rd_26_28')
 

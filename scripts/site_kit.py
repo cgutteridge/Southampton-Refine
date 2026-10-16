@@ -14,8 +14,7 @@ Reports land in verification/site/<name>-*.json.
 import json, math, struct, sys, time, zlib
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 import nbt_min as N  # noqa: E402
 
 _CFG = json.loads((ROOT / 'config/world.json').read_text())

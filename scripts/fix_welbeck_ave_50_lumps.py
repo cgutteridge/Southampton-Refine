@@ -9,8 +9,7 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 import osm_footprints  # noqa: E402
 from site_kit import Plan, World, apply, built_cells, preview  # noqa: E402
 import build_welbeck_ave_50_lumps as B  # noqa: E402

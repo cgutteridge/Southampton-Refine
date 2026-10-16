@@ -21,7 +21,9 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+from cellmath import ring_distance
+
+from script_env import ROOT  # noqa: E402
 CELLS = ROOT / 'site/cells'
 MARKER = ROOT / 'site/CURRENT-CELL.json'
 LOCK = ROOT / 'site/LOCK.json'
@@ -36,7 +38,7 @@ def cell_of(path: Path) -> tuple[int, int]:
 
 
 def ring(cell: tuple[int, int]) -> int:
-    return max(abs(cell[0] - CENTRE[0]), abs(cell[1] - CENTRE[1]))
+    return ring_distance(cell, CENTRE)
 
 
 def parse_stamp(s) -> datetime | None:
@@ -110,7 +112,6 @@ def layers_applied(sts: dict) -> bool:
 
 def gap_summary(cell) -> str:
     """Authoritative: site_handoff.cell_gaps (slow). '' when the cell is truly done."""
-    sys.path.insert(0, str(ROOT / 'scripts'))
     import site_handoff
     g = site_handoff.cell_gaps(cell)
     parts = [k.replace('_', ' ') if v is True else f"{k} {len(v) if isinstance(v, (list, tuple, set, dict)) else v}"

@@ -22,9 +22,9 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 import site_status as ss  # noqa: E402
+from cellmath import CELL  # noqa: E402
 
 PAGES = ROOT / 'site/pages'
 MEDIA = ROOT / 'verification/site'
@@ -149,7 +149,7 @@ def gap_text(g: dict | None) -> str:
 
 
 def bbox(cell) -> str:
-    x0, z0 = cell[0] * 128, cell[1] * 128
+    x0, z0 = cell[0] * CELL, cell[1] * CELL
     return f'x {x0}..{x0 + 127}, z {z0}..{z0 + 127}'
 
 

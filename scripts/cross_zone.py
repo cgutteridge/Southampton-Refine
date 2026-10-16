@@ -10,11 +10,10 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 from coverage import cell_bbox, load_area, load_signoffs, stats, touched_by_build, union  # noqa: E402
-CELL = 128
+from cellmath import CELL  # noqa: E402,F401
 DEFAULT_MARGIN = 8
 
 

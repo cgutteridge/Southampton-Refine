@@ -12,8 +12,7 @@ import argparse
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 import coverage as cov  # noqa: E402
 from floaters import floating_leaves  # noqa: E402

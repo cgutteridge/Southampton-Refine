@@ -14,15 +14,14 @@ import math
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 from site_kit import Plan, World, built_cells  # noqa: E402
 from osm_footprints import OSMIndex, PRISTINE  # noqa: E402
 
 OX, OZ = 6385.0, -5500.0          # B35 frame origin (same as build_highfield_b35)
 R5 = math.sqrt(5)
 CLEAR_TO = 84
-N4 = ((1, 0), (-1, 0), (0, 1), (0, -1))
+from cellmath import N4  # noqa: E402,F401
 FACING = {(1, 0): 'east', (-1, 0): 'west', (0, 1): 'south', (0, -1): 'north'}
 TERRAIN = ('stone', 'gray_terracotta', 'grass_block', 'dirt', 'polished_diorite', 'granite',
            'black_wool', 'smooth_stone', 'coarse_dirt', 'gravel', 'andesite', 'spruce_planks',

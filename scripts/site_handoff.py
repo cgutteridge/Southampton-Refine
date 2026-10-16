@@ -30,14 +30,13 @@ import sys
 import time
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+from script_env import ROOT  # noqa: E402
 SITE = ROOT / 'site'
 QUEUE = SITE / 'QUEUE.txt'
 HANDOFF = SITE / 'HANDOFF.txt'
 PENDING = SITE / '.handoff-pending.json'
 LOCK = SITE / 'LOCK.json'
 
-sys.path.insert(0, str(ROOT / 'scripts'))
 from cell_sources import in_flight_cell, sources_path  # noqa: E402
 from rules_context import format_rules_brief, format_starter_rules_line, plan_for_item  # noqa: E402
 
@@ -115,27 +114,7 @@ def top_open():
 
 LAYER_STAGES = ('ground', 'trees', 'decor')
 QUEUE_DONE = SITE / 'archive' / 'QUEUE-done.txt'
-ORIGIN_CELL = (48, -44)
-
-
-def ring_cells(r, origin=ORIGIN_CELL):
-    """Cells of Chebyshev ring r: north centre first, then clockwise.
-
-    North is -Z. Order: top edge from the centre column eastward, down the
-    east side, back along the bottom, up the west side, finishing the top edge.
-
-    @param r: ring radius
-    @param origin: centre cell (tx, tz)
-    @returns: list of (tx, tz)
-    """
-    ox, oz = origin
-    if r == 0:
-        return [origin]
-    return ([(ox + dx, oz - r) for dx in range(0, r + 1)]
-            + [(ox + r, oz + dz) for dz in range(-r + 1, r + 1)]
-            + [(ox + dx, oz + r) for dx in range(r - 1, -r - 1, -1)]
-            + [(ox - r, oz + dz) for dz in range(r - 1, -r - 1, -1)]
-            + [(ox + dx, oz - r) for dx in range(-r + 1, 0)])
+from cellmath import ORIGIN_CELL, ring_cells  # noqa: E402,F401
 
 
 def _cell_stages(cell):

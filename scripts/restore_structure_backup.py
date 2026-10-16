@@ -13,8 +13,7 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 from mc_paced import Paced, box, D, xyz  # noqa: E402
 from site_kit import OUT  # noqa: E402

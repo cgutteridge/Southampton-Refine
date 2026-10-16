@@ -31,8 +31,7 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 import coverage as cov  # noqa: E402
 import site_kit  # noqa: E402
@@ -49,16 +48,7 @@ CURRENT_FILE = ROOT / 'site' / 'CURRENT-CELL.json'
 REGISTRY_RE = re.compile(r'^cell_marker_(\d+)_(m?)(\d+)-cells\.json$')
 
 
-def parse_cell(spec: str) -> tuple[int, int]:
-    """Parse ``tx,tz`` for a 128² cell key.
-
-    @param spec: comma-separated cell indices
-    @returns: (tx, tz)
-    """
-    parts = [p.strip() for p in spec.split(',')]
-    if len(parts) != 2:
-        raise SystemExit(f'expected tx,tz got {spec!r}')
-    return int(parts[0]), int(parts[1])
+from cellmath import parse_cell  # noqa: E402,F401
 
 
 def marker_name(tx: int, tz: int) -> str:

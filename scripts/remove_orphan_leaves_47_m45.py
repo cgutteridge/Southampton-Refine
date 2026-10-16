@@ -9,8 +9,7 @@ under them, in no trees mask (original Geocraft leaves whose trunk is gone). Lea
 import argparse, glob, sys
 from collections import deque
 from pathlib import Path
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 from site_kit import Plan, World, apply, built_cells  # noqa: E402
 import pass_mask as pm  # noqa: E402
 

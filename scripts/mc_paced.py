@@ -5,7 +5,7 @@ from pathlib import Path
 
 from mcp import Client
 
-ROOT = Path(__file__).resolve().parent.parent
+from script_env import ROOT  # noqa: E402
 _CFG = json.loads((ROOT / 'config/world.json').read_text())
 
 D = 'minecraft:overworld'

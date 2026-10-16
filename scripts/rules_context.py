@@ -9,7 +9,7 @@ import re
 from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
-ROOT = Path(__file__).resolve().parent.parent
+from script_env import ROOT  # noqa: E402
 RULES_INDEX = ROOT / 'site' / 'RULES-CONTEXT.txt'
 
 # Explicit override in queue text: RULES: foliage

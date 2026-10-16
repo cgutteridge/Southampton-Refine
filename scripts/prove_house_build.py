@@ -12,7 +12,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / 'legacy'))
 import house_build  # noqa: E402
 
 old = importlib.import_module(sys.argv[1]).build()
-new = house_build.build(house_build.load_spec(sys.argv[2]))
+spec = house_build.load_spec(sys.argv[2])
+spec['door_frame'] = False          # old scripts pick doors without the framing rule
+new = house_build.build(spec)
 a, b = dict(old.cells), dict(new.cells)
 diff = {q for q in set(a) | set(b) if a.get(q) != b.get(q)}
 print(f'old {len(a)} cells, new {len(b)} cells, differing {len(diff)}')

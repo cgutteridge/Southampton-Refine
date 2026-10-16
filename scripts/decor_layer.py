@@ -21,8 +21,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 from ground_layer import (bare, cell_bbox_str, cell_contains, ignored_builds, is_air,  # noqa: E402
                           load_masked_positions)

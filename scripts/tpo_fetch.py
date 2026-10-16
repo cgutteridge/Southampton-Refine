@@ -34,8 +34,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 from osgb import load_offsets, to_mc, to_osgb  # noqa: E402
 
 REF = ROOT / 'reference' / 'tpo'

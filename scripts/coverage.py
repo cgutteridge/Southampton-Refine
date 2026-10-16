@@ -60,13 +60,12 @@ from collections import Counter, deque
 from datetime import date, datetime
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 from osm_footprints import (PRISTINE, OSMIndex, _addr, _seg_dist, grow_plots,  # noqa: E402
                             osm_tags, street_surface)
 from site_kit import OUT, World  # noqa: E402
 
-CELL = 128
+from cellmath import CELL  # noqa: E402,F401
 REACH = 45            # garden growth from a footprint (same default as osm_footprints plots)
 MARGIN = 48           # grid margin round the area's cells; > REACH so edge properties stay whole
 FRINGE = 3            # stock street surface this far past a parcel joins it (ParcelBuilder.fringe)
@@ -124,7 +123,7 @@ UMBRELLA = {'landuse': ('residential', 'retail', 'commercial', 'industrial', 'ed
                         'religious', 'railway', 'military'),
             'amenity': ('university', 'school', 'college', 'hospital', 'kindergarten')}
 OPEN_KEYS = ('landuse', 'leisure', 'amenity', 'natural', 'man_made', 'highway', 'place', 'surface')
-N4 = ((1, 0), (-1, 0), (0, 1), (0, -1))
+from cellmath import N4  # noqa: E402,F401
 
 
 # --- geometry -----------------------------------------------------------------------------

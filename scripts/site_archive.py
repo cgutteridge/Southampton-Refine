@@ -27,7 +27,7 @@ import tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+from script_env import ROOT  # noqa: E402
 SITE = ROOT / 'site'
 ARCHIVE_DIRNAME = 'archive'
 

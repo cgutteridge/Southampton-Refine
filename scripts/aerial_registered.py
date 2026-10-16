@@ -18,8 +18,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 
 def fit_similarity(ties):

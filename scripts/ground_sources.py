@@ -24,8 +24,9 @@ from pathlib import Path
 import numpy as np
 
 from ref_manifest import load_manifest, mc_tile_id
+import cellmath  # noqa: E402
 
-ROOT = Path(__file__).resolve().parent.parent
+from script_env import ROOT  # noqa: E402
 OSM_DIR = ROOT / 'verification' / 'site' / 'osm27700'
 MOSAIC = ROOT / 'reference/aerial/highfield-z19/mosaic-z19-18x17-260101-175662-eastext6.png'
 NO_DATA_LUM = 0.01                   # window mean below this is a blank mosaic pixel (pure black), not ground
@@ -127,8 +128,7 @@ def poly_cells(rings_list) -> set:
 
 def cell_box(cell: tuple[int, int], margin: int = 0) -> tuple[int, int, int, int]:
     """Inclusive x0, z0, x1, z1 of a 128² cell, grown by ``margin``."""
-    x0, z0 = cell[0] * 128, cell[1] * 128
-    return x0 - margin, z0 - margin, x0 + 127 + margin, z0 + 127 + margin
+    return cellmath.bounds(cell, margin)
 
 
 # --- OSM ---------------------------------------------------------------------------------

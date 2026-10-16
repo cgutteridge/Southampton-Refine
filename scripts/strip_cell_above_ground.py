@@ -15,17 +15,14 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 
 
-def parse_cell(raw: str) -> tuple[int, int]:
-    """Parse ``tx,tz``."""
-    a, b = raw.split(',')
-    return int(a), int(b)
+from cellmath import parse_cell  # noqa: E402,F401
 
 from foliage import strip_foliage_above_surface  # noqa: E402
+from cellmath import CELL  # noqa: E402
 from site_kit import OUT, Plan, World, apply, preview  # noqa: E402
 
 STAGE = 'above-ground-strip'
@@ -37,7 +34,7 @@ def cell_columns(cell: tuple[int, int]) -> list[tuple[int, int]]:
     @param cell: (tx, tz)
     @returns: list of columns
     """
-    x0, z0 = cell[0] * 128, cell[1] * 128
+    x0, z0 = cell[0] * CELL, cell[1] * CELL
     return [(x, z) for x in range(x0, x0 + 128) for z in range(z0, z0 + 128)]
 
 

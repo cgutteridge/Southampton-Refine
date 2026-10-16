@@ -29,21 +29,14 @@ import sys
 from collections import deque
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 
 from foliage import corridor_columns_in_cell  # noqa: E402
 from surface_probe import short_id, surface_y  # noqa: E402
 
 
-def parse_cell(raw: str) -> tuple[int, int]:
-    """Parse ``tx,tz``.
-
-    @param raw: comma-separated indices
-    @returns: (tx, tz)
-    """
-    a, b = raw.split(',')
-    return int(a.strip()), int(b.strip())
+from cellmath import parse_cell  # noqa: E402,F401
+import cellmath  # noqa: E402
 
 
 def parcels_in_cell(*_a, **_k):
@@ -148,14 +141,8 @@ def px_per_block(lat: float) -> float:
 
 
 def cell_bounds(cell: tuple[int, int]) -> tuple[int, int, int, int]:
-    """MC block bounds for a 128-block coverage cell (inclusive x0,z0 .. x1,z1).
-
-    @param cell: (tx, tz)
-    @returns: (x0, z0, x1, z1)
-    """
-    x0 = cell[0] * 128
-    z0 = cell[1] * 128
-    return x0, z0, x0 + 127, z0 + 127
+    """MC block bounds (inclusive x0,z0 .. x1,z1) of a coverage cell."""
+    return cellmath.bounds(cell)
 
 
 def read_mask(cell: tuple[int, int]):

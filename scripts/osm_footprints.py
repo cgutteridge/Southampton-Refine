@@ -33,8 +33,7 @@ from pathlib import Path
 
 import numpy as np
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / 'scripts'))
+from script_env import ROOT  # noqa: E402
 from osgb import load_offsets  # noqa: E402
 
 OSM = ROOT / 'reference/osm'
