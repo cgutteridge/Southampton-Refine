@@ -1,0 +1,15 @@
+{
+  "structure": "southampton_refine:before_broadlands_rd_streetscape",
+  "from": [
+    6911,
+    18,
+    -5655
+  ],
+  "to": [
+    7198,
+    38,
+    -5459
+  ],
+  "result": "saved southampton_refine:before_broadlands_rd_streetscape",
+  "time": "2026-10-12 18:42:31"
+}

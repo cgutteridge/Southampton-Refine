@@ -1,0 +1,15 @@
+{
+  "structure": "southampton_refine:before_broadlands_ring1_roads",
+  "from": [
+    6911,
+    14,
+    -5761
+  ],
+  "to": [
+    7298,
+    37,
+    -5375
+  ],
+  "result": "saved southampton_refine:before_broadlands_ring1_roads",
+  "time": "2026-10-12 19:59:33"
+}

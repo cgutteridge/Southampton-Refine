@@ -1,0 +1,15 @@
+{
+  "structure": "southampton_refine:before_remove_early_broadlands_roads",
+  "from": [
+    6911,
+    13,
+    -5761
+  ],
+  "to": [
+    7298,
+    38,
+    -5374
+  ],
+  "result": "saved southampton_refine:before_remove_early_broadlands_roads",
+  "time": "2026-10-16 15:38:22"
+}
