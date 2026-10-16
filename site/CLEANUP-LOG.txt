@@ -3,3 +3,12 @@
 2026-10-16 screenshots: removed 0 (0 MB)
 2026-10-16 cells-cache: removed 25 (5 MB)
 2026-10-16 audits: removed 6 (3 MB)
+2026-10-16 reference-junk: removed 8 (6 MB)
+  reference/photos/so17-3sf/geograph-3994208-The-Butcher-039-s-Hook-Bitterne-Triangle-copy-Alex-McGregor-cc-by-sa-2.0.jpg  [judged useful=no: Bitterne Triangle pub — wrong side of Itchen for SO17 3SF]
+  reference/photos/so17-3sf/geograph-6377502-Dyer-Bros-boatyard-copy-David-Martin-cc-by-sa-2.0.jpg  [judged useful=no: Boatyard on Itchen — not Kitchener/Grosvenor]
+  reference/photos/highfield-b35/kartaview-1554572345.jpg  [judged useful=no: University Rd W, hoarding; B35 not visible]
+  reference/photos/highfield-b35/kartaview-1471280361.jpg  [judged useful=no: dark, houses; no B35]
+  reference/photos/highfield-b35/kartaview-1381546813.jpg  [judged useful=no: Q-025: houses; distant tower]
+  reference/photos/highfield-b35/kartaview-1471280409.jpg  [judged useful=no: Q-025: houses]
+  reference/photos/highfield-b35/kartaview-1481071577.jpg  [judged useful=no: Q-025: houses]
+  reference/photos/highfield-b35/kartaview-1622940457.jpg  [judged useful=no: Q-025: backlit houses]
