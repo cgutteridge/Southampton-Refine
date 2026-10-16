@@ -1,0 +1,48 @@
+SOUTHAMPTON REFINE — GOOGLE REVIEW (I-073)
+One cell per chat, in ring order (north centre, then clockwise; rules/radial-good-enough.md).
+Source of truth for the Google redo: take the first row that is not "done". Edit a row's
+status here when its chat ends; the queue item text only points here.
+
+Per cell, three parts (details in site/ISSUES.txt I-073):
+  look      google_aerial.py sheet --cell TX,TZ, recorded with cell_sources --record google
+  features  every building (houses, terraces, campus, small structures) against Google: roof form, ridge axis,
+            roof colour/material, rear wings, outbuildings, missing buildings. Keep or redo per building.
+  ground    applied ground (lawn, paving, drives, car parks, paths) against Google.
+Status words: todo | look | features | done  (the last part finished). bld = lidar lump count (size hint).
+
+ ring  cell      bld  status
+  r0   48,-44     4  todo
+  r1   48,-45     2  todo
+  r1   49,-45     8  todo
+  r1   49,-44     7  todo
+  r1   49,-43     9  todo
+  r1   48,-43     5  todo
+  r1   47,-43    16  todo
+  r1   47,-44     5  todo
+  r1   47,-45     6  todo
+  r2   48,-46    10  todo
+  r2   49,-46     6  todo
+  r2   50,-46    14  todo
+  r2   50,-45     8  todo
+  r2   50,-44    12  todo
+  r2   50,-43    27  todo
+  r2   50,-42    20  todo
+  r2   49,-42    25  todo
+  r2   48,-42    25  todo
+  r2   47,-42    26  todo
+  r2   46,-42    15  todo
+  r2   46,-43    13  todo
+  r2   46,-44     3  todo
+  r2   46,-45     1  todo
+  r2   46,-46     6  todo
+  r2   47,-46     8  todo
+  r3   48,-47    10  todo
+  r3   49,-47     6  todo
+  r3   50,-47     7  todo
+  r3   51,-47     7  todo
+  r3   51,-46     9  todo
+  r3   51,-45    11  todo
+  r3   51,-44    30  todo
+  r3   51,-43    25  todo
+  r3   51,-42    19  todo
+  r7   55,-44     5  todo

@@ -3,6 +3,22 @@ Mark [x] when done. One open item per chat. Newest work at the top of
 the open list. Empty queue: site_handoff.py next auto-queues the next cell.
 Done items: site/archive/QUEUE-done.txt (moved by scripts/site_archive.py).
 
+[ ] Q-179  TOOLING (I-073) Google review plumbing. RULES: tooling. No Minecraft apply.
+           (1) google_aerial.py: add --outlines to draw the OSM building outlines with way-id tails on the sheet
+           (as aerial_annot.py does), so each building can be compared with Google at a glance. (2) site_handoff.py
+           advance_to_next_cell: while site/GOOGLE-REVIEW.txt has a cell that is not "done", queue a "GOOGLE REVIEW
+           cell X" item for the first one (text as Q-180) above the new-cell layered-passes item; the end of a
+           review chat sets that row's status. (3) tests for both; docs in reference/SOURCES.txt.
+           When done, Q-180 stops needing to re-queue itself by hand.
+
+[ ] Q-180  GOOGLE REVIEW cell 48,-44 (first row of site/GOOGLE-REVIEW.txt not done; I-073). RULES: property.
+           Per I-073: (1) LOOK google_aerial.py sheet --cell 48,-44, then --at for single buildings; record with
+           cell_sources --record google. (2) FEATURES every building against Google (roof form, ridge axis, colour/
+           material, rear wings, outbuildings, missing/extra); storeys photo first, then OSM levels, then lidar.
+           Keep or redo per building, snapshot first, stop rule I-009. (3) GROUND applied ground vs Google (I-068).
+           Update the row in site/GOOGLE-REVIEW.txt (look/features/done), note matches and mismatches in the cell
+           STAGES file. Until Q-179 automates it: when done, add the next row's item above Q-178 (copy this text).
+
 [ ] Q-178  CELL 51,-41 (r=3) layered passes: ground, trees, decor. RULES: ground.
            Auto-queued: next in north-centre-then-clockwise order. The cell marker
            (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 51,-41 if not already.

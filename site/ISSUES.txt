@@ -287,6 +287,7 @@ I-067  M  TREES  open  Trees pass vs lidar tree columns (kind 2/3). Geocraft dra
 I-068  M  GROUND  open  Ground pass vs lidar: ground/paving heights against pristine base under lumps (floor levels, ledges, the
   step_out cases in house_build), terraces and slopes, kerb and path heights (campus grounds zones mc/mw/sc/sw/nc/ne/nw/se/me).
   Find columns where the applied surface differs from base by >= 2 without a reason.
+  Google satellite is now the primary evidence for surface type; this is worked cell by cell inside I-073.
 I-069  L  SPECIAL  open  Small non-house structures vs lidar: Oakdene Court (4 levels, flat roof assumed), garages (49,-42), bike
   shed, toilets, staff club pond, canopies (47,-45 y54 diagonal, physics canopies 47,-44), Welbeck Ave lump fixes. Roof shape and
   height from the lump table; keep or rebuild.
@@ -308,3 +309,16 @@ I-072  M  SOURCES  open  Wrong aerial in cell SOURCES files (found 2026-10-16 re
   cells whose SOURCES name a primary aerial cover < 50% of the cell: 46,-42 46,-44 47,-42 47,-44 48,-42 48,-43 48,-44 48,-45 50,-42 50,-45 51,-42 51,-43 51,-44 51,-45
   (several at 0-5%). Per cell: aerial_mosaic.py --at <cell centre> --zoom 18 --dir aerial/<name>, ref_manifest add, cell_sources --cell tx,tz --write. Do it as each cell is
   opened, not in bulk. Note 48,-44 and 48,-45 are the two finished cells (their ground/decor were built from whatever aerial existed).
+I-073  H  GOOGLE  open  REDO umbrella (user, 2026-10-16): Google satellite (google_aerial.py, always looked at, look-only) shows roofs, rear wings, outbuildings and
+  ground surfaces more clearly than our other sources, so re-check EVERY existing feature (houses included) and the ground of every touched cell against it. Site/
+  GOOGLE-REVIEW.txt lists the 35 touched cells in ring order with a status; one cell per chat. No hard reset (I-064): per building decide keep or redo, snapshot first.
+  Per cell, in this order:
+  1 LOOK      google_aerial.py sheet --cell TX,TZ (then --at X,Z for single buildings), record with cell_sources --record google. Write what it shows per building group.
+  2 FEATURES  each building against Google: roof form and ridge axis (the lidar flat/pitched label is only an estimate, I-071), roof colour and material (every roof is
+              deepslate_tile = hint today), rear wings, extensions, outbuildings, missing or extra buildings. Storeys: photo first, then OSM levels, then lidar (memory:
+              storey-count-prefer-photos-over-lidar). Redo = edit the house_build / campus spec and re-apply that street or building run (stop rule I-009: a geometry fix is
+              revert + re-survey, no _b/_c patches). Houses: rules/frontage-and-evidence.md; terraces: rules/terrace-builds.md.
+  3 GROUND    applied ground vs Google: lawn, paving, drives, car parks, paths, surface type; fold in I-068 (this is its evidence source now). Layered ground pass, masks.
+  Keep in mind: aerial lean puts a tall roof a few blocks off its ground footprint (the roof of Oakdene Court sat 2-3 blocks off the OSM outline); judge roofs on roofs.
+  Order of work (priority: code, then fixes to existing work, then new builds): Q-179 tooling first, then one cell per Q item, ahead of new-cell passes. Overlaps and now
+  folds in: I-066 (campus vs lidar), I-068 (ground vs lidar), I-069 (small structures), I-070 (lumps); close them as their cells are reviewed.
