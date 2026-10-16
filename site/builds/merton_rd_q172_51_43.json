@@ -1,0 +1,37 @@
+{
+  "name": "merton_rd_q172_51_43",
+  "notes": "Q-172: Merton Road nos. 9-19 (odd, west side, fronts E onto the road) OSM w176650761/769/760/787/778/767 - HOUSE ONLY (layered pass 1 of cell 51,-43; 15 Oct 2026). Detached houses, footprints turned ~25 deg; road (gray_terracotta, pavement polished_diorite y43) to the east => front E (as Q-106 nos. 1-7 in 50,-43). Plot ground is stone y44 behind a 1-block step down to the pavement. Roofs: z19 eastext4 mosaic covers nos. 9, 11, 13 only partly (grey slate); 15, 17, 19 are black (uncovered) => mud_brick hint. No lawn/fences/trees. Floor per house = natural plot surface outside the footprint.",
+  "modifies": [],
+  "ways": {
+    "176650761": "A",
+    "176650769": "B",
+    "176650760": "C",
+    "176650787": "D",
+    "176650778": "E",
+    "176650767": "F"
+  },
+  "roofs": {
+    "A": "cobbled_deepslate",
+    "B": "cobbled_deepslate",
+    "C": "cobbled_deepslate",
+    "D": "mud_brick",
+    "E": "mud_brick",
+    "F": "mud_brick"
+  },
+  "groups": [
+    {
+      "nos": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "mode": "each",
+      "front": "E"
+    }
+  ],
+  "step_max": 13,
+  "ledge_stair": true
+}

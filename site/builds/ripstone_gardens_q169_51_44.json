@@ -1,0 +1,30 @@
+{
+  "name": "ripstone_gardens_q169_51_44",
+  "notes": "Q-169: Ripstone Gardens nos. 33-39 (odd, south side, fronts N) OSM w176650773/776/784/788 - HOUSE ONLY (layered pass 1 of cell 51,-44; 15 Oct 2026). Detached houses on the south side, fronts N onto the road (conventions as build_ripstone_gardens_41_49.py and Q-167). The z19 eastext3 mosaic does not reach these plots; roof colour (mud_brick) is a hint only. No lawn/fences/trees. Floor per house = front pavement top.",
+  "modifies": [],
+  "ways": {
+    "176650773": "A",
+    "176650776": "B",
+    "176650784": "C",
+    "176650788": "D"
+  },
+  "roofs": {
+    "A": "mud_brick",
+    "B": "mud_brick",
+    "C": "mud_brick",
+    "D": "mud_brick"
+  },
+  "groups": [
+    {
+      "nos": [
+        "B",
+        "A",
+        "C",
+        "D"
+      ],
+      "mode": "each",
+      "front": "N"
+    }
+  ],
+  "step_max": 13
+}

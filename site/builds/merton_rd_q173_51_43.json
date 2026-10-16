@@ -1,0 +1,52 @@
+{
+  "name": "merton_rd_q173_51_43",
+  "notes": "Q-173: Merton Road even nos. 2-20 (east side, fronts W onto the road) OSM w176316407 (2a), 402 (2/4), 389, 383, 410, 407, 392, 386, 414, 394, 384 - HOUSE ONLY (layered pass 1 of cell 51,-43; 15 Oct 2026). Detached houses, footprints turned ~25 deg; road to the west => front W. Roofs: z19 tiles 260116-17 x 175673-75 fetched, mosaic eastext5 (aerial: orange/red clay tile all along): brick slab (reddish) / mud_brick (tan). No lawn/fences/trees. Floor per house = natural plot surface outside the footprint.",
+  "modifies": [],
+  "ways": {
+    "176316407": "A",
+    "176650402": "B",
+    "176650389": "C",
+    "176650383": "D",
+    "176650410": "E",
+    "176650407": "F",
+    "176650392": "G",
+    "176650386": "H",
+    "176650414": "I",
+    "176650394": "J",
+    "176650384": "K"
+  },
+  "roofs": {
+    "A": "mud_brick",
+    "B": "mud_brick",
+    "C": "brick",
+    "D": "brick",
+    "E": "brick",
+    "F": "brick",
+    "G": "mud_brick",
+    "H": "mud_brick",
+    "I": "brick",
+    "J": "mud_brick",
+    "K": "mud_brick"
+  },
+  "groups": [
+    {
+      "nos": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K"
+      ],
+      "mode": "each",
+      "front": "W"
+    }
+  ],
+  "step_max": 4,
+  "ledge_stair": true
+}

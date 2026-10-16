@@ -172,3 +172,6 @@ rule-file copy.
  Good enough: rules/radial-good-enough.md. Do not chase ridge cresting or
  trapdoor gutters either. Readable massing + sealed shell + correct street
  character is the default.
+
+HOUSE-ONLY RUNS (OSM footprints, slab roofs): scripts/house_build.py + site/builds/<name>.json (spec keys in its docstring).
+Never copy a per-run build script. Old copies: scripts/legacy/. Prove a refactor with scripts/prove_house_build.py.

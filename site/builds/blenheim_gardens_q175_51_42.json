@@ -1,0 +1,34 @@
+{
+  "name": "blenheim_gardens_q175_51_42",
+  "notes": "Q-175: Blenheim Gardens nos. 25, 27, 29, 31, 35 (south side, fronts N onto the road) OSM w176387130 (25), w176387126 (27), w176387144 (29), r7222149 (31), w176387151 (35) - HOUSE ONLY (layered pass 1 of cell 51,-42; 15 Oct 2026). Adapted from build_merton_rd_q173_51_43.py. Road runs along the north (front N). Roofs: z19 tile 260116 x 175676-77 (+260117/8) fetched into mosaic eastext6; orange/red clay tile everywhere (aerial hint): brick slab, mud_brick for the duller 29/35. No. 37 (Q-108) is adjacent: its walls/overhang are foreign and left alone. No lawn/fences/trees. Floor per house = natural plot surface outside the footprint.",
+  "modifies": [],
+  "ways": {
+    "176387130": "A",
+    "176387126": "B",
+    "176387144": "C",
+    "7222149": "D",
+    "176387151": "E"
+  },
+  "roofs": {
+    "A": "brick",
+    "B": "brick",
+    "C": "mud_brick",
+    "D": "brick",
+    "E": "mud_brick"
+  },
+  "groups": [
+    {
+      "nos": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "mode": "each",
+      "front": "N"
+    }
+  ],
+  "step_max": 4,
+  "ledge_stair": true
+}

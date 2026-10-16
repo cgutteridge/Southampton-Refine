@@ -1,0 +1,34 @@
+{
+  "name": "ripstone_gardens_q170_51_44",
+  "notes": "Q-170: Ripstone Gardens nos. 44-52 (even, north side, fronts S) OSM w177759030/015/978/019/054 - HOUSE ONLY (layered pass 1 of cell 51,-44; 15 Oct 2026). Detached houses on the north side, fronts S onto the road (conventions as Q-168/Q-169). Roof colour mud_brick is a hint only (as Q-169). No lawn/fences/trees. Floor per house = front pavement top.",
+  "modifies": [],
+  "ways": {
+    "177759030": "A",
+    "177759015": "B",
+    "177758978": "C",
+    "177759054": "D",
+    "177759019": "E"
+  },
+  "roofs": {
+    "A": "mud_brick",
+    "B": "mud_brick",
+    "C": "mud_brick",
+    "D": "mud_brick",
+    "E": "mud_brick"
+  },
+  "groups": [
+    {
+      "nos": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "mode": "each",
+      "front": "S"
+    }
+  ],
+  "step_max": 13,
+  "ledge_stair": true
+}

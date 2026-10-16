@@ -1,0 +1,27 @@
+{
+  "name": "granby_grove_q168_51_44",
+  "notes": "Q-168: Granby Grove 3 houses OSM w177806450/474/482 (north side of the road, fronts S) - HOUSE ONLY (layered pass 1 of cell 51,-44; 15 Oct 2026). Detached row on a diagonal, fronts S onto Granby Grove (conventions as build_granby_grove_q165_51_45.py). z19 eastext3 mosaic covers the cell; roof colours (pale pink-tan, A darker) are hints only. No lawn/fences/trees. Floor per house = front pavement top.",
+  "modifies": [],
+  "ways": {
+    "177806450": "A",
+    "177806474": "B",
+    "177806482": "C"
+  },
+  "roofs": {
+    "A": "brick",
+    "B": "mud_brick",
+    "C": "brick"
+  },
+  "groups": [
+    {
+      "nos": [
+        "A",
+        "B",
+        "C"
+      ],
+      "mode": "each",
+      "front": "S"
+    }
+  ],
+  "step_max": 13
+}

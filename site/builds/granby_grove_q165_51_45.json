@@ -1,0 +1,10 @@
+{
+  "name": "granby_grove_q165_51_45",
+  "notes": "Q-165: Granby Grove house OSM w177806522, house only (layered pass 1 of cell 51,-45; 15 Oct 2026). Front S onto Granby Grove. z19 aerial black/blurry: roof colour deepslate_tile is a hint only. No lawn, fences, hedges, trees. Floor from natural ground outside the footprints.",
+  "modifies": [],
+  "ways": {"177806522": "A"},
+  "roofs": {"A": "deepslate_tile"},
+  "groups": [{"nos": ["A"], "mode": "each", "front": "S"}],
+  "floor_min": 46,
+  "step_max": 13
+}
