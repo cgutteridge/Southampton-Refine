@@ -34,6 +34,7 @@ from script_env import ROOT  # noqa: E402
 
 TOP = 140
 MIN_COLUMNS = 12                    # ignore slivers (bin stores, small sheds)
+MIN_CORE = 6                        # columns left after eroding a lump 3 times (~7+ blocks wide) before its interior may judge flat vs pitched
 STOREY = 3                          # blocks per storey
 RIDGE_BASE = 3                      # ridge height above ground minus this, / STOREY = storeys. Calibrated 2026-10-16 against
                                     # OSM building:levels of 54 single-building lumps in the touched cells: 57% exact, 89%
@@ -125,6 +126,11 @@ def _group(cols: set) -> list:
     return sorted(out, key=lambda c: (-len(c), min(c)))
 
 
+def _erode(cols: set) -> set:
+    """Columns whose 8 neighbours are all in cols (one ring of the rim removed)."""
+    return {(x, z) for x, z in cols if all((x + dx, z + dz) in cols for dx, dz in cellmath.N8)}
+
+
 def _ground(hm: dict, comp: set, reach: int = 3) -> int | None:
     """Median ground top of the non-building columns ringing a lump (inside this cell)."""
     x0, z0 = hm['x0'], hm['z0']
@@ -139,7 +145,8 @@ def _ground(hm: dict, comp: set, reach: int = 3) -> int | None:
 def lumps(hm: dict, min_columns: int = MIN_COLUMNS) -> list:
     """Buildings in the height map (connected roof columns), largest first.
 
-    Each item: bbox, centre, columns, ground_y, eave_y (10th percentile of roof y), ridge_y, height (ridge - ground), storeys (estimate: (ridge - ground - RIDGE_BASE)
+    Each item: bbox, centre, columns, ground_y, eave_y (10th percentile of roof y; of the interior columns for a wide lump, see MIN_CORE, because
+    lidar blurs the rim low), ridge_y, height (ridge - ground), storeys (estimate: (ridge - ground - RIDGE_BASE)
     / STOREY, at least 1; osm_levels is added by report() when OSM has building:levels), roof ('flat' | 'pitched'), ridge_axis ('x' | 'z' | None), trees_over (columns) and
     cols (the column set, for OSM matching).
     """
@@ -153,13 +160,22 @@ def lumps(hm: dict, min_columns: int = MIN_COLUMNS) -> list:
         ry = {c: int(hm['roof'][c[0] - x0, c[1] - z0]) for c in comp}
         vals = sorted(ry.values())
         lo, hi = vals[len(vals) // 10], vals[-1]      # eave = 10th percentile: ignores low annex / dormer slivers
+        # Lidar blurs the building edge: the rim columns read 3-6 blocks low whatever the roof, so hi - lo over the whole
+        # footprint says "pitched" for nearly every building (Oakdene Court, a flat 4-level block, included). A wide enough
+        # building is judged on its interior (rim eroded away). A narrow one is not: its interior is just the ridge strip
+        # and would read flat, so it keeps the whole-footprint test.
+        inner = _erode(set(comp))
+        if len(_erode(_erode(inner))) >= MIN_CORE:
+            lo = sorted(ry[c] for c in inner)[len(inner) // 10]
+            pitched = max(ry[c] for c in inner) - lo >= 2
+        else:
+            pitched = hi - lo >= 2
         g = _ground(hm, comp)
         xs = [x for x, _ in comp]
         zs = [z for _, z in comp]
         ridge = [c for c, y in ry.items() if y == hi]
         rx = max(x for x, _ in ridge) - min(x for x, _ in ridge)
         rz = max(z for _, z in ridge) - min(z for _, z in ridge)
-        pitched = hi - lo >= 2
         out.append({
             'bbox': [min(xs), min(zs), max(xs), max(zs)],
             'centre': [(min(xs) + max(xs)) // 2, (min(zs) + max(zs)) // 2],

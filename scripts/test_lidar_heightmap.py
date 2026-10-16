@@ -64,6 +64,33 @@ class LumpTest(unittest.TestCase):
         self.assertEqual((pitched['roof'], pitched['ridge_axis'], pitched['ground_y']), ('pitched', 'x', 40))
         self.assertEqual((flat['roof'], flat['ridge_axis'], flat['storeys']), ('flat', None, 1))
 
+    def blank_map(self):
+        import numpy as np
+        n = 128
+        return {'cell': (0, 0), 'x0': 0, 'z0': 0, 'h': np.zeros((n, n), 'int16'), 'base': np.full((n, n), 40, 'int16'),
+                'roof': np.zeros((n, n), 'int16'), 'kind': np.zeros((n, n), 'uint8')}
+
+    def test_narrow_pitched_house_stays_pitched(self):
+        """A 3-wide gable's interior is only its ridge strip (spread 0): too narrow to judge by, so the whole footprint is used."""
+        hm = self.blank_map()
+        for x in range(10, 22):
+            for z in range(10, 13):
+                hm['roof'][x, z] = 50 if z == 11 else 47
+                hm['kind'][x, z] = L.ROOF
+        (lump,) = L.lumps(hm)
+        self.assertEqual((lump['roof'], lump['ridge_axis']), ('pitched', 'x'))
+
+    def test_flat_roof_with_blurred_rim_is_flat(self):
+        """Lidar reads the rim of any building 3-6 low (Oakdene Court); only the interior says flat or pitched."""
+        hm = self.blank_map()
+        for x in range(10, 24):
+            for z in range(10, 20):
+                rim = x in (10, 23) or z in (10, 19)
+                hm['roof'][x, z] = 48 if rim else 57
+                hm['kind'][x, z] = L.ROOF
+        (lump,) = L.lumps(hm)
+        self.assertEqual((lump['roof'], lump['ridge_axis'], lump['ridge_y']), ('flat', None, 57))
+
 
 class AuditTest(unittest.TestCase):
     def maps(self):
