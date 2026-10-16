@@ -43,3 +43,16 @@ Done items: site/archive/QUEUE-done.txt (moved by scripts/site_archive.py).
            (python3 scripts/lidar_heightmap.py --cell 48,-44), build the missing wing if it exists, then add the 38-D door with
            scripts/entrances.py. One build, no follow-up patches.
 
+[ ] Q-185  FEATURE B42 Students' Union facade from the portal photos (42-A..D, reference/portals 800 px). RULES: campus.
+           Photos show black steel-framed glazing with white fascia bands (42-A The Union, 42-B Piazz@soton, 42-C Latte's: black cladding,
+           maroon sign band, black railings on a concrete ramp), white board-marked concrete walls beside the Cafe opening (42-D), blue-grey glazing above.
+           The build is brick with glass slots. Rebuild B42's walls as ONE clean build (like highfield_su_retail), roofs/heights from lidar, doors
+           from scripts/entrances.py (their cells move into the new build). Photos first, aerial and lidar for shape; no follow-up patches.
+
+[ ] Q-186  FEATURE Jubilee Sports Complex facade (18-A photo). RULES: campus.
+           Photo 18-A: full-height glass curtain wall with dark mullions on a ~2 high red-brick plinth, entrance in a projecting grey metal
+           porch (flat grey frame). Build is brick walls with glass slots. Rebuild the hall and extension walls from the photo, one clean build.
+
+[ ] Q-187  FEATURE West Building (B40) Us. entrance and Stags surround (portals 40-A, 40-B). RULES: campus.
+           40-A: brick opening under a white 'Us.' sign band, arched dark entrance. 40-B Stags pavilion is built (highfield_stags): add the
+           low white balustrade walls either side and the steps' brick plinth; check the pavilion roof edge colour against the photo.
