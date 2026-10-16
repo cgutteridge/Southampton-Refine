@@ -41,6 +41,8 @@ and patrol all passed. All five were reverted.
   name its evidence id. Never to shove a house onto the kerb.
 - A building visible in imagery but missing from OSM or lidar is built too
   (PROCESS §2d-i).
+- Lidar is a dated snapshot: if newer photos clearly show a change, follow the photo and
+  record the mismatch (PROCESS §2d-i).
 
 ## 3. Describe the evidence before planning
 3-5 lines per property group in REVIEWS or the place notes: storeys, bays and

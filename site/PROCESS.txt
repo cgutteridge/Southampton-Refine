@@ -226,6 +226,19 @@ BUILT plan in place to “fix” the world.
  osm_extract.py first for ways outside the OSM clip. Such lumps are found by site_handoff
  (cell_gaps -> lump_scan) and queued as feature items automatically: part of "cell done", not a step.
 
+ LIDAR IS A DATED SNAPSHOT TOO (user, 2026-10-16). Lidar can disagree with newer (or older)
+ photos on footprint, height or roof (extension, new roof, demolition). Lidar stays the
+ default for ground / eaves / ridge Y; where a photo clearly shows a later change, follow
+ the photo and record source + year and the lidar mismatch in the build docstring and the
+ cell STAGES note. Do not "fix" the photo to match lidar.
+ Geocraft's lidar is also filtered on non-grass columns: 1-2 m features (cars, street furniture,
+ bins, signs, low walls) were dropped as noise. Absence from lidar proves nothing for them; add
+ them in the decor phase when reference materials show them.
+
+ PRIORITY RULE OF THUMB (user, 2026-10-16). Code / tooling changes come before most other
+ tasks. Fixing existing things comes before new builds. Order a session's pick: code
+ changes, then fixes to what is built, then new builds / new cells.
+
 ------------------------------------------------------------------------
 3. FULL PLACE REVIEW CHECKLIST
 ------------------------------------------------------------------------
