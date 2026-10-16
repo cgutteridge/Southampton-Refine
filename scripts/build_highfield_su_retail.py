@@ -50,19 +50,25 @@ FEATURES = [
 
 
 class Retail(Campus):
-    """Per-face materials from the photo: the front (south-west, south-facing steps) has the glazed shopfront and the sign band, white
-    render above; everything else (end walls, back) is brick."""
+    """Per-face materials from the photo. The outline is a stepped diagonal, so most front cells are corners with two exposures and
+    Campus's one-exposure window rule leaves them as plain wall: the front is designed here instead, for every south-facing cell.
+    Front: dark steel plinth, two rows of glazing between steel posts every 6th cell, the sign band, white render with window pairs
+    above; the brick bay at the west end. Everything else (end walls, back) is brick."""
 
     def wall_block(self, x, y, z, pt, ex):
         b = super().wall_block(x, y, z, pt, ex).replace('minecraft:', '')
-        front = any(d == (0, 1) for d in ex)
-        if not front:
+        if not any(d == (0, 1) for d in ex):
             return 'bricks' if b in ('white_concrete', 'gray_concrete') else b
-        if x <= BAY_X and y < BASE + 3:
-            return 'bricks'                                                          # the brick pier bay
-        if y == BASE + 3 and x > BAY_X:
-            return 'light_blue_concrete'                                             # "union shop" sign band
-        return b
+        rel = y - BASE
+        if y in (pt.base, pt.deck):
+            return b
+        if x <= BAY_X and rel < 3:
+            return 'bricks'                                                          # the brick pier bay with its glazed door
+        if rel in (1, 2):
+            return 'gray_concrete' if x % 6 == 0 else 'glass'                        # shopfront: glazing between steel posts
+        if rel == 3:
+            return 'light_blue_concrete' if x > BAY_X else 'bricks'                  # "union shop" sign band
+        return 'glass' if (rel == 4 and x > BAY_X + 2 and x % 5 in (1, 2)) else 'white_concrete'      # white render, window pairs
 
 
 def canopy(plan, plan_world):
@@ -87,27 +93,36 @@ def make():
 class PlanOverWorld:
     """block() of a plan where it has the cell, else of the live world."""
 
-    def __init__(self, plan, world):
-        self.plan, self.world = plan, world
+    def __init__(self, plan, world, ignore=()):
+        self.plan, self.world, self.ignore = plan, world, set(ignore)
 
     def block(self, x, y, z):
-        return self.plan.cells.get((x, y, z)) or self.world.block(x, y, z)
+        if (x, y, z) in self.ignore and (x, y, z) not in self.plan.cells:
+            return 'minecraft:air'                  # this build's own cells from an earlier run: not part of the ground
+        if (x, y, z) in self.plan.cells:
+            return self.plan.cells[(x, y, z)]
+        return self.world.block(x, y, z)
 
 
 def build():
     c = make()
     from site_kit import OUT, World, _parse_cells_file
     live = World()
+    try:
+        oldown, _air = _parse_cells_file(OUT / f'{NAME}-cells.json')
+    except (OSError, ValueError, KeyError):
+        oldown = {}
     plan = c.build(lambda cc: print('roof features', roof_greeblies(cc, FEATURES)))
     ep, notes = Plan(NAME), []
-    entrances(ep, PlanOverWorld(plan, World()), cells, {'57-A': (6225, -5566)}, notes, double={'57-A'}, flat={'57-A'},
-              style={'57-A': ('iron_door', 'gray_concrete')}, check_walls=False)      # Union Shop: glazed shop doors, white frame
+    entrances(ep, PlanOverWorld(plan, World(), oldown), cells, {'57-A': (6225, -5566)}, notes, double={'57-A'},
+              style={'57-A': ('iron_door', 'gray_concrete')}, check_walls=False)      # portal 57-A: the glazed door in the brick bay
+    entrances(ep, PlanOverWorld(plan, World(), oldown), cells, {'57-shop': (6238, -5563)}, notes, wide={'57-shop'},
+              style={'57-shop': (None, 'gray_concrete')}, check_walls=False)       # the shop's wide automatic doors (photo): an open 6-wide entrance
     plan.cells.update(ep.cells)
-    canopy(plan, live)                      # after the door: the canopy must not count as the ground outside it
+    canopy(plan, PlanOverWorld(plan, live, oldown))      # after the doors: the canopy must not count as the ground outside them
     OUTSIDE_OK = 'the roof cantilevers ~4 over the front on two steel posts: photo reference/aerial/highfield-user/union-shop-front.webp'
     print('\n'.join(notes))
     try:                                              # an earlier version of this build (Campus door, approach steps): put back what was under it
-        oldown, _air = _parse_cells_file(OUT / f'{NAME}-cells.json')
         prev = built_cells(exclude=(NAME,), within=list(oldown))
         for q in oldown:
             if q not in plan.cells:

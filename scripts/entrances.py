@@ -10,7 +10,7 @@ from __future__ import annotations
 FACE = {(1, 0): 'east', (-1, 0): 'west', (0, 1): 'south', (0, -1): 'north'}
 WALL, GLASS = 'white_concrete', 'glass'
 MAX_AWAY = 9           # blocks: a portal further than this from any straight wall is off the mapped footprint
-WIDTHS = {'double': (-2, 3), 'pair': (-1, 2), 'single': (-2, 2), 'narrow': (-1, 1)}   # k range along the wall, door cell is k = 0
+WIDTHS = {'wide': (-3, 4), 'double': (-2, 3), 'pair': (-1, 2), 'single': (-2, 2), 'narrow': (-1, 1)}   # k range along the wall, door cell is k = 0
 GROUNDISH = ('air', 'cave_air', 'grass_block', 'dirt', 'coarse_dirt', 'podzol', 'gravel', 'sand', 'water', 'polished_granite',
              'polished_diorite', 'polished_andesite', 'gray_concrete', 'light_gray_concrete', 'stone', 'smooth_stone')
 
@@ -83,11 +83,11 @@ def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_d
     y0 = y0 or top(world, x + dx, z + dz) + 1
     ax, az = abs(dz), abs(dx)
     lo, hi = WIDTHS[width]
-    doors = (0, 1) if width in ('double', 'pair') else (0,)
+    doors = tuple(range(-2, 4)) if width == 'wide' else (0, 1) if width in ('double', 'pair') else (0,)
     for k in range(lo, hi + 1):
         cx, cz = x + k * ax, z + k * az
         if k in doors and leaf is not None:
-            hinge = 'right' if (width in ('double', 'pair') and k == 1) else 'left'
+            hinge = 'right' if (width in ('double', 'pair', 'wide') and k % 2 == 1) else 'left'
             plan.set(cx, y0, cz, f'minecraft:{leaf}[facing={face},half=lower,hinge={hinge},open=false]')
             plan.set(cx, y0 + 1, cz, f'minecraft:{leaf}[facing={face},half=upper,hinge={hinge},open=false]')
             plan.set(cx - dx, y0 - 1, cz - dz, 'minecraft:smooth_stone')       # floor inside, level with the door
@@ -110,7 +110,7 @@ def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_d
     notes.append(f'{width} {leaf or "opening"}/{frame} at {x},{y0},{z} facing {face}, ground outside {y0 - 1}')
 
 
-def entrances(plan, world, cells, found, notes, double=(), flat=(), style=None, check_walls=True, fascia=()):
+def entrances(plan, world, cells, found, notes, double=(), flat=(), style=None, check_walls=True, fascia=(), wide=()):
     """Add a door for each portal.
 
     @param plan: Plan
@@ -122,15 +122,16 @@ def entrances(plan, world, cells, found, notes, double=(), flat=(), style=None, 
     @param flat: portal ids whose wall is made flush first (flatten) so a double door fits
     @param check_walls: require a real built wall at door height (default); False where the OSM footprint is what was built
                         (B42), so the result does not depend on the doors a previous run left in the world
+    @param wide: ids of 6-wide entrances (a shop front's automatic doors), the wall made flush over 8 cells
     @param style: {portal id: (leaf, frame)}; default (iron_door, white_concrete). Chosen from the 800 px portal photos and
                   scripts/block_reference.py (iron_door light grey, dark_oak_door very dark brown; leaf None = open passage)
     """
     for pid, (px, pz) in found.items():
-        if pid in flat:
-            f = flatten(plan, world, cells, px, pz, notes, check_walls=check_walls)
+        if pid in flat or pid in wide:
+            f = flatten(plan, world, cells, px, pz, notes, ks=range(-3, 5) if pid in wide else range(-2, 4), check_walls=check_walls)
             if f:
                 lf, fr = (style or {}).get(pid, ('iron_door', WALL))
-                door(plan, world, f[0], f[1], f[2], f[3], notes, 'double', leaf=lf, frame=fr, fascia=pid in fascia)
+                door(plan, world, f[0], f[1], f[2], f[3], notes, 'wide' if pid in wide else 'double', leaf=lf, frame=fr, fascia=pid in fascia)
                 continue
         order = ('double', 'pair', 'single', 'narrow') if pid in double else ('single', 'narrow')
         cands = [(wd, wall_cell(cells, px, pz, wd, world if check_walls else None)) for wd in order]
