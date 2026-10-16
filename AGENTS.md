@@ -17,6 +17,9 @@ is the go-ahead. Do not read every rule file or all of `site/PROCESS.txt`.
   `rules/reference-token-budget.md`.
 - Never use a browser automation that takes over the user's Firefox unless the
   user explicitly asks for it in the current request.
+- After a world fix the user should see, run the `human-confirm-fix` skill:
+  ask first, show it in the game, put one question. The user's "yes" closes
+  the issue.
 - Process, session start/end, handoff, chain rule and the "call the user in"
   rule: `site/PROCESS.txt` §6–§7.
 - Python: `.venv/bin/python` (system python is locked down).

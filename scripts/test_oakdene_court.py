@@ -1,6 +1,6 @@
 import unittest
 
-from oakdene_court import pair_slots, runs
+from oakdene_court import diagonal_chains, pair_slots, runs
 
 
 class PairSlotsTest(unittest.TestCase):
@@ -28,6 +28,17 @@ class RunsTest(unittest.TestCase):
         cells = [(5, 0), (5, 1), (5, 2), (5, 4), (6, 5)]        # d = W: wall lines are x, runs go along z
         found = sorted(sorted(r) for r in runs(cells, 'W'))
         self.assertEqual(found, [[(5, 0), (5, 1), (5, 2)], [(5, 4)], [(6, 5)]])
+
+
+class DiagonalChainsTest(unittest.TestCase):
+    def test_a_staircase_is_one_chain_and_a_lone_corner_is_none(self):
+        stairs = [(0, 0), (1, 1), (2, 2), (3, 3)]
+        self.assertEqual(diagonal_chains(stairs + [(10, 10)]), [stairs])
+
+    def test_both_diagonal_directions(self):
+        up = [(0, 3), (1, 2), (2, 1)]
+        down = [(5, 0), (6, 1)]
+        self.assertEqual(sorted(diagonal_chains(up + down)), sorted([up, down]))
 
 
 if __name__ == '__main__':

@@ -62,6 +62,23 @@ def runs(cells, d):
     return out
 
 
+def diagonal_chains(cells):
+    """Chains of stepped-diagonal wall cells (cells exposed two ways), each cell the next one diagonally: [[(x, z), ...], ...].
+    A cell with no diagonal neighbour (a true corner) is a chain of 1 and gets no window."""
+    cells = set(cells)
+    out = []
+    for step in ((1, 1), (1, -1)):
+        for c in sorted(cells):
+            if (c[0] - step[0], c[1] - step[1]) in cells:
+                continue                                  # not the start of a chain along this diagonal
+            chain = [c]
+            while (chain[-1][0] + step[0], chain[-1][1] + step[1]) in cells:
+                chain.append((chain[-1][0] + step[0], chain[-1][1] + step[1]))
+            if len(chain) > 1:
+                out.append(chain)
+    return out
+
+
 def pair_slots(n):
     """Window pairs along a straight run of n wall cells: [(i, i+1), ...], one-block brick piers between them, the group centred.
     The run's two end cells are already walls beside a corner cell, so a pair may start at the very end of the run.
@@ -92,7 +109,7 @@ class Oakdene(m.Build):
         print('earlier Oakdene blocks cleared:', gone)
 
     def windows(self, k, h):
-        """2-wide window pairs on straight faces only (never on corners or the stepped diagonals: a lone pane there looks wrong).
+        """2-wide window pairs: panes on straight faces, full glass blocks on the stepped diagonals (never panes there), none on a lone corner.
         The middle pair of the entrance face is the balcony instead (WW_BB_WW)."""
         b = h.b
         front = getattr(h, 'door', None)
@@ -119,7 +136,17 @@ class Oakdene(m.Build):
                         for c in pair:
                             self.set(c[0], b + 2 + 3 * s_, c[1], pane(axis))
                     n += 2
-        print('window panes per storey', n, 'x', h.levels, 'storeys')
+        diag = [c for c, e in exp.items() if len(e) > 1]
+        g = 0
+        for chain in diagonal_chains(diag):
+            for i, j in pair_slots(len(chain)):
+                for c in (chain[i], chain[j]):
+                    if c in doors:
+                        continue
+                    for s_ in range(h.levels):
+                        self.set(c[0], b + 2 + 3 * s_, c[1], 'glass')    # full glass blocks on a diagonal: a pane there is a thin slit at a corner
+                    g += 1
+        print('window panes per storey', n, 'x', h.levels, 'storeys; diagonal glass blocks per storey', g)
 
     def balcony(self, h, pair, d):
         """Open recessed balcony, 2 wide, on every upper storey over the entrance: white parapet at the face, open above it,
