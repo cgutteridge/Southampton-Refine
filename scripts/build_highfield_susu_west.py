@@ -74,7 +74,7 @@ GREEBLIES = [
 ]
 # dark membrane roof: only on the cells that were lowered to it (its colour must not spill onto the higher block beside it)
 MEMBRANE = [
-    ('patch', [(6179, -5526), (6206, -5514), (6197, -5491), (6169, -5506)], 'gray_concrete', 0),
+    ('patch', [(6160, -5519), (6210, -5519), (6210, -5485), (6160, -5485)], 'gray_concrete', 0),   # every lowered 58 cell
     *[('line', l, 'light_gray_concrete', 0) for l in ([(6173, -5515), (6202, -5502)], [(6187, -5521), (6176, -5506)],
                                                       [(6197, -5515), (6190, -5499)])],
 ]
@@ -83,7 +83,9 @@ EXTRA = lambda c: print('greeblies', roof_greeblies(c, GREEBLIES))  # noqa: E731
 
 # Roofs the pristine lidar reads lower than the build (live-minus-lidar grid, 2026-10-16): the low block east of the
 # lanterns (lidar 57) and the dark membrane roof (lidar 58); both were built 60. Lowered as part of this feature.
-LOWER = [((6187, -5537, 6205, -5516), 57), ((6169, -5518, 6201, -5492), 58)]
+# every record that may hold cells of this feature's roof (the follow-up steps re-write each other's cells)
+MODIFIES = (NAME, NAME + '-greeblies', NAME + '-lower', NAME + '-membrane-spill', NAME + '-canopyfix', 'highfield_q051_ur')
+LOWER = [((6184, -5538, 6205, -5519), 57), ((6169, -5518, 6201, -5492), 58)]
 
 
 def lower_map():
@@ -124,7 +126,7 @@ def greeblies_plan():
     low = lower_map()
     v = RoofView(NAME, only=way_cells('33830305'), lower=low)
     print('greeblies', roof_greeblies(v, GREEBLIES))
-    m = RoofView(NAME, only=set(low), lower=low)
+    m = RoofView(NAME, only={q for q, y in low.items() if y == 58}, lower=low)    # membrane = the cells lowered to 58
     print('membrane', roof_greeblies(m, MEMBRANE))
     v.p.cells.update(m.p.cells)
     return v.p
@@ -147,12 +149,12 @@ if __name__ == '__main__':
     if a.lower:
         plan = lower_plan()
         preview(plan, ROOT / f'verification/site/{NAME}-lower-preview.png', scale=2)
-        apply(plan, dry=not a.apply, modifies=(NAME, NAME + '-greeblies', 'highfield_q051_ur'))
+        apply(plan, dry=not a.apply, modifies=MODIFIES)
         raise SystemExit(0)
     if a.greeblies:
         plan = greeblies_plan()
         preview(plan, ROOT / f'verification/site/{NAME}-greeblies-preview.png', scale=2)
-        apply(plan, dry=not a.apply, modifies=(NAME, NAME + '-greeblies', NAME + '-lower', 'highfield_q051_ur'))
+        apply(plan, dry=not a.apply, modifies=MODIFIES)
         raise SystemExit(0)
     c = make()
     plan = c.build(EXTRA)
