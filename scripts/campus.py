@@ -405,6 +405,102 @@ class Campus:
         return self.p
 
 
+class RoofView:
+    """Stand-in for Campus over an already built feature: roof tops come from the build's own cells file.
+
+    Lets roof_greeblies() run as a follow-up step after the feature build (the full build cannot be re-planned once
+    later builds stand beside it). ``part`` = the build's cells inside ``only``; ``deck`` = the topmost block it placed
+    there (-999 elsewhere); edge cells carry the coping, so roof_greeblies skips them.
+    """
+
+    def __init__(self, name, only=None):
+        from site_kit import OUT, _parse_cells_file
+        adds, _air = _parse_cells_file(OUT / f'{name}-cells.json')
+        top = {}
+        for (x, y, z) in adds:
+            if only is None or (x, z) in only:
+                top[(x, z)] = max(top.get((x, z), -999), y)
+        self.p = Plan(f'{name}-greeblies')
+        self.part = {q: name for q in top}
+        self._top = top
+
+    def deck(self, x, z):
+        return self._top.get((x, z), -999)
+
+    def set(self, x, y, z, s):
+        self.p.set(x, y, z, s)
+
+
+def roof_greeblies(c, items):
+    """Roof greeblies (plant blocks, vents, hatches, skylights, domes) placed after the shells, as part of the feature.
+
+    Positions are measured off the Google sheet (google_aerial.py). Items, in this order of effect:
+      ('plinth', poly, h, block)   raised pale roof block, h above the deck, over cells inside poly
+      ('vent', x, z)               round vent / roof light: one white block on the roof (or plinth)
+      ('hatch', x, z)              access hatch: flat iron trapdoor
+      ('sky', poly)                rectangular skylight: tinted glass flush on the roof
+      ('dome', x, z)               2x2 round rooflight: glass over quartz slabs
+      ('fan', x, z)                extract fan / plant unit: one gray block
+    Only cells of the build's own parts are touched; a position off the roof is skipped and counted.
+
+    @param c: Campus (after shells)
+    @param items: list of tuples as above
+    @returns: {'placed': n, 'skipped': n}
+    """
+    top, n_ok, n_skip = {}, 0, 0
+
+    def y_of(x, z):
+        return c.deck(x, z) + 1 + top.get((x, z), 0)
+
+    def ok(x, z):
+        return (x, z) in c.part and c.deck(x, z) > -999
+
+    def edge(x, z):
+        return any(c.deck(x + dx, z + dz) < c.deck(x, z) for dx, dz in N4)
+
+    for it in (i for i in items if i[0] == 'plinth'):
+        _, poly, h, blk = it
+        xs, zs = [q[0] for q in poly], [q[1] for q in poly]
+        for x in range(min(xs), max(xs) + 1):
+            for z in range(min(zs), max(zs) + 1):
+                if ok(x, z) and not edge(x, z) and inside(x + 0.5, z + 0.5, poly):
+                    for k in range(h):
+                        c.set(x, c.deck(x, z) + 1 + k, z, blk)
+                    top[(x, z)] = h
+                    n_ok += 1
+    for it in items:
+        kind = it[0]
+        if kind == 'plinth':
+            continue
+        if kind == 'sky':
+            poly = it[1]
+            xs, zs = [q[0] for q in poly], [q[1] for q in poly]
+            cells = [(x, z) for x in range(min(xs), max(xs) + 1) for z in range(min(zs), max(zs) + 1)
+                     if inside(x + 0.5, z + 0.5, poly) and ok(x, z)]
+            for x, z in cells:
+                c.set(x, y_of(x, z), z, 'tinted_glass')
+            n_ok += bool(cells)
+            n_skip += not cells
+            continue
+        x, z = it[1], it[2]
+        cells = [(x + a, z + b) for a in (0, 1) for b in (0, 1)] if kind == 'dome' else [(x, z)]
+        if not all(ok(*q) for q in cells):
+            n_skip += 1
+            continue
+        for qx, qz in cells:
+            y = y_of(qx, qz)
+            if kind == 'vent':
+                c.set(qx, y, qz, 'white_concrete')
+            elif kind == 'hatch':
+                c.set(qx, y, qz, 'iron_trapdoor[facing=north,half=bottom,open=false]')
+            elif kind == 'fan':
+                c.set(qx, y, qz, 'gray_concrete')
+            elif kind == 'dome':
+                c.set(qx, y, qz, 'smooth_quartz_slab[type=bottom]')
+        n_ok += 1
+    return {'placed': n_ok, 'skipped': n_skip}
+
+
 # --- OSM footprint + LIDAR bands → Parts (campus-wide pass, Q-027+) ---------------------------
 _IDX, _PW = None, None
 SKIP_TOP = ('air', 'leaves', '_log', 'vine', 'short_grass', 'tall_grass', 'fern', 'flower')

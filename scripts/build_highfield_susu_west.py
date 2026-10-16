@@ -28,7 +28,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'scripts'))
 from site_kit import apply, preview  # noqa: E402
-from campus import Campus, auto_parts, bbox, centre, lidar_parts  # noqa: E402
+from campus import Campus, RoofView, auto_parts, bbox, centre, lidar_parts, roof_greeblies, way_cells  # noqa: E402
 
 NAME = 'highfield_susu_west'
 BRICK = dict(wall='bricks', glass='glass', rows=(1, 2), pier=3, corner_glass=True)
@@ -46,7 +46,33 @@ DOORS = [(None, 6200, -5600, None), (None, 6176, -5632, None), (None, 6205, -566
          (None, 6205, -5516, None)]
 STAIRS = [(p.name, centre(p)) for p in (b40[-1], b38[0], b42[0])]
 BOX = bbox(PARTS, pad=2)
-EXTRA = None
+PALE = 'light_gray_concrete'
+# Roof greeblies of B42 (OSM 33830305), measured off the Google z20 sheet 2026-10-16 (google_aerial.py --at 6186,-5543
+# --radius 44 --zoom 20 --outlines): three pale raised roof blocks on the grey deck (NW, long centre, east), rows of round
+# roof lights round them, X-marked hatches, two skylights on the centre block, a dome and a fan on the NW link.
+GREEBLIES = [
+    ('plinth', [(6165, -5578), (6176, -5572), (6171, -5561), (6159, -5567)], 1, PALE),
+    ('plinth', [(6182, -5570), (6206, -5559), (6202, -5548), (6176, -5560)], 1, PALE),
+    ('plinth', [(6212, -5556), (6223, -5551), (6217, -5540), (6207, -5546)], 1, PALE),
+    *[('vent', x, z) for x, z in [(6165, -5576), (6166, -5578), (6169, -5577), (6172, -5575), (6175, -5574), (6174, -5572),
+                                  (6164, -5573), (6163, -5570), (6162, -5568), (6160, -5565), (6163, -5563), (6166, -5562),
+                                  (6170, -5564), (6213, -5556), (6216, -5555), (6219, -5554), (6222, -5552), (6221, -5550),
+                                  (6219, -5547), (6218, -5545), (6217, -5542), (6211, -5551), (6210, -5548), (6209, -5546)]],
+    *[('hatch', x, z) for x, z in [(6168, -5570), (6185, -5561), (6191, -5559), (6198, -5555), (6215, -5548)]],
+    ('sky', [(6171, -5568), (6174, -5568), (6174, -5565), (6171, -5565)]),
+    ('sky', [(6197, -5560), (6202, -5558), (6202, -5555), (6196, -5557)]),
+    ('sky', [(6194, -5555), (6200, -5553), (6200, -5551), (6194, -5552)]),
+    ('dome', 6175, -5567),
+    ('fan', 6174, -5564),
+]
+EXTRA = lambda c: print('greeblies', roof_greeblies(c, GREEBLIES))  # noqa: E731
+
+
+def greeblies_plan():
+    """Follow-up step of this feature: roof greeblies on the standing B42 roof (no re-plan of the shells)."""
+    v = RoofView(NAME, only=way_cells('33830305'))
+    print('greeblies', roof_greeblies(v, GREEBLIES))
+    return v.p
 
 
 def make():
@@ -54,15 +80,21 @@ def make():
 
 
 def build():
-    return make().build()
+    return make().build(EXTRA)
 
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--apply', action='store_true')
+    ap.add_argument('--greeblies', action='store_true', help='only the roof greeblies, on the standing build (feature follow-up)')
     a = ap.parse_args()
+    if a.greeblies:
+        plan = greeblies_plan()
+        preview(plan, ROOT / f'verification/site/{NAME}-greeblies-preview.png', scale=2)
+        apply(plan, dry=not a.apply, modifies=(NAME,))
+        raise SystemExit(0)
     c = make()
-    plan = c.build()
+    plan = c.build(EXTRA)
     print('parts', {pt.name: sum(1 for q in c.part.values() if q is pt) for pt in PARTS})
     print('info', i40, i38, i42)
     print('stairs', c.stairs_at, 'doors', c.door_cells)
