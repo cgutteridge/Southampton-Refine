@@ -264,9 +264,30 @@ I-063  L  HIGHFIELD  open  Parked character tasks (moved from the old TODO/PARKE
   Library Square south lawn (open:w160022677; see I-060), Law forecourt (prop:w93729747 paths + lawn edges, aerial z18),
   Staff Club courtyard (prop:r2139045 plaza/pond). Non-Minecraft, only if needed: measured OSGB for seed places (I-002),
   Mapillary token, CCO z19 licence check before publishing crops, own phone photos for a named house.
-I-064  M  WORLD  open  BACKLOG: hard reset. Restore the whole world from the Geocraft files (pristine save), then redo every
-  cell's features from the lidar lump report (scripts/lidar_heightmap.py): storeys, roof shape, ridge axis, unmapped lumps, trees
-  over roofs. Everything is reset, including 48,-44 and 48,-45 (user, 2026-10-16). Before starting: take a region backup of the
-  live world; clear site/cells/*-STAGES.json, COVERAGE-SIGNOFFS.jsonl and verification/site/*-cells.json (the ownership index
-  rebuilds itself); keep site/builds/*.json specs and scripts, which replay. Plan as a queue of ring-ordered cells, features first.
-  Not scheduled: do not start without the user.
+I-064  M  LIDAR  open  BACKLOG umbrella (user, 2026-10-16): no hard reset. Review every NON-HOUSE feature against the pristine
+  lidar data (scripts/lidar_heightmap.py: h, roof, tree, storeys, ridge, UNMAPPED) and improve what the data shows is wrong or
+  guessed. Houses are out of scope here (house_build specs handle them). Work one item below per chat; each ends with a
+  region snapshot, a dry run, and a note in the cell STAGES file. Order: I-065 first (tooling), then I-066..I-071.
+I-065  M  TOOL  open  Lidar audit tool + safety. (a) lidar_heightmap fails loudly when pristine_region_path is missing (today it
+  returns empty columns); copy the pristine region folder to backups/ (1.6 GB, read-only source is outside the repo). (b)
+  scripts/lidar_audit.py: for a footprint/bbox compare the built top height, roof shape and ridge axis in the live world with
+  the pristine map; list columns off by >= 2 blocks. (c) run lidar_heightmap --cell on every touched cell with --write and
+  keep the lump tables in site/cells/<tx>_<tz>-LIDAR.txt. (d) calibrate STOREY / eave estimate against known 2-storey streets.
+I-066  M  CAMPUS  open  Highfield campus buildings vs lidar: Shackleton B44 (physics repair, I-038 era), Library B34/B18, Engineering,
+  Mountbatten, Nuffield/Law, Life Sciences, Maths/Murray, Faraday, SUSU west, B35, B30/B37, B29, Early Years/Estates, school
+  r2310853 (47,-43). Check storey heights, roof type, ridge axis, courtyards/pockets (campus.lidar_parts, fill_pockets) against the
+  new height map; fix with campus.py, one building per run.
+I-067  M  TREES  open  Trees pass vs lidar tree columns (kind 2/3). Geocraft draws every lidar tree return as log+leaf, so the pristine
+  map is a direct crown inventory (position, height, spread). Compare each cell's planned/applied crowns (trees_layer, I-059/I-061
+  clipped trees) with it: missing crowns, invented crowns, wrong heights, crowns over roofs (kind 3). Replaces the aerial-only
+  cover guess where they disagree; Library Square (I-060) is the first test.
+I-068  M  GROUND  open  Ground pass vs lidar: ground/paving heights against pristine base under lumps (floor levels, ledges, the
+  step_out cases in house_build), terraces and slopes, kerb and path heights (campus grounds zones mc/mw/sc/sw/nc/ne/nw/se/me).
+  Find columns where the applied surface differs from base by >= 2 without a reason.
+I-069  L  SPECIAL  open  Small non-house structures vs lidar: Oakdene Court (4 levels, flat roof assumed), garages (49,-42), bike
+  shed, toilets, staff club pond, canopies (47,-45 y54 diagonal, physics canopies 47,-44), Welbeck Ave lump fixes. Roof shape and
+  height from the lump table; keep or rebuild.
+I-070  L  LUMPS  open  Re-run the lump report on all cells and settle I-048 (49,-43 canopy strip, 50,-43 outbuilding) and the 3 truly
+  unmapped lumps (46,-46, 48,-47, 49,-47) using storeys/roof from the lidar instead of guessing; record exceptions in STAGES.
+I-071  L  QUEUE  open  Feature queue text and cell_gaps: make the lidar table part of "cell done" (every lump built or excepted,
+  every tree-over-roof resolved), and have the feature item show storeys/roof/ridge from lidar_heightmap automatically.
