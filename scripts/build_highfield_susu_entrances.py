@@ -37,7 +37,9 @@ STYLE = {'42-A': ('iron_door', 'black_concrete'), '42-B': ('iron_door', 'black_c
          '42-D': (None, 'bricks')}
 
 
-def build():
+def build(world=None):
+    """@param world: object with .block(x, y, z) (default the live world); the rebuild passes the new plan over the world"""
+    w = world or globals()['w']
     p, notes = Plan(NAME), []
     entrances(p, w, b42, {'42-B': (6204, -5564), '42-C': (6224, -5555), '42-D': (6180, -5575)}, notes, double={'42-B'}, flat={'42-B'}, style=STYLE, check_walls=False)
     # 42-A: the concourse entrance under the canopy: carve the roofed recess (x6190-6194, z-5568..-5565) inside the building,
