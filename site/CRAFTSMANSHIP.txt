@@ -236,3 +236,23 @@ GREEBLIES ARE THE DECOR STEP OF A FEATURE (user, 2026-10-16)
    Where sources conflict, make it look nice and realistic in Minecraft terms.
  - Placement rule: never place a greeblie over slab-type blocks (slabs, carpets, stairs, trapdoors...); it hovers. Coping slabs
    along a roof edge are the usual case. This is not "keep off the edge": a full block at the edge is fine.
+
+FEATURE FOLLOW-UP STEPS (B42 / Jubilee review, user, 2026-10-16)
+ A feature is the shell plus follow-up steps that run on the STANDING build (the shell cannot be re-planned once later builds
+ stand beside it: Campus avoid_built drops those cells). Each step is a flag of the feature's own script, writes its own
+ record (<name>-lower, <name>-greeblies) and is re-runnable. Order: shell, --lower, --greeblies, then fixes.
+  - --lower: cut roofs the pristine lidar reads lower than the build (campus.RoofView(lower=...), lower_map(), lower_plan()).
+    Levels and extents are lidar cells (3x3 majority filter, rim cells take the neighbour's level), never boxes drawn on a picture.
+    Clear above the new deck, new slab, coping on the edge, wall on the higher neighbours' boundary cells.
+  - --greeblies: campus.roof_greeblies over a RoofView built from the feature's own cells file (deck = topmost block it placed;
+    edge cells carry the coping). A colour patch is limited to the cells it belongs to (one RoofView per surface: hall, extension,
+    membrane) so it cannot spill; point items never go on slab-type blocks. See GREEBLIES above.
+  - One MODIFIES tuple in the script names every record of the feature (shell, -lower, -greeblies and any fix records) and goes to
+    every apply; otherwise apply refuses with "cells belong to earlier builds" because the steps re-write each other's cells.
+  - Undo = restore from the base build's own *-cells.json for the cells in the follow-up records (state there, else air). Never
+    from built_cells(): its index lets an earlier step's air cancel the roof and returns nothing, which made holes.
+  - Check with numbers before the user looks: live-minus-lidar per cell over the building (a building can straddle a cell edge:
+    use the heightmap of each cell), every cell off by 2 or more explained. Then `google_aerial.py --marks` to see colour
+    patches on the Google sheet.
+  - Doors: a jamb each side and a lintel (Campus.doors adds them; apply refuses a door without; scripts/door_audit.py audits).
+
