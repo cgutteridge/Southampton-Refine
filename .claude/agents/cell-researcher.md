@@ -9,7 +9,7 @@ You prepare one cell (tx,tz) for building. You do NOT edit files or place blocks
 
 Do:
 1. Read site/HANDOFF.txt, site/QUEUE.txt, site/CURRENT-CELL.json and any site/cells/ notes for the cell and its 8 neighbours.
-2. Check neighbour cells for existing ground layer, trees, decor, garden boundaries and conventions the new cell must continue (48,-44 and 48,-45 are done; all other cells restart; see PROCESS §2e step 2).
+2. Check neighbour cells for existing ground layer, trees, decor, garden boundaries and conventions the new cell must continue (site/GOOGLE-REVIEW.txt says which cells are done; every other cell, 48,-45 included, is reviewed in all parts; see PROCESS §2e step 2).
 3. Find ONE good source for the cell (OSM / reference/ / Street View fixed-URL look-only). Do not hunt for a perfect one.
 4. Check the site/ rules files named in the task (GEOCRAFT, CRAFTSMANSHIP, FOLIAGE, PROCESS) only for what applies.
 

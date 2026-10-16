@@ -218,6 +218,9 @@ def preview(plan, path, scale=4):
 
 
 # --- region-file readback --------------------------------------------------
+AIR_IDS = ('air', 'cave_air', 'void_air')      # matched exactly: a substring test also hit *_stairs (Q-181)
+
+
 class World:
     """Read-only block access from the saved region files."""
 
@@ -315,12 +318,12 @@ class World:
         return (b >> 4) & 15 if i & 1 else b & 15
 
     def ground(self, x, z, top=140, bottom=40):
-        skip = ('air', 'water', 'leaves', '_log', 'short_grass', 'tall_grass', 'fern', 'flower', 'tulip', 'poppy',
+        skip = ('water', 'leaves', '_log', 'short_grass', 'tall_grass', 'fern', 'flower', 'tulip', 'poppy',
                 'dandelion', 'kelp', 'seagrass', 'bush', 'litter', 'vine', 'daisy', 'bluet', 'orchid',
                 'allium', 'cornflower', 'lily', 'sugar_cane', 'mushroom')
         for y in range(top, bottom, -1):
             b = self.block(x, y, z)
-            if b and not any(k in b for k in skip):
+            if b and b.split('[')[0].removeprefix('minecraft:') not in AIR_IDS and not any(k in b for k in skip):
                 return y
         return bottom
 

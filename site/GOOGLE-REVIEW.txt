@@ -3,7 +3,9 @@ One cell per chat, in ring order (north centre, then clockwise; rules/radial-goo
 Source of truth for the Google redo: take the first row that is not "done". Edit a row's
 status here when its chat ends; the queue item text only points here.
 
-Per cell, four parts (details in site/ISSUES.txt I-073):
+WHOLE CELL (user, 2026-10-16): every cell is reviewed in ALL its parts, whatever it was signed off as before and however it was made
+(hand-made 48,-45 included): features, ground, trees AND decor. A part is never skipped because "it was done".
+Per cell, five parts (details in site/ISSUES.txt I-073):
   look      google_aerial.py sheet --cell TX,TZ, recorded with cell_sources --record google
   features  every building (houses, terraces, campus, small structures) against Google: roof form, ridge axis, roof greeblies (plant, vents, skylights, solar panels),
             roof colour/material, rear wings, outbuildings, missing buildings. Keep or redo per building.
@@ -11,10 +13,12 @@ Per cell, four parts (details in site/ISSUES.txt I-073):
   Each building uses three sources: Google (greeblies, colour), the university aerial (footprint, roof form), lidar (heights).
   ground    applied ground (lawn, paving, drives, car parks, paths) against Google.
   trees     scripts/tree_review.py (lidar crown tops vs live) + Google sheet with its marks; method and decisions in site/FOLIAGE.txt "Tree review".
-Status words: todo | look | features | ground | done  (the last part finished; done = trees too). bld = lidar lump count (size hint).
+  decor     decor against Google and the street photos: fences, hedges, walls, cars, street furniture, garden boundaries, plants and rooftop greeblies the
+            decor layer should carry (rules/frontage-and-evidence.md, site/FOLIAGE.txt, "Greeblies are feature decor"); runs last, after trees.
+Status words: todo | look | features | ground | trees | done  (the last part finished; done = decor too, cell_gaps empty). bld = lidar lump count (size hint).
 
  ring  cell      bld  status
-  r0   48,-44     4  features
+  r0   48,-44     4  done
   r1   48,-45     2  todo
   r1   49,-45     8  todo
   r1   49,-44     7  todo

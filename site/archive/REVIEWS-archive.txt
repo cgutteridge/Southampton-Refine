@@ -1157,3 +1157,9 @@ TOKEN NOTES (Oakdene)
 - Reuse the 49,-42 builder by subclass (floors/doors/stoops proven) instead of a new generator; its clear() strips ring-2 incl. trees, so a re-run must
   clear only the build's own recorded blocks (cells.json), as oakdene_court.py does.
 - Check aerial coverage before opening a mosaic (I-072); the first one opened did not cover the building.
+
+2026-10-16  SU Retail Centre B57 rebuilt from scratch (user: delete it, start again from processes and all references). One script,
+            no old-build reference: OSM way 33830236 (37x12 rectangle, long axis 23.7 deg), lidar flat 60 / deck 61 / ground 54, Google roof
+            (canopy upstand line 3.8 in from the west end, seam, array, hatch, plant box), both B57 photos, portal 57-A. Front = west end with
+            the canopy INSIDE the outline on two steel posts (the old build put it outside, ~4 too big), shopfront rhythm by t, blue sign band,
+            open 2-wide entrance. Readback 0, tops 61 on 437/441 (62 plant box). User: "much much better". Lessons in rules/building-review.md.

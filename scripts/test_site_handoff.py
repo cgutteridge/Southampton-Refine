@@ -143,7 +143,7 @@ class GoogleReviewTest(Base):
         with self.assertRaises(ValueError):
             H.set_google_review_status((2, 2), 'finished')
 
-    def test_review_item_is_queued_above_the_new_cell_items(self):
+    def test_review_item_is_queued_alone_while_a_row_is_open(self):
         gaps = {'layers': ['ground'], 'trees_stale': False, 'features': [], 'trees_over_roof': []}
         with mock.patch.object(H, 'next_cell', return_value=(4, 4, 2)), \
                 mock.patch.object(H, 'cell_gaps', return_value=gaps):
@@ -154,7 +154,7 @@ class GoogleReviewTest(Base):
         texts = [i['text'] for i in H._queue_items() if i['id'] > 'Q-002']
         self.assertTrue(texts[0].startswith('GOOGLE REVIEW'))
         self.assertEqual(sum('GOOGLE REVIEW' in t for t in texts), 1)
-        self.assertTrue(any('layered passes' in t for t in texts))
+        self.assertEqual(len(texts), 1)         # no layered-passes / feature / TREES re-run item for the same work
 
     def test_end_of_review_chat_sets_the_row(self):
         gaps = {'layers': [], 'trees_stale': False, 'features': [], 'trees_over_roof': []}

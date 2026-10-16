@@ -26,6 +26,10 @@ is the go-ahead. Do not read every rule file or all of `site/PROCESS.txt`.
   flair rare). Table and rules: `.cursor/rules/agent-soundboard-flair.mdc`. Never `--wait`.
 - Never move the user's player: observe with `player_list_online` / `view_capture`; teleport only when asked
   (pitfalls: `rules/building-review.md`).
+- Redo or "start again" means rebuild from the evidence table alone: never read the old build or its script as a reference
+  (`rules/building-review.md`, B57 example). Third fix on one building = delete and rebuild.
+- Feature (building) older than its evidence: if many new references (photos, portals, outlines, Google reads) have arrived since the
+  feature was last worked on, start over from the current evidence table instead of patching (`rules/building-review.md`).
 - Python: `.venv/bin/python` (system python is locked down).
 
 ## Where rules live (one home each)

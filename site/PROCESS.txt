@@ -171,8 +171,9 @@ BUILT plan in place to “fix” the world.
      lists what is still open (exit 1 if any).
  2. Review neighbours — ground, trees and decor read evidence across the cell edge
     (paths, roads, hedges, canopy), so first check the neighbours' STAGES files, masks
-    and the aerial across the edge for continuity. Cells done by the layered approach
-    so far: 48,-44 and 48,-45; every other cell restarts from scratch.
+    and the aerial across the edge for continuity. Every cell restarts from scratch
+    except where the Google review (site/GOOGLE-REVIEW.txt) marks it done; 48,-45 is
+    back in that review (all parts: features, ground, trees, decor).
       coverage.py status --cell tx,tz --list ; coverage.py gaps --area <a>
     Light character pass: note distinctive local features worth a named todo.
  3. Plan — one open QUEUE item per todo (site_archive.py next-id Q). `site_handoff.py

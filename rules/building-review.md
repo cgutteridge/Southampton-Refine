@@ -85,6 +85,9 @@ evidence table alone, in one pass, got it accepted at the first look. What made 
 1. **Do not read the old build or its script as a reference** (user steered mid-task). They carry its wrong guesses forward. Keep only the
    mechanism that restores its own recorded blocks (re-runnable rule), plus lidar-derived levels. A redo starts from the table in
    "Reflection on the 48,-44 review" step 1. Third fix on one building = delete and restart, not patch.
+   **Many new references since the feature was last worked on = start over too** (user, 2026-10-16): when photos, portal entries, outlines or
+   Google reads have piled up since the last pass, the old build rests on a thinner evidence table; delete it and rebuild from the current one
+   rather than patching, even if no single fix has been made yet. Same logic as the Library Square trees: the Google redo replaced the whole zone.
 2. **The OSM outline of a canopied building is the ROOF outline.** The old build put the walls on the outline and the canopy outside it, so it
    came out ~4 blocks too big. Walls stand where the glazing is: Google shows an upstand line where canopy meets wall (here 3.8 in from the edge),
    and the portal sits behind the roof edge, not on it. Check portal-to-outline distance before choosing the wall line.

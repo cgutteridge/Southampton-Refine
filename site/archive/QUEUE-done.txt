@@ -1335,3 +1335,12 @@ SOUTHAMPTON REFINE — QUEUE (archived [x] items, oldest first)
            (4) I-071, same functions: make the lidar table part of "cell done" (every lump built or excepted,
            every tree-over-roof resolved) and show storeys/roof/ridge in the feature item. One chat owns cell_gaps.
            When done, Q-180 stops needing to re-queue itself by hand.
+
+[x] Q-180  GOOGLE REVIEW cell 48,-44 (first row of site/GOOGLE-REVIEW.txt not done; I-073). RULES: property.
+           Per I-073: (1) LOOK google_aerial.py sheet --cell 48,-44, then --at for single buildings; record with
+           cell_sources --record google. (2) FEATURES every building against Google (roof form, ridge axis, colour/
+           material, rear wings, outbuildings, missing/extra); storeys photo first, then OSM levels, then lidar.
+           Keep or redo per building, snapshot first, stop rule I-009. (3) GROUND applied ground vs Google (I-068).
+           Update the row in site/GOOGLE-REVIEW.txt (look/features/done), note matches and mismatches in the cell
+           STAGES file. When done: site_handoff.py end Q-180 --review-status look|features|done; Q-179 now queues the next row
+           automatically (advance_to_next_cell), so nothing is added by hand.

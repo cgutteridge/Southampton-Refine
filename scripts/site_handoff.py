@@ -152,7 +152,7 @@ def residual_features(cell, idx=None):
 
 GOOGLE_REVIEW = SITE / 'GOOGLE-REVIEW.txt'
 _REVIEW_ROW = re.compile(r'^(\s+)(r\d+)(\s+)(-?\d+),(-?\d+)(\s+)(\d+)(\s+)(\w+)\s*$')
-REVIEW_STATUSES = ('todo', 'look', 'features', 'ground', 'done')
+REVIEW_STATUSES = ('todo', 'look', 'features', 'ground', 'trees', 'done')
 
 
 def google_review_rows():
@@ -229,8 +229,11 @@ def google_review_block(qid, row):
         'Keep or redo per building, snapshot first, stop rule I-009. (3) GROUND applied ground vs Google (I-068).',
         f'(4) TREES scripts/tree_review.py --cell {tx},{tz} (lidar crowns vs live) plus the Google sheet with its marks; fix per',
         'site/FOLIAGE.txt "Tree review" (missing real trees, invented ones over lawn/paving/roof), then trees pass dry run.',
-        'Update the row in site/GOOGLE-REVIEW.txt (look/features/ground/done), note matches and mismatches in the cell',
-        f'STAGES file. End the chat with: site_handoff.py end {qid} --review-status look|features|ground|done (default done).',
+        '(5) DECOR against Google and street photos (fences, hedges, walls, cars, street furniture, plants, roof greeblies), then decor pass.',
+        'WHOLE CELL: review ALL five parts even if the cell was signed off or hand-made before; never skip one as "done".',
+        'Update the row in site/GOOGLE-REVIEW.txt (look/features/ground/trees/done), note matches and mismatches in the cell',
+        f'STAGES file. End the chat with: site_handoff.py end {qid} --skip-say --skip-view --review-status look|features|ground|trees|done',
+        '(default done; --skip-view because end would otherwise move the player: AGENTS.md never-move-the-user).',
     ])
 
 
@@ -441,10 +444,14 @@ def advance_to_next_cell():
     (residual_features). A finished cell regains items only for what is left: features, and a
     trees re-run when its trees mask predates the overhang rule.
 
+    While site/GOOGLE-REVIEW.txt has a row that is not done (I-073), only that row's review item is queued
+    (user, 2026-10-16): it covers every part of the cell, so cell-gap, TREES re-run and new-cell items would
+    redo the same ground, trees and decor twice, and new cells wait until the review is finished.
+
     @returns: first new queue item dict, or None if every cell is done
     """
-    nxt = next_cell()
     review = next_google_review()
+    nxt = None if review else next_cell()
     if not nxt and not review:
         return None
     n = _max_queue_number()
@@ -454,6 +461,8 @@ def advance_to_next_cell():
         first = f'Q-{n:03d}'
         blocks.append(google_review_block(first, review))
     if not nxt:
+        if not blocks:
+            return None
         QUEUE.write_text(QUEUE.read_text().rstrip('\n') + '\n' + ''.join(blocks))
         return next((i for i in _queue_items() if i['id'] == first), None)
     tx, tz, r = nxt
@@ -1042,7 +1051,7 @@ def cmd_end(argv):
     fails fast with exit 3.
 
     A "GOOGLE REVIEW cell X" item also sets that cell's row in site/GOOGLE-REVIEW.txt to
-    ``--review-status`` (look|features|ground|done; default done), so advance_to_next_cell moves on.
+    ``--review-status`` (look|features|ground|trees|done; default done), so advance_to_next_cell moves on.
 
     @param argv: remaining CLI args (Q-nnn, --summary, --view, optional --skip-say/--skip-view/--review-status)
     @returns: exit code

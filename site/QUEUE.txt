@@ -3,14 +3,20 @@ Mark [x] when done. One open item per chat. Newest work at the top of
 the open list. Empty queue: site_handoff.py next auto-queues the next cell.
 Done items: site/archive/QUEUE-done.txt (moved by scripts/site_archive.py).
 
-[ ] Q-180  GOOGLE REVIEW cell 48,-44 (first row of site/GOOGLE-REVIEW.txt not done; I-073). RULES: property.
-           Per I-073: (1) LOOK google_aerial.py sheet --cell 48,-44, then --at for single buildings; record with
-           cell_sources --record google. (2) FEATURES every building against Google (roof form, ridge axis, colour/
-           material, rear wings, outbuildings, missing/extra); storeys photo first, then OSM levels, then lidar.
+[ ] Q-188  GOOGLE REVIEW cell 48,-45 (first row of site/GOOGLE-REVIEW.txt not done; I-073). RULES: property.
+           Per I-073: (1) LOOK google_aerial.py sheet --cell 48,-45 --outlines, then --at for single buildings; record with
+           cell_sources --record google. (2) FEATURES every building against Google (roof form, ridge axis, roof greeblies, colour/
+           material, rear wings, outbuildings, missing/extra) from Google (greeblies, colour), the uni aerial (footprint, roof form)
+           and lidar (heights); storeys photo first, then OSM levels, then lidar. Skip buildings that already have an open
+           feature item on the QUEUE.
            Keep or redo per building, snapshot first, stop rule I-009. (3) GROUND applied ground vs Google (I-068).
-           Update the row in site/GOOGLE-REVIEW.txt (look/features/done), note matches and mismatches in the cell
-           STAGES file. When done: site_handoff.py end Q-180 --review-status look|features|done; Q-179 now queues the next row
-           automatically (advance_to_next_cell), so nothing is added by hand.
+           (4) TREES scripts/tree_review.py --cell 48,-45 (lidar crowns vs live) plus the Google sheet with its marks; fix per
+           site/FOLIAGE.txt "Tree review" (missing real trees, invented ones over lawn/paving/roof), then trees pass dry run.
+           (5) DECOR against Google and street photos (fences, hedges, walls, cars, street furniture, plants, roof greeblies), then decor pass.
+           WHOLE CELL: review ALL five parts even if the cell was signed off or hand-made before; never skip one as "done".
+           Update the row in site/GOOGLE-REVIEW.txt (look/features/ground/trees/done), note matches and mismatches in the cell
+           STAGES file. End the chat with: site_handoff.py end Q-188 --skip-say --skip-view --review-status look|features|ground|trees|done
+           (default done; --skip-view because end would otherwise move the player: AGENTS.md never-move-the-user).
 
 [ ] Q-183  TOOLING feature follow-up helpers (from the 2026-10-16 B42/Jubilee review; rules/building-review.md Pitfalls).
            (1) lidar_heightmap.top_at(x, z) across cell edges + `lidar_audit.py --grid` printing live-minus-lidar for a bbox
@@ -24,11 +30,13 @@ Done items: site/archive/QUEUE-done.txt (moved by scripts/site_archive.py).
            highfield_engineering 10, maths_murray 8, nuffield_law 7 and others. Per build: add the missing jambs/lintels as a
            small plan (modifies=<build>), or re-plan the doors; check a few in game first, some may be porches. RULES: tooling.
 
-[ ] Q-181  TOOLING (I-029) site_kit.World.ground() skips any id containing "air", so *_stairs count as air.
+[x] Q-181  TOOLING (I-029) site_kit.World.ground() skips any id containing "air", so *_stairs count as air.
            Match air by exact id, then re-run osm_footprints check and the footprint guard over earlier builds;
            note any result that changes. RULES: tooling. No Minecraft apply.
+           DONE 2026-10-16: exact ids (AIR_IDS) in site_kit.py + test_site_kit_ground.py; osm_footprints check --all before/after: identical (no result changed).
 
-[ ] Q-178  CELL 51,-41 (r=3) layered passes: ground, trees, decor. RULES: ground.
+[ ] Q-178  BACKLOG CELL 51,-41 (r=3) layered passes: ground, trees, decor. RULES: ground.
+           DEFERRED (user, 2026-10-16): new-cell work waits until every row of site/GOOGLE-REVIEW.txt is done.
            Auto-queued: next in north-centre-then-clockwise order. The cell marker
            (project focus, site/CURRENT-CELL.json) must be up: cell_marker.py --raise 51,-41 if not already.
            Check neighbour edges; cell_sources --write; mask_undo trees/decor if masks exist;

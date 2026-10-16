@@ -22,7 +22,8 @@ Read before choosing, planning or signing off build work.
   (Broadlands), keep them.
 - Exception, current priority (user, 2026-10-16): the Google review (I-073,
   `site/GOOGLE-REVIEW.txt`) deliberately re-opens finished cells in ring order,
-  features and ground, and runs ahead of new-cell passes (code first, then fixes
+  ALL parts of every cell (features, ground, trees, decor), never a part skipped
+  because the cell was signed off or hand-made before, and runs ahead of new-cell passes (code first, then fixes
   to existing work, then new builds). A sign-off lapses where a redo touches it:
   re-sign afterwards. Snapshot first, dry-run diff before any re-apply (I-043).
 - Outside that review, revisits of processed ground are allowed but not the focus.
