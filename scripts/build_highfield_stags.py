@@ -47,6 +47,11 @@ def build():
     door(p, w, 6196, Z1, 0, 1, notes, width='pair', y0=GROUND + 1, leaf='iron_door', frame='white_concrete')
     for x in range(6196, 6198):                                                             # two brick steps in front of the door
         p.set(x, GROUND, Z1 + 1, 'minecraft:stone_brick_stairs[facing=north,half=bottom]')
+    # the West Building's wall had an open bay beside the pavilion (the old, larger pavilion hid it): close it, airtight
+    for y in range(GROUND + 1, GROUND + 5):
+        p.set(6192, y, Z0 + 1, 'minecraft:bricks')
+    for y in (GROUND + 3, GROUND + 4):
+        p.set(6192, y, Z0 + 2, 'minecraft:bricks')
     return p, notes
 
 

@@ -491,28 +491,28 @@
       "status": "applied",
       "plan": "highfield_stags",
       "owner": "claude-q180",
-      "started": "2026-10-16 20:37:38",
-      "blocks": 180,
+      "started": "2026-10-16 20:38:49",
+      "blocks": 176,
       "structure": {
-        "name": "southampton_refine:before_highfield_stags_20261016203737",
+        "name": "southampton_refine:before_highfield_stags_20261016203849",
         "from": [
-          6189,
+          6190,
           55,
           -5585
         ],
         "to": [
-          6205,
+          6203,
           60,
           -5580
         ]
       },
       "snapshot": null,
       "planned": "verification/site/highfield_stags-planned.json",
-      "finished": "2026-10-16 20:37:44",
+      "finished": "2026-10-16 20:38:56",
       "readback": {
-        "planned": 180,
+        "planned": 176,
         "mismatches": 0,
-        "checked": "2026-10-16 20:37:44"
+        "checked": "2026-10-16 20:38:56"
       }
     },
     "feature-highfield_susu_b42": {
