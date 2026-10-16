@@ -53,12 +53,11 @@ class B42(Campus):
 
     def wall_block(self, x, y, z, pt, ex):
         b = super().wall_block(x, y, z, pt, ex)
-        if b not in ('minecraft:black_concrete', 'black_concrete'):
-            return b
-        if any(d == (0, -1) for d in ex) and x >= PLAZA_X0 and z <= PLAZA_Z1:
-            floors = set(pt.floors) | {pt.base, pt.deck}
-            return 'black_concrete' if (y in floors or (x + z) % 3 == 0) else 'tinted_glass'     # dark reflective glazing in the photos
-        return 'white_concrete'
+        plain = b.replace('minecraft:', '')
+        if any(d == (0, -1) for d in ex) and x >= PLAZA_X0 and z <= PLAZA_Z1:      # the plaza frontage is ONE curtain wall: its own
+            floors = set(pt.floors) | {pt.base, pt.deck}                            # window rows (clear glass) are replaced too
+            return 'black_concrete' if (y in floors or (x + z) % 3 == 0) else 'tinted_glass'
+        return 'white_concrete' if plain == 'black_concrete' else b
 
 
 class PlanOverWorld:
