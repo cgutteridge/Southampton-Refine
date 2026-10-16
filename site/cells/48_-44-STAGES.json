@@ -435,28 +435,56 @@
       "status": "applied",
       "plan": "highfield_susu_entrances",
       "owner": "claude-q180",
-      "started": "2026-10-16 19:49:55",
-      "blocks": 192,
+      "started": "2026-10-16 20:06:34",
+      "blocks": 208,
       "structure": {
-        "name": "southampton_refine:before_highfield_susu_entrances_20261016194955",
+        "name": "southampton_refine:before_highfield_susu_entrances_20261016200634",
         "from": [
-          6180,
+          6181,
           52,
           -5574
         ],
         "to": [
-          6222,
-          60,
+          6221,
+          61,
           -5555
         ]
       },
       "snapshot": null,
       "planned": "verification/site/highfield_susu_entrances-planned.json",
-      "finished": "2026-10-16 19:50:02",
+      "finished": "2026-10-16 20:06:40",
       "readback": {
-        "planned": 192,
+        "planned": 208,
         "mismatches": 0,
-        "checked": "2026-10-16 19:50:02"
+        "checked": "2026-10-16 20:06:40"
+      }
+    },
+    "feature-highfield_entrances_48_m44": {
+      "status": "applied",
+      "plan": "highfield_entrances_48_m44",
+      "owner": "claude-q180",
+      "started": "2026-10-16 20:05:37",
+      "blocks": 116,
+      "structure": {
+        "name": "southampton_refine:before_highfield_entrances_48_m44",
+        "from": [
+          6195,
+          54,
+          -5608
+        ],
+        "to": [
+          6266,
+          65,
+          -5524
+        ]
+      },
+      "snapshot": null,
+      "planned": "verification/site/highfield_entrances_48_m44-planned.json",
+      "finished": "2026-10-16 20:05:44",
+      "readback": {
+        "planned": 116,
+        "mismatches": 0,
+        "checked": "2026-10-16 20:05:44"
       }
     }
   },

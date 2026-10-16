@@ -36,3 +36,10 @@ Done items: site/archive/QUEUE-done.txt (moved by scripts/site_archive.py).
            patrol sweep; update site/cells/51_-41-STAGES.json;
            Marker stays up after this run; clear it only when decor is done, checks
            pass and all open issues for the cell are closed: cell_marker.py --clear 51,-41.
+
+[ ] Q-184  FEATURE 38-D Prayer Room / West Building north-west corner (portal 38-D at 6146,-5630). RULES: campus.
+           The portal sits at the corner of OSM way 34391673 (West Building & Staff Social Centre, B40) but the built walls stop
+           ~30 blocks short: only a stray brick column stands there. Check the corner against Google z20, aerial and lidar
+           (python3 scripts/lidar_heightmap.py --cell 48,-44), build the missing wing if it exists, then add the 38-D door with
+           scripts/entrances.py. One build, no follow-up patches.
+

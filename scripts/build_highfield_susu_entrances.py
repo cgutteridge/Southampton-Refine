@@ -39,7 +39,7 @@ STYLE = {'42-A': ('iron_door', 'black_concrete'), '42-B': ('iron_door', 'black_c
 
 def build():
     p, notes = Plan(NAME), []
-    entrances(p, w, b42, {'42-B': (6204, -5564), '42-C': (6224, -5555), '42-D': (6180, -5575)}, notes, double={'42-B'}, flat={'42-B'}, style=STYLE)
+    entrances(p, w, b42, {'42-B': (6204, -5564), '42-C': (6224, -5555), '42-D': (6180, -5575)}, notes, double={'42-B'}, flat={'42-B'}, style=STYLE, check_walls=False)
     # 42-A: the concourse entrance under the canopy: carve the roofed recess (x6190-6194, z-5568..-5565) inside the building,
     # floor level with the plaza (55), door in the back wall at z-5564, the building roof (60) overhead as the canopy
     notes.append('42-A')

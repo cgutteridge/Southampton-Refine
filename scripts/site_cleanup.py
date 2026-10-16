@@ -36,6 +36,7 @@ LOG = SITE / 'CLEANUP-LOG.txt'
 MANIFEST = ROOT / 'reference' / 'manifest.jsonl'
 
 KEEP_SNAPS = 5            # newest region snaps kept (site/PROCESS.txt §2a)
+BUILD_DAYS = 14           # a build script untouched this long and imported nowhere is a retire candidate
 VIEW_DAYS = 7             # verification/site/views older than this and named in no live site file
 SHOT_DAYS = 7             # instance/screenshots
 KEEP_AUDITS = 10          # newest files kept in verification/site/audits and verification/site/patrol
@@ -68,6 +69,11 @@ def mb(n: int) -> str:
     return f'{n / 2**20:,.0f} MB'
 
 
+def open_work_text() -> str:
+    """Text of the open ISSUES and QUEUE files only: what can still need an old snap."""
+    return '\n'.join((SITE / n).read_text(errors='replace') for n in ('ISSUES.txt', 'QUEUE.txt') if (SITE / n).exists())
+
+
 def live_site_text() -> str:
     """Text of the live site/*.txt and *.md files (not site/archive): what open work can still mention."""
     return '\n'.join(p.read_text(errors='replace') for p in SITE.glob('*') if p.suffix in ('.txt', '.md'))
@@ -80,11 +86,11 @@ def _old(p: Path, days: float, now: float) -> bool:
 # ---------------------------------------------------------------- SAFE classes
 
 def plan_region_snaps(keep: int = KEEP_SNAPS, text: str | None = None) -> list[Item]:
-    """Region snaps beyond the newest ``keep``, except the newest snap of any name open work still mentions."""
+    """Region snaps beyond the newest ``keep``, except the newest snap of any name open ISSUES/QUEUE items mention."""
     root = ROOT / 'backups' / 'regions'
     if not root.exists():
         return []
-    text = (live_site_text() if text is None else text).lower()
+    text = (open_work_text() if text is None else text).lower()
     dirs = sorted((d for d in root.iterdir() if d.is_dir()), reverse=True)
     out, held = [], set()
     for d in dirs[keep:]:
@@ -184,28 +190,26 @@ def plan_reference_unlogged(rows: list[dict] | None = None) -> list[Item]:
     for sub in ('aerial', 'photos'):
         for p in sorted((ref / sub).rglob('*')) if (ref / sub).exists() else []:
             rel = str(p.relative_to(ref))
-            if p.is_file() and not p.name.startswith('.') and rel not in known and p.suffix != '.txt':
+            if p.is_file() and not p.name.startswith('.') and rel not in known and p.suffix in ('.png', '.jpg', '.jpeg', '.tif', '.tiff', '.webp'):
                 out.append(Item(p, 'not in reference/manifest.jsonl', p.stat().st_size))
     return out
 
 
 # ---------------------------------------------------------------- build scripts
 
-def plan_build_scripts(text: str | None = None) -> list[Item]:
-    """build_<x>.py never mentioned by another script, a test or a live site file: candidates to retire.
+def plan_build_scripts(days: float = BUILD_DAYS, now: float | None = None) -> list[Item]:
+    """build_<x>.py untouched for ``days`` and imported or named by no other script or test: retire candidates.
 
-    A build script that is cited can still be re-run for a refinement, so this is a list for a human
-    or agent to judge (tar to backups/retired-*.tar.gz, as with the ground scripts), never auto-removed.
+    A build script can still be re-run for a refinement, so this is a list for a human or agent to judge
+    (tar to backups/retired-*.tar.gz as with the ground scripts, then git rm), never auto-removed.
     """
     scripts = ROOT / 'scripts'
-    text = live_site_text() if text is None else text
+    now = time.time() if now is None else now
     others = {p: p.read_text(errors='replace') for p in scripts.glob('*.py')}
     out = []
     for p in sorted(scripts.glob('build_*.py')):
-        stem = p.stem
-        cited = stem in text or any(stem in t for q, t in others.items() if q != p)
-        if not cited:
-            out.append(Item(p, 'no script, test or live site file mentions it', p.stat().st_size))
+        if _old(p, days, now) and not any(p.stem in t for q, t in others.items() if q != p):
+            out.append(Item(p, f'untouched {days:g}+ days, referenced by no other script or test', p.stat().st_size))
     return out
 
 

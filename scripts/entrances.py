@@ -106,7 +106,7 @@ def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_d
     notes.append(f'{width} {leaf or "opening"}/{frame} at {x},{y0},{z} facing {face}, ground outside {y0 - 1}')
 
 
-def entrances(plan, world, cells, found, notes, double=(), flat=(), style=None):
+def entrances(plan, world, cells, found, notes, double=(), flat=(), style=None, check_walls=True):
     """Add a door for each portal.
 
     @param plan: Plan
@@ -116,18 +116,20 @@ def entrances(plan, world, cells, found, notes, double=(), flat=(), style=None):
     @param notes: list of report lines
     @param double: portal ids that are double doors (main entrances)
     @param flat: portal ids whose wall is made flush first (flatten) so a double door fits
+    @param check_walls: require a real built wall at door height (default); False where the OSM footprint is what was built
+                        (B42), so the result does not depend on the doors a previous run left in the world
     @param style: {portal id: (leaf, frame)}; default (iron_door, white_concrete). Chosen from the 800 px portal photos and
                   scripts/block_reference.py (iron_door light grey, dark_oak_door very dark brown; leaf None = open passage)
     """
     for pid, (px, pz) in found.items():
         if pid in flat:
-            f = flatten(plan, world, cells, px, pz, notes)
+            f = flatten(plan, world, cells, px, pz, notes, check_walls=check_walls)
             if f:
                 lf, fr = (style or {}).get(pid, ('iron_door', WALL))
                 door(plan, world, f[0], f[1], f[2], f[3], notes, 'double', leaf=lf, frame=fr)
                 continue
         order = ('double', 'pair', 'single', 'narrow') if pid in double else ('single', 'narrow')
-        cands = [(wd, wall_cell(cells, px, pz, wd, world)) for wd in order]
+        cands = [(wd, wall_cell(cells, px, pz, wd, world if check_walls else None)) for wd in order]
         cands = [(wd, c) for wd, c in cands if c]
         if not cands:
             notes.append(f'{pid}: no straight wall near {px},{pz}: skipped')
@@ -144,7 +146,7 @@ def entrances(plan, world, cells, found, notes, double=(), flat=(), style=None):
         door(plan, world, x, z, dx, dz, notes, wd, leaf=lf, frame=fr)
 
 
-def flatten(plan, world, cells, px, pz, notes, ks=range(-2, 4)):
+def flatten(plan, world, cells, px, pz, notes, ks=range(-2, 4), check_walls=True):
     """Make the wall flush along a 6-cell stretch near a portal so a double door fits.
 
     Takes the narrow straight wall nearest the portal for the direction, then for each column along the stretch finds its
@@ -160,7 +162,7 @@ def flatten(plan, world, cells, px, pz, notes, ks=range(-2, 4)):
     @param ks: stretch offsets along the wall
     @returns: (x, z, dx, dz) of the door cell on the flush plane, or None
     """
-    w = wall_cell(cells, px, pz, 'narrow', world)
+    w = wall_cell(cells, px, pz, 'narrow', world if check_walls else None)
     if w is None or w[4] > MAX_AWAY ** 2:
         return None
     x, z, dx, dz, _d = w

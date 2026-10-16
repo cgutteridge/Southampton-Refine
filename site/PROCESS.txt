@@ -332,6 +332,7 @@ Outcome: each finding → ISSUES.txt (severity, place, location, action).
         deciding, then stop. Do not chain further attempts.
  End    release the lock; save the world; update brief / TODO / ISSUES /
         REVIEWS / COVERAGE; regenerate BUILDS-INDEX;
+        python3 scripts/site_cleanup.py due (if it prints CLEANUP DUE: site/CLEANUP.txt);
         python3 scripts/run_tests.py (stdlib unit tests incl. roof_lint on all
         *-cells.json; same check as CI); then TOKEN NOTES
         (2–5 lines in REVIEWS or place CHANGE LOG: what wasted tokens

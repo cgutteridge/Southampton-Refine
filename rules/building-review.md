@@ -29,6 +29,7 @@ One building per review. Skip any building that already has an open feature item
    (`site/CRAFTSMANSHIP.txt` §2). Only the user's "yes" closes the issue.
    A feature build changes the building's own cells only: no landings, steps, paving or plants outside the footprint (ground,
    trees and decor are other passes); if a door needs steps, queue it for the ground pass (user, 2026-10-16).
+   Fiddling a block or two to make a build sit well is fine (user, 2026-10-16); what is not fine is stacking follow-up fixes.
 6. **Record.** Issue state with the user's words, a REVIEWS entry (3 matches, mismatches, token notes), the general lesson in
    the rule file that owns it, commit.
 

@@ -43,4 +43,5 @@ is the go-ahead. Do not read every rule file or all of `site/PROCESS.txt`.
 | Pass order, who clears Geocraft, masks | `site/HANDOFF-LAYERED-PASSES.txt` |
 | Vegetation, saplings | `site/FOLIAGE.txt` |
 | Cadence, coverage, session start/end | `site/PROCESS.txt` |
+| Removing files nobody will use again | `site/CLEANUP.txt` (`scripts/site_cleanup.py due` at session end) |
 | Overview, done-bar, accuracy rules | `site/NOTES.txt` |
