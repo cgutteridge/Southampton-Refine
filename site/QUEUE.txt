@@ -12,6 +12,13 @@ Done items: site/archive/QUEUE-done.txt (moved by scripts/site_archive.py).
            STAGES file. When done: site_handoff.py end Q-180 --review-status look|features|done; Q-179 now queues the next row
            automatically (advance_to_next_cell), so nothing is added by hand.
 
+[ ] Q-183  TOOLING feature follow-up helpers (from the 2026-10-16 B42/Jubilee review; rules/building-review.md Pitfalls).
+           (1) lidar_heightmap.top_at(x, z) across cell edges + `lidar_audit.py --grid` printing live-minus-lidar for a bbox
+           (both hand-rolled five times). (2) site_kit.reset_to_base(build, records): restore a feature's follow-up records from
+           the base *-cells.json, not built_cells(). (3) a shared MODIFIES list per feature in the build scripts (susu_west has
+           one; library_b34_b18 does not). (4) site_kit._bring_player: restore the user's position and mode, or skip when asked.
+           RULES: tooling. No Minecraft apply except to test (4).
+
 [ ] Q-182  TOOLING DOORS Repair unframed doors (user, 2026-10-16: a door at (6163,49,-5537) had no jamb, fixed).
            door_audit.py found 142 of 700 doors without a jamb or lintel: chamberlain_rd_8_58 25, chamberlain_rd_9_51 21,
            highfield_engineering 10, maths_murray 8, nuffield_law 7 and others. Per build: add the missing jambs/lintels as a

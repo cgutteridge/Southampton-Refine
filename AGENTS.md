@@ -24,6 +24,8 @@ is the go-ahead. Do not read every rule file or all of `site/PROCESS.txt`.
   rule: `site/PROCESS.txt` §6–§7.
 - Sound cues: `python3 ~/Projects/agent-soundboard/scripts/play.py <id>` (`done`, `need-you`, `error`;
   flair rare). Table and rules: `.cursor/rules/agent-soundboard-flair.mdc`. Never `--wait`.
+- Never move the user's player: observe with `player_list_online` / `view_capture`; teleport only when asked
+  (pitfalls: `rules/building-review.md`).
 - Python: `.venv/bin/python` (system python is locked down).
 
 ## Where rules live (one home each)

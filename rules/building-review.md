@@ -26,3 +26,27 @@ One building per review. Skip any building that already has an open feature item
    (`site/CRAFTSMANSHIP.txt` §2). Only the user's "yes" closes the issue.
 6. **Record.** Issue state with the user's words, a REVIEWS entry (3 matches, mismatches, token notes), the general lesson in
    the rule file that owns it, commit.
+
+## Pitfalls from the B42 / Jubilee review (2026-10-16)
+ - **Numbers before pictures.** Before showing the user, print live-minus-lidar per cell over the building (pristine lidar, one
+   heightmap per cell: a building can straddle a cell edge, B42 does at z -5505) and fix every cell off by 2 or more. Every visual
+   complaint in that review (3-high strip, pillars, grey triangle) was already a number.
+ - **Extents from cells, not drawings.** A shape read off a picture (box, polygon) is a hint for where to look. Lowered roofs, colour
+   patches and membrane areas are defined by lidar cells of the feature's own part, so a colour cannot spill onto a neighbour and a
+   rim cell cannot stand up as a pillar. Edge (coping) cells are never recoloured.
+ - **Follow-up steps of a feature** (`--lower`, `--greeblies`: run on the standing build, in that order, same script) each write
+   their own record. Keep one `MODIFIES` tuple naming every record of the feature, pass it to every apply, and re-run steps rather
+   than patching by hand. To undo them, restore from the base build's own `*-cells.json`, never from `built_cells()`: the
+   ownership index treats an earlier follow-up's air as final and returns "nothing there", which punched holes in the roof.
+ - **One defect is a class.** When the user finds one (a door with no jamb, a trench from the door generator, a canopy from an OSM
+   `building=roof` that Google does not show), fix it, then add the guard to `site_kit.apply` or the generator and run an audit over
+   everything already built (`scripts/door_audit.py`: 142 of 700 doors unframed, QUEUE Q-182). No evidence in Google or lidar for an
+   OSM micro-feature means remove it.
+ - **Ask what is really there.** For entrances, steps and levels the user's knowledge beats every source here. Ask them to stand
+   where it is wrong; read their position (`player_list_online`) and look (`view_capture`), say what you observed, then act.
+ - **Do not move the user.** Observe with `player_list_online`, `view_capture` and `block_render_region` (server-side, no client).
+   Teleport only on request (the user said "you moved me" and "don't move me"). `site_kit._bring_player` moves them when they are
+   more than 80 blocks from an apply: a build near them does not.
+ - **Browser pane.** It refuses some new `file://` paths. Write the sheet over a filename it has already opened (instance/google-aerial/)
+   and navigate again. `google_aerial.py --marks cells.json` paints live cells (tile, membrane, colour patches) on the Google sheet.
+
