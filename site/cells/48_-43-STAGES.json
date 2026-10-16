@@ -42,10 +42,10 @@
       "status": "applied",
       "plan": "highfield_library_b34_b18-greeblies",
       "owner": "claude-q180",
-      "started": "2026-10-16 17:58:16",
+      "started": "2026-10-16 17:59:36",
       "blocks": 2939,
       "structure": {
-        "name": "southampton_refine:before_highfield_library_b34_b18-greeblies",
+        "name": "southampton_refine:before_highfield_library_b34_b18-greeblies_20261016175936",
         "from": [
           6214,
           62,
@@ -59,11 +59,11 @@
       },
       "snapshot": null,
       "planned": "verification/site/highfield_library_b34_b18-greeblies-planned.json",
-      "finished": "2026-10-16 17:58:23",
+      "finished": "2026-10-16 17:59:43",
       "readback": {
         "planned": 2939,
         "mismatches": 0,
-        "checked": "2026-10-16 17:58:23"
+        "checked": "2026-10-16 17:59:43"
       }
     }
   }
