@@ -62,7 +62,7 @@ def wall_cell(cells, px, pz, width='single', world=None):
     return best
 
 
-def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_door', frame=WALL):
+def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_door', frame=WALL, fascia=False):
     """A framed glazed door (or pair) at wall cell (x, z) facing (dx, dz).
 
     @param plan: Plan to add to
@@ -76,6 +76,7 @@ def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_d
     @param y0: door height override (default: ground outside + 1)
     @param frame: jamb/lintel block (black_concrete metal frames at the Union, gray_concrete at the Jubilee porch, bricks, white); glass flanks
                   only beside a metal/white frame, matching brick beside a brick one
+    @param fascia: a white sign band two high over the lintel, one cell wider each side (the Us. entrance, 40-A)
     @param leaf: door block: 'iron_door' (grey metal: the glazed metal-framed doors in the portal photos) or 'dark_oak_door'
     """
     face = FACE[(dx, dz)]
@@ -103,10 +104,14 @@ def door(plan, world, x, z, dx, dz, notes, width='single', y0=None, leaf='iron_d
             for yy in (y0, y0 + 1):
                 plan.set(cx, yy, cz, blk)
         plan.set(cx, y0 + 2, cz, frame)                                         # lintel
+    if fascia:
+        for k in range(lo - 1, hi + 2):
+            for yy in (y0 + 3, y0 + 4):
+                plan.set(x + k * ax, yy, z + k * az, WALL)
     notes.append(f'{width} {leaf or "opening"}/{frame} at {x},{y0},{z} facing {face}, ground outside {y0 - 1}')
 
 
-def entrances(plan, world, cells, found, notes, double=(), flat=(), style=None, check_walls=True):
+def entrances(plan, world, cells, found, notes, double=(), flat=(), style=None, check_walls=True, fascia=()):
     """Add a door for each portal.
 
     @param plan: Plan
@@ -126,7 +131,7 @@ def entrances(plan, world, cells, found, notes, double=(), flat=(), style=None, 
             f = flatten(plan, world, cells, px, pz, notes, check_walls=check_walls)
             if f:
                 lf, fr = (style or {}).get(pid, ('iron_door', WALL))
-                door(plan, world, f[0], f[1], f[2], f[3], notes, 'double', leaf=lf, frame=fr)
+                door(plan, world, f[0], f[1], f[2], f[3], notes, 'double', leaf=lf, frame=fr, fascia=pid in fascia)
                 continue
         order = ('double', 'pair', 'single', 'narrow') if pid in double else ('single', 'narrow')
         cands = [(wd, wall_cell(cells, px, pz, wd, world if check_walls else None)) for wd in order]
@@ -143,7 +148,7 @@ def entrances(plan, world, cells, found, notes, double=(), flat=(), style=None, 
             continue
         notes.append(f'{pid}: portal {px},{pz} -> wall {x},{z} {FACE[(dx, dz)]}, {round(d ** 0.5)} blocks away')
         lf, fr = (style or {}).get(pid, ('iron_door', WALL))
-        door(plan, world, x, z, dx, dz, notes, wd, leaf=lf, frame=fr)
+        door(plan, world, x, z, dx, dz, notes, wd, leaf=lf, frame=fr, fascia=pid in fascia)
 
 
 def flatten(plan, world, cells, px, pz, notes, ks=range(-2, 4), check_walls=True):
