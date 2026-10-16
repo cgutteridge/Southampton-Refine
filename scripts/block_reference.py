@@ -6,9 +6,14 @@ blocks used here look the same). Nothing from the jar is committed: the sheets g
 reference/blocks/blocks.json (average colours, partial flag, connects flag) is kept in git.
 
   .venv/bin/python scripts/block_reference.py extract                  # unpack textures/models from the jar (once)
-  .venv/bin/python scripts/block_reference.py sheets [--set slice]     # colour-grouped contact sheets + blocks.json
+  .venv/bin/python scripts/block_reference.py index                    # reference/blocks/blocks.json for EVERY block (text, cheap)
+  .venv/bin/python scripts/block_reference.py describe mushroom_stem   # one line: colours, flat/patterned, opaque, full/partial
+  .venv/bin/python scripts/block_reference.py nearest 213,177,161 [--flat] [--opaque] [--group grey-mid] [--partial]
   .venv/bin/python scripts/block_reference.py one oak_fence glass_pane # one image per block, with neighbour variants
-  .venv/bin/python scripts/block_reference.py nearest 213,177,161      # blocks closest to an RGB colour (e.g. from Google)
+  .venv/bin/python scripts/block_reference.py sheets                   # colour contact sheets (images; on demand only)
+
+For AI use: start with `nearest` and `describe` (text, a few tokens); open an image (`one`, a sheet) only to choose between
+close candidates by texture.
 
 Views per block: TOP (straight down), SIDE (south face), ABOVE (45 deg yaw, 30 deg down), BELOW (45 deg yaw, 30 deg up).
 REMINDER: panes, iron bars, walls and fences change shape with their neighbours; `one` draws alone, straight run, corner,
@@ -35,6 +40,7 @@ ASSETS = ROOT / 'instance' / 'block-reference' / 'assets' / 'minecraft'
 OUT = ROOT / 'instance' / 'block-reference'
 INDEX = ROOT / 'reference' / 'blocks' / 'blocks.json'
 TINT = (121, 192, 90)
+MUSHROOM_BLOCKS = ('mushroom_stem', 'brown_mushroom_block', 'red_mushroom_block')
 SHADE = {'up': 1.0, 'north': 0.8, 'south': 0.8, 'east': 0.6, 'west': 0.6, 'down': 0.5}
 NORMAL = {'up': (0, 1, 0), 'down': (0, -1, 0), 'north': (0, 0, -1), 'south': (0, 0, 1), 'east': (1, 0, 0), 'west': (-1, 0, 0)}
 PARTIAL = ('_slab', '_carpet', '_stairs', '_trapdoor', '_button', '_pressure_plate', 'snow', 'candle', '_wall', '_fence')
@@ -116,6 +122,8 @@ def parts_for(block: str, props: dict | None = None) -> list[tuple[dict, int, in
     """
     bs = _json(ASSETS / 'blockstates' / f'{block}.json')
     props = {**{'half': 'bottom', 'shape': 'straight', 'type': 'bottom', 'facing': 'north', 'axis': 'y', 'open': 'false'}, **(props or {})}
+    if block in MUSHROOM_BLOCKS:                    # placed with no state, a mushroom block shows its outside on every face
+        props = {**{k: 'true' for k in ('north', 'south', 'east', 'west', 'up', 'down')}, **props}
     out = []
 
     def pick(v):
@@ -338,6 +346,94 @@ def hue_group(rgb) -> str:
     return next(n for lim, n in names if deg < lim)
 
 
+LIGHT = ('glowstone', 'sea_lantern', 'shroomlight', 'lantern', 'froglight', 'torch', 'beacon', 'jack_o_lantern',
+         'redstone_lamp', 'magma_block', 'crying_obsidian', 'candle', 'campfire', 'respawn_anchor', 'conduit', 'end_rod',
+         'copper_bulb')
+
+
+def _texture_stats(block: str):
+    """(top rgb, side rgb, noise, transparent, full cube) from the default model, None when it has no faces."""
+    faces = faces_of(block)
+    if not faces:
+        return None
+    cols = {'top': [], 'side': []}
+    noise, transparent = [], False
+    for f in faces:
+        t = _load_tex(f['tex'])
+        if t is None:
+            continue
+        opaque = t[..., 3] > 127
+        if not opaque.all():
+            transparent = True
+        if not opaque.any():
+            continue
+        px = t[opaque][:, :3].astype(float)
+        m = px.mean(axis=0)
+        if f['tint'] and any(k in block for k in TINTED):
+            m = m * np.array(TINT) / 255.0
+        if f['normal'][1] > 0.9:
+            cols['top'].append(m)
+        elif abs(f['normal'][1]) < 0.1:
+            cols['side'].append(m)
+        noise.append(float((px @ np.array([0.299, 0.587, 0.114])).std()))
+    allc = cols['top'] + cols['side']
+    if not allc:
+        return None
+    top = np.mean(cols['top'] or allc, axis=0)
+    side = np.mean(cols['side'] or allc, axis=0)
+    m = parts_for(block)[0][0]['elements']
+    full = len(m) == 1 and m[0]['from'] == [0, 0, 0] and m[0]['to'] == [16, 16, 16]
+    return ([int(v) for v in top], [int(v) for v in side], round(float(np.mean(noise)), 1), transparent, full)
+
+
+def lightness_word(rgb) -> str:
+    l = colorsys.rgb_to_hls(*(c / 255 for c in rgb))[1]
+    return 'very dark' if l < 0.2 else 'dark' if l < 0.38 else 'mid' if l < 0.6 else 'light' if l < 0.8 else 'very light'
+
+
+def build_info(block: str) -> dict | None:
+    """Text-first record for one block (colours, texture character, opacity, shape class)."""
+    st = _texture_stats(block)
+    if st is None:
+        return None
+    top, side, noise, transparent, full = st
+    rgb = [int((a + b) / 2) for a, b in zip(top, side)]
+    texture = 'flat' if noise < 6 else 'subtle' if noise < 14 else 'patterned' if noise < 28 else 'busy'
+    shape = 'partial' if any(k in block for k in PARTIAL) else 'full' if (full or block in MUSHROOM_BLOCKS) else 'other'
+    d = {'rgb': rgb, 'top_rgb': top, 'side_rgb': side, 'noise': noise, 'texture': texture, 'opaque': not transparent,
+         'shape': shape, 'partial': shape == 'partial', 'connects': any(k in block for k in CONNECTS),
+         'emits_light': any(k in block for k in LIGHT), 'group': hue_group(rgb)}
+    d['text'] = (f'{lightness_word(rgb)} {d["group"]}, {texture} texture, {"opaque" if not transparent else "see-through parts"}, '
+                 f'{shape} block; top {tuple(top)} side {tuple(side)}'
+                 + ('; shape depends on neighbours' if d['connects'] else '') + ('; emits light' if d['emits_light'] else ''))
+    return d
+
+
+def build_index() -> int:
+    """Write reference/blocks/blocks.json for every blockstate that renders (text only)."""
+    info = {}
+    for n in sorted(p.stem for p in (ASSETS / 'blockstates').glob('*.json')):
+        try:
+            d = build_info(n)
+        except Exception:                    # noqa: BLE001 - odd blockstates are skipped
+            d = None
+        if d:
+            info[n] = d
+    INDEX.parent.mkdir(parents=True, exist_ok=True)
+    INDEX.write_text(json.dumps({'source': JAR.name, 'note': 'rgb = mean of top+side faces (tinted blocks shown green); '
+                                 'noise = luminance std of the texture; partial = slab/stairs/carpet/...; connects = shape '
+                                 'depends on neighbours', 'blocks': info}, indent=0, sort_keys=True))
+    return len(info)
+
+
+def describe(name: str) -> str:
+    """One line from the index (builds it first if missing)."""
+    if not INDEX.exists():
+        build_index()
+    b = json.loads(INDEX.read_text())['blocks'].get(name)
+    return f'{name}: {b["text"]}' if b else f'{name}: not in the index'
+
+
 def sheets(patterns: list[str]) -> int:
     """Contact sheets grouped by colour (sorted by lightness) and the reference/blocks/blocks.json index."""
     names = names_in(patterns)
@@ -352,9 +448,6 @@ def sheets(patterns: list[str]) -> int:
         info[n] = {'rgb': list(rgb), 'group': hue_group(rgb), 'partial': any(k in n for k in PARTIAL),
                    'connects': any(k in n for k in CONNECTS)}
         groups.setdefault(info[n]['group'], []).append(n)
-    INDEX.parent.mkdir(parents=True, exist_ok=True)
-    INDEX.write_text(json.dumps({'source': str(JAR.name), 'note': 'average RGB of top+side faces, tinted blocks shown green; '
-                                 'connects = shape depends on neighbours', 'blocks': info}, indent=1, sort_keys=True))
     font = ImageFont.load_default()
     n_img = 0
     for g, items in groups.items():
@@ -415,14 +508,22 @@ def one(names: list[str]) -> list[Path]:
     return outs
 
 
-def nearest(rgb: tuple[int, int, int], k: int = 12, partial: bool = False) -> list[tuple[str, tuple]]:
+def nearest(rgb: tuple[int, int, int], k: int = 12, partial: bool = False, flat: bool = False, opaque: bool = False,
+            group: str | None = None) -> list[tuple[str, tuple]]:
     """Blocks in reference/blocks/blocks.json whose average colour is closest to rgb (weighted RGB distance).
 
     @param rgb: target colour, e.g. read off the Google sheet
     @param k: how many
     @param partial: also list slabs, stairs, walls, fences (same colour as their full block, so off by default)
+    @param flat: only flat or subtle textures (not patterned/busy)
+    @param opaque: only fully opaque blocks
+    @param group: only this colour group (grey-mid, orange-brown, ...)
     """
-    data = {n: v for n, v in json.loads(INDEX.read_text())['blocks'].items() if partial or not v['partial']}
+    if not INDEX.exists():
+        build_index()
+    data = {n: v for n, v in json.loads(INDEX.read_text())['blocks'].items()
+            if (partial or not v['partial']) and (not flat or v['texture'] in ('flat', 'subtle'))
+            and (not opaque or v['opaque']) and (group is None or v['group'] == group)}
     def dist(c):
         rm = (c[0] + rgb[0]) / 2
         return math.sqrt((2 + rm / 256) * (c[0] - rgb[0]) ** 2 + 4 * (c[1] - rgb[1]) ** 2 + (2 + (255 - rm) / 256) * (c[2] - rgb[2]) ** 2)
@@ -431,19 +532,25 @@ def nearest(rgb: tuple[int, int, int], k: int = 12, partial: bool = False) -> li
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('cmd', choices=('extract', 'sheets', 'one', 'nearest'))
-    ap.add_argument('args', nargs='*')
+    ap.add_argument('cmd', choices=('extract', 'index', 'describe', 'sheets', 'one', 'nearest'))
+    ap.add_argument('args', nargs=argparse.REMAINDER)
     a = ap.parse_args()
     if a.cmd == 'extract':
         print(extract(), 'files')
+    elif a.cmd == 'index':
+        print(build_index(), 'blocks in', INDEX)
+    elif a.cmd == 'describe':
+        for n in a.args:
+            print(describe(n))
     elif a.cmd == 'sheets':
         print(sheets(SLICE), 'sheets in', OUT)
     elif a.cmd == 'one':
         for p in one(a.args):
             print(p)
     else:
-        rgb = tuple(int(v) for v in a.args[0].split(','))  # noqa: E501
-        for n, c in nearest(rgb, partial='--partial' in a.args):
+        rgb = tuple(int(v) for v in a.args[0].split(','))
+        grp = a.args[a.args.index('--group') + 1] if '--group' in a.args else None
+        for n, c in nearest(rgb, partial='--partial' in a.args, flat='--flat' in a.args, opaque='--opaque' in a.args, group=grp):
             print(f'{n:34} {c}')
     return 0
 

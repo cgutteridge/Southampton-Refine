@@ -31,6 +31,17 @@ class TestRender(unittest.TestCase):
         joined = br.faces_of('glass_pane', {'north': 'true', 'south': 'true'})
         self.assertGreater(len(joined), len(alone))
 
+    def test_info_is_text_first(self):
+        d = br.build_info('white_terracotta')
+        self.assertEqual((d['shape'], d['opaque'], d['texture']), ('full', True, 'flat'))
+        self.assertIn('flat texture', d['text'])
+        self.assertTrue(br.build_info('glass_pane')['connects'])
+        self.assertTrue(br.build_info('oak_slab')['partial'])
+
+    def test_mushroom_stem_shows_its_outside(self):
+        r, g, b = br.build_info('mushroom_stem')['rgb']
+        self.assertGreater(b, 170)
+
     def test_average_colour_is_reasonable(self):
         r, g, b = br.average_colour('white_concrete')
         self.assertGreater(min(r, g, b), 200)
