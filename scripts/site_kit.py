@@ -398,6 +398,35 @@ def built_cells(exclude=(), within=None):
     return owned
 
 
+def reset_to_base(build, records):
+    """Plan that restores follow-up record cells from the base build's *-cells.json.
+
+    For every cell written by any name in ``records``, put back the state recorded in
+    ``{build}-cells.json`` (or air if that cell was not in the base). Never uses
+    built_cells(): an earlier step's air can cancel the roof there and leave holes
+    (FEATURE FOLLOW-UP STEPS in site/CRAFTSMANSHIP.txt). Apply with
+    ``modifies=(build, *records)``.
+
+    @param build: base feature name (e.g. ``highfield_susu_west``)
+    @param records: iterable of follow-up record names (e.g. ``highfield_susu_west-lower``)
+    @returns: Plan named ``{build}-reset``
+    @raises SystemExit: if the base cells file is missing
+    """
+    base_path = OUT / f'{build}-cells.json'
+    if not base_path.is_file():
+        raise SystemExit(f'reset_to_base: missing base record {base_path}')
+    base = json.loads(base_path.read_text())
+    plan = Plan(f'{build}-reset')
+    for name in records:
+        path = OUT / f'{name}-cells.json'
+        if not path.is_file():
+            continue
+        for k in json.loads(path.read_text()):
+            q = tuple(int(v) for v in k.split(','))
+            plan.set(*q, base.get(k, 'minecraft:air'))
+    return plan
+
+
 # --- persistent ownership index ----------------------------------------------
 # One SQLite file with every build's per-cell events, so a dry run looks up only its own few thousand cells
 # instead of merging all *-cells.json (the cost grew with every house built). Same rule as the full merge:

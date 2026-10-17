@@ -119,6 +119,61 @@ class AuditTest(unittest.TestCase):
         self.assertEqual(res['worst'][0][2:], [44, 50])
         self.assertIn('LIDAR AUDIT', A.format_audit((0, 0), res, 1))
 
+    def test_grid_diff_crosses_cell_edges_and_filters(self):
+        """Maps.top_at + grid_diff: one column per side of a cell edge, |d| filter."""
+        import numpy as np
+        import lidar_audit as A
+
+        def hm(cell, x0, z0, roof_at, h=40):
+            n = 128
+            out = {'cell': cell, 'x0': x0, 'z0': z0, 'h': np.full((n, n), h, 'int16'),
+                   'base': np.full((n, n), h, 'int16'), 'roof': np.zeros((n, n), 'int16'),
+                   'kind': np.zeros((n, n), 'uint8')}
+            for (x, z), y in roof_at.items():
+                out['roof'][x - x0, z - z0] = y
+                out['kind'][x - x0, z - z0] = L.ROOF
+            return out
+
+        # cell (0,-1) ends at z=-1; cell (0,0) starts at z=0
+        pri = L.Maps(use_cache=False)
+        live = L.Maps(use_cache=False)
+        pri._hm[(0, -1)] = hm((0, -1), 0, -128, {(5, -1): 58})
+        pri._hm[(0, 0)] = hm((0, 0), 0, 0, {(5, 0): 60})
+        live._hm[(0, -1)] = hm((0, -1), 0, -128, {}, h=60)   # live top = h when no carpet
+        live._hm[(0, 0)] = hm((0, 0), 0, 0, {}, h=60)
+        self.assertEqual(pri.top_at(5, -1), 58)
+        self.assertEqual(pri.top_at(5, 0), 60)
+        rows = A.grid_diff(live, pri, 5, -1, 5, 0, min_abs=2)
+        self.assertEqual(rows, [(5, -1, 60, 58, 2)])          # only the south column is off by 2
+        text = A.format_grid((5, -1, 5, 0), rows, 2)
+        self.assertIn('LIVE-MINUS-LIDAR', text)
+        self.assertIn('+2', text)
+
+
+class ResetToBaseTest(unittest.TestCase):
+    def test_restores_from_base_not_air_when_followup_cleared(self):
+        """Follow-up air over a base roof must put the roof back, not leave a hole."""
+        import tempfile
+        from pathlib import Path
+        import site_kit
+
+        with tempfile.TemporaryDirectory() as d:
+            out = Path(d)
+            old = site_kit.OUT
+            site_kit.OUT = out
+            try:
+                (out / 'feat-cells.json').write_text(
+                    '{"10,50,20": "minecraft:light_gray_concrete", "10,51,20": "minecraft:smooth_stone_slab[type=bottom]"}')
+                (out / 'feat-lower-cells.json').write_text(
+                    '{"10,50,20": "minecraft:air", "10,51,20": "minecraft:air", "11,50,20": "minecraft:stone"}')
+                plan = site_kit.reset_to_base('feat', ['feat-lower'])
+                self.assertEqual(plan.name, 'feat-reset')
+                self.assertEqual(plan.cells[(10, 50, 20)], 'minecraft:light_gray_concrete')
+                self.assertEqual(plan.cells[(10, 51, 20)], 'minecraft:smooth_stone_slab[type=bottom]')
+                self.assertEqual(plan.cells[(11, 50, 20)], 'minecraft:air')  # not in base → air
+            finally:
+                site_kit.OUT = old
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -90,12 +90,10 @@ LOWER_REGION = (6160, -5540, 6206, -5492)      # x0, z0, x1, z1 where the south-
 def lower_map():
     """{(x, z): new deck} for B42 cells built at 60 that the pristine lidar reads at 57 or 58 (south-end roofs)."""
     import lidar_heightmap as lh
-    pw = lh.pristine_world()
-    maps = {c: lh.heightmap(pw, c) for c in ((48, -44), (48, -43))}     # B42 straddles the cell edge at z -5505
+    maps = lh.Maps()                                            # B42 straddles the cell edge at z -5505; top_at crosses it
 
     def lidar(x, z):
-        hm = maps[(48, -44) if z <= -5505 else (48, -43)]
-        return int(hm['roof'][x - hm['x0'], z - hm['z0']])
+        return maps.get(x, z, 'roof')                           # roof carpet only (lower roofs are building tops)
     v = RoofView(NAME, only=way_cells('33830305'))
     x0, z0, x1, z1 = LOWER_REGION
     cand = {}

@@ -42,7 +42,7 @@ CROSS-ZONE (generated on --write)
 
 SOURCE CHECKLIST (find what is TODO once; never re-try TRIED ones)
   [HAVE ] aerial     5 manifest row(s), e.g. aerial-highfield-campus-mosaic-z18-5x5-centre-130053-87832-png
-  [TODO ] google     ALWAYS, every cell: google_aerial.py sheet --cell TX,TZ (look-only, often clearer than the uni aerial); then --record google --result found --note "what it shows"
+  [HAVE ] google     2026-10-16 found: z19 cell sheet + z20 at B2/Law plaza and Staff Club; OSM outlines on roofs; east woodland strip; Law forecourt and coach-turn lawn match.
   [TODO ] kartaview  kartaview_fetch.py list --at CX,CZ --radius-m 80
   [HAVE ] commons    6 manifest row(s), e.g. photos-highfield-campus-commons-114892434-jpg
   [TODO ] streetview streetview_sample.py sample --cell TX,TZ (look-only; small grid)

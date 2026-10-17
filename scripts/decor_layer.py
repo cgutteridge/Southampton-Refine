@@ -23,7 +23,7 @@ from pathlib import Path
 
 from script_env import ROOT  # noqa: E402
 
-from ground_layer import (bare, cell_bbox_str, cell_contains, ignored_builds, is_air,  # noqa: E402
+from ground_layer import (BLOCK_KIND, bare, cell_bbox_str, cell_contains, ignored_builds, is_air,  # noqa: E402
                           load_masked_positions)
 from pass_mask import build_mask, clip_to_cell, write_mask  # noqa: E402
 from site_kit import Plan, World, built_cells, full  # noqa: E402
@@ -36,6 +36,33 @@ def plan_name(tx: int, tz: int) -> str:
 
 JOINABLE = ('brick_wall', 'iron_bars', 'spruce_fence')
 NEIGHBOURS = ((1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1))
+# Ground kinds the decor pass must not sit on or straddle (live surface, not only OSM way columns).
+_CARRIAGE_KINDS = frozenset({'tarmac', 'paving', 'mark', 'kerb'})
+
+
+def column_ground_kind(world: World, x: int, z: int) -> str | None:
+    """Classified ground kind at the live surface of (x, z), or None if empty."""
+    from surface_probe import surface_y
+
+    top = surface_y(world, x, z)
+    if not top:
+        return None
+    return BLOCK_KIND.get(top[1])
+
+
+def on_carriageway(world: World, x: int, z: int) -> bool:
+    """True when a hedge/fence column would sit on the road or within two blocks of carriageway."""
+    kind = column_ground_kind(world, x, z)
+    if kind in _CARRIAGE_KINDS:
+        return True
+    for dx in range(-2, 3):
+        for dz in range(-2, 3):
+            if dx == 0 and dz == 0:
+                continue
+            nk = column_ground_kind(world, x + dx, z + dz)
+            if nk in ('tarmac', 'paving'):
+                return True
+    return False
 
 
 def join_pieces(found: dict[tuple[int, int, int], str], live, can_place,
@@ -138,6 +165,9 @@ def plan_cell(cell: tuple[int, int], plan: Plan, world: World):
                 present[(q[0], top[0], q[1])] = mat   # already standing: a piece for joining
             if not top or q in way:
                 stats['on road/path/water'] += 1
+                continue
+            if on_carriageway(world, q[0], q[1]):
+                stats['on carriageway'] += 1
                 continue
             if top[1].endswith('_carpet'):      # structure top (roof/deck), not ground: posts would float
                 stats['on carpet top'] += 1

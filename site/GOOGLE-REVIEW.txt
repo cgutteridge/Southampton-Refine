@@ -19,7 +19,7 @@ Status words: todo | look | features | ground | trees | done  (the last part fin
 
  ring  cell      bld  status
   r0   48,-44     4  done
-  r1   48,-45     2  todo
+  r1   48,-45     2  done
   r1   49,-45     8  todo
   r1   49,-44     7  todo
   r1   49,-43     9  todo

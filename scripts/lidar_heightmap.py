@@ -18,6 +18,12 @@ the roof, and the OSM buildings under it (none = unmapped).
   python3 scripts/lidar_heightmap.py --cell 51,-41            # report
   python3 scripts/lidar_heightmap.py --cell 51,-41 --json     # machine-readable
   python3 scripts/lidar_heightmap.py --cell 51,-41 --write    # also keep verification/site/lidar/51_-41.npz
+
+Lookups that may straddle a cell edge (B42 at z -5505):
+
+  maps = Maps()                     # pristine by default; Maps(World()) for live
+  maps.top_at(x, z)                 # roof carpet y if Geocraft had a roof, else surface h
+  top_at(x, z)                      # same, with a module-level Maps cache
 """
 from __future__ import annotations
 
@@ -106,6 +112,81 @@ def save(hm: dict) -> 'Path':
     p = OUT / f'{hm["cell"][0]}_{hm["cell"][1]}.npz'
     np.savez_compressed(p, x0=hm['x0'], z0=hm['z0'], h=hm['h'], base=hm['base'], roof=hm['roof'], kind=hm['kind'])
     return p
+
+
+def load(cell: tuple[int, int]) -> dict | None:
+    """Height map from verification/site/lidar/<tx>_<tz>.npz, or None if missing."""
+    p = OUT / f'{cell[0]}_{cell[1]}.npz'
+    if not p.is_file():
+        return None
+    data = np.load(p)
+    return {'cell': cell, 'x0': int(data['x0']), 'z0': int(data['z0']),
+            'h': data['h'], 'base': data['base'], 'roof': data['roof'], 'kind': data['kind']}
+
+
+def top_of(hm: dict, x: int, z: int) -> int:
+    """Lidar top Y of one column inside ``hm``: roof carpet where present, else surface h.
+
+    Same rule as lidar_audit.target: Geocraft paints a roof carpet on building tops.
+    """
+    i, j = x - hm['x0'], z - hm['z0']
+    r = int(hm['roof'][i, j])
+    return r if r else int(hm['h'][i, j])
+
+
+class Maps:
+    """Cached height maps keyed by cell, for lookups that may straddle cell edges.
+
+    @param world: object with block(x,y,z); defaults to the pristine Geocraft save
+    @param use_cache: load from verification/site/lidar/*.npz when present (pristine only)
+    """
+
+    def __init__(self, world=None, use_cache: bool = True):
+        self.world = world
+        self.use_cache = use_cache
+        self._hm: dict[tuple[int, int], dict] = {}
+
+    def of(self, cell: tuple[int, int]) -> dict:
+        """Height map of one cell, loaded once per Maps instance."""
+        if cell not in self._hm:
+            if self.use_cache and self.world is None:
+                got = load(cell)
+                if got is not None:
+                    self._hm[cell] = got
+                    return got
+            w = self.world if self.world is not None else pristine_world()
+            self._hm[cell] = heightmap(w, cell)
+        return self._hm[cell]
+
+    def top_at(self, x: int, z: int) -> int:
+        """Lidar top Y at (x, z): roof carpet if Geocraft had a roof, else surface h.
+
+        Loads the cell containing the column (works across cell edges).
+        """
+        return top_of(self.of(cellmath.cell_of(x, z)), x, z)
+
+    def get(self, x: int, z: int, field: str = 'h') -> int:
+        """One array value at (x, z): field is 'h', 'base', 'roof' or 'kind'."""
+        hm = self.of(cellmath.cell_of(x, z))
+        return int(hm[field][x - hm['x0'], z - hm['z0']])
+
+
+_DEFAULT_MAPS: Maps | None = None
+
+
+def top_at(x: int, z: int, maps: Maps | None = None) -> int:
+    """Lidar top Y at (x, z) across cell edges (module-level Maps cache of the pristine save).
+
+    @param x: block X
+    @param z: block Z
+    @param maps: optional Maps instance (live world, tests); default is a shared pristine Maps
+    """
+    global _DEFAULT_MAPS
+    if maps is not None:
+        return maps.top_at(x, z)
+    if _DEFAULT_MAPS is None:
+        _DEFAULT_MAPS = Maps()
+    return _DEFAULT_MAPS.top_at(x, z)
 
 
 def _group(cols: set) -> list:

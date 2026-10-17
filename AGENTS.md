@@ -23,7 +23,8 @@ is the go-ahead. Do not read every rule file or all of `site/PROCESS.txt`.
 - Process, session start/end, handoff, chain rule and the "call the user in"
   rule: `site/PROCESS.txt` §6–§7.
 - Sound cues: `python3 ~/Projects/agent-soundboard/scripts/play.py <id>` (`done`, `need-you`, `error`;
-  flair rare). Table and rules: `.cursor/rules/agent-soundboard-flair.mdc`. Never `--wait`.
+  after ~3+ min runs always cue, prefer fun flair that matches the outcome). Table and rules:
+  `.cursor/rules/agent-soundboard-flair.mdc`. Never `--wait`.
 - Never move the user's player: observe with `player_list_online` / `view_capture`; teleport only when asked
   (pitfalls: `rules/building-review.md`).
 - Redo or "start again" means rebuild from the evidence table alone: never read the old build or its script as a reference

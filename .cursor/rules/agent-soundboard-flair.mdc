@@ -15,7 +15,11 @@ In Cursor Shell, use `required_permissions: ["all"]` if audio does not play.
 
 Default: command exits at once; audio continues in background. Do not use `--wait` unless the user asks.
 
-## Core (most sessions)
+## Always cue after long runs
+
+If a run (scripts, apply, review, tooling) took roughly **3+ minutes** wall time, **always** play a cue at the end so the user hears it without watching chat. Short edits can stay silent or use a core cue only when useful.
+
+## Core
 
 | id | when |
 | --- | --- |
@@ -23,19 +27,19 @@ Default: command exits at once; audio continues in background. Do not use `--wai
 | `need-you` | Blocked: `site/LOCK.json`, `human-confirm-fix`, approval, or only the user can act in-game |
 | `error` | Unrecoverable failure the user must know (apply broken, cannot proceed safely) |
 
-After `done`, do not write empty closers (“Done”, “All done”)—state what changed or what to verify.
+After `done` / flair success cues, do not write empty closers (“Done”, “All done”)—state what changed or what to verify.
 
-## Optional flair (rare)
+## Flair (use on long runs)
 
-Meme-style ids from the shared soundboard. **Sparingly**—not every chat, not small edits. Usually **once** at the end of a **long** arc (full queue item through apply/verify, session handoff, major milestone). **Default stays `done`.** One flair cue max per task. Real accuracy or apply failures → `error`, not trombone.
+Meme-style ids from the shared soundboard. On **3+ minute** endings, prefer a **fun** cue that matches the outcome—not only plain `done`. Small edits: skip flair. One cue max per task ending. Real accuracy or apply failures → `error`, not trombone. Blocked on the user → `need-you` (not flair).
 
 | id | Southampton-ish when |
 | --- | --- |
 | `yay` | Long build phase landed cleanly; light celebratory beat |
 | `vine-boom` | Big “there it is” moment after heavy kit work or a punchline fix |
 | `epic-impact` | Large milestone (place review done, major pass complete) |
-| `party-cheer` | Festive win after long grind (not every apply) |
-| `whoosh` | Rare punctuation when handing off a big reveal |
+| `party-cheer` | Festive win after long grind |
+| `whoosh` | Handing off a big reveal / session end with a view |
 | `fail-wah` / `sad-horn` | Long effort fizzled in a **low-stakes** way—never for wrong geometry in the real world |
 
 More detail: `~/Projects/agent-soundboard/sounds/reference/youtube-cliche/SOURCES.md`

@@ -35,15 +35,31 @@
     },
     "decor": {
       "status": "applied",
-      "plan": "highfield_48_m45_decor",
-      "blocks": 132,
-      "readback": {
-        "planned": 132,
-        "mismatches": 0,
-        "mismatch_sample": {},
-        "checked": "2026-10-14 16:33:33"
+      "plan": "highfield_48_m45_decor_road_clear",
+      "owner": "composer-hedge-fix",
+      "started": "2026-10-16 23:23:22",
+      "blocks": 330,
+      "structure": {
+        "name": "southampton_refine:before_highfield_48_m45_decor_road_clear",
+        "from": [
+          6144,
+          55,
+          -5760
+        ],
+        "to": [
+          6271,
+          57,
+          -5682
+        ]
       },
-      "mask": "verification/site/masks/decor-48_-45.mask.json"
+      "snapshot": null,
+      "planned": "verification/site/highfield_48_m45_decor_road_clear-planned.json",
+      "finished": "2026-10-16 23:23:29",
+      "readback": {
+        "planned": 330,
+        "mismatches": 0,
+        "checked": "2026-10-16 23:23:29"
+      }
     },
     "ground": {
       "status": "verified",
@@ -81,5 +97,27 @@
         "checked": "2026-10-16 22:41:12"
       }
     }
+  },
+  "google_review": {
+    "status": "done 2026-10-16 (Q-188; look, features, ground, trees, decor)",
+    "look": "z19 cell sheet + z20 --at 6185,-5735 (B2/Law/Nuffield plaza) and 6195,-5655 (Staff Club); OSM outlines sit on the flat roofs; east woodland strip and University Road read clearly.",
+    "matches": [
+      "B2 w226000420 + Law w93729747 + Nuffield w30063860 (highfield_nuffield_law): footprints and flat/pitched roof forms match Google and lidar; Nuffield copper fly tower reads on the satellite.",
+      "Staff Club r2139045: white flat roofs around courtyards match Google; pond/plaza paving in the south-east of the cell matches.",
+      "West B40 w34391673 (in-cell portion): red tile on the long ranges and dark flat link roofs match Google where built.",
+      "Ground: University Road, coach-turning lawn, Law forecourt paving and the east woodland edge match the z19 sheet and the ground-kinds preview.",
+      "Trees: reference/trees-google-crowns.json redo (29 crowns) matches the sheet; east road-side strip already user-confirmed.",
+      "lump_scan 0 unrefined lumps."
+    ],
+    "mismatches": [
+      "B40 north-west corner at portal 38-D (6146,-5630): walls missing \u2014 open as Q-184, skipped in this review.",
+      "Nuffield roof greeblies (vents/skylights) not drawn \u2014 good-enough flat/copper shells only.",
+      "ground_layer dry run would change 896 columns vs live (ground_layer.py updates since 2026-10-14 apply); kinds preview still matches the uni aerial for the open areas \u2014 no re-apply (same decision as 48,-44 Google ground review)."
+    ],
+    "trees_review": "tree_review.py: 13 lidar tops, 46 live; 38 INVENTED = Google crown positions (expected); 5 MISSING lidar-only within a few blocks of Google crowns \u2014 left; 2 HIGH (lidar low at crown edge) \u2014 not corrected. Water-under-tree skips at x6146-6148 and (6235,-5588) unchanged.",
+    "decor": "Re-applied 2026-10-16 (470 hedge/join blocks, was 132; readback 0). 2026-10-16 user report: OSM hedges on University Road carriageway — removed 330 decor leaves (highfield_48_m45_decor_road_clear); decor_layer.py now skips on_carriageway (live tarmac/paving within 2 blocks).",
+    "skipped_queue_features": [
+      "Q-184 B40 Prayer Room corner (w34391673)"
+    ]
   }
 }

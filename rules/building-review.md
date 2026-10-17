@@ -34,13 +34,13 @@ One building per review. Skip any building that already has an open feature item
    the rule file that owns it, commit.
 
 ## Pitfalls from the B42 / Jubilee review (2026-10-16)
- - **Numbers before pictures.** Before showing the user, print live-minus-lidar per cell over the building (pristine lidar, one
-   heightmap per cell: a building can straddle a cell edge, B42 does at z -5505) and fix every cell off by 2 or more. Every visual
-   complaint in that review (3-high strip, pillars, grey triangle) was already a number.
+ - **Numbers before pictures.** Before showing the user, print live-minus-lidar per cell over the building
+   (`lidar_audit.py --grid x0,z0,x1,z1 --min 2`; crosses cell edges via `lidar_heightmap.top_at`, B42 at z -5505) and fix every
+   cell off by 2 or more. Every visual complaint in that review (3-high strip, pillars, grey triangle) was already a number.
  - **Extents from cells, not drawings.** A shape read off a picture (box, polygon) is a hint for where to look. Lowered roofs, colour
    patches and membrane areas are defined by lidar cells of the feature's own part, so a colour cannot spill onto a neighbour and a
    rim cell cannot stand up as a pillar. Edge (coping) cells are never recoloured.
- - **Follow-up steps of a feature** (`--lower`, `--greeblies`, shared `MODIFIES`, undo from the base record, never `built_cells()`):
+ - **Follow-up steps of a feature** (`--lower`, `--greeblies`, shared `MODIFIES`, `site_kit.reset_to_base`, never `built_cells()`):
    see FEATURE FOLLOW-UP STEPS in `site/CRAFTSMANSHIP.txt`. Re-run steps rather than patching by hand.
  - **One defect is a class.** When the user finds one (a door with no jamb, a trench from the door generator, a canopy from an OSM
    `building=roof` that Google does not show), fix it, then add the guard to `site_kit.apply` or the generator and run an audit over
